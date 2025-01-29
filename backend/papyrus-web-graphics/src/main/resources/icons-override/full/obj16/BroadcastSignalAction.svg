@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="-1.399" x2=".808" y1="1.9" y2="4.389" gradientTransform="matrix(4.24869 0 0 4.37119 13.76 1.286)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <rect width="13.732" height="10.161" x="1.238" y="5.02" ry="2.84" style="fill:url(#b);fill-opacity:1;stroke:#4d81b4;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:.300095;stroke-opacity:1"/>
+    <path d="M2.074 10.43v-.388l2.86-1.354.185.383-2.457 1.16 2.457 1.177-.185.371zm12.169-.45v.387l-2.86 1.354-.185-.375 2.457-1.172-2.457-1.161.186-.387z" style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:63.5px;line-height:1.25;font-family:Caladea;-inkscape-font-specification:Caladea;letter-spacing:0;word-spacing:0;fill:#4d81b4;fill-opacity:1;stroke:none;stroke-width:.213"/>
+    <text xml:space="preserve" x="5.491" y="13.033" style="font-style:normal;font-weight:400;font-size:8.18988px;line-height:1.25;font-family:sans-serif;letter-spacing:0;word-spacing:0;fill:#4d81b4;fill-opacity:1;stroke:none;stroke-width:1.02373"><tspan x="5.491" y="13.033" style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:8.18988px;font-family:Arial;-inkscape-font-specification:Arial;fill:#4d81b4;fill-opacity:1;stroke-width:1.02373">S</tspan></text>
+    <path d="M7.41 2.768H2.69L5.05.083Z" style="fill:#2e4a85;fill-opacity:1;stroke:none;stroke-width:1.31984px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    <path d="M5.084 6.223V2.482" style="fill:#2e4a85;fill-opacity:1;stroke:#2e4a85;stroke-width:1.08519;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+    <path d="M13.57 2.799H8.85L11.21.114Z" style="fill:#2e4a85;fill-opacity:1;stroke:none;stroke-width:1.31984px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    <path d="M11.244 6.254V2.513" style="fill:#2e4a85;fill-opacity:1;stroke:#2e4a85;stroke-width:1.08519;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+</svg>

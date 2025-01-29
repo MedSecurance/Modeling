@@ -1,0 +1,88 @@
+:papyrusweb-url: https://papyrus-web.deeplab.fr/
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+:toc:
+:toclevels: 1
+
+= AI Model-Assisted Model Edition: IRFU Use case : EclairsOBSW components 
+
+This document presents how to use Generative AI to assist in the modeling task. It uses a subset of the Eclairs OBSW package.
+
+PapyrusWeb URL: {papyrusweb-url}
+
+
+.How-to objective
+****
+Use Generative AI to assist in the modeling task. Applied to a subset of elements from the Eclaris OBSW components.
+****
+
+== LLM direct question
+
+*NOTE:* the following steps have a specific applicause case, but may be generalized and used in other existing models.
+
+Open the model from the Eclairs_OBSW_RAG project to start chatting with the Large-Language Model about the modeling task. It is necessary to select _LLM Playground_ to open the chat in the right-side panel.
+
+Choose _Direct LLM question_: this means it makes questions to the LLM without any additional document. 
+
+image:llm_eclairs_general.png[]
+
+- Select the model root element _EclairsOBSW_.
+- Click in the _Add model_ button in the chat. It adds the model in the PlantUML textual format to the input prompt. It provides the context to the LLM.
+- Ask a question about the model, for instance:
+
+ "Could you identify any possible refactorings in this model ? "
+
+The LLM will answer if there are any specific modifications to be done. The user is free to apply them or not. The answer may vary, even for the same question. The screenshot below show one specific answer.
+
+image:llm_eclairs_direct_answer.png[]
+
+== Questioning the LLM using RAG
+
+RAG (Retrieval Augmented Generation) enables adding additional documents to the context of the question that is done to the LLM. 
+
+The tool supports uploading PDFs that serve as additonal context. The PDFs may be dowloaded directly using the main menu over the root element, option _Upload PDF to RAG_. The added PDFs are specific to each project. 
+
+The PDF in this link may be uploaded into the project: link:./pdfs/code_ecl_sys_xm.pdf[PDF uploaded to the RAG system]
+
+The _EclairsOBSW_ model has already a corresponding document included. It contains C++ code extracted from the project.
+
+*NOTE:* The link https://papyrus-web.deeplab.fr/uploadfiles provides an interface for document management per project (inclusion and exclusion). The _project ID_ is extracted from the navigator URL. In the sample below, it is '756a0110-e4c0-4ce1-b23f-aad7889e0ec8'.
+
+[source, ]
+----
+https://papyrus-web.deeplab.fr/projects/756a0110-e4c0-4ce1-b23f-aad7889e0ec8/edit/
+----
+
+The RAG utilisation is similar to a direct question, but it has as main goal retrieving C ++ excerpts and comments that may be used to improve the context. The result is always C ++ code.
+
+Select the _C++ RAG_ option, add the PlantUML to the prompt and make a specific question, for instance:
+
+_Implement a method that will use a scheduler to execute several slots with queuing._
+
+A sample answer is shown below. The user may integrate the response as the OpaqueBehavior implementation of a method in the model.
+
+The RAG answer takes more time than a direct LLM question, since it needs to retrieve and process related information.
+
+image:llm_eclairs_cpp_rag.png[]
+
+**NOTE:** please copy the generated code before changing the view, otherwise it might be lost.
+
+== Integrating the produced code in the model
+
+The generated code may be integrated into an _Operation_ and _OpaqueBehavior_ elements in the input model.
+
+To add the method implementation, the following actions need to be done:
+
+* Create an _Operation_ element, and edit its properties, such as _name_ and _parameters_.
+* Create an _OpaqueBehavior_ element in the same class, and set the following properties:
+** _Name_: give a meaninful name.
+** _Language_: choose the language to edit the code. An edit input is opened below the language element. The method specification may be added/modified. This code is included in the final generated code.
+**  _Specification_: this property should reference the method where the implementation will be added.
+
+**NOTE:** The current version does not validate the generated code, so it might contain inconsistencies.
+
+
+image:choose_language_ob.png[]
+
+image:eclairs_opaque_behavior.png[]

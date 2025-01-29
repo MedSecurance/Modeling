@@ -1,0 +1,83 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  papyrusweb:
+    image: papyrusweb-iomt:2025.1.28
+    command: java -jar /app.jar
+    build:
+      context: .
+      dockerfile: backend/papyrus-web/Dockerfile.local
+      args:
+        WEBAPP_VERSION: ${WEBAPP_VERSION}
+        USERNAME: ${GIT_USERNAME}
+        PASSWORD: ${GIT_PASSWORD}
+    env_file:
+      - .env
+    secrets:
+      - USERNAME
+      - PASSWORD
+    environment:
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - SIRIUS_COMPONENTS_CORS_ALLOWEDORIGINPATTERNS=${SIRIUS_COMPONENTS_CORS_ALLOWEDORIGINPATTERNS}
+      - SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE=${SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE}
+      - SPRING_SERVLET_MULTIPART_MAX_REQUEST_SIZE=${SPRING_SERVLET_MULTIPART_MAX_REQUEST_SIZE}
+      - SERVER_TOMCAT_RESPONSE_WRITE_BUFFER_SIZE=${SERVER_TOMCAT_RESPONSE_WRITE_BUFFER_SIZE}
+      - SERVER_PORT=${SERVER_PORT}
+      - MODEL_SERVICE_URL=${MODEL_SERVICE_URL}
+      - IOMT_GENERATOR_URL=${IOMT_GENERATOR_URL}
+      - USERNAME=${GIT_USERNAME}
+      - PASSWORD=${GIT_PASSWORD}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - codegenrcp
+      - generateiomtapp
+
+  codegenrcp:
+    build:
+      context: ../services/modeling-services-rcp
+      dockerfile: dockerfiles/rcp/Dockerfile
+    image: codegenrcp:2025.1.28
+    command:
+    ports:
+      - "8083:8083"
+    environment:
+      RCP_SERVER_PORT: 8083
+      APPWEB_URL: http://papyrusweb:8080
+
+  generateiomtapp:
+    build:
+      context: ../services/medsecuranceappgen
+      dockerfile: ./dockerfiles/Dockerfile
+    image: generateiomtapp:2025.1.28
+    command:
+    ports:
+      - "9000:9000"
+    environment:
+      APPWEB_URL: http://papyrusweb:8080
+
+secrets:
+  USERNAME:
+    environment: GIT_USERNAME
+  PASSWORD:
+    environment: GIT_PASSWORD
+
+volumes:
+  logs:
+  gradio:
+  ollama:
+  weaviate_data:
+  hf_model_generator:
+  hf_model_encoder:
+  postgres_data:

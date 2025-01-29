@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+    <defs>
+        <linearGradient xlink:href="#a" id="b" x1="7.451" x2="7.427" y1="1.098" y2="3.18" gradientTransform="matrix(.29985 0 0 .50684 -.981 -.318)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#b9c8de;stop-opacity:1"/>
+            <stop offset="0" style="stop-color:#8cabcf;stop-opacity:1"/>
+            <stop offset=".092" style="stop-color:#8cabcf;stop-opacity:1"/>
+            <stop offset=".225" style="stop-color:#b8cce3;stop-opacity:1"/>
+            <stop offset=".331" style="stop-color:#7ba3cd;stop-opacity:1"/>
+            <stop offset=".842" style="stop-color:#5c90c5;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#3d7ebd;stop-opacity:1"/>
+        </linearGradient>
+    </defs>
+    <g transform="translate(-.649 .045)scale(3.62512)">
+        <path d="M3.799.494.435 3.743" style="fill:none;stroke:#4d81b4;stroke-width:.282338;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:3.9;stroke-dasharray:.84701,.84701;stroke-dashoffset:.423506;stroke-opacity:1"/>
+        <path d="m3.915.373.023.737M3.915.373l-.738.023" style="fill:none;stroke:#4d81b4;stroke-width:.282338;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+        <text xml:space="preserve" x="1.947" y="4.197" style="font-style:normal;font-weight:400;font-size:1.88225px;line-height:1.25;font-family:sans-serif;letter-spacing:0;word-spacing:0;fill:#4d81b4;fill-opacity:1;stroke:none;stroke-width:.188225"><tspan x="1.947" y="4.197" style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:1.88225px;font-family:Arial;-inkscape-font-specification:Arial;fill:#4d81b4;fill-opacity:1;stroke-width:.188225">&lt;I&gt;</tspan></text>
+        <rect width="1.153" height="1.153" x=".646" y=".207" ry=".535" style="fill:url(#b);fill-opacity:1;stroke:#2d6296;stroke-width:.169507;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:.300095;stroke-opacity:1"/>
+    </g>
+</svg>

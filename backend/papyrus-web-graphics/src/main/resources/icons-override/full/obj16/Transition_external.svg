@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="-1.399" x2=".808" y1="1.9" y2="4.389" gradientTransform="matrix(3.95916 0 0 4.07329 13.265 -2.98)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient xlink:href="#a" id="c" x1="-1.399" x2=".808" y1="1.9" y2="4.389" gradientTransform="matrix(2.3254 0 0 2.39245 11.236 .362)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <rect width="12.797" height="9.47" x="1.603" y=".498" ry="2.647" style="fill:url(#b);fill-opacity:1;stroke:#4d81b4;stroke-width:.8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:.300095;stroke-opacity:1"/>
+    <rect width="7.518" height="5.563" x="4.386" y="2.411" ry="1.555" style="fill:url(#c);fill-opacity:1;stroke:#4d81b4;stroke-width:.8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:.300095;stroke-opacity:1"/>
+    <g style="stroke:#2d6296;stroke-linecap:round;stroke-opacity:1">
+        <path d="M6.984 3.063H5.13" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:3.9;stroke-dasharray:none;stroke-dashoffset:.415627;stroke-opacity:1" transform="matrix(0 3.14356 -2.95767 0 17.113 -7.464)"/>
+        <path d="m7.149 3.052-.638-.53m.638.53-.638.53" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="matrix(0 3.14356 -2.95767 0 17.113 -7.464)"/>
+    </g>
+</svg>

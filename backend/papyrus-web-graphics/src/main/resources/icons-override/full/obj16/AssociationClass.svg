@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="d" x1="144.286" x2="23.46" y1="144.286" y2="3.881" gradientTransform="translate(.784 1.355)scale(.01905)" gradientUnits="userSpaceOnUse"/>
+        <filter id="c" style="color-interpolation-filters:sRGB">
+            <feGaussianBlur stdDeviation="1.194"/>
+        </filter>
+        <filter id="b" style="color-interpolation-filters:sRGB">
+            <feGaussianBlur stdDeviation="1.194"/>
+        </filter>
+    </defs>
+    <path d="m2.384.86-.005.518" style="fill:none;stroke:#4d81b4;stroke-width:.29653704;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="translate(.37 1.292)scale(3.37226)"/>
+    <path d="M23.854 114.598h120.78" style="fill:none;stroke:#4d81b4;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.827451;filter:url(#b)" transform="matrix(.06425 0 0 .06424 3.012 5.861)"/>
+    <path d="M23.061 85.34h120.78" style="fill:none;stroke:#4d81b4;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.827451;filter:url(#c)" transform="matrix(.06425 0 0 .06424 3.012 5.861)"/>
+    <path d="M1.23 1.429h2.303v2.674H1.23Z" style="fill:url(#d);fill-opacity:1;stroke:#4d81b4;stroke-width:.29653704;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(.37 1.292)scale(3.37226)"/>
+    <path d="M1.258 3.538h2.245M1.261 2.98h2.247" style="fill:none;stroke:#4d81b4;stroke-width:.23722963;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="translate(.37 1.292)scale(3.37226)"/>
+    <path fill="none" d="M1.231 1.429h2.277v1.552H1.231z" style="fill:#4b7eb0;fill-opacity:0;stroke:none;stroke-width:.0756102;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.827451" transform="translate(.37 1.292)scale(3.37226)"/>
+    <path d="M2.384.08 2.379.6" style="fill:none;stroke:#4d81b4;stroke-width:.29653704;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="translate(.37 1.292)scale(3.37226)"/>
+</svg>

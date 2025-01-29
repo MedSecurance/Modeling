@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+    <path d="m103.18 57.803-78.6 78.504" style="fill:none;stroke:#4d81b4;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="matrix(.09924 .00218 -.00218 .09924 -1.459 -.845)"/>
+    <path d="M122.332 76.835 84.03 38.77m64.563-26.38L84.09 38.71m64.503-26.32-26.32 64.505" style="fill:none;stroke:#4d81b4;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="matrix(.09924 .00218 -.00218 .09924 -1.459 -.845)"/>
+    <text xml:space="preserve" x="2.348" y="3.502" style="font-size:1.37178px;fill:#2e4f6e;fill-opacity:1;stroke:#2e4f6e;stroke-width:.07;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" transform="matrix(3.75344 0 0 4.14713 -.549 -.628)"><tspan x="2.348" y="3.502" style="fill:#2e4f6e;fill-opacity:1;stroke:#2e4f6e;stroke-width:.07;stroke-dasharray:none;stroke-opacity:1">{P}</tspan></text>
+</svg>

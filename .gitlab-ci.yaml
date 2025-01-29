@@ -1,0 +1,18 @@
+#  Copyright (c) 2024 CEA LIST.
+#  All rights reserved. This program and the accompanying materials
+#  are the property of CEA LIST, their use is subject to specific
+#  agreement with the CEA LIST.
+#  Marcos Didonet Del Fabro (CEA LIST ) - first implementation
+
+stages:
+  - build
+
+# this job is used to build the docker image from Papyrus WebApp (front and backend)
+DockerImageWebApp:
+  stage: build
+  image: ubuntu:stable
+  tags: ["ubuntu"]
+  script:
+    - docker build --build-arg USERNAME=${USERNAME} --build-arg PASSWORD=${PASSWORD} --build-arg WEBAPP_VERSION=${WEBAPP_VERSION} -t papyrusweb -f backend/papyrus-web-application/Dockerfile.local .
+
+

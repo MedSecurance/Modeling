@@ -1,0 +1,50 @@
+:papyrusweb-url: https://papyrus-web.deeplab.fr/
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+:toc:
+:toclevels: 2
+
+= Model creation in PapyrusWeb
+
+This document presents a step-by-step tutorial on how to create UML models and diagrams. The URL of PapyrusWeb is : {papyrusweb-url}
+
+
+.How-to objective
+****
+Create an UML model and a Class diagram graphical representation.
+****
+
+== Model Creation
+
+PapyrusWeb enables the creation of different kinds of projects. The start page provides a set of templates, or an existing project may be reopened.
+
+The figure below show a set of available templates:
+
+image:project_template.png[]
+
+We select the *C++ template*. It performs the following actions:
+
+* creates a C++ project template with one Class with a "helloWorld" method and a Comment.
+* applies 3 profiles necessary for code generation: _standard_, _Codegen_ and _Standard C++_
+
+
+The project should have a structure as illustrated below:
+
+image:cpp_template_sample.png[]
+
+A project has three main components:
+
+* *Model explorer* (right side): the model explorer enables the navigation and edition in the existing model elements. Each model element has a contextual menu with a specific set of actions. For instance, it enables creating child elements of a given Class. 
+* *Diagram editor* (center): the diagram editor enables creating visual representation of the elements of the model. The example shows a Class Diagram representation.   
+* *Details view* (left side): it shows the property view enables the edition of properties of each selected element of the model.
+
+The details view also provides the views _Related Elements_, _Representations_, _Element Instant Messaging_  and _LLM Playground_.
+
+== Updating the project name
+
+The project name is updated by selecting the _three dot_ icon on the project header, and selecting the _Rename_ option. It is important to select a meaningful and unique name for the project. 
+
+All the possible options are explained in the link:{help-url}[ PapyrusWeb help documentation]
+
+

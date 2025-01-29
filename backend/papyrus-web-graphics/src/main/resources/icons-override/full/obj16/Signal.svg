@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="144.286" x2="23.46" y1="144.286" y2="3.881" gradientTransform="matrix(.028 0 0 .01552 .032 1.1)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <path fill="none" d="M1.231 1.429h2.277v1.552H1.231z" style="fill:#4b7eb0;fill-opacity:0;stroke:none;stroke-width:.0756102;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.827451"/>
+    <path d="M.689 1.161h3.384v2.18H.689Z" style="fill:url(#b);fill-opacity:1;stroke:#4d81b4;stroke-width:.25;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(-1.056 .037)scale(3.79503)"/>
+    <text xml:space="preserve" x=".924" y="2.833" style="font-style:normal;font-weight:400;font-size:1.5875px;line-height:1.25;font-family:sans-serif;letter-spacing:0;word-spacing:0;fill:#4d81b4;fill-opacity:1;stroke:none;stroke-width:.264583" transform="translate(-1.056 .037)scale(3.79503)"><tspan x=".924" y="2.833" style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:1.5875px;font-family:Arial;-inkscape-font-specification:&quot;Arial Bold&quot;;fill:#4d81b4;fill-opacity:1;stroke-width:.264583">&lt;S&gt;</tspan></text>
+</svg>

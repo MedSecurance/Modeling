@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="-1.381" x2="-1.411" y1=".367" y2="2.425" gradientTransform="matrix(1.1809 0 0 1.1912 3.952 -.286)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <g transform="translate(25.57 9.685)scale(3.92811)">
+        <rect width="3.817" height="2.769" x=".473" y=".732" ry=".774" style="fill:url(#b);fill-opacity:1;stroke:#2e4f6e;stroke-width:.251;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:.753,.753;stroke-dashoffset:0;stroke-opacity:1" transform="translate(-6.825 -2.417)"/>
+        <path d="M3.14 1.824h.166l.003.211h.203l-.001.158h-.208v.216h-.161v-.216h-.206l-.002-.16h.206z" style="display:inline;fill:#2e4f6e;fill-opacity:1;stroke:#2e4f6e;stroke-width:.0469197;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="translate(-6.699 -2.417)"/>
+        <path d="M-5.622-.593h.165l.004.21h.203l-.002.16h-.208v.215h-.16v-.216h-.207l-.001-.16h.206zm.969 0h.165l.003.21h.203l-.001.16h-.208v.215h-.16v-.216h-.207l-.002-.16h.207z" style="display:inline;fill:#2e4f6e;fill-opacity:1;stroke:#2e4f6e;stroke-width:.0469197;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="translate(.127)"/>
+    </g>
+</svg>

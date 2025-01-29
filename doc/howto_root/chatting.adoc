@@ -1,0 +1,45 @@
+:papyrusweb-url: https://papyrus-web.deeplab.fr/
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+= Chatting using Integrated Matrix Element
+
+The URL of PapyrusWeb is : {papyrusweb-url}
+
+
+.How-to objective
+****
+Chat using the integrated Element Matrix client.
+****
+
+== Chat configuration
+
+Before using the integrated chat in Papyrus Web, it is necessary to log-in into the dedicated client. The link for log-in is the following: https://papyrus-web.deeplab.fr/elementweb/. This external log-in is necessary due to OIDC integrated login restrictions. 
+
+image:matrix_login.png[]
+
+The connection is done using the CEA credentials, i.e., user login and password (intranet password or Code MobiPass). If it is the first ever connection into Element Matrix, it is advisable to copy the user recovery keys that are generated.
+
+image:oidc.png[]
+
+Once connected, returns into the PapyrusWeb interface and select the root element. It is necessary to select _New Matrix Chat Room_ to create a room for this specific model. The room name is the same of the root element. Avoid using _underline_ or special characters. The room name must be unique.   
+
+The tool asks for a "User Access Token". To obtain the access token, goto into element-web (https://element-web.deeplab.fr/). Click on your name in the top left corner, then Settings -> Help & About and scoll to the bottom. Here you will find a link to your access token.
+
+image:cpp_generation.png[]
+
+image:matrix_token_screen.png[]
+
+Once the room is created, the chat is available in the right panel in the screen, after clicking in _Element Matrix Instant Messaging_.
+
+image:matrix_papyrus_web.png[]
+
+New users may be added into the room. The invited user has two options:
+
+. Chatting in the full version of Element Matrix (https://element-web.deeplab.fr/)  
+. Chatting in the integrated PapyrusWeb version. In this case, the invited user need to change the name of its root element, by using the same room name that has been created and shared.
+
+image:matrix_add_user.png[]
+
+
+

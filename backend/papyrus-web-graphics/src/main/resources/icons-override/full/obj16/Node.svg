@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+    <defs>
+        <linearGradient id="b">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#4e8ac4;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="c" x1="46.981" x2="132.645" y1="18.523" y2="136.44" gradientTransform="matrix(.02537 0 0 .01832 .025 1.054)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient xlink:href="#b" id="d" x1="11.664" x2="26.515" y1="60.754" y2="61.178" gradientTransform="matrix(.02537 0 0 .01832 3.46 1.05)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient xlink:href="#b" id="e" x1="61.578" x2="80.232" y1="136.887" y2="84.71" gradientTransform="matrix(.02537 0 0 .01832 .025 -1.518)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <path d="M.62 1.125h3.066v2.573H.62Z" style="fill:url(#c);fill-opacity:1;stroke:#4d81b4;stroke-width:.114;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(-1.29 -.186)scale(3.98227)"/>
+    <path d="m3.686 1.125.548-.4-.001 2.443-.547.53Z" style="fill:url(#d);fill-opacity:1;stroke:#4d81b4;stroke-width:.114;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(-1.29 -.186)scale(3.98227)"/>
+    <path d="M1.17.725h3.065l-.55.4H.62Z" style="fill:url(#e);fill-opacity:1;stroke:#4d81b4;stroke-width:.114;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(-1.29 -.186)scale(3.98227)"/>
+    <path d="M1.613 1.905h1.08" style="fill:none;stroke:#4d81b4;stroke-width:.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" transform="translate(-1.29 -.186)scale(3.98227)"/>
+</svg>
