@@ -1,9 +1,3 @@
 [submodule "papyrus-web"]
 	path = papyrus-web
 	url = https://md270283:glpat-UCJgoqRz2ffWUVcm7mij@gitlab.deeplab.intra.cea.fr/modeling/papyrus-web.git
-[submodule "medsecuranceappgen"]
-	path = medsecuranceappgen
-	url = https://md270283:glpat-UCJgoqRz2ffWUVcm7mij@gitlab.deeplab.intra.cea.fr/modeling/services/medsecuranceappgen
-[submodule "modeling-services-rcp"]
-	path = modeling-services-rcp
-	url = https://md270283:glpat-UCJgoqRz2ffWUVcm7mij@gitlab.deeplab.intra.cea.fr/modeling/services/modeling-services-rcp.git
