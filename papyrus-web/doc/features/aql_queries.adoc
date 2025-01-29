@@ -1,0 +1,99 @@
+= This is a set of queries that may be performed over the created models
+
+They follow the AQL language, which is a subset of OCL 
+#https://eclipse.dev/acceleo/documentation/
+
+Note that the editingContextId of each query needs to be changed by the specific ID of the project, which is the UUID after the /project/ element in the URL
+
+http://localhost:8080/projects/8489727c-cb5f-41bd-a911-bfb2a23009da/edit/6f5909d7-49b0-4f49-80ed-8dba1e867444
+
+== Return the classe name with applied stereotype Sensor
+
+[source,]
+----
+query Viewer {
+  viewer {
+    editingContext(editingContextId: "8489727c-cb5f-41bd-a911-bfb2a23009da") {
+      queryBasedObject(query: "aql:editingContext.allContents()->select(e | e.getAppliedStereotypes()->exists( st | st.name = 'Sensor') ") {
+        queryBasedString(query: "aql:self.name")
+      }
+    }
+  }
+}
+----
+== Return all the stereotypes applied in a class with applied stereotype Sensor
+
+[source,]
+----
+query AvailableSensors {
+  viewer {
+    editingContext(editingContextId: "8489727c-cb5f-41bd-a911-bfb2a23009da") {
+      queryBasedObject(query: "aql:editingContext.allContents()->select(e | e.getAppliedStereotypes()->exists( st | st.name = 'Sensor')") {
+        queryBasedString(query: "aql:self.getStereotypeApplications()")
+      }
+    }
+  }
+}
+----
+
+== Return the kind of the Services available from all classes
+
+[source,]
+----
+query AvailableServices {
+  viewer {
+    editingContext(editingContextId: "8489727c-cb5f-41bd-a911-bfb2a23009da") {
+      queryBasedObject(query: "aql:editingContext.allContents()->select(e | e.getAppliedStereotypes()->exists( st | st.name = 'Service') ") {
+        queryBasedString(query: "aql:self.getStereotypeApplications()->collect (sa | sa.kind)")
+      }
+    }
+  }
+}
+----
+
+== Return all the stereotypes applied in a class with applied stereotype Information
+
+[source,]
+----
+query AvailableInformation {
+  viewer {
+    editingContext(editingContextId: "8489727c-cb5f-41bd-a911-bfb2a23009da") {
+      queryBasedObject(query: "aql:editingContext.allContents()->select(e | e.getAppliedStereotypes()->exists( st | st.name = 'Information') ") {
+        queryBasedString(query: "aql:self.getStereotypeApplications()")
+      }
+    }
+  }
+}
+----
+
+== Returns all the applied Component profile
+
+[source,]
+----
+query IoMTcomponent {
+  viewer {
+    editingContext(editingContextId: "8489727c-cb5f-41bd-a911-bfb2a23009da") {
+      queryBasedObject(query: "aql:editingContext.allContents()-f>select(e | e.getAppliedStereotypes()->exists( st | st.name = 'IoMTcomponent') ") {
+        queryBasedString(query: "aql:self.getStereotypeApplications()")
+      }
+    }
+  }
+}
+----
+
+== Returns all the supportedFeatures for all classes
+
+[source,]
+----
+query IoMTcomponentCollectFeatures {
+  viewer {
+    editingContext(editingContextId: "8489727c-cb5f-41bd-a911-bfb2a23009da") {
+      queryBasedObject(query: "aql:editingContext.allContents()->select(e | e.getAppliedStereotypes()->exists( st | st.name = 'IoMTcomponent') ") {
+        queryBasedString(query: "aql:self.getStereotypeApplications()->select(sa | sa.supportedFeatures->size() >= 1 )->collect (sa | sa.supportedFeatures)")
+      }
+    }
+  }
+}
+----
+
+

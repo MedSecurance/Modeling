@@ -1,0 +1,420 @@
+:papyrusweb-url: http://localhost:8080
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+= IoMT model creation
+
+This document presents a step-by-step tutorial on how to create an IoMT model using the IoMT profiles.
+
+.How-to objective
+****
+Creation of an IoMT UML model with a set of classes from UML profile, generate applications for medsecurance IoMT and run demonstrator.
+****
+
+
+This how-to is separated into 3 major steps:
+
+. *Model creation*: how to create IoMT UML models and diagrams. 
+. *Model edition*: how to edit the model elements.
+. *Medsecurance demonstrator usage*: Run demonstrator platform.
+
+The URL of PapyrusWeb is : {papyrusweb-url}
+
+== Model creation
+
+PapyrusWeb enables the creation of different kinds of projects. The start page provides a set of templates, or an existing project may be reopened. 
+
+image:createnew_project_from_template.png[Create new project]
+
+By selecting the *IoMT* template, it performs the following actions:
+
+- xref:codegen/description_software_designer/sw_designer.adoc[Papyrus Software Designer]
+
+* applies 4 profiles with IoMT concepts: - xref:{imagesdir}/assets_profile.png[_IoMTAssets_], xref:{imagesdir}/iomt_profile.png[_IoMTProfile_], xref:{imagesdir}/component_categories.png[_IoMTComponentCategories_] and xref:{imagesdir}/assertions_profile.png[_Assertions_]. Not all concepts need to be used, only the ones necessary for each specific architecture definition.
+
+* creates a IoMT UML project template with four main Class.
+** _HeartMonitoring_: This class has the stereotype "IoMTDevice" from "IoMTProfile applied. +
+ An IoMTDevice aims to represent an IOT component in the medsecurance environment. Extending the IoMTDevice from the model explorer (left panel), display the physical content on it: sensors and/or acuators. Sensors have "Sensor stereotype and actuators have Actuator stereotype applied. The details (right panel) list the extensions provided by each sterotype. They'll be used for the generation process.
+** _Gateway_: This class has the stereotype "Gateway" from "IoMTProfile" applied. +
+In this example, the gateway acts as bluetooth to ethernet interface from the device to the proxy. This gateway implements a publish/subscriber pattern. The demonstrator use a MQTT broker.
+** _Proxy_:
+This class has the stereotype Proxy from "IoMTProfile" applied. +
+The proxy transmits the messages between the gateway and a FHIR database
+** _FHIRDatabase_:
+This class has the stereotype "DataStore" from "IoMTProfile" applied. +
+FHIR is a standard for electronic health care data. The demonstrator use an implementation of FHIR with a in memory database: https://hapifhir.io/[HAPI FHIR]
+
+
+The project should have a structure as illustrated below:
+
+image:project_startpage_with_template.png[]
+
+A project has three main components:
+
+* *Model explorer* (right side): the model explorer enables the navigation and edition in the existing elements. Each model element has a contextual menu with a specific set of actions. For instance, it enables creating child elements of a given Class. 
+* *Diagram editor* (center): the diagram editor enables creating visual representation of the elements of the model   
+* *Property view* (left side): the property view enables the edition of properties of each selected element of the model. The selected properties are referent to the _Sensor_ specific properties.
+
+All the possible options are explained in the link:{help-url}[ PapyrusWeb help documentation]
+
+== Model edition
+
+The model may be edited using the diagram editor or the model explorer. Both views are synchronized. 
+
+* In the model explorer, the user selects an element and chooses a child element to be created in the dedicated menu. 
+
+image:create_newchild.png[]
+
+image:possible_child_Class.png[]
+
+* In the representation view (diagram), the user clicks in the diagram to open the contextual palette and selects the new desired element.
+
+image:new_classpalette.png[]
+
+For each created class, the property view show its standard UML properties and the specific IoMT properties. These properties are available once we apply specific profiles for the classes.
+
+Now we create a _SmartWatch_ class, which is a _IoMTDevice_ relating to the _HeartMonitoring Sensor_. This class is initally a plain UML class. It is necessary to apply a specific stereotype to promote it to an IoMT specific class. We click in the class in the model explorer and we select _Apply Stereotype_ to choose among the possible IoMT elements.
+
+image:apply_device_stereotype.png[]
+
+image:possible_stereotypes_list.png[]
+
+
+We select the IoMTProfile::IoMTDevice stereotype. The class is now stereotyped with _IoMTDevice_, as shown below.
+
+image:created_smartwatch.png[]
+
+The model can be enriched to add any other IoMT specific elements.
+
+== Medsecurance demonstrator usage
+image:demonstrator.png[]
+
+Once your UML medsecurance model is defined with stereotypes applied and configured, you can generate two SpringBoot applications +
+
+* _The device application_: This application will simulate the sensors and actuators to automatically generate some message for the MQTT borker.  
+* _The gateway application_: This application will generate observations from the data emitted on each devices to the FHIR datastore. 
+
+The demonstrator is designed to be run on localhost. +
+Prerequisites: +
+
+* Java https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=828&field_operating_system_target_id=All&field_architecture_target_id=All&field_java_package_target_id=All[jdk 21+]
+* https://maven.apache.org/download.cgi[Maven] 
+* Install and start a https://mosquitto.org/download/[MQTT broker]
+* Run a docker image of hapi-fhir
+[source, shell]
+----
+docker pull hapiproject/hapi:latest
+docker run -p 8090:8080 hapiproject/hapi:latest
+----
+
+Execute the demonstrator platform: +
+
+* Fill minimal data on the database: a Patient, a Location and a Device
+
+[source, shell]
+----
+curl -X POST "http://localhost:8090/fhir/Patient" -H "Content-Type: application/fhir+json; charset=UTF-8" -d \
+'{
+  "resourceType": "Patient",
+  "name": [ {
+    "family": "Simpson",
+    "given": [ "Abraham" ]
+  } ]
+}'
+
+curl -X POST "http://localhost:8090/fhir/Location" -H "Content-Type: application/fhir+json; charset=UTF-8" -d \
+'{
+  "resourceType": "Location",
+  "address": {
+	"line": [ "Springfield Retirement Castle" ],
+	"city": "Springfield",
+	"country": "US"
+  }
+}'
+
+curl -X POST "http://localhost:8090/fhir/Device" -H "Content-Type: application/fhir+json; charset=UTF-8" -d \
+'{
+"resourceType": "Device",
+  "status": "inactive",
+  "manufacturer": "ACME Inc.",
+  "deviceName": [ {
+	"name": "Heart Monitor 3000"
+  } ]
+}'
+----
+
+* Build and run both gatewayApp and deviceApp (from root of each application):
+[source, shell]
+----
+mvn clean verify -DskipTests -Dcheckstyle.skip
+----
+On success, the applications are available under their target directory. + 
+Linux system needs to explicitly define an evironment variable for the gateway host computer name: 
+[source, shell]
+----
+export COMPUTERNAME=[your computer name]
+----
+
+Run the deviceApp from deviceApp/target:
+[source, shell]
+----
+java -jar papyrus-web-medsecurance-iomt-device-0.0.1-SNAPSHOT.jar
+----
+Run the gatewayApp from gatewayApp/target:
+[source, shell]
+----
+java -jar papyrus-web-medsecurance-gateway-0.0.1-SNAPSHOT.jar
+----
+
+* Initialize the gateway to subscribe message from the device on the desired location:
+[source, shell]
+----
+curl -X 'PUT' \
+  'http://localhost:8000/gateway' \
+  -H 'accept: application/fhir+json;charset=utf-8' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "patientId": "1",
+  "locationId": "2",
+  "devicesId": [
+    "3"
+  ]
+}'
+----
+
+* Start/Stop the device:
+[source, shell]
+----
+curl -X PUT http://localhost:8001/mqtt/device -H "Content-Type: application/json" -d '{
+  "patientId": "1",
+  "locationId": "2",
+  "deviceId": "3",
+  "started" : true
+}'
+----
+Use the same command with "started" : false to interrupt the Observation generation.
+
+* Inspect the logs from the device application: +
+...MQTTController      : Send PUT response +
+...MQTTController      : 3, 2, 1, true
+
+Explanation: the device id {3}, patient id {1} is started from the location id {2}
+
+* Inspect the logs from the gateway application: +
+...GatewayService   : Observation
+...GatewayService   : 3/myHygrometer/hygrometer -> 45%
+
+Explanation: the gateway translate the message from device id {3} into Observation in the FHIR database. 
+Check the HAPI FHIR at GET http://localhost:8090/fhir/Observation?_pretty=true
+
+=== Advanced usage and customization 
+The medsecurance demonstrator is based on the use of papyrus web UML profiles. The IoMT profile defines some stereotypes. Stereotypes contains extensions definition. The generator process these extensions to build the applications.
+
+[.underline]#Example:# 
+
+image:stereotype_extension.png[]
+
+The FHIRDatabase referenced on the semantic model is extended with the "DataStore" stereotype. This stereotype provides a name and uid (as String) properties, and a proxy reference. Filling the uid with 'http://localhost:8090/fhir' will be reported in the gatewayApp configuration file under 'src/main/resources/application.properties' 
+[source]
+----
+fhir.server.url=http://localhost:8090/fhir
+----
+
+=== Demonstrator components details
+* HAPI-FHIR/Database:
+
+image:FHIRdb_details.png[]
+
+HAPI-FHIR is an implementation of the Fast Healthcare Interoperability Resources, as a web server application. 
+This application provides a REST API and FHIR API to interact with other services. 
+This implementation persists its data in an in-memory database.
+
+* IoMT Device:
+
+image:iomt_details.png[]
+
+An IoMT device can be recorded into the FHIR database under a 'Device' resource.
+The device refers to actuators and sensors. The generated deviceApp simulate the behavior of the device: +
+- for each sensors: read sensor value and emits value as a mqtt message +
+- for each actuators: listen mqtt message and write it to the actuator +
+A device can have relationships with a Ptient and a Location
+
+* Gateway:
+
+image:gateway_details.png[]
+
+The gateway is a component used to interact between the devices in a specific location and the FHIR service.
+In this demonstrator, the gateway is a MQTT broker, but it can be remplaced by another service like websocket, REST API ... 
+It translates MQTT message from the device into HAPI FHIR API 'Observation' resource or (not implemented) events from FHIR to message for the device.
+The gateway uses the publish/subscribe pattern, following the template: {deviceId}/{sensor name}/{sensor uid}/{sensor value}.
+The proxy ensures the communication between the 'Location' and the FHIR service (all in one application)
+
+* Patient:
+
+A Patient is a resource in the FHIR environment. It can have a relationship with a (address) 'Location' and a 'Practitioner' resource by reference.
+
+[source, json]
+----
+{
+  "resourceType": "Patient",
+  "id": "3",
+  "meta": {
+    "versionId": "2",
+    "lastUpdated": "2025-01-15T09:44:26.763+00:00",
+    "source": "#nfLE1LxDx5loReBm"
+  },
+  "name": [ {
+    "family": "Simpson",
+    "given": [ "Bart" ]
+  } ],
+  "address": [ {
+    "line": [ "742 Evergreen Terrace" ],
+    "city": "Springfield",
+    "country": "US"
+  } ],
+  "generalPractitioner": [ {
+    "reference": "Practitioner/12"
+  } ]
+}
+----
+
+* Location:
+
+A location is a resource in the FHIR environment. In the demonstrator, 
+
+[source, json]
+----
+{
+  "resourceType": "Location",
+  "id": "21",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2025-01-15T09:42:56.207+00:00",
+    "source": "#2z9X4WsDNtpSoHY0"
+  },
+  "address": {
+    "line": [ "Marvin Monroe Memorial Hospital" ],
+    "city": "Springfield",
+    "country": "US"
+  }
+}
+----
+
+* FHIR resources and relationships:
+
+image:location_details.png[]
+
+
+=== IoMTProfile stereotypes available extensions
+
+* Stereotype DataStore
+
+[cols="1,1"]
+|===
+|name
+|myDataBase
+
+|uid
+|http://localhost:8090/fhir
+
+|proxy
+|(Reference to) Proxy
+|===
+
+* Stereotype Proxy
+
+[cols="1,1"]
+|===
+|name
+|myProxy
+
+|uid
+|proxyUID
+
+|gateways
+|(Reference to) MQTTGateway
+
+|datastores
+|(Reference to) FHIRDatabase
+|===
+
+* Stereotype Gateway
+
+[cols="1,1"]
+|===
+|name
+|myGateway
+
+|uid
+|gatewayUID
+
+|devices
+|(Reference to) HeartMonitoring
+
+|proxy
+|(Reference to) Proxy
+
+|InternalInterface
+|(Enumeration) BlueTooth
+
+|ExternalInterface
+|(Enumeration) Ethernet
+|===
+
+* Stereotype IoMTDevice
+
+[cols="1,1"]
+|===
+|name
+|myHeartMonitor
+
+|uid
+|heartMonitor
+
+|devices
+|(Reference to) HeartMonitoring
+
+|gateway
+|(Reference to) MQTTGateway
+
+|InternalInterface
+|(Enumeration) BlueTooth
+|===
+
+* Stereotype Sensor (Thermometer)
+
+[cols="1,1"]
+|===
+|name
+|myHeartMonitor
+
+|uid
+|heartMonitor
+
+|device
+|(Reference to) HeartMonitoring
+|===
+
+* Stereotype Actuator (SwitchLED)
+
+[cols="1,1"]
+|===
+|name
+|myLED
+
+|uid
+|switchLED
+
+|device
+|(Reference to) HeartMonitoring
+|===
+
+=== Model customization
+
+User can had other components on the diagram, like another device or sensor. Keep in mind to apply the correct stereotype and define its values, regarding the usage in the generator.  
+
+=== Generators customization
+
+The genrators download and parse the UML model. The extensions provided by the stereotypes are replaced thanks to the https://mustache.github.io/[mustache] 
+template API. Templates are available under papyrus-web-medsecurance-generateApp/src/main/resources/templates. 
+Both parser and computing logic can be modified to fullfill your needs under papyrus-web-medsecurance-generateApp/src/main/java/papyrus/web/generate/medsecurance/application/controller/GenerateController.java.

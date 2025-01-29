@@ -1,0 +1,70 @@
+#  Copyright (c) 2024 CEA LIST.
+#  All rights reserved. This program and the accompanying materials
+#  are the property of CEA LIST, their use is subject to specific
+#  agreement with the CEA LIST.
+#  Marcos Didonet Del Fabro (CEA LIST ) - first implementation
+
+# to build
+# docker build --build-arg USERNAME=<github user name> --build-arg PASSWORD=<git hub toke> --build-arg WEBAPP_VERSION=2024.10.0 -t papyrusweb -f backend/papyrus-web/Dockerfile.local .
+# to launch. Note that it is necessary to have a running postgres image or local database
+# docker run --name=papyrusweb-container -p 8080:8080 papyrusweb:latest
+
+# to run without docker compose
+# docker run --name=papyrusweb-container --network=host -p 8080:8080 papyrusweb:latest 
+
+# Dockerfile to create the image of the RCP Web server.
+
+# Image for compilation
+
+FROM node:18.7 as papyrusweb-build
+
+ADD . /build
+WORKDIR /build/
+
+ENV MAVEN_OPTS="-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+ENV MAVEN_VERSION="3.9.4"
+
+ARG USERNAME
+ARG PASSWORD
+
+#### FROM papyrusweb-build as papyrusweb-build-front
+
+# Compile the frontend in one layer
+
+RUN echo '//npm.pkg.github.com/:_authToken=${PASSWORD}' >> /build/frontend/.npmrc &&\
+  cd frontend && npm install && npm ci && npm run build
+RUN mkdir -p backend/papyrus-web-frontend/src/main/resources/static &&\
+  cp -R frontend/papyrus-web/dist/* backend/papyrus-web-frontend/src/main/resources/static
+
+
+#### FROM papyrusweb-build as papyrusweb-build-back
+
+# Update packages and compile the backend in another layer
+
+
+RUN apt-get update &&\
+  apt-get install openjdk-17-jdk -y &&\
+  wget https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
+  tar -xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
+  export PATH=$PWD/apache-maven-$MAVEN_VERSION/bin:$PATH &&\
+  mvn clean verify -DskipTests -Dcheckstyle.skip -f backend/pom.xml --settings settings.xml
+
+
+# Image to run Papyrus Web
+
+# FROM eclipse-temurin:17-jre as papyrusweb
+FROM node:18.7 as papyrusweb
+
+ARG WEBAPP_VERSION
+
+RUN apt-get update && apt-get install -y openjdk-17-jre && apt-get clean cache
+COPY --from=papyrusweb-build /build/backend/papyrus-web/target/papyrus-web-${WEBAPP_VERSION}.jar ./app.jar
+
+EXPOSE 8080
+
+#RUN adduser --disabled-password myuser
+#USER myuser
+
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+

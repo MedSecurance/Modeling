@@ -1,0 +1,29 @@
+{
+  "name": "@papyrus-web/papyrus-web-parent",
+  "version": "2024.10.0",
+  "author": "Eclipse Sirius",
+  "license": "EPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eclipse-sirius/sirius-web"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "engines": {
+    "node": "18.7.0",
+    "npm": "8.15.0"
+  },
+  "workspaces": [
+    "papyrus-web"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "format": "prettier --write \"*/src/**/*.{js,ts,tsx,css}\"",
+    "format-lint": "prettier --list-different \"*/src/**/*.{js,ts,tsx,css}\""
+  },
+  "devDependencies": {
+    "turbo": "1.13.3"
+  }
+}

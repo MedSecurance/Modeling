@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+    <defs>
+        <linearGradient xlink:href="#a" id="f" x1="7.451" x2="7.427" y1="1.098" y2="3.18" gradientTransform="matrix(.28904 0 0 .48858 1.612 1.055)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#b9c8de;stop-opacity:1"/>
+            <stop offset="0" style="stop-color:#8cabcf;stop-opacity:1"/>
+            <stop offset=".092" style="stop-color:#8cabcf;stop-opacity:1"/>
+            <stop offset=".225" style="stop-color:#b8cce3;stop-opacity:1"/>
+            <stop offset=".331" style="stop-color:#7ba3cd;stop-opacity:1"/>
+            <stop offset=".842" style="stop-color:#5c90c5;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#3d7ebd;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#b" id="g" x1="744.959" x2="747.756" y1="750.275" y2="750.273" gradientTransform="rotate(45 202.527 -78.75)scale(.15966)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient id="b">
+            <stop offset="0" style="stop-color:#1c65a2;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#1a5a90;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#c" id="h" x1="-5.78" x2="-3.78" y1="1059.267" y2="1057.267" gradientTransform="translate(3.635 -166.277)scale(.15966)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient id="c">
+            <stop offset="0" style="stop-color:#467daa;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#4e87b6;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#d" id="i" x1="-3.78" x2="-1.78" y1="1057.267" y2="1055.267" gradientTransform="translate(3.635 -166.277)scale(.15966)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient id="d">
+            <stop offset="0" style="stop-color:#9cbbd6;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#6b9ac3;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#e" id="k" x1="-5.78" x2="-3.78" y1="1055.267" y2="1057.267" gradientTransform="translate(3.635 -166.277)scale(.15966)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient id="e">
+            <stop offset="0" style="stop-color:#98b9d5;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#e6eef5;stop-opacity:1"/>
+        </linearGradient>
+    </defs>
+    <g transform="translate(-1.1 -.717)scale(3.83047)">
+        <rect width="1.111" height="1.111" x="3.18" y="1.561" ry="0" style="fill:url(#f);fill-opacity:1;stroke:#4d81b4;stroke-width:.211667;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:.300095;stroke-opacity:1" transform="translate(.015 1.165)"/>
+        <g style="stroke:#2d6296;stroke-opacity:1">
+            <path d="M6.984 3.063H5.13" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:3.9;stroke-dasharray:none;stroke-dashoffset:.415627;stroke-opacity:1" transform="translate(-4.61 .23)"/>
+            <path d="m7.149 3.052-.638-.53m.638.53-.638.53" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="translate(-4.61 .23)"/>
+        </g>
+        <g transform="translate(-1.537 -2.018)scale(1.3228)">
+            <path d="m3.828 2.533-.793.794v-.794z" style="display:inline;fill:url(#g);fill-opacity:1;stroke:none;stroke-width:.159664"/>
+            <path d="m3.035 3.327-.793-.794h.793z" style="display:inline;fill:url(#h);fill-opacity:1;stroke:none;stroke-width:.159664"/>
+            <path d="m3.828 2.533-.793-.793v.793z" style="display:inline;fill:url(#i);fill-opacity:1;stroke:none;stroke-width:.159664"/>
+            <path d="m3.035 1.74-.793.793h.793z" style="display:inline;fill:url(#k);fill-opacity:1;stroke:none;stroke-width:.159664"/>
+            <rect width="1.178" height="1.178" x="3.348" y="-.944" rx=".185" ry=".185" style="display:inline;fill:none;stroke:#4d81b4;stroke-width:.147276;stroke-opacity:1" transform="rotate(45)"/>
+        </g>
+    </g>
+</svg>

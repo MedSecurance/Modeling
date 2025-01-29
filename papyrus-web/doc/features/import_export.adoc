@@ -1,0 +1,25 @@
+:papyrusweb-url: http://localhost:8080
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+= Model import / export
+
+A model may be imported or exported from/to XMI format. 
+
+*Model upload*
+
+A model may be uploaded using the Model explorer menu. 
+
+image:upload_model.png[]
+
+*Model download*
+
+A model can be downloaded into a local file following the XMI format.
+
+image:download_model.png[]
+
+An excerpt of the sample model download as XMI is shown below. This model may be processed by other tools.
+
+
+image:model_sample_xmi.png[]
+

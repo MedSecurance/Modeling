@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#b9c8de;stop-opacity:1"/>
+            <stop offset="0" style="stop-color:#8cabcf;stop-opacity:1"/>
+            <stop offset=".092" style="stop-color:#8cabcf;stop-opacity:1"/>
+            <stop offset=".225" style="stop-color:#b8cce3;stop-opacity:1"/>
+            <stop offset=".331" style="stop-color:#7ba3cd;stop-opacity:1"/>
+            <stop offset=".842" style="stop-color:#5c90c5;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#3d7ebd;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="7.451" x2="7.427" y1="1.098" y2="3.18" gradientTransform="matrix(1.01116 0 0 1.7092 -5.05 -1.598)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <g transform="translate(-.345 -.283)scale(3.6988)">
+        <rect width="3.887" height="3.887" x=".438" y=".173" ry="1.806" style="fill:url(#b);fill-opacity:1;stroke:#2d6296;stroke-width:.107792;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:.300095;stroke-opacity:1"/>
+        <text xml:space="preserve" x="1.188" y="3.271" style="font-size:3.175px;fill:#2d6296;fill-opacity:1;stroke:#2d6296;stroke-width:.1;stroke-linecap:round;stroke-dasharray:none"><tspan x="1.188" y="3.271" style="fill:#2d6296;fill-opacity:1;stroke-width:.1;stroke-dasharray:none">H</tspan></text>
+    </g>
+</svg>

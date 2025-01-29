@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="144.286" x2="23.46" y1="144.286" y2="3.881" gradientTransform="matrix(.03272 0 0 .02363 -.536 .58)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <path d="M.232.671h3.953V3.99H.232Z" style="fill:url(#b);fill-opacity:1;stroke:#4d81b4;stroke-width:.28101886;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(.536 -.865)scale(3.55848)"/>
+    <path d="M.287 3.357h3.859" style="fill:none;stroke:#4d81b4;stroke-width:.22481509;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:.89926036,.22481509;stroke-dashoffset:0;stroke-opacity:1" transform="translate(.536 -.865)scale(3.55848)"/>
+    <path d="M.252 2.525c1.007.004 1.56-.002 1.56-.002l.955-.777.006-1.03" style="fill:none;stroke:#4d81b4;stroke-width:.22481509;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stroke-miterlimit:4" transform="translate(.536 -.865)scale(3.55848)"/>
+</svg>

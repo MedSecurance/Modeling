@@ -1,0 +1,64 @@
+:papyrusweb-url: https://papyrus-web.deeplab.fr/
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+:toc:
+:toclevels: 2
+
+== Model edition
+
+.How-to objective
+
+****
+Update a UML class diagram of an existing model. 
+****
+
+The model may be edited using the diagram editor or the model explorer. Both views are synchronized. 
+
+We will use the domain of Medical IoT to create the model elements, that contains medical devices connected to Patients.
+
+We propose to perform the following actions:
+
+=== Updating elements using model explorer
+
+* select a comment in the diagram editor and deletion;
+* select the root model element (_CppTemplate_) and create a *New object* named *Package Import*. Select the element and set the value of the _ImportedPackage_ property to *PrimitiveTypes*
+
+=== Updating a class using the property view
+
+* Select the _Main_ class and edition of its name using the property view. Set the name to _Person_. Set the property type to *String*.
+* Select the compartment (e.g., region below) of the class name and inclusion of a property. There is a contextual menu in that enables creating a property.
+** Change the property name to *name* and property type to *String*.
+* Change the name of the root element _CppTemplate_ into _devices_, using the property view. 
+
+=== Creating classes and associations
+
+* Click on the diagram to create a class. It is the first option in the contextual menu. Name it _SmartWatch_.
+
+* Create a new class and name it _UserApplication_.
+
+* Create an association between class _Person_ and _SmartWatch and between _SmartWatch_ and _User Application_.
+
+The associations are created by clicking in one of the 4 *arrows* available when selection a class and by selecting the right association type in the menu.
+
+* Add _uuid_ attribute of type String into classes _UserApplication_ and _SmartWatch_.
+
+image:new_association.png[]
+
+The created model should have the structure illustrated below.
+
+For better visibility, it is possible to hide the classes compartiments by selecting the class and choosing the "Hide all content" contextual menu.
+
+
+image:new_edited_model.png[]
+
+== Collaborative edition
+
+It is possible to edit the same model at the same time, either using the graphical representation (center view) or the model explorer (left view). 
+
+The model has a sharing link, obtained by clicking on the _Share Model_ icon in the model representation.
+
+The link may be sent to other users, who may edit the model at the same time. It is advisable to not edit the same element, since there is no concurrency control.
+
+image:sharing_model.png[]
+

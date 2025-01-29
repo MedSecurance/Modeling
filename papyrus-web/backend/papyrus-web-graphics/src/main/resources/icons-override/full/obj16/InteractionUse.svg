@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="144.286" x2="23.46" y1="144.286" y2="3.881" gradientTransform="matrix(.12008 0 0 .08672 -1.852 1.197)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <path d="M.965 1.534h14.51v12.175H.964Z" style="fill:url(#b);fill-opacity:1;stroke:#4d81b4;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(.173 -.213)"/>
+    <path d="M1.17 11.389h14.16" style="fill:none;stroke:#4d81b4;stroke-width:.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.2,.8;stroke-dashoffset:0;stroke-opacity:1" transform="translate(.173 -.213)"/>
+    <text xml:space="preserve" x="2.621" y="5.951" style="font-size:4.31125px;fill:none;stroke:#4d81b4;stroke-width:.539498;stroke-linecap:round" transform="matrix(.96534 0 0 1.0359 .173 -.213)"><tspan x="2.621" y="5.951" style="stroke-width:.539498">R</tspan></text>
+    <path d="M1.047 8.314c3.585.013 5.548-.01 5.548-.01l3.402-2.761.02-3.668" style="fill:none;stroke:#4d81b4;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stroke-miterlimit:4" transform="translate(.173 -.213)"/>
+</svg>

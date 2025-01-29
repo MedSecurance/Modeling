@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uml:Profile xmi:version="20131001"
+	xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+	xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+	xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML"
+	xmi:id="_IGRaABwAEe-2GI5f1LdWww" name="assertions"
+	URI="http://www.eclipse.org/papyrus/robotics/assertions/1"
+	metaclassReference="_IGRaOBwAEe-2GI5f1LdWww _IGRaORwAEe-2GI5f1LdWww _IGRaOhwAEe-2GI5f1LdWww">
+	<eAnnotations xmi:type="ecore:EAnnotation"
+		xmi:id="_IGRaARwAEe-2GI5f1LdWww"
+		source="http://www.eclipse.org/uml2/2.0.0/UML">
+		<contents xmi:type="ecore:EPackage"
+			xmi:id="_IGRaAhwAEe-2GI5f1LdWww" name="assertions"
+			nsURI="http://www.eclipse.org/papyrus/robotics/assertions/1"
+			nsPrefix="assertions">
+			<eAnnotations xmi:type="ecore:EAnnotation"
+				xmi:id="_IGRaAxwAEe-2GI5f1LdWww" source="PapyrusVersion">
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaBBwAEe-2GI5f1LdWww" key="Version" value="0.0.1" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaBRwAEe-2GI5f1LdWww" key="Comment" value="" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaBhwAEe-2GI5f1LdWww" key="Copyright" value="" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaBxwAEe-2GI5f1LdWww" key="Date" value="2024-01-26" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaCBwAEe-2GI5f1LdWww" key="Author" value="" />
+			</eAnnotations>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_IGRaCRwAEe-2GI5f1LdWww" name="Assertion">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_IGRaChwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_IGRaPhwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaCxwAEe-2GI5f1LdWww" name="base_Constraint"
+					ordered="false">
+					<eType xmi:type="ecore:EClass"
+						href="http://www.eclipse.org/uml2/5.0.0/UML#//Constraint" />
+				</eStructuralFeatures>
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_IGRaDRwAEe-2GI5f1LdWww" name="Contract">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_IGRaDhwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_IGRaQxwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_IGRaDxwAEe-2GI5f1LdWww" name="name" ordered="false"
+					lowerBound="1">
+					<eType xmi:type="ecore:EDataType"
+						href="http://www.eclipse.org/uml2/5.0.0/Types#//String" />
+				</eStructuralFeatures>
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaERwAEe-2GI5f1LdWww" name="assumptions" ordered="false"
+					upperBound="-1" eType="_IGRaCRwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaExwAEe-2GI5f1LdWww" name="guarantees" ordered="false"
+					upperBound="-1" eType="_IGRaCRwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaFRwAEe-2GI5f1LdWww" name="base_Comment"
+					ordered="false">
+					<eType xmi:type="ecore:EClass"
+						href="http://www.eclipse.org/uml2/5.0.0/UML#//Comment" />
+				</eStructuralFeatures>
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_IGRaFxwAEe-2GI5f1LdWww" name="Property">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_IGRaGBwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_IGRaTxwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaGRwAEe-2GI5f1LdWww" name="base_Property"
+					ordered="false">
+					<eType xmi:type="ecore:EClass"
+						href="http://www.eclipse.org/uml2/5.0.0/UML#//Property" />
+				</eStructuralFeatures>
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaGxwAEe-2GI5f1LdWww" name="expression" ordered="false"
+					changeable="false" derived="true">
+					<eType xmi:type="ecore:EClass"
+						href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueExpression" />
+				</eStructuralFeatures>
+			</eClassifiers>
+		</contents>
+		<contents xmi:type="ecore:EPackage"
+			xmi:id="_IGRaHRwAEe-2GI5f1LdWww" name="assertions"
+			nsURI="http://www.eclipse.org/papyrus/robotics/assertions/1"
+			nsPrefix="assertions">
+			<eAnnotations xmi:type="ecore:EAnnotation"
+				xmi:id="_IGRaHhwAEe-2GI5f1LdWww" source="PapyrusVersion">
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaHxwAEe-2GI5f1LdWww" key="Version" value="0.0.1" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaIBwAEe-2GI5f1LdWww" key="Comment" value="" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaIRwAEe-2GI5f1LdWww" key="Copyright" value="" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaIhwAEe-2GI5f1LdWww" key="Date" value="2024-01-26" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_IGRaIxwAEe-2GI5f1LdWww" key="Author" value="" />
+			</eAnnotations>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_IGRaJBwAEe-2GI5f1LdWww" name="Assertion">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_IGRaJRwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_IGRaPhwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaJhwAEe-2GI5f1LdWww" name="base_Constraint"
+					ordered="false">
+					<eType xmi:type="ecore:EClass"
+						href="http://www.eclipse.org/uml2/5.0.0/UML#//Constraint" />
+				</eStructuralFeatures>
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_IGRaKBwAEe-2GI5f1LdWww" name="Contract">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_IGRaKRwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_IGRaQxwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_IGRaKhwAEe-2GI5f1LdWww" name="name" ordered="false"
+					lowerBound="1">
+					<eType xmi:type="ecore:EDataType"
+						href="http://www.eclipse.org/uml2/5.0.0/Types#//String" />
+				</eStructuralFeatures>
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaLBwAEe-2GI5f1LdWww" name="assumptions" ordered="false"
+					upperBound="-1" eType="_IGRaJBwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaLhwAEe-2GI5f1LdWww" name="guarantees" ordered="false"
+					upperBound="-1" eType="_IGRaJBwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaMBwAEe-2GI5f1LdWww" name="base_Comment"
+					ordered="false">
+					<eType xmi:type="ecore:EClass"
+						href="http://www.eclipse.org/uml2/5.0.0/UML#//Comment" />
+				</eStructuralFeatures>
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_IGRaMhwAEe-2GI5f1LdWww" name="Property">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_IGRaMxwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_IGRaTxwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaNBwAEe-2GI5f1LdWww" name="base_Property"
+					ordered="false">
+					<eType xmi:type="ecore:EClass"
+						href="http://www.eclipse.org/uml2/5.0.0/UML#//Property" />
+				</eStructuralFeatures>
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_IGRaNhwAEe-2GI5f1LdWww" name="expression" ordered="false"
+					changeable="false" derived="true">
+					<eType xmi:type="ecore:EClass"
+						href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueExpression" />
+				</eStructuralFeatures>
+			</eClassifiers>
+		</contents>
+	</eAnnotations>
+	<elementImport xmi:type="uml:ElementImport"
+		xmi:id="_IGRaOBwAEe-2GI5f1LdWww" alias="Constraint">
+		<importedElement xmi:type="uml:Class"
+			href="pathmap://UML_METAMODELS/UML.metamodel.uml#Constraint" />
+	</elementImport>
+	<elementImport xmi:type="uml:ElementImport"
+		xmi:id="_IGRaORwAEe-2GI5f1LdWww" alias="Comment">
+		<importedElement xmi:type="uml:Class"
+			href="pathmap://UML_METAMODELS/UML.metamodel.uml#Comment" />
+	</elementImport>
+	<elementImport xmi:type="uml:ElementImport"
+		xmi:id="_IGRaOhwAEe-2GI5f1LdWww" alias="Property">
+		<importedElement xmi:type="uml:Class"
+			href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property" />
+	</elementImport>
+	<elementImport xmi:type="uml:ElementImport"
+		xmi:id="_IGRaOxwAEe-2GI5f1LdWww">
+		<importedElement xmi:type="uml:Class"
+			href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class" />
+	</elementImport>
+	<packageImport xmi:type="uml:PackageImport"
+		xmi:id="_IGRaPBwAEe-2GI5f1LdWww">
+		<importedPackage xmi:type="uml:Model"
+			href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0" />
+	</packageImport>
+	<packageImport xmi:type="uml:PackageImport"
+		xmi:id="_IGRaPRwAEe-2GI5f1LdWww">
+		<importedPackage xmi:type="uml:Model"
+			href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0" />
+	</packageImport>
+	<packagedElement xmi:type="uml:Stereotype"
+		xmi:id="_IGRaPhwAEe-2GI5f1LdWww" name="Assertion">
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_IGRaPxwAEe-2GI5f1LdWww" name="base_Constraint"
+			association="_IGRaQRwAEe-2GI5f1LdWww">
+			<type xmi:type="uml:Class"
+				href="pathmap://UML_METAMODELS/UML.metamodel.uml#Constraint" />
+			<lowerValue xmi:type="uml:LiteralInteger"
+				xmi:id="_IGRaQBwAEe-2GI5f1LdWww" />
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Extension"
+		xmi:id="_IGRaQRwAEe-2GI5f1LdWww" name="E_Assertion_Constraint6"
+		memberEnd="_IGRaPxwAEe-2GI5f1LdWww _IGRaQhwAEe-2GI5f1LdWww">
+		<ownedEnd xmi:type="uml:ExtensionEnd"
+			xmi:id="_IGRaQhwAEe-2GI5f1LdWww" name="extension_Assertion"
+			type="_IGRaPhwAEe-2GI5f1LdWww" aggregation="composite"
+			association="_IGRaQRwAEe-2GI5f1LdWww" />
+	</packagedElement>
+	<packagedElement xmi:type="uml:Stereotype"
+		xmi:id="_IGRaQxwAEe-2GI5f1LdWww" name="Contract">
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_IGRaRBwAEe-2GI5f1LdWww" name="name">
+			<type xmi:type="uml:PrimitiveType"
+				href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String" />
+		</ownedAttribute>
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_IGRaRRwAEe-2GI5f1LdWww" name="assumptions"
+			type="_IGRaPhwAEe-2GI5f1LdWww">
+			<lowerValue xmi:type="uml:LiteralInteger"
+				xmi:id="_IGRaRhwAEe-2GI5f1LdWww" />
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural"
+				xmi:id="_IGRaRxwAEe-2GI5f1LdWww" value="*" />
+		</ownedAttribute>
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_IGRaSBwAEe-2GI5f1LdWww" name="guarantees"
+			type="_IGRaPhwAEe-2GI5f1LdWww">
+			<lowerValue xmi:type="uml:LiteralInteger"
+				xmi:id="_IGRaSRwAEe-2GI5f1LdWww" />
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural"
+				xmi:id="_IGRaShwAEe-2GI5f1LdWww" value="*" />
+		</ownedAttribute>
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_IGRaSxwAEe-2GI5f1LdWww" name="base_Comment"
+			association="_IGRaTRwAEe-2GI5f1LdWww">
+			<type xmi:type="uml:Class"
+				href="pathmap://UML_METAMODELS/UML.metamodel.uml#Comment" />
+			<lowerValue xmi:type="uml:LiteralInteger"
+				xmi:id="_IGRaTBwAEe-2GI5f1LdWww" />
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Extension"
+		xmi:id="_IGRaTRwAEe-2GI5f1LdWww" name="E_Contract_Comment9"
+		memberEnd="_IGRaSxwAEe-2GI5f1LdWww _IGRaThwAEe-2GI5f1LdWww">
+		<ownedEnd xmi:type="uml:ExtensionEnd"
+			xmi:id="_IGRaThwAEe-2GI5f1LdWww" name="extension_Contract"
+			type="_IGRaQxwAEe-2GI5f1LdWww" aggregation="composite"
+			association="_IGRaTRwAEe-2GI5f1LdWww" />
+	</packagedElement>
+	<packagedElement xmi:type="uml:Stereotype"
+		xmi:id="_IGRaTxwAEe-2GI5f1LdWww" name="Property">
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_IGRaUBwAEe-2GI5f1LdWww" name="base_Property"
+			association="_IGRaVBwAEe-2GI5f1LdWww">
+			<type xmi:type="uml:Class"
+				href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property" />
+			<lowerValue xmi:type="uml:LiteralInteger"
+				xmi:id="_IGRaURwAEe-2GI5f1LdWww" />
+		</ownedAttribute>
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_IGRaUhwAEe-2GI5f1LdWww" name="expression"
+			visibility="public" isReadOnly="true" isDerived="true">
+			<type xmi:type="uml:Class"
+				href="pathmap://UML_METAMODELS/UML.metamodel.uml#OpaqueExpression" />
+			<lowerValue xmi:type="uml:LiteralInteger"
+				xmi:id="_IGRaUxwAEe-2GI5f1LdWww" />
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Extension"
+		xmi:id="_IGRaVBwAEe-2GI5f1LdWww" name="E_Property_Property1"
+		memberEnd="_IGRaUBwAEe-2GI5f1LdWww _IGRaVRwAEe-2GI5f1LdWww">
+		<ownedEnd xmi:type="uml:ExtensionEnd"
+			xmi:id="_IGRaVRwAEe-2GI5f1LdWww" name="extension_Property"
+			type="_IGRaTxwAEe-2GI5f1LdWww" aggregation="composite"
+			association="_IGRaVBwAEe-2GI5f1LdWww" />
+	</packagedElement>
+</uml:Profile>

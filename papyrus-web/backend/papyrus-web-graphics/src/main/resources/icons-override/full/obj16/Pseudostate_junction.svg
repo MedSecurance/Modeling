@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#b9c8de;stop-opacity:1"/>
+            <stop offset="0" style="stop-color:#8cabcf;stop-opacity:1"/>
+            <stop offset=".092" style="stop-color:#8cabcf;stop-opacity:1"/>
+            <stop offset=".225" style="stop-color:#769cc9;stop-opacity:1"/>
+            <stop offset=".331" style="stop-color:#4980ba;stop-opacity:1"/>
+            <stop offset=".842" style="stop-color:#5c90c5;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#2e5f8e;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="7.451" x2="7.427" y1="1.098" y2="3.18" gradientTransform="matrix(.41484 0 0 .70122 -.667 .982)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <g transform="translate(-.698 -.207)scale(3.75096)">
+        <rect width="1.595" height="1.595" x="1.584" y="1.709" ry=".741" style="fill:url(#b);fill-opacity:1;stroke:#2d6296;stroke-width:.114162;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:.300095;stroke-opacity:1"/>
+        <g style="stroke:#2d6296;stroke-opacity:1">
+            <path d="M6.984 3.063H5.945" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:3.9;stroke-dasharray:none;stroke-dashoffset:.415627;stroke-opacity:1" transform="rotate(90 5.584 -.151)"/>
+            <path d="m7.149 3.052-.638-.53m.638.53-.638.53" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="rotate(90 5.584 -.151)"/>
+        </g>
+        <g style="stroke:#2d6296;stroke-opacity:1">
+            <path d="m6.984 3.063-.79-.065" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:3.9;stroke-dasharray:none;stroke-dashoffset:.415627;stroke-opacity:1" transform="rotate(39.592 4.341 -.947)"/>
+            <path d="m7.149 3.052-.638-.53m.638.53-.638.53" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="rotate(39.592 4.341 -.947)"/>
+        </g>
+        <g style="stroke:#2d6296;stroke-opacity:1">
+            <path d="m6.984 3.063-.79-.065" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:3.9;stroke-dasharray:none;stroke-dashoffset:.415627;stroke-opacity:1" transform="scale(-1 1)rotate(39.592 1.922 -7.669)"/>
+            <path d="m7.149 3.052-.638-.53m.638.53-.638.53" style="fill:none;stroke:#2d6296;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="scale(-1 1)rotate(39.592 1.922 -7.669)"/>
+        </g>
+    </g>
+</svg>

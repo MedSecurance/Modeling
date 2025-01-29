@@ -1,0 +1,55 @@
+:papyrusweb-url: https://papyrus-web.deeplab.fr/
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+:toc:
+:toclevels: 2
+
+
+= Code generation in PapyrusWeb
+
+
+.How-to objective
+****
+Generate code from a UML model.
+****
+
+We use as example the "Devices Model" created by the _Model Creation_ and _Model edition_ Howt_os. However, the code generation may be executed over any UML model containing class diagrams. The root element _DevicesModel_ has a contextual menu with the possible code generation actions. 
+
+image:cpp_generation.png[]
+
+We select *Generate code in C++*. It produces a _zip_ file, which is an Eclipse project containing the generated code.
+
+
+*NOTE:* The other target languages might also be chosen, but since the project is not configured for these languages, there might errors in the generation process.
+
+== Configuring the code generation
+
+The code generation task may be configured by using specific _Code generation profiles_. We do not detailed all the possible generation configurations in this tutorial. They are described in link:../description_software_designer/sw_designer.html[]
+
+== Modifying existing code
+
+The operations created in the models may have method implementations. 
+
+To add/modify a method implementation, the following actions need to be done:
+
+* Create an _Operation_ element, and edit its properties, such as _name_ and _parameters_.
+* Create an _OpaqueBehavior_ element in the same class, and set the following properties:
+** _Name_: give a meaninful name.
+** _Language_: choose the language to edit the code. An edit input is opened below the language element. The method specification may be added/modified. This code is included in the final generated code.
+**  _Specification_: this property should reference the method where the implementation will be added.
+
+image:choose_language_ob.png[]
+
+image:opaque_behavior_edit.png[]
+
+== Using the generated code
+
+The generated code may be edited in the Eclipse IDE (download link: https://www.eclipse.org/downloads/packages/). Different releases may be chosen, for instance, _Eclipse for C++ Developers_ or _Eclipse for Java Developers_, depending on the target language. It is necessary to import the generated zip file using the "Import Projects" menu, as shown below.
+
+image:import_project.png[]
+
+Once, the project is imported, it is necessary to add the _C++ nature_ into the project settings. This is done by updating the *.project* file. 
+
+
+*NOTE:* The generated code targets the Eclipse platform, which means it generates projects compatible with the Eclipse environment. However, the generated code may be opened in different IDE's, such as VSCode, but the target project configurations need to be updated accordingly.

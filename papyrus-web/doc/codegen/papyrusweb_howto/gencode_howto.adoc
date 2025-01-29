@@ -1,0 +1,93 @@
+:papyrusweb-url: https://papyrus-web.deeplab.fr/
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+= Code generation and model creation in PapyrusWeb
+
+This document presents a step-by-step tutorial on how to create UML models/diagrams and how to generate code from these models.
+
+
+.How-to objective
+****
+create an UML model with a set of classes and to generate Java code from it.
+****
+
+This how-to is separated into 3 major steps:
+
+. *Model creation*: how to create UML models and diagrams. 
+
+. *Model edition*: how to edit the model elements.
+
+. *Code generation*: how to generate code from these models.
+
+The URL of PapyrusWeb is : {papyrusweb-url}
+
+== Model Creation
+
+PapyrusWeb enables the creation of different kinds of projects. The start page provides a set of templates, or an existing project may be reopened.
+
+The figure below show the current available templates:
+
+image:pweb_templates.png[]
+
+We select the *Java template*. It performs the following actions:
+
+* creates a Java project template with one Class with a main method and a Comment.
+* applies 3 profiles necessary for code generation: _standard_, _Codegen_ and _PapyrusJava_
+* applies the stereotype _GeneratorHint_, setting the generator ID to _Standard Java_.
+
+The project should have a structure as illustrated below:
+
+image:project_startpage.png[]
+
+A project has three main components:
+
+* *Model explorer* (right side): the model explorer enables the navigation and edition in the existing model elements. Each model element has a contextual menu with a specific set of actions. For instance, it enables creating child elements of a given Class. 
+* *Diagram editor* (center): the diagram editor enables creating visual representation of the elements of the model   
+* *Property view* (left side): the property view enables the edition of properties of each selected element of the model. 
+
+All the possible options are explained in the link:{help-url}[ PapyrusWeb help documentation]
+
+== Model edition
+
+The model may be edited using the diagram editor or the model explorer. Both views are synchronized.
+
+We propose to perform the following actions:
+
+* selection of a comment in the diagram editor and deletion;
+* selection on the _Main_ class and edition of its name using the property view. Set the name to _Person_.
+* selection of the compartment below the class name and inclusion of a property. There is a contextual menu that enables creating a property.
+** edition of the property name to *name* and property type to *String*
+* deletion of the main method.
+* modification of the name of the root element _Model_ into _products_, using the property view. The generated project and root package will have this value.
+* modification of the root element into _MySimpleProject_. The generated zip file will have this value.
+
+The current model should have the structure illustrated below.
+7
+
+image:edited_model.png[]
+
+== Code generation
+
+The last step is to generate the Java code for this simple model. The root element _MySimpleProject_ has a contextual menu with the possible code generation actions. 
+
+image:code_gen_menu_options.png[]
+
+We select *Generate code in Java*. It produces a file _MySimpleProject.zip_, which is an Eclipse project containing the generated code.
+
+*NOTE:* The other target languages might also be chosen, but since the project is not configured for these languages, there might errors in the generation process.
+
+=== Configuring the code generation
+
+The code generation task may be configured by using specific _Code generation profiles_. We do not detailed all the possible generation configurations. They are described in link:../description_software_designer/sw_designer.html[]
+
+== Using the generated code
+
+The generated code may be edited in the Eclipse IDE. It is necessary to import the generated zip file using the "Import Projects" menu, as shown below.
+
+image:import_project.png[]
+
+Once, the project is imported, it is necessary to add the _Java nature_ into the project settings. This is done by updating the *.project* file. The excerpt below can be copied and pasted into the file content, and replacing the _buildSpec_ and _nature_ tags. 
+
+
+*NOTE:* The generated code targets the Eclipse platform, which means it generates projects compatible with the Eclipse environment. However, the generated code may be opened in different IDE's, such as VSCode, but the target project configurations need to be  

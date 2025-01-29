@@ -1,0 +1,25 @@
+:papyrusweb-url: http://localhost:8080
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+= Element specific constraints using OCL
+
+Constraints written in OCL (Object Constraint Language: https://projects.eclipse.org/projects/modeling.mdt.ocl) may be added to every available element in the IoMT model. The screenshot below shows the element _HeartMonitoring_ and one constraint attached to it, called _hasSensorAndService_.
+
+image:ocl_example_config.png[]
+
+This constraint verifies if the given Class has both 'Service' and 'Sensor' stereotypes applied. The content of the constraint is chosen by the application developer.
+
+[source,]
+----
+getAppliedStereotypes()->select(as | as.name ='Sensor' or as.name = 'Service')->asSequence()->size() = 2
+----
+
+Constraints are created by selecting the "New Object" menu in the model element and the "Owned Rule | Constraint" option.
+
+image:constraint_creation.png[]
+
+Then it is necessary to create an element "Specification | Opaque Exrpression". This element is responsible for storing the constraint to be written.
+
+image:specification_opaque_expression.png[]
+

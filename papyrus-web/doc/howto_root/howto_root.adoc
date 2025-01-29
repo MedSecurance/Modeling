@@ -1,0 +1,24 @@
+:papyrusweb-url: https://papyrus-web.deeplab.fr/
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+= Collaborative Modelling HowTo 
+
+This document presents a step-by-step tutorial on different tasks to achieve collaborative modeling and code generation. The tasks are interrelated and follow a specific order, but the user may jump to specific tasks if desired.
+
+
+.How-to objectives
+****
+. xref:chatting.adoc[*Chatting*]: configure and use the integrated Matrix chat.
+
+. xref:model_creation.adoc[*Model creation*]: how to create UML models and diagrams. 
+
+. xref:model_edition.adoc[*Model edition*]: how to edit the model elements.
+
+. *AI Assisted Model edition*.
+    - xref:iomt_ai_assistant.adoc[*AI Assistance with UML RAG*]
+    - xref:eclairs_ai_assistant.adoc[*AI Assistance with C++ RAG*]
+
+. xref:code_generation.adoc[*Code generation*]: how to generate code from models.
+****
+

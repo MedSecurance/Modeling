@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+    <g style="stroke-width:1.27635">
+        <path d="m103.18 57.803-45.364 44.824" style="fill:none;stroke:#4d81b4;stroke-width:12.7635;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="matrix(.08683 .00186 -.00191 .0844 -3.772 1.633)"/>
+        <g style="stroke-width:1.27635">
+            <path d="M122.332 76.835 84.03 38.77m64.563-26.38L84.09 38.71m64.503-26.32-26.32 64.505" style="fill:none;stroke:#4d81b4;stroke-width:12.7635;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="matrix(.08683 .00186 -.00191 .0844 -3.772 1.633)"/>
+        </g>
+    </g>
+    <g style="stroke-width:1.23237">
+        <path d="m103.18 57.803-45.364 44.824" style="fill:none;stroke:#4d81b4;stroke-width:12.3236;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="matrix(.09107 .0019 -.002 .08632 .74 6.048)"/>
+        <g style="stroke-width:1.23237">
+            <path d="M122.332 76.835 84.03 38.77m64.563-26.38L84.09 38.71m64.503-26.32-26.32 64.505" style="fill:none;stroke:#4d81b4;stroke-width:12.3237;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="matrix(.09107 .0019 -.002 .08632 .74 6.048)"/>
+        </g>
+    </g>
+</svg>

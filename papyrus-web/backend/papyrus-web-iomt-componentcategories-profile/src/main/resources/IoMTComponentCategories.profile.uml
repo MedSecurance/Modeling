@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_KrJKgBwAEe-2GI5f1LdWww" name="IoMTComponentCategories" URI="http://IoMTComponentCategories">
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_Wf74qE2hEe-xC5P6fn9FcQ">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_Wf74qU2hEe-xC5P6fn9FcQ">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_Wf74qk2hEe-xC5P6fn9FcQ">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Wf74q02hEe-xC5P6fn9FcQ" name="IoMTcomponent">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wf74rE2hEe-xC5P6fn9FcQ" name="base_Class" association="_Wf74tU2hEe-xC5P6fn9FcQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wf74rU2hEe-xC5P6fn9FcQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wf74rk2hEe-xC5P6fn9FcQ" name="supportedFeatures" type="_Wf74v02hEe-xC5P6fn9FcQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wf74r02hEe-xC5P6fn9FcQ" name="LiteralInteger1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Wf74sE2hEe-xC5P6fn9FcQ" name="LiteralUnlimitedNatural1" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Wf74sU2hEe-xC5P6fn9FcQ" name="IoMTp">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wf74sk2hEe-xC5P6fn9FcQ" name="base_Property" association="_Wf74t02hEe-xC5P6fn9FcQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wf74s02hEe-xC5P6fn9FcQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wf74tE2hEe-xC5P6fn9FcQ" name="supportedFeatures" type="_Wf75Hk2hEe-xC5P6fn9FcQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_Wf74tU2hEe-xC5P6fn9FcQ" name="E_Stereotype1_Class1" memberEnd="_Wf74rE2hEe-xC5P6fn9FcQ _Wf74tk2hEe-xC5P6fn9FcQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Wf74tk2hEe-xC5P6fn9FcQ" name="extension_Stereotype1" type="_Wf74q02hEe-xC5P6fn9FcQ" aggregation="composite" association="_Wf74tU2hEe-xC5P6fn9FcQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_Wf74t02hEe-xC5P6fn9FcQ" name="E_Stereotype2_Property1" memberEnd="_Wf74sk2hEe-xC5P6fn9FcQ _Wf74uE2hEe-xC5P6fn9FcQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Wf74uE2hEe-xC5P6fn9FcQ" name="extension_Stereotype2" type="_Wf74sU2hEe-xC5P6fn9FcQ" aggregation="composite" association="_Wf74t02hEe-xC5P6fn9FcQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Wf74uU2hEe-xC5P6fn9FcQ" name="IoMTpkg">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wf74uk2hEe-xC5P6fn9FcQ" name="base_Package" association="_Wf74vU2hEe-xC5P6fn9FcQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wf74u02hEe-xC5P6fn9FcQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wf74vE2hEe-xC5P6fn9FcQ" name="supportedFeatures" type="_Wf75Rk2hEe-xC5P6fn9FcQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_Wf74vU2hEe-xC5P6fn9FcQ" name="E_Stereotype3_Package1" memberEnd="_Wf74uk2hEe-xC5P6fn9FcQ _Wf74vk2hEe-xC5P6fn9FcQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Wf74vk2hEe-xC5P6fn9FcQ" name="extension_Stereotype3" type="_Wf74uU2hEe-xC5P6fn9FcQ" aggregation="composite" association="_Wf74vU2hEe-xC5P6fn9FcQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_Wf74v02hEe-xC5P6fn9FcQ" name="ComponentAnnotationKind">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74wE2hEe-xC5P6fn9FcQ" name="configurationChange"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74wU2hEe-xC5P6fn9FcQ" name="accessPermission"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74wk2hEe-xC5P6fn9FcQ" name="factory"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74w02hEe-xC5P6fn9FcQ" name="collector"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74xE2hEe-xC5P6fn9FcQ" name="externalSoftware"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74xU2hEe-xC5P6fn9FcQ" name="mutualTrust"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74xk2hEe-xC5P6fn9FcQ" name="minimalFunctionMode"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74x02hEe-xC5P6fn9FcQ" name="asymetricCryptography"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74yE2hEe-xC5P6fn9FcQ" name="deviceVulnerabilityMitigation"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74yU2hEe-xC5P6fn9FcQ" name="limitedButSafeOperation"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74yk2hEe-xC5P6fn9FcQ" name="failureLogger"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74y02hEe-xC5P6fn9FcQ" name="dataAuthenticator"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74zE2hEe-xC5P6fn9FcQ" name="certificateWithoutExpireData"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74zU2hEe-xC5P6fn9FcQ" name="uniquePresharedKey"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74zk2hEe-xC5P6fn9FcQ" name="bootSoftware"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74z02hEe-xC5P6fn9FcQ" name="factoryPasswordGenerator"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf740E2hEe-xC5P6fn9FcQ" name="updateStatusMonitor"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf740U2hEe-xC5P6fn9FcQ" name="remoteAccess"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf740k2hEe-xC5P6fn9FcQ" name="riskControlMeasure"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74002hEe-xC5P6fn9FcQ" name="roleBasedAuthentication"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf741E2hEe-xC5P6fn9FcQ" name="dataConverter"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf741U2hEe-xC5P6fn9FcQ" name="randomNumberGenerator"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf741k2hEe-xC5P6fn9FcQ" name="cryptographicKeyGenerator"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74102hEe-xC5P6fn9FcQ" name="localAccess"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf742E2hEe-xC5P6fn9FcQ" name="backupData"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf742U2hEe-xC5P6fn9FcQ" name="sensorUpdater"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf742k2hEe-xC5P6fn9FcQ" name="criticalLogFileStorer"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74202hEe-xC5P6fn9FcQ" name="cryptographyProtectionOfDataAtRest"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf743E2hEe-xC5P6fn9FcQ" name="symmetricCryptography"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf743U2hEe-xC5P6fn9FcQ" name="safetyEventManament"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf743k2hEe-xC5P6fn9FcQ" name="certificateRecording"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74302hEe-xC5P6fn9FcQ" name="temperProofIdentityStorage"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf744E2hEe-xC5P6fn9FcQ" name="criticalElectronicDevice"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf744U2hEe-xC5P6fn9FcQ" name="vulnerabilityDevice"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf744k2hEe-xC5P6fn9FcQ" name="unautorizedUsersPreventer"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74402hEe-xC5P6fn9FcQ" name="medicalITNetwork"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf745E2hEe-xC5P6fn9FcQ" name="securityEventLog"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf745U2hEe-xC5P6fn9FcQ" name="criticalActionsTimestampedLogger"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf745k2hEe-xC5P6fn9FcQ" name="communicationEncrypted"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74502hEe-xC5P6fn9FcQ" name="geoLocatedReporter"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf746E2hEe-xC5P6fn9FcQ" name="identityStorage"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf746U2hEe-xC5P6fn9FcQ" name="spatioTemporalSynchornizer"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf746k2hEe-xC5P6fn9FcQ" name="nonEssentialPIICollector"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74602hEe-xC5P6fn9FcQ" name="nonNotifyingSinglePointOfFailure"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf747E2hEe-xC5P6fn9FcQ" name="plainTextPIILogger"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf747U2hEe-xC5P6fn9FcQ" name="documentInformation"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf747k2hEe-xC5P6fn9FcQ" name="requiredComponent"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74702hEe-xC5P6fn9FcQ" name="unrequiredCommunicationCapability"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf748E2hEe-xC5P6fn9FcQ" name="privacyManager"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf748U2hEe-xC5P6fn9FcQ" name="secureSemanticInteroperability"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf748k2hEe-xC5P6fn9FcQ" name="configurationBackupData"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74802hEe-xC5P6fn9FcQ" name="criticalMechanicalDevice"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf749E2hEe-xC5P6fn9FcQ" name="appDataStored"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf749U2hEe-xC5P6fn9FcQ" name="criticalEventsTimestampedLogger"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf749k2hEe-xC5P6fn9FcQ" name="deviceAuthenticatorToGateway"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74902hEe-xC5P6fn9FcQ" name="technicalUserInterfaceVerification"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74-E2hEe-xC5P6fn9FcQ" name="secureAssetStorage"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74-U2hEe-xC5P6fn9FcQ" name="softwareInDevice"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74-k2hEe-xC5P6fn9FcQ" name="devicePairing"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74-02hEe-xC5P6fn9FcQ" name="postMarketSurveillance"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74_E2hEe-xC5P6fn9FcQ" name="candidateSecurityCapability"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74_U2hEe-xC5P6fn9FcQ" name="electronicComponent"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74_k2hEe-xC5P6fn9FcQ" name="secureDeviceIdentityGenerator"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf74_02hEe-xC5P6fn9FcQ" name="nonCritical"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75AE2hEe-xC5P6fn9FcQ" name="sensitiveBackupOfExternalStorage"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75AU2hEe-xC5P6fn9FcQ" name="accessToExternalWebSite"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Ak2hEe-xC5P6fn9FcQ" name="personnalData"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75A02hEe-xC5P6fn9FcQ" name="cryptographyForSourceValidity"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75BE2hEe-xC5P6fn9FcQ" name="offLabelDevice"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75BU2hEe-xC5P6fn9FcQ" name="implicitDevice2DeviceTrust"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Bk2hEe-xC5P6fn9FcQ" name="dataProcessor"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75B02hEe-xC5P6fn9FcQ" name="identityRecorder"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75CE2hEe-xC5P6fn9FcQ" name="riskAnalyser"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75CU2hEe-xC5P6fn9FcQ" name="failSafeMode"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Ck2hEe-xC5P6fn9FcQ" name="securityControl"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75C02hEe-xC5P6fn9FcQ" name="inconsistentDataHandler"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75DE2hEe-xC5P6fn9FcQ" name="inconsistentDeviceLocationHandler"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75DU2hEe-xC5P6fn9FcQ" name="encryptedDataStorage"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Dk2hEe-xC5P6fn9FcQ" name="closedCommunicationProtocol"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75D02hEe-xC5P6fn9FcQ" name="tamperingPreventer"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75EE2hEe-xC5P6fn9FcQ" name="nonTimelyUpdateDetector"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75EU2hEe-xC5P6fn9FcQ" name="secureCode"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Ek2hEe-xC5P6fn9FcQ" name="secureInteroperability"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75E02hEe-xC5P6fn9FcQ" name="uniqueComponentLevelGenerator"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75FE2hEe-xC5P6fn9FcQ" name="mostSecureCommunicationProtocol"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75FU2hEe-xC5P6fn9FcQ" name="criticalDataBackup"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Fk2hEe-xC5P6fn9FcQ" name="cloneResistantID"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75F02hEe-xC5P6fn9FcQ" name="modificationResistantID"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75GE2hEe-xC5P6fn9FcQ" name="MACbasedIdentifier"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75GU2hEe-xC5P6fn9FcQ" name="medicalDeviceConnection"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Gk2hEe-xC5P6fn9FcQ" name="malwareProtector"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75G02hEe-xC5P6fn9FcQ" name="criticalSoftwareComponent"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75HE2hEe-xC5P6fn9FcQ" name="backupOptimizer"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75HU2hEe-xC5P6fn9FcQ" name="dataAuthentifier"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_Wf75Hk2hEe-xC5P6fn9FcQ" name="PropertyAnnotationKind">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75H02hEe-xC5P6fn9FcQ" name="cryptographicOperation"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75IE2hEe-xC5P6fn9FcQ" name="strictlyIncreasingFunction"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75IU2hEe-xC5P6fn9FcQ" name="postDeploymentInformation"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Ik2hEe-xC5P6fn9FcQ" name="uniqueID"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75I02hEe-xC5P6fn9FcQ" name="identitity256LongAtLeast"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75JE2hEe-xC5P6fn9FcQ" name="candidateSymetricKeyEncryption"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75JU2hEe-xC5P6fn9FcQ" name="securityMaintenance"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Jk2hEe-xC5P6fn9FcQ" name="securitySafeguard"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75J02hEe-xC5P6fn9FcQ" name="criticalDataType"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75KE2hEe-xC5P6fn9FcQ" name="securityFeature"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75KU2hEe-xC5P6fn9FcQ" name="softwareVersionNumber"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Kk2hEe-xC5P6fn9FcQ" name="listAuthorizedOnboarders"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75K02hEe-xC5P6fn9FcQ" name="testInformation"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75LE2hEe-xC5P6fn9FcQ" name="connectivity"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75LU2hEe-xC5P6fn9FcQ" name="exchangeBetweenDeviceAndEventLogger"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Lk2hEe-xC5P6fn9FcQ" name="nonRepudiableIdentities"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75L02hEe-xC5P6fn9FcQ" name="deviceSecurityBaseline"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75ME2hEe-xC5P6fn9FcQ" name="unrequiredPrivilege"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75MU2hEe-xC5P6fn9FcQ" name="claim"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Mk2hEe-xC5P6fn9FcQ" name="decommissionData"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75M02hEe-xC5P6fn9FcQ" name="patientData"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75NE2hEe-xC5P6fn9FcQ" name="dataInTransit"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75NU2hEe-xC5P6fn9FcQ" name="securityConfigurationOption"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Nk2hEe-xC5P6fn9FcQ" name="deviceSecret"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75N02hEe-xC5P6fn9FcQ" name="versioningUniqueIdentifier"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75OE2hEe-xC5P6fn9FcQ" name="metadataForDocumentedInformation"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75OU2hEe-xC5P6fn9FcQ" name="dataOutsideDirectStorerControl"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Ok2hEe-xC5P6fn9FcQ" name="candidateCertificate"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75O02hEe-xC5P6fn9FcQ" name="deviceClinicalBackupData"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75PE2hEe-xC5P6fn9FcQ" name="riskControlMeasure"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75PU2hEe-xC5P6fn9FcQ" name="privateKey"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Pk2hEe-xC5P6fn9FcQ" name="securityMeasure"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75P02hEe-xC5P6fn9FcQ" name="dataInMotion"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75QE2hEe-xC5P6fn9FcQ" name="collectedPatientPersonnalData"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75QU2hEe-xC5P6fn9FcQ" name="keyPerformanceIndicator"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Qk2hEe-xC5P6fn9FcQ" name="candidateSecurityFeature"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Q02hEe-xC5P6fn9FcQ" name="striclyIncreasingFunction"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75RE2hEe-xC5P6fn9FcQ" name="deviceInformationDeclaration"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75RU2hEe-xC5P6fn9FcQ" name="backupData"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_Wf75Rk2hEe-xC5P6fn9FcQ" name="PackageAnnotationKind">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75R02hEe-xC5P6fn9FcQ" name="developmentAndTestEnvironment"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75SE2hEe-xC5P6fn9FcQ" name="documentation"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75SU2hEe-xC5P6fn9FcQ" name="regionAndCulturalNorms"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Sk2hEe-xC5P6fn9FcQ" name="physicalSecurity"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75S02hEe-xC5P6fn9FcQ" name="securityControl"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75TE2hEe-xC5P6fn9FcQ" name="accessToSourceCode"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75TU2hEe-xC5P6fn9FcQ" name="informationProcessingFacility"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Tk2hEe-xC5P6fn9FcQ" name="informationManagementSystem"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75T02hEe-xC5P6fn9FcQ" name="healthcareDeliveryOrganisation"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75UE2hEe-xC5P6fn9FcQ" name="securySystem"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75UU2hEe-xC5P6fn9FcQ" name="trustedModule"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Uk2hEe-xC5P6fn9FcQ" name="finalProduct"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75U02hEe-xC5P6fn9FcQ" name="smartDeviceApp"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75VE2hEe-xC5P6fn9FcQ" name="medicalITNetwork"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75VU2hEe-xC5P6fn9FcQ" name="secureCommunicationChannel"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Wf75Vk2hEe-xC5P6fn9FcQ" name="similarMedicalITNetwork"/>
+  </packagedElement>
+</uml:Profile>

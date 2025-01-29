@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="144.286" x2="23.46" y1="144.286" y2="3.881" gradientTransform="matrix(.0144 0 0 .00825 -.084 .413)" gradientUnits="userSpaceOnUse"/>
+        <linearGradient xlink:href="#a" id="c" x1="144.286" x2="23.46" y1="144.286" y2="3.881" gradientTransform="matrix(.00662 0 0 .00204 .099 .152)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <path d="M.254.445h1.741v1.159H.255Z" style="fill:url(#b);fill-opacity:1;stroke:#4d81b4;stroke-width:.211667;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(-.148 .76)scale(3.47504)"/>
+    <path d="M.254.16h.8v.287h-.8Z" style="fill:url(#c);fill-opacity:1;stroke:#4d81b4;stroke-width:.211667;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(-.148 .76)scale(3.47504)"/>
+    <path d="m3.955.72-3.3 3.188" style="fill:none;stroke:#4d81b4;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:3.9;stroke-dasharray:.831252,.831252;stroke-dashoffset:.415627;stroke-opacity:1" transform="translate(-.148 .76)scale(3.47504)"/>
+    <path d="m4.069.6.022.724M4.069.6l-.724.023" style="fill:none;stroke:#4d81b4;stroke-width:.277085;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="translate(-.148 .76)scale(3.47504)"/>
+    <g style="font-style:normal;font-weight:400;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0;word-spacing:0;fill:#4d81b4;fill-opacity:1;stroke:none;stroke-width:.264583;stroke-opacity:1">
+        <path d="M3.547 5.64 2.51 5.188v-.25l1.038-.45v.295l-.724.277.724.287Zm1.62.173h-.333l-.132-.345h-.606l-.125.345h-.324l.59-1.516h.323zm-.563-.6-.209-.562-.205.562Zm.669.428v-.293L6 5.063l-.726-.282v-.29l1.04.45v.247z" aria-label="&lt;A&gt;" style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:2.11667px;font-family:sans-serif;-inkscape-font-specification:&quot;sans-serif Bold&quot;;fill:#4d81b4;fill-opacity:1;stroke:none;stroke-width:.264583;stroke-opacity:1" transform="translate(.314 .948)scale(2.42616)"/>
+    </g>
+</svg>

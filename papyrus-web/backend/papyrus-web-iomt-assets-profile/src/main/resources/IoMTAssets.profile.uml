@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uml:Profile xmi:version="20131001"
+	xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+	xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+	xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML"
+	xmi:id="_JDM8UBwAEe-2GI5f1LdWww" name="IoMTAssets"
+	URI="http://iomtassets">
+	<eAnnotations xmi:type="ecore:EAnnotation"
+		xmi:id="_JDM8URwAEe-2GI5f1LdWww"
+		source="http://www.eclipse.org/uml2/2.0.0/UML">
+		<contents xmi:type="ecore:EPackage"
+			xmi:id="_JDM8UhwAEe-2GI5f1LdWww" name="IoMTAssets"
+			nsURI="http://iomtassets" nsPrefix="IoMTAssets">
+			<eAnnotations xmi:type="ecore:EAnnotation"
+				xmi:id="_JDM8UxwAEe-2GI5f1LdWww" source="PapyrusVersion">
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_JDM8VBwAEe-2GI5f1LdWww" key="Version" value="0.0.1" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_JDM8VRwAEe-2GI5f1LdWww" key="Comment" value="" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_JDM8VhwAEe-2GI5f1LdWww" key="Copyright" value="" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_JDM8VxwAEe-2GI5f1LdWww" key="Date" value="2024-02-07" />
+				<details xmi:type="ecore:EStringToStringMapEntry"
+					xmi:id="_JDM8WBwAEe-2GI5f1LdWww" key="Author" value="" />
+			</eAnnotations>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_JDM8WRwAEe-2GI5f1LdWww" name="Asset" abstract="true">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_JDM8WhwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_JDM8oBwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_JDM8WxwAEe-2GI5f1LdWww" name="key" ordered="false"
+					lowerBound="1">
+					<eType xmi:type="ecore:EDataType"
+						href="http://www.eclipse.org/uml2/5.0.0/Types#//String" />
+				</eStructuralFeatures>
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_JDM8XRwAEe-2GI5f1LdWww" name="missionName" ordered="false"
+					lowerBound="1">
+					<eType xmi:type="ecore:EDataType"
+						href="http://www.eclipse.org/uml2/5.0.0/Types#//String" />
+				</eStructuralFeatures>
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_JDM8XxwAEe-2GI5f1LdWww" name="description" ordered="false"
+					lowerBound="1">
+					<eType xmi:type="ecore:EDataType"
+						href="http://www.eclipse.org/uml2/5.0.0/Types#//String" />
+				</eStructuralFeatures>
+				<eStructuralFeatures xmi:type="ecore:EReference"
+					xmi:id="_JDM8YRwAEe-2GI5f1LdWww" name="base_Class" ordered="false">
+					<eType xmi:type="ecore:EClass"
+						href="http://www.eclipse.org/uml2/5.0.0/UML#//Class" />
+				</eStructuralFeatures>
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_JDM8YxwAEe-2GI5f1LdWww" name="Service"
+				eSuperTypes="_JDM8WRwAEe-2GI5f1LdWww">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_JDM8ZBwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_JDM8phwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_JDM8ZRwAEe-2GI5f1LdWww" name="kind" ordered="false"
+					lowerBound="1" eType="_JDM8aBwAEe-2GI5f1LdWww" />
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EEnum"
+				xmi:id="_JDM8aBwAEe-2GI5f1LdWww" name="ServiceKind">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_JDM8aRwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_JDM8tBwAEe-2GI5f1LdWww" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8ahwAEe-2GI5f1LdWww" name="RemotePatientMonitoring" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8axwAEe-2GI5f1LdWww" name="InfusionPump" value="1" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8bBwAEe-2GI5f1LdWww" name="StressMonitoring" value="2" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8bRwAEe-2GI5f1LdWww" name="OxigenLevelMonitoring"
+					value="3" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8bhwAEe-2GI5f1LdWww" name="HeartRateMonitoring"
+					value="4" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8bxwAEe-2GI5f1LdWww" name="GlucoseMonitoring" value="5" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8cBwAEe-2GI5f1LdWww" name="ThermometerMonitoring"
+					value="6" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8cRwAEe-2GI5f1LdWww" name="DataStorage" value="7" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8chwAEe-2GI5f1LdWww" name="DataAnalysis" value="8" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8cxwAEe-2GI5f1LdWww" name="EmergencyResponse" value="9" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8dBwAEe-2GI5f1LdWww" name="VoiceBasedHealthAssitants"
+					value="10" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8dRwAEe-2GI5f1LdWww" name="SurgicalNavigation"
+					value="11" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8dhwAEe-2GI5f1LdWww" name="MedicalImageAnalysis"
+					value="12" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8dxwAEe-2GI5f1LdWww" name="IoMTCybersecurity"
+					value="13" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8eBwAEe-2GI5f1LdWww" name="Other" value="14" />
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_JDM8eRwAEe-2GI5f1LdWww" name="Information"
+				eSuperTypes="_JDM8WRwAEe-2GI5f1LdWww">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_JDM8ehwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_JDM8qRwAEe-2GI5f1LdWww" />
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_JDM8exwAEe-2GI5f1LdWww" name="location" ordered="false"
+					lowerBound="1">
+					<eType xmi:type="ecore:EDataType"
+						href="http://www.eclipse.org/uml2/5.0.0/Types#//String" />
+				</eStructuralFeatures>
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_JDM8fRwAEe-2GI5f1LdWww" name="record" ordered="false"
+					lowerBound="1">
+					<eType xmi:type="ecore:EDataType"
+						href="http://www.eclipse.org/uml2/5.0.0/Types#//String" />
+				</eStructuralFeatures>
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_JDM8fxwAEe-2GI5f1LdWww" name="kind" ordered="false"
+					lowerBound="1" eType="_JDM8ghwAEe-2GI5f1LdWww" />
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EEnum"
+				xmi:id="_JDM8ghwAEe-2GI5f1LdWww" name="InformationKind">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_JDM8gxwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_JDM8zBwAEe-2GI5f1LdWww" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8hBwAEe-2GI5f1LdWww" name="PatientPersonalData" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8hRwAEe-2GI5f1LdWww" name="PatientHealthRecords"
+					value="1" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8hhwAEe-2GI5f1LdWww" name="RealTimePatientData"
+					value="2" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8hxwAEe-2GI5f1LdWww" name="InsuranceAndBilling"
+					value="3" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8iBwAEe-2GI5f1LdWww" name="DeviceSensorData" value="4" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8iRwAEe-2GI5f1LdWww" name="StaffUserData" value="5" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8ihwAEe-2GI5f1LdWww" name="ThirdPartyData" value="6" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8ixwAEe-2GI5f1LdWww" name="Other" value="7" />
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EClass"
+				xmi:id="_JDM8jBwAEe-2GI5f1LdWww" name="IntangibleAsset"
+				eSuperTypes="_JDM8WRwAEe-2GI5f1LdWww">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_JDM8jRwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_JDM8rhwAEe-2GI5f1LdWww" />
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_JDM8jhwAEe-2GI5f1LdWww" source="duplicates">
+					<contents xmi:type="ecore:EAttribute"
+						xmi:id="_JDM8jxwAEe-2GI5f1LdWww" name="description"
+						ordered="false" lowerBound="1">
+						<eAnnotations xmi:type="ecore:EAnnotation"
+							xmi:id="_JDM8kBwAEe-2GI5f1LdWww" source="redefines"
+							references="_JDM8XxwAEe-2GI5f1LdWww" />
+						<eType xmi:type="ecore:EDataType"
+							href="http://www.eclipse.org/uml2/5.0.0/Types#//String" />
+					</contents>
+				</eAnnotations>
+				<eStructuralFeatures xmi:type="ecore:EAttribute"
+					xmi:id="_JDM8khwAEe-2GI5f1LdWww" name="kind" ordered="false"
+					lowerBound="1" eType="_JDM8lRwAEe-2GI5f1LdWww" />
+			</eClassifiers>
+			<eClassifiers xmi:type="ecore:EEnum"
+				xmi:id="_JDM8lRwAEe-2GI5f1LdWww" name="IntangibleAssetKind">
+				<eAnnotations xmi:type="ecore:EAnnotation"
+					xmi:id="_JDM8lhwAEe-2GI5f1LdWww"
+					source="http://www.eclipse.org/uml2/2.0.0/UML"
+					references="_JDM8xBwAEe-2GI5f1LdWww" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8lxwAEe-2GI5f1LdWww" name="HospitalReputation" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8mBwAEe-2GI5f1LdWww" name="IoMTBrandEquity" value="1" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8mRwAEe-2GI5f1LdWww" name="PatientSatisfaction"
+					value="2" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8mhwAEe-2GI5f1LdWww" name="DataPrivacySecurityTrust"
+					value="3" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8mxwAEe-2GI5f1LdWww" name="IntellectualProperty"
+					value="4" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8nBwAEe-2GI5f1LdWww" name="Licences" value="5" />
+				<eLiterals xmi:type="ecore:EEnumLiteral"
+					xmi:id="_JDM8nRwAEe-2GI5f1LdWww" name="Other" value="6" />
+			</eClassifiers>
+		</contents>
+	</eAnnotations>
+	<elementImport xmi:type="uml:ElementImport"
+		xmi:id="_JDM8nhwAEe-2GI5f1LdWww">
+		<importedElement xmi:type="uml:Class"
+			href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class" />
+	</elementImport>
+	<packageImport xmi:type="uml:PackageImport"
+		xmi:id="_JDM8nxwAEe-2GI5f1LdWww">
+		<importedPackage xmi:type="uml:Model"
+			href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0" />
+	</packageImport>
+	<packagedElement xmi:type="uml:Stereotype"
+		xmi:id="_JDM8oBwAEe-2GI5f1LdWww" name="Asset" isAbstract="true">
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8oRwAEe-2GI5f1LdWww" name="key">
+			<type xmi:type="uml:PrimitiveType"
+				href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String" />
+		</ownedAttribute>
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8ohwAEe-2GI5f1LdWww" name="missionName">
+			<type xmi:type="uml:PrimitiveType"
+				href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String" />
+		</ownedAttribute>
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8oxwAEe-2GI5f1LdWww" name="description">
+			<type xmi:type="uml:PrimitiveType"
+				href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String" />
+		</ownedAttribute>
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8pBwAEe-2GI5f1LdWww" name="base_Class"
+			association="_JDM8shwAEe-2GI5f1LdWww">
+			<type xmi:type="uml:Class"
+				href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class" />
+			<lowerValue xmi:type="uml:LiteralInteger"
+				xmi:id="_JDM8pRwAEe-2GI5f1LdWww" />
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Stereotype"
+		xmi:id="_JDM8phwAEe-2GI5f1LdWww" name="Service">
+		<generalization xmi:type="uml:Generalization"
+			xmi:id="_JDM8pxwAEe-2GI5f1LdWww" general="_JDM8oBwAEe-2GI5f1LdWww" />
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8qBwAEe-2GI5f1LdWww" name="kind"
+			type="_JDM8tBwAEe-2GI5f1LdWww" />
+	</packagedElement>
+	<packagedElement xmi:type="uml:Stereotype"
+		xmi:id="_JDM8qRwAEe-2GI5f1LdWww" name="Information">
+		<generalization xmi:type="uml:Generalization"
+			xmi:id="_JDM8qhwAEe-2GI5f1LdWww" general="_JDM8oBwAEe-2GI5f1LdWww" />
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8qxwAEe-2GI5f1LdWww" name="location">
+			<type xmi:type="uml:PrimitiveType"
+				href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String" />
+		</ownedAttribute>
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8rBwAEe-2GI5f1LdWww" name="record">
+			<type xmi:type="uml:PrimitiveType"
+				href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String" />
+		</ownedAttribute>
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8rRwAEe-2GI5f1LdWww" name="kind"
+			type="_JDM8zBwAEe-2GI5f1LdWww" />
+	</packagedElement>
+	<packagedElement xmi:type="uml:Stereotype"
+		xmi:id="_JDM8rhwAEe-2GI5f1LdWww" name="IntangibleAsset">
+		<generalization xmi:type="uml:Generalization"
+			xmi:id="_JDM8rxwAEe-2GI5f1LdWww" general="_JDM8oBwAEe-2GI5f1LdWww" />
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8sBwAEe-2GI5f1LdWww" name="kind"
+			type="_JDM8xBwAEe-2GI5f1LdWww" />
+		<ownedAttribute xmi:type="uml:Property"
+			xmi:id="_JDM8sRwAEe-2GI5f1LdWww" name="description">
+			<type xmi:type="uml:PrimitiveType"
+				href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String" />
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Extension"
+		xmi:id="_JDM8shwAEe-2GI5f1LdWww" name="E_Asset_Class1"
+		memberEnd="_JDM8pBwAEe-2GI5f1LdWww _JDM8sxwAEe-2GI5f1LdWww">
+		<ownedEnd xmi:type="uml:ExtensionEnd"
+			xmi:id="_JDM8sxwAEe-2GI5f1LdWww" name="extension_Asset"
+			type="_JDM8oBwAEe-2GI5f1LdWww" aggregation="composite"
+			association="_JDM8shwAEe-2GI5f1LdWww" />
+	</packagedElement>
+	<packagedElement xmi:type="uml:Enumeration"
+		xmi:id="_JDM8tBwAEe-2GI5f1LdWww" name="ServiceKind">
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8tRwAEe-2GI5f1LdWww" name="RemotePatientMonitoring" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8thwAEe-2GI5f1LdWww" name="InfusionPump" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8txwAEe-2GI5f1LdWww" name="StressMonitoring" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8bRwAEe-2GI5f1LdWww" name="OxigenLevelMonitoring" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8uRwAEe-2GI5f1LdWww" name="HeartRateMonitoring" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8uhwAEe-2GI5f1LdWww" name="GlucoseMonitoring" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8uxwAEe-2GI5f1LdWww" name="ThermometerMonitoring" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8vBwAEe-2GI5f1LdWww" name="DataStorage" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8vRwAEe-2GI5f1LdWww" name="DataAnalysis" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8vhwAEe-2GI5f1LdWww" name="EmergencyResponse" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8vxwAEe-2GI5f1LdWww" name="VoiceBasedHealthAssitants" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8wBwAEe-2GI5f1LdWww" name="SurgicalNavigation" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8wRwAEe-2GI5f1LdWww" name="MedicalImageAnalysis" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8whwAEe-2GI5f1LdWww" name="IoMTCybersecurity" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8wxwAEe-2GI5f1LdWww" name="Other" />
+	</packagedElement>
+	<packagedElement xmi:type="uml:Enumeration"
+		xmi:id="_JDM8xBwAEe-2GI5f1LdWww" name="IntangibleAssetKind">
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8xRwAEe-2GI5f1LdWww" name="HospitalReputation" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8xhwAEe-2GI5f1LdWww" name="IoMTBrandEquity" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8xxwAEe-2GI5f1LdWww" name="PatientSatisfaction" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8yBwAEe-2GI5f1LdWww" name="DataPrivacySecurityTrust" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8yRwAEe-2GI5f1LdWww" name="IntellectualProperty" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8yhwAEe-2GI5f1LdWww" name="Licences" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8yxwAEe-2GI5f1LdWww" name="Other" />
+	</packagedElement>
+	<packagedElement xmi:type="uml:Enumeration"
+		xmi:id="_JDM8zBwAEe-2GI5f1LdWww" name="InformationKind">
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8zRwAEe-2GI5f1LdWww" name="PatientPersonalData" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8zhwAEe-2GI5f1LdWww" name="PatientHealthRecords" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM8zxwAEe-2GI5f1LdWww" name="RealTimePatientData" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM80BwAEe-2GI5f1LdWww" name="InsuranceAndBilling" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM80RwAEe-2GI5f1LdWww" name="DeviceSensorData" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM80hwAEe-2GI5f1LdWww" name="StaffUserData" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM80xwAEe-2GI5f1LdWww" name="ThirdPartyData" />
+		<ownedLiteral xmi:type="uml:EnumerationLiteral"
+			xmi:id="_JDM81BwAEe-2GI5f1LdWww" name="Other" />
+	</packagedElement>
+</uml:Profile>

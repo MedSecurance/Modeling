@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+    <defs>
+        <linearGradient id="a">
+            <stop offset="0" style="stop-color:#cae2f9;stop-opacity:1"/>
+            <stop offset="1" style="stop-color:#fdfeff;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient xlink:href="#a" id="b" x1="144.286" x2="23.46" y1="144.286" y2="3.881" gradientTransform="matrix(.03272 0 0 .02363 -.536 .58)" gradientUnits="userSpaceOnUse"/>
+    </defs>
+    <path d="M.232.671h3.953V3.99H.232Z" style="fill:url(#b);fill-opacity:1;stroke:#4d81b4;stroke-width:.147;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(.186 -.958)scale(3.66407)"/>
+    <path d="M.287 3.357h3.859" style="fill:none;stroke:#4d81b4;stroke-width:.127;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:.508,.127;stroke-dashoffset:0;stroke-opacity:1" transform="translate(.186 -.958)scale(3.66407)"/>
+    <path d="M.252 2.525c1.728.211 2.345-.482 2.157-1.832" style="fill:none;stroke:#4d81b4;stroke-width:.127;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" transform="translate(.186 -.958)scale(3.66407)"/>
+    <text xml:space="preserve" x=".43" y="1.843" style="font-size:1.17471px;fill:none;stroke:#4d81b4;stroke-width:.147;stroke-linecap:round" transform="matrix(3.53708 0 0 3.79562 .186 -.958)"><tspan x=".43" y="1.843" style="stroke-width:.147">C I</tspan></text>
+</svg>
