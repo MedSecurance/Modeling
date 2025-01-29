@@ -43,7 +43,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
+			<!-- <plugin>
 				<groupId>io.github.git-commit-id</groupId>
 				<artifactId>git-commit-id-maven-plugin</artifactId>
 				<executions>
@@ -63,7 +63,7 @@
 						<includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
 					</includeOnlyProperties>
 				</configuration>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
