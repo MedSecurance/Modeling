@@ -1,0 +1,69 @@
+= RCP Web code generation project
+
+This project creates an RCP Eclipse application that instantiates an HTTP web server.
+
+The HTTP server exposes an API that calls modeling services:
+- Code generation from UML diagrams to Java, C++, Python, C. It exposes the PapyrusSoftware Designer plugins.
+- OCL constraint evalution.
+- PlantUML generation 
+
+The API can be visualized using Swagger.
+
+== Compilation and execution
+
+=== Using docker
+
+==== Compilation
+
+This command produces the docker image of the service. It may take some time, since it downloads and resolves all the dependencies.
+
+[,script]
+----
+docker build -t codegen_rcp -f dockerfiles/rcp/Dockerfile .
+----
+
+==== Execution
+
+[,script]
+----
+docker run -it --name=codegen_rcp_container --network=host codegen_rcp:latest
+----
+
+
+=== Using scripts
+
+==== Compilation 
+
+The projects can be compiled using:
+
+[,script]
+----
+mvn clean verify
+----
+
+The compiled project needs to be extracted into a folder prior do execution. This command extracts to the same folder, but it is possible to choose another target folder.
+
+[,script]
+----
+unzip -o rcp/org.eclipse.papyrus.web.rcp.product/target/products/org.eclipse.papyrus.web.rcp.product-linux.gtk.x86_64.zip
+----
+
+==== Execution
+
+
+The project can be run executing the following script.:
+
+[,script]
+----
+./runRCP.sh
+----
+
+The service can be accessed at the following address:
+
+http://localhost:8083/swagger-ui
+
+
+*NOTE:* The generated image may be used for deployment, for instance, in Kubernetes clusters.
+
+
+

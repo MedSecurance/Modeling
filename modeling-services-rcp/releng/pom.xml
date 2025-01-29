@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent of this POM is the Papyrus Web services project root POM -->
+	<parent>
+		<groupId>PWEBRCP</groupId>
+		<artifactId>org.eclipse.papyrus.web.services</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<!-- POM description -->
+	<artifactId>org.eclipse.papyrus.web.services.releng</artifactId>
+	<packaging>pom</packaging>
+	<name>Papyrus Web services Releng</name>
+	<description>This plug-in contains the different modules relatives to the releng of WebRCP Codegen.</description>
+
+	<!-- Modules to build -->
+	<modules>
+		<module>targetplatforms</module>
+	</modules>
+
+</project>

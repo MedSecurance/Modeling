@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- PWEBRCP root POM: general information -->
+	<groupId>PWEBRCP</groupId>
+	<artifactId>org.eclipse.papyrus.web.services</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>PWEBRCP</name>
+	<description>PWEBRCP</description>
+	<inceptionYear>2023</inceptionYear>
+
+	<!-- Requirements Developpers -->
+	<developers>
+		<developer>
+			<name>Marcos Didonet Del Fabro</name>
+			<organization>CEA Tech LIST</organization>
+			<organizationUrl>http://www-list.cea.fr/</organizationUrl>
+			<id>mdidonetdelfabro</id>
+		</developer>
+	</developers>
+
+	<!-- Requirements properties 3.0.5-SNAPSHOT  2.7.5-->
+	<properties>
+		<tycho.version>3.0.5</tycho.version>
+		<tychoExtrasVersion>3.0.5</tychoExtrasVersion>
+		
+		<maven.resources.version>3.3.1</maven.resources.version>
+		<maven.clean.version>3.2.0</maven.clean.version>
+		<maven.compiler.version>3.11.0</maven.compiler.version>
+		<java.source.version>17</java.source.version>
+		<java.target.version>17</java.target.version>
+
+		<tycho.scmUrl>scm:git:https://codev-tuleap.intra.cea.fr/plugins/git/papyrus-ng/PNG_SiriusWeb.git</tycho.scmUrl>
+	</properties>
+
+	<!-- Children modules to build -->
+	<modules>
+		<module>releng</module>
+		<module>bundles</module>
+		<module>rcp</module>
+	</modules>
+
+    <!-- https://repo.maven.apache.org/maven2/ is being fetched by default -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>eclipse-maven-releases</id>
+			<url>https://repo.eclipse.org/content/repositories/releases/</url>
+			<!-- <url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url> -->
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.version}</version>
+					<configuration>
+						<source>${java.source.version}</source>
+						<target>${java.target.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven.resources.version}</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${maven.clean.version}</version>
+				</plugin>
+
+				<!-- Integration between Tycho and Maven -->
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-maven-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<extensions>true</extensions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<source>${java.source.version}</source>
+						<target>${java.target.version}</target>
+						<optimize>true</optimize>
+						<showWarnings>true</showWarnings>
+						<!-- Tycho build using the project's JDT settings. -->
+						<useProjectSettings>true</useProjectSettings>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+			</plugin>
+
+			<!-- Integration between Tycho and Maven -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+					<target>
+						<artifact>
+							<groupId>PWEBRCP</groupId>
+							<artifactId>org.eclipse.papyrus.web.targetplatform</artifactId>
+							<version>0.0.1-SNAPSHOT</version>
+						</artifact>
+					</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>	
