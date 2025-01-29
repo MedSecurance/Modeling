@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="Code gen service RCP" sequenceNumber="1466666614">
+<locations>
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<repository location="https://download.eclipse.org/releases/2023-03"/>
+		<unit id="org.eclipse.equinox.sdk.feature.group" version="3.23.700.v20230220-1352"/>
+	</location>
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<unit id="org.eclipse.papyrus.junit.feature.feature.group" version="0.0.0"/>
+		<repository location="https://download.eclipse.org/modeling/mdt/papyrus/updates/releases/2023-03"/>
+	</location>
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<unit id="org.eclipse.papyrus.marte.core.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.marte.ui.feature.feature.group" version="0.0.0"/>
+		<repository id="papyrus-marte" location="https://ci.eclipse.org/papyrus/job/papyrus-marte-2022-03/lastSuccessfulBuild/artifact/releng/org.eclipse.papyrus.marte.p2/target/repository/"/>
+	</location>
+
+	
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<unit id="org.eclipse.papyrus.moka.kernel.animation" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.moka.tracepoint.service" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.moka.ui.tracepoint.view" version="0.0.0"/>
+		<repository id="moka" location="https://download.eclipse.org/modeling/mdt/papyrus/components/moka/2022-12"/>
+	</location>
+	
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<repository location="https://ci.eclipse.org/papyrus/job/papyrus-designer-2024-06/lastSuccessfulBuild/artifact/releng/org.eclipse.papyrus.designer.p2/target/repository/"/>
+		<unit id="org.eclipse.papyrus.designer.languages.c.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.designer.languages.common.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.designer.languages.cpp.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.designer.languages.java.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.designer.languages.python.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.designer.transformation.main.feature.feature.group" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.cpp.cdt.project" version="0.0.0"/>	
+	    <unit id="org.eclipse.papyrus.designer.languages.cpp.codegen" version="0.0.0"/>	
+	    <unit id="org.eclipse.papyrus.designer.languages.cpp.profile" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.uml.tools.utils" version="0.0.0"/>
+  	    <unit id="org.eclipse.papyrus.designer.languages.cpp.library" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.cpp.reverse" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.java.codegen" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.java.library" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.java.profile" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.java.reverse" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.python.codegen" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.python.profile" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.python.library" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.languages.c.codegen" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.transformation.profile" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.deployment.profile" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.transformation.core" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.transformation.library" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.transformation.modellibs" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.transformation.base" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.transformation.languages.cpp.library" version="0.0.0"/>
+	    <unit id="org.eclipse.papyrus.designer.transformation.languages.java.library" version="0.0.0"/>		
+	</location>
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<repository location="https://download.eclipse.org/oomph/simrel-orbit/nightly/N202306301409/"/>
+		<unit id="org.apache.aries.spifly.dynamic.bundle" version="1.3.6"/>
+		<unit id="com.google.guava.failureaccess" version="1.0.1"/>
+		<unit id="org.apache.commons.commons-codec" version="1.16.0"/>
+		<unit id="org.apache.commons.codec" version="1.14.0.v20221112-0806"/>
+		<unit id="org.apache.xalan" version="2.7.2.v20221112-0806"/>
+		<unit id="org.apache.xml.serializer" version="2.7.2.v20220406-0601"/>
+		<unit id="org.objectweb.asm" version="9.5.0"/>
+		<unit id="org.objectweb.asm.commons" version="9.5.0"/>
+		<unit id="org.objectweb.asm.tree" version="9.5.0"/>
+		<unit id="org.objectweb.asm.tree.analysis" version="9.5.0"/>
+		<unit id="org.objectweb.asm.util" version="9.5.0"/>
+		<unit id="com.google.gson" version="2.10.1"/>
+	</location>
+	<location path="${project_loc:org.eclipse.papyrus.web.service.codegen}/lib/plugins" type="Directory"/>
+</locations>
+</target>
