@@ -2,31 +2,25 @@
 
 ## Quick install and run
 
-### Build steps
 
-To build the modelling services component:
+### Build Execution steps
 
-```
-cd pwebservices
+This command will run all the services. It also constructs the images if they are not previously built/
 
-docker build -t codegen_rcp -f dockerfiles/rcp/Dockerfile .
-```
+#### Set Github access
 
-To build the IoMT modeling tool
-
-First, it is necessary to create a Git Hub Personal Access Token. Then, execute the following command:
+Set up the GitHub user name and access token. It is necessary just for building the images.
 
 ```
-cd papyrus-web
-
-docker build --build-arg USERNAME=<github user name> --build-arg PASSWORD=<git hub access token> --build-arg WEBAPP_VERSION=2024.2.1 -t papyrusweb -f backend/papyrus-web-application/Dockerfile.local .
+export GIT_USERNAME=<the user name>
+export GIT_PASSWORD=<the github access token>
 ```
 
-### Execution steps
+#### Building and running
 
 ```
 cd papyrus-web
-docker compose -f backend/papyrus-web-application/docker-compose.yml up
+docker compose up
 ```
 
 ## Detailed instructions

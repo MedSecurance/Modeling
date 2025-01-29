@@ -10,7 +10,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   papyrusweb:
-    image: papyrusweb-iomt:2025.1.28
+    image: papyrusweb-iomt:2025.1.29
     command: java -jar /app.jar
     build:
       context: .
@@ -46,7 +46,7 @@ services:
 
   codegenrcp:
     build:
-      context: ../services/modeling-services-rcp
+      context: ../modeling-services-rcp
       dockerfile: dockerfiles/rcp/Dockerfile
     image: codegenrcp:2025.1.28
     command:
@@ -58,9 +58,9 @@ services:
 
   generateiomtapp:
     build:
-      context: ../services/medsecuranceappgen
+      context: ../medsecuranceappgen
       dockerfile: ./dockerfiles/Dockerfile
-    image: generateiomtapp:2025.1.28
+    image: generateiomtapp:2025.1.29
     command:
     ports:
       - "9000:9000"
