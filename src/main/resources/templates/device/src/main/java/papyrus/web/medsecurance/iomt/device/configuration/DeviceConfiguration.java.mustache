@@ -1,0 +1,17 @@
+package papyrus.web.medsecurance.iomt.device.configuration;
+
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import papyrus.web.medsecurance.iomt.device.dto.Device;
+
+@Configuration
+public class DeviceConfiguration {
+	@Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+	Device device() {
+		return new Device();
+	}
+}

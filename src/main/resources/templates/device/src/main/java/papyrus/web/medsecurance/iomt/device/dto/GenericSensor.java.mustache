@@ -1,0 +1,47 @@
+package papyrus.web.medsecurance.iomt.device.dto;
+
+import org.eclipse.paho.client.mqttv3.IMqttClient;
+
+import papyrus.web.medsecurance.iomt.device.action.ReadMessage{{baseClassName}}Action;
+import papyrus.web.medsecurance.iomt.device.action.SendMessage{{baseClassName}}Action;
+
+public class {{baseClassName}} extends AbstractSensor {
+	private final static String command = "{{stereotypeUid}}";
+	private final String deviceId;
+	
+	private int value = 0;
+	
+	
+	public {{baseClassName}}(String deviceId, String sensorId,IMqttClient mqttClient) {
+		this.deviceId = deviceId;
+		setSensorId(sensorId);
+		getActions().add(new ReadMessage{{baseClassName}}Action(this));
+		getActions().add(new SendMessage{{baseClassName}}Action(this, mqttClient));
+	}
+
+	public static String getCommand() {
+		return command;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+	@Override
+	public String getDeviceId() {
+		return deviceId;
+	}
+
+	@Override
+	public long getPeriod() {
+		return 5000;
+	}
+
+
+	
+}

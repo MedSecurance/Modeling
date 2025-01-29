@@ -1,0 +1,83 @@
+package papyrus.web.medsecurance.iomt.gateway.service;
+
+import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
+
+import org.eclipse.paho.client.mqttv3.IMqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.hl7.fhir.r4.model.DateTimeType;
+import org.hl7.fhir.r4.model.Observation;
+import org.hl7.fhir.r4.model.Quantity;
+import org.hl7.fhir.r4.model.Subscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.rest.api.MethodOutcome;
+import ca.uhn.fhir.rest.client.api.IGenericClient;
+import papyrus.web.medsecurance.iomt.gateway.dto.GatewayDTO;
+import papyrus.web.medsecurance.iomt.gateway.model.Gateway;
+
+@Service
+public class GatewayService {
+	private Logger logger = LoggerFactory.getLogger(GatewayService.class);
+
+	@Autowired
+	protected FhirContext fhirContext;
+
+	@Autowired
+	protected IGenericClient fhirClient;
+
+	@Autowired
+	private IMqttClient mqttClient;
+
+	@Autowired
+	@Qualifier("gateway")
+	Gateway gateway; // Use singleton
+
+	public GatewayDTO getGatewayInformation() {
+		return new GatewayDTO(gateway);
+	}
+
+	public GatewayDTO setGatewayInformation(GatewayDTO gatewayDTO) {
+		String locationId = gatewayDTO.getLocationId();
+		String patientId = gatewayDTO.getPatientId();
+
+		for (String deviceId : gatewayDTO.getDevicesId()) {
+			String topic = deviceId + "/#";
+
+			try {
+				mqttClient.subscribeWithResponse(topic, (tpic, msg) -> {
+					logger.info(tpic + " -> " + new String(msg.getPayload()));
+					
+					String payload = new String(msg.getPayload(), StandardCharsets.UTF_8);
+					String value = payload.replaceAll("[^\\d.-]", "");
+					String unit = new String(msg.getPayload(), StandardCharsets.UTF_8).substring(value.length());
+
+					Observation observation = new Observation();
+					observation.setStatus(Observation.ObservationStatus.FINAL);
+					observation.setValue(new Quantity()
+				            .setValue(new BigDecimal(value))
+				            .setCode(unit));
+					observation.getSubject().setReference("Patient/" + patientId);
+					observation.getDevice().setReference("Device/" + deviceId);
+					observation.setEffective(new DateTimeType(new java.util.Date()));
+					
+					MethodOutcome outcome = fhirClient.create().resource(observation).execute();
+					logger.info(outcome.getResource().fhirType());
+				});
+			} catch (MqttException mqtte) {
+				logger.error(mqtte.getMessage());
+			}
+		}
+
+		gateway.setLocationId(locationId);
+		gateway.setPatientId(patientId);
+		gateway.setDevicesId(gatewayDTO.getDevicesId());
+
+		return getGatewayInformation();
+	}
+}

@@ -1,0 +1,48 @@
+package papyrus.web.medsecurance.iomt.gateway.service;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.hl7.fhir.instance.model.api.IIdType;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Practitioner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.rest.client.api.IGenericClient;
+import papyrus.web.medsecurance.iomt.gateway.dto.PractitionerDTO;
+
+@Service
+public class PractitionerService {
+	private Logger logger = LoggerFactory.getLogger(PractitionerService.class);
+
+	@Autowired
+	protected FhirContext fhirContext;
+
+	@Autowired
+	protected IGenericClient fhirClient;
+
+	public List<PractitionerDTO> findAll() {
+		Bundle results = fhirClient.search().forResource(Practitioner.class).returnBundle(Bundle.class).execute();
+
+		if (results.hasEntry()) {
+			List<PractitionerDTO> practitioners = new ArrayList<PractitionerDTO>();
+			for (Bundle.BundleEntryComponent entry : results.getEntry()) {
+				IIdType id = entry.getResource().getIdElement();
+				logger.info(id.getIdPart());
+				
+				Practitioner practitioner = (Practitioner) entry.getResource();
+				logger.info(practitioner.getIdElement().asStringValue());
+				practitioners.add(new PractitionerDTO(practitioner.getIdElement().getIdPart(),
+						practitioner.getName().getLast().getFamily(), practitioner.getName().getLast().getGivenAsSingleString()));
+			}
+			return practitioners; 
+		}
+
+		return Collections.emptyList();
+	}
+}

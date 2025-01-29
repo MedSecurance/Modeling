@@ -1,0 +1,20 @@
+package papyrus.web.medsecurance.iomt.device.action;
+
+import java.util.concurrent.ThreadLocalRandom;
+
+import papyrus.web.medsecurance.iomt.device.dto.{{baseClassName}};
+
+public class ReadMessage{{baseClassName}}Action implements IAction {
+	private final {{baseClassName}} sensor;
+
+	public ReadMessage{{baseClassName}}Action({{baseClassName}} sensor) {
+		this.sensor = sensor;
+	}
+
+	@Override
+	public boolean executeAction(String cmd, byte[] payload) {
+		sensor.setValue(ThreadLocalRandom.current().nextInt(20, 50));
+		return true;
+	}
+
+}

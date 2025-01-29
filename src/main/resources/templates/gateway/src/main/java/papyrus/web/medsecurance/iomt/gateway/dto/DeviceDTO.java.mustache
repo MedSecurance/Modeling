@@ -1,0 +1,9 @@
+package papyrus.web.medsecurance.iomt.gateway.dto;
+
+import java.util.Optional;
+
+import org.hl7.fhir.r4.model.Device.FHIRDeviceStatus;
+
+public record DeviceDTO (String id, String deviceName, String manufacturer, FHIRDeviceStatus status, Optional<LocationDTO> location, Optional<PatientDTO> patient) {
+
+}

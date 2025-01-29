@@ -1,0 +1,54 @@
+package papyrus.web.medsecurance.iomt.gateway.model;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Gateway {
+	private static final String NOT_DEFINED = "not defined";
+	
+	private String gatewayId;
+	private String locationId;
+	private String patientId;
+	
+	private Set<String> devicesId;
+	
+	public Gateway() {
+		this.setGatewayId(NOT_DEFINED);
+		this.setLocationId(NOT_DEFINED);
+		this.setPatientId(NOT_DEFINED);
+		
+		this.setDevicesId(new HashSet<String>());
+	}
+
+	public String getGatewayId() {
+		return gatewayId;
+	}
+
+	public void setGatewayId(String gatewayId) {
+		this.gatewayId = gatewayId;
+	}
+
+	public String getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(String locationId) {
+		this.locationId = locationId;
+	}
+
+	public String getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
+	}
+
+	public Set<String> getDevicesId() {
+		return devicesId;
+	}
+
+	public void setDevicesId(Set<String> devicesId) {
+		this.devicesId = devicesId;
+	}
+}

@@ -1,0 +1,48 @@
+package papyrus.web.medsecurance.iomt.gateway.service;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.hl7.fhir.instance.model.api.IIdType;
+import org.hl7.fhir.r4.model.Address;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Location;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.rest.client.api.IGenericClient;
+import papyrus.web.medsecurance.iomt.gateway.dto.LocationDTO;
+
+@Service
+public class LocationService {
+	private Logger logger = LoggerFactory.getLogger(LocationService.class);
+	
+	@Autowired
+	protected FhirContext fhirContext;
+
+	@Autowired
+	protected IGenericClient fhirClient;
+
+	public List<LocationDTO> findAll() {
+		Bundle results = fhirClient.search().forResource(Location.class).returnBundle(Bundle.class).execute();
+
+		if (results.hasEntry()) {
+			List<LocationDTO> locations = new ArrayList<LocationDTO>();
+			for (Bundle.BundleEntryComponent entry : results.getEntry()) {
+				IIdType id = entry.getResource().getIdElement();
+				logger.info(id.getIdPart());
+				
+				Location location = (Location) entry.getResource();
+				Address address = location.getAddress();
+				locations.add(new LocationDTO(location.getIdPart(), address.getLine().getLast().asStringValue(), address.getCity(), address.getCountry()));
+			}
+			return locations; 
+		}
+
+		return Collections.emptyList();
+	}
+}

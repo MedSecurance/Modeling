@@ -1,0 +1,88 @@
+package papyrus.web.medsecurance.iomt.device.dto;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class Device {
+	private static final String NOT_DEFINED = "not defined";
+	
+	private String deviceId;
+	private String locationId;
+	private String patientId;
+	@JsonIgnore
+	private Set<AbstractActuator> actuators;
+	@JsonIgnore
+	private Set<AbstractSensor> sensors;
+	private Boolean started;
+	
+//	private Device(String deviceId, String locationId, String patientId) {
+//		this.deviceId = deviceId;
+//		this.locationId = locationId;
+//		this.patientId = patientId;
+//		this.setActuators(new HashSet<Actuator>());
+//		this.setSensors(new HashSet<Sensor>());
+//	}
+
+	public Device() {
+		this.deviceId = NOT_DEFINED;
+		this.locationId = NOT_DEFINED;
+		this.patientId = NOT_DEFINED;
+		this.setActuators(new HashSet<AbstractActuator>());
+		this.setSensors(new HashSet<AbstractSensor>());
+		this.started = false;
+	}
+
+	public String getDeviceId() {
+		return deviceId;
+	}
+
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
+	}
+
+	public String getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(String locationId) {
+		this.locationId = locationId;
+	}
+
+	public String getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
+	}
+
+	public Boolean isStarted() {
+		return started;
+	}
+
+	public void start(Boolean isStarted) {
+		this.started = isStarted;
+	}
+
+	public Set<AbstractActuator> getActuators() {
+		return actuators;
+	}
+
+	public void setActuators(Set<AbstractActuator> actuators) {
+		this.actuators = actuators;
+	}
+
+	public Set<AbstractSensor> getSensors() {
+		return sensors;
+	}
+
+	public void setSensors(Set<AbstractSensor> sensors) {
+		this.sensors = sensors;
+	}
+
+
+	
+	
+}
