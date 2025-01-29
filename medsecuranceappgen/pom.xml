@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.4</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>papyrus.web.generate.medsecurance</groupId>
+	<artifactId>papyrus-web-generate-medsecurance-gateway</artifactId>
+	<version>2024.10.0</version>
+	<name>papyrus-web-generate-medsecurance-generateApp</name>
+	<description>Generate device and/or gateway applications</description>
+	<url />
+	<licenses>
+		<license />
+	</licenses>
+	<developers>
+		<developer />
+	</developers>
+	<scm>
+		<connection />
+		<developerConnection />
+		<tag />
+		<url />
+	</scm>
+	<properties>
+		<java.version>17</java.version>
+		<datafactory.version>0.8</datafactory.version>
+		<mustache.compiler.api.version>0.9.10</mustache.compiler.api.version>
+		
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mustache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.fluttercode.datafactory</groupId>
+			<artifactId>datafactory</artifactId>
+			<version>${datafactory.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.spullara.mustache.java</groupId>
+			<artifactId>compiler</artifactId>
+			<version>${mustache.compiler.api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.mapping.ecore2xml</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.common</artifactId>
+			<version>2.21.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore</artifactId>
+			<version>2.23.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.uml2.plugins</groupId>
+			<artifactId>org.eclipse.uml2.uml</artifactId>
+			<version>5.5.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.uml2.plugins</groupId>
+			<artifactId>org.eclipse.uml2.common</artifactId>
+			<version>2.5.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.uml2.plugins</groupId>
+			<artifactId>org.eclipse.uml2.types</artifactId>
+			<version>2.5.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.uml2.plugins</groupId>
+			<artifactId>org.eclipse.uml2.uml.profile.standard</artifactId>
+			<version>1.5.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.uml2.plugins</groupId>
+			<artifactId>org.eclipse.uml2.uml.resources</artifactId>
+			<version>5.5.0-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- external profiles -->
+		<dependency>
+			<groupId>papyrus-web</groupId>
+			<artifactId>papyrus-web-iomt-profile</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>papyrus-web</groupId>
+			<artifactId>papyrus-web-iomt-profile-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>papyrus-web</groupId>
+			<artifactId>papyrus-web-iomt-assertions-profile-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>papyrus-web</groupId>
+			<artifactId>papyrus-web-iomt-assets-profile-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>papyrus-web</groupId>
+			<artifactId>papyrus-web-iomt-componentcategories-profile-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,23 @@
+package papyrus.web.medsecurance.iomt.device.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import papyrus.web.medsecurance.iomt.device.action.IAction;
+
+public abstract class AbstractActuator {
+	private String actuatorId;
+	private List<IAction> actions = new ArrayList<IAction>();
+
+	public String getActuatorId() {
+		return actuatorId;
+	}
+
+	public void setActuatorId(String actuatorId) {
+		this.actuatorId = actuatorId;
+	}
+
+	public List<IAction> getActions() {
+		return actions;
+	}
+}

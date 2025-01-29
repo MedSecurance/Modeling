@@ -1,0 +1,27 @@
+package papyrus.web.medsecurance.iomt.device.dto;
+
+import papyrus.web.medsecurance.iomt.device.action.ReadMessage{{baseClassName}}Action;
+import papyrus.web.medsecurance.iomt.device.action.WriteCommand{{baseClassName}}Action;
+
+public class {{baseClassName}} extends AbstractActuator {
+	private final static String command = "{{stereotypeUid}}";
+	
+	private boolean ledIsOn = false;
+	
+	public {{baseClassName}}() {
+		getActions().add(new ReadMessage{{baseClassName}}Action());
+		getActions().add(new WriteCommand{{baseClassName}}Action(this));
+	}
+
+	public static String getCommand() {
+		return command;
+	}
+
+	public boolean isLedOn() {
+		return ledIsOn;
+	}
+
+	public void setLedOn(boolean ledOn) {
+		this.ledIsOn = ledOn;
+	}
+}

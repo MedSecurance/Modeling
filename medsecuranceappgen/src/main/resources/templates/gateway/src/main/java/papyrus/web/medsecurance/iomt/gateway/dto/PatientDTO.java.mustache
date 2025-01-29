@@ -1,0 +1,6 @@
+package papyrus.web.medsecurance.iomt.gateway.dto;
+
+import java.util.Optional;
+
+public record PatientDTO(String id, String firstName, String lastName, Optional<LocationDTO> location, Optional<PractitionerDTO> description) {
+}

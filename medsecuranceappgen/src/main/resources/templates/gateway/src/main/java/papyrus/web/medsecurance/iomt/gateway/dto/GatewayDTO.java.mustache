@@ -1,0 +1,50 @@
+package papyrus.web.medsecurance.iomt.gateway.dto;
+
+import java.util.Set;
+
+import papyrus.web.medsecurance.iomt.gateway.model.Gateway;
+
+public class GatewayDTO {
+	private String locationId;
+	private String patientId;
+	
+//	@JsonIgnore
+	private Set<String> devicesId;
+	
+	public GatewayDTO() {
+		
+	}
+
+	public GatewayDTO(Gateway gateway) {
+		this.locationId = gateway.getLocationId();
+		this.patientId = gateway.getPatientId();
+		
+		this.devicesId = gateway.getDevicesId();
+	}
+
+	public String getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(String locationId) {
+		this.locationId = locationId;
+	}
+
+	public String getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
+	}
+
+	public Set<String> getDevicesId() {
+		return devicesId;
+	}
+
+	public void setDevicesId(Set<String> devicesId) {
+		this.devicesId = devicesId;
+	}
+
+
+}

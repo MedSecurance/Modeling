@@ -1,0 +1,49 @@
+package papyrus.web.medsecurance.iomt.gateway.service;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.hl7.fhir.instance.model.api.IIdType;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.rest.client.api.IGenericClient;
+import papyrus.web.medsecurance.iomt.gateway.dto.PersonDTO;
+
+@Service
+public class PersonService {
+	private Logger logger = LoggerFactory.getLogger(PersonService.class);
+	
+	@Autowired
+	protected FhirContext fhirContext;
+
+	@Autowired
+	protected IGenericClient fhirClient;
+
+	
+	public List<PersonDTO> findAll() {
+		Bundle results = fhirClient.search().forResource(Person.class).returnBundle(Bundle.class).execute();
+
+		if (results.hasEntry()) {
+			List<PersonDTO> persons = new ArrayList<PersonDTO>();
+			for (Bundle.BundleEntryComponent entry : results.getEntry()) {
+				IIdType id = entry.getResource().getIdElement();
+				logger.info(id.getIdPart());
+				
+				Person person = (Person) entry.getResource();
+				logger.info(person.getIdElement().asStringValue());
+				persons.add(new PersonDTO(person.getIdElement().getIdPart(),
+						person.getName().getLast().getFamily(), person.getName().getLast().getGivenAsSingleString()));
+			}
+			return persons; 
+		}
+
+		return Collections.emptyList();
+	}
+}

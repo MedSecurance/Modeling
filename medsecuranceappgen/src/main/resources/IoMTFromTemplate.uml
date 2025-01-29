@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IoMTProfile.LAN="http:///IoMTProfile/LAN.ecore" xmlns:IoMTProfile.WAN="http:///IoMTProfile/WAN.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///IoMTProfile/LAN.ecore http://iomtprofile#//LAN http:///IoMTProfile/WAN.ecore http://iomtprofile#//WAN">
+  <uml:Model xmi:id="_OtXe4ISwEe-50IpsmvGvpg" name="IoMTModel">
+    <packagedElement xmi:type="uml:Class" xmi:id="_OtXe4YSwEe-50IpsmvGvpg" name="HeartBeatMonitor">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_OtXe4oSwEe-50IpsmvGvpg" name="HeartBeatSensor"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_OtXe44SwEe-50IpsmvGvpg" name="Proxy"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_OtXe5ISwEe-50IpsmvGvpg" name="MQTTGateway"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_OtXe5YSwEe-50IpsmvGvpg" name="FHIRDatabase"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OtXe5oSwEe-50IpsmvGvpg" name="" client="_OtXe5ISwEe-50IpsmvGvpg" supplier="_OtXe44SwEe-50IpsmvGvpg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OtXe54SwEe-50IpsmvGvpg" name="" client="_OtXe44SwEe-50IpsmvGvpg" supplier="_OtXe5YSwEe-50IpsmvGvpg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OtXe6ISwEe-50IpsmvGvpg" name="" client="_OtXe4YSwEe-50IpsmvGvpg" supplier="_OtXe5ISwEe-50IpsmvGvpg"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_OtXe6YSwEe-50IpsmvGvpg" name="HomeMonitor">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_OtXe6oSwEe-50IpsmvGvpg" name="ThermometerSensor"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_OtXe64SwEe-50IpsmvGvpg" name="HygrometerSensor"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_OtXe7ISwEe-50IpsmvGvpg" name="LedSwithActuator"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OtXe7YSwEe-50IpsmvGvpg" name="" client="_OtXe6YSwEe-50IpsmvGvpg" supplier="_OtXe5ISwEe-50IpsmvGvpg"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_OtXe7oSwEe-50IpsmvGvpg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OtXe74SwEe-50IpsmvGvpg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://iomtprofile#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://IoMT_PROFILE/IoMT.profile.uml#_4Z1kABzIEe-2GI5f1LdWww"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_OtXe8ISwEe-50IpsmvGvpg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OtXe8YSwEe-50IpsmvGvpg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/robotics/assertions/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Assertions_PROFILE/assertions.profile.uml#_IGRaABwAEe-2GI5f1LdWww"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_OtXe8oSwEe-50IpsmvGvpg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OtXe84SwEe-50IpsmvGvpg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://iomtassets#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://IoMTAssets_PROFILE/IoMTAssets.profile.uml#_JDM8UBwAEe-2GI5f1LdWww"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_OtXe9ISwEe-50IpsmvGvpg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OtXe9YSwEe-50IpsmvGvpg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://IoMTComponentCategories#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://IoMTComponentCategories_PROFILE/IoMTComponentCategories.profile.uml#_KrJKgBwAEe-2GI5f1LdWww"/>
+    </profileApplication>
+  </uml:Model>
+  <IoMTProfile.LAN:Sensor xmi:id="_OtXe9oSwEe-50IpsmvGvpg" base_Class="_OtXe4oSwEe-50IpsmvGvpg"/>
+  <IoMTProfile.LAN:IoMTDevice xmi:id="_OtXe94SwEe-50IpsmvGvpg" base_Class="_OtXe4YSwEe-50IpsmvGvpg"/>
+  <IoMTProfile.WAN:Proxy xmi:id="_OtXe-ISwEe-50IpsmvGvpg" base_Class="_OtXe44SwEe-50IpsmvGvpg" gateways="_OtXe-YSwEe-50IpsmvGvpg" datastores="_OtXe-oSwEe-50IpsmvGvpg"/>
+  <IoMTProfile.LAN:Gateway xmi:id="_OtXe-YSwEe-50IpsmvGvpg" base_Class="_OtXe5ISwEe-50IpsmvGvpg" proxy="_OtXe-ISwEe-50IpsmvGvpg"/>
+  <IoMTProfile.WAN:DataStore xmi:id="_OtXe-oSwEe-50IpsmvGvpg" base_Class="_OtXe5YSwEe-50IpsmvGvpg" proxy="_OtXe-ISwEe-50IpsmvGvpg"/>
+  <IoMTProfile.LAN:IoMTDevice xmi:id="_OtXe-4SwEe-50IpsmvGvpg" base_Class="_OtXe6YSwEe-50IpsmvGvpg"/>
+  <IoMTProfile.LAN:Sensor xmi:id="_OtXe_ISwEe-50IpsmvGvpg" base_Class="_OtXe6oSwEe-50IpsmvGvpg"/>
+  <IoMTProfile.LAN:Sensor xmi:id="_OtXe_YSwEe-50IpsmvGvpg" base_Class="_OtXe64SwEe-50IpsmvGvpg"/>
+  <IoMTProfile.LAN:Actuator xmi:id="_OtXe_oSwEe-50IpsmvGvpg" base_Class="_OtXe7ISwEe-50IpsmvGvpg"/>
+</xmi:XMI>

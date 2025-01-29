@@ -1,0 +1,17 @@
+package papyrus.web.medsecurance.iomt.gateway.configuration;
+
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import papyrus.web.medsecurance.iomt.gateway.model.Gateway;
+
+@Configuration
+public class GatewayConfiguration {
+	@Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+	Gateway gateway() {
+		return new Gateway();
+	}
+}

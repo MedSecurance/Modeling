@@ -1,0 +1,25 @@
+package papyrus.web.medsecurance.iomt.device.action;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import papyrus.web.medsecurance.iomt.device.dto.{{baseClassName}};
+
+public class WriteCommand{{baseClassName}}Action implements IAction {
+	private Logger logger = LoggerFactory.getLogger(WriteCommand{{baseClassName}}Action.class);
+
+	private {{baseClassName}} actuator;
+	
+	public WriteCommand{{baseClassName}}Action({{baseClassName}} actuator) {
+		this.actuator = actuator;
+	}
+
+	@Override
+	public boolean executeAction(String cmd, byte[] payload) {
+		actuator.setLedOn(!actuator.isLedOn());
+		logger.info("LED is " + (actuator.isLedOn() ? "ON" : "OFF"));
+		
+		return actuator.isLedOn();
+	}
+
+}

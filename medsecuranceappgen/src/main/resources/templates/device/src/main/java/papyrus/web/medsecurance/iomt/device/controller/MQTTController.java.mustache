@@ -1,0 +1,57 @@
+package papyrus.web.medsecurance.iomt.device.controller;
+
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import papyrus.web.medsecurance.iomt.device.dto.Device;
+import papyrus.web.medsecurance.iomt.device.service.MQTTMessagingService;
+
+@RestController
+@RequestMapping("/mqtt")
+public class MQTTController {
+	private Logger logger = LoggerFactory.getLogger(MQTTController.class);
+	
+	@Autowired
+	private MQTTMessagingService messagingService;
+	
+	@Autowired
+	private Device device;
+	
+	@GetMapping(value = "/device", produces = "application/json")
+	public ResponseEntity<Device> getDevice() {
+		logger.trace("Send GET response");
+		return ResponseEntity.ok(device);	
+	}
+	
+	@PutMapping(path = "/device", produces = "application/json")
+	public ResponseEntity<Device> updateDevice(@RequestBody Device update) {
+		device.setDeviceId(update.getDeviceId());
+		device.setLocationId(update.getLocationId());
+		device.setPatientId(update.getPatientId());
+		logger.trace("Send PUT response");
+		logger.debug(device.getDeviceId() + ", " + device.getLocationId() +  ", " + device.getPatientId() + ", " + update.isStarted());
+
+		try {
+			if (update.isStarted()) {
+				messagingService.startDevice(); 
+			}
+			else {
+				messagingService.stopDevice();
+			}
+			device.start(update.isStarted());
+		} catch (MqttException mqtte) {
+			logger.error(mqtte.getMessage());
+		}
+		
+		return ResponseEntity.ok(device);
+	}
+
+}

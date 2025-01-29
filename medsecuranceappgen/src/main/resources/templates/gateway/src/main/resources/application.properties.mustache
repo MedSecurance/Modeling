@@ -1,0 +1,17 @@
+spring.application.name=papyrus-web-medsecurance-gateway
+
+server.port={{serverPort}}
+
+#fhir.server.url=https://hapi.fhir.org/baseR4
+fhir.server.url={{dataStore.stereotypeUid}}
+
+hapi.fhir.rest.default-response-encoding=json
+hapi.fhir.rest.e-tag-support=enabled
+hapi.fhir.rest.default-pretty-print=true
+
+mqtt.automaticReconnect=true
+mqtt.cleanSession=true
+mqtt.connectionTimeout=10
+mqtt.clientId=${COMPUTERNAME}-MQTT-GATEWAY
+mqtt.hostname=127.0.0.1
+mqtt.port=1883
