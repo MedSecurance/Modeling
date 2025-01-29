@@ -1,0 +1,95 @@
+#Copyright (c) 2025 CEA LIST
+#Deployment of the FHIR generation service.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iomtgenerator-deployment
+  namespace: papyrusweb
+  labels:
+    app: iomtgenerator
+  annotations:
+    kubernetes.io/change-cause: "FHIR compatible generator for an IoMT model"
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: iomtgenerator
+  template:
+    # Pod
+    metadata:
+      labels:
+        app: iomtgenerator
+    spec:
+      containers:
+        - name: iomtgenerator
+          image: IMAGE_NAME/iomtgenerator:2025.01.25
+          ports:
+            - containerPort: 9000
+          envFrom:
+            - configMapRef:
+                name: iomtgenerator-config
+          # The resources may be adapted following cluster capabilities
+          resources:
+            limits:
+              cpu: 900m
+              memory: 1000Mi
+            requests:
+              cpu: 300m
+              memory: 300Mi
+      imagePullSecrets:
+        - name: harbor-registry-pull-secret
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: iomtgenerator-config
+  labels:
+    app: iomtgenerator
+data:
+  APPWEB_URL: http://papyrusweb-webapp-svc-clusterid:8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iomtgenerator-svc
+  labels:
+    app: iomtgenerator
+spec:
+  ports:
+   - port: 9000
+  selector:
+   app: iomtgenerator
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: iomtgenerator-ingress
+  namespace: papyrusweb
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: HOSTNAME
+    http:
+      paths:
+      - path: /iomtgenerator(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: iomtgenerator-svc
+            port:
+              number: 9000
+  tls:
+    - hosts:
+      - HOSTNAME
+      secretName: HOSTNAME-tls

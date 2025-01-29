@@ -1,0 +1,56 @@
+#Copyright (c) 2024 CEA LIST
+#Deployment of the code generation service.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: papyrusweb-rcp-deployment
+  namespace: papyrusweb
+  labels:
+    app: papyruswebrcp
+  annotations:
+    kubernetes.io/change-cause: "Added support for qualified element contexts"
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: papyruswebrcp
+  template:
+    # Pod
+    metadata:
+      labels:
+        app: papyruswebrcp
+    spec:
+      containers:
+        - name: rcppapyrusweb
+        # REPLACE WITH IMAGE URL
+          image: IMAGE_URL/papyruswebrcp:2024.6.1
+          ports:
+            - containerPort: 8081
+          volumeMounts:
+            - name: codegenvol
+              mountPath: /papyruswebsvc/workspaceCodeGen
+          envFrom:
+            - configMapRef:
+                name: appweb-config
+            - configMapRef:
+                name: papyrusweb-rcp-config
+        # The resources may be adapted following cluster capabilities
+          resources:
+            limits:
+              cpu: 800m
+              memory: 2000Mi
+            requests:
+              cpu: 300m
+              memory: 300Mi
+      imagePullSecrets:
+        - name: harbor-registry-pull-secret
+      volumes:
+        - name: codegenvol
+          emptyDir:
+            medium: Memory
+            sizeLimit: 1024M

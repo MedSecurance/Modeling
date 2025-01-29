@@ -1,0 +1,17 @@
+extraArgs:
+  provider: keycloak-oidc
+  provider-display-name: "Oauth login"
+  client-id: papyrusweb
+  client-secret: GENERATED SECRET
+  redirect-url: "PAPYRUS-WEB-URL/oauth2/callback"
+  oidc-issuer-url: "SSO_HOSTNAME/realms/PAPYRUSWEB"
+  whitelist-domain: "SSO_DOMAIN"
+  cookie-secret: "some secret"
+  
+resources: 
+   limits:
+     cpu: 100m
+     memory: 300Mi
+   requests:
+     cpu: 100m
+     memory: 50Mi

@@ -1,0 +1,13 @@
+#Copyright (c) 2024 CEA LIST
+#Service of PapyrusWeb
+apiVersion: v1
+kind: Service
+metadata:
+  name: papyrusweb-webapp-svc-clusterid
+  labels:
+    app: papyrusweb
+spec:
+  ports:
+   - port: 8080
+  selector:
+   app: papyrusweb

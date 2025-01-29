@@ -1,0 +1,11 @@
+#Copyright (c) 2024 CEA LIST
+#Sets up the port where to run the code generation service. Used in the service initialization.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: papyrusweb-rcp-config
+  labels:
+    app: papyrusweb
+data:
+  RCP_SERVER_PORT: "8081"
+

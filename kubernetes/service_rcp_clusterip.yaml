@@ -1,0 +1,13 @@
+#Copyright (c) 2024 CEA LIST
+#Service of the code generation
+apiVersion: v1
+kind: Service
+metadata:
+  name: papyruswebrcp-svc
+  labels:
+    app: papyruswebrcp
+spec:
+  ports:
+   - port: 8081
+  selector:
+   app: papyruswebrcp

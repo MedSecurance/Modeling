@@ -1,0 +1,39 @@
+#Copyright (c) 2024 CEA LIST
+#Papyrus Web ingress coupled with Keycloak authentication
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  # this ingress exposes the papyrusweb application using the cluster ip service
+  # the exposed application is accessed and authenticated using an oauth2 proxy
+  name: papyrusweb-oauth-app-ingress
+  namespace: papyrusweb
+  annotations:
+    #use some certification manager. The example uses a letsencrypt one
+    cert-manager.io/cluster-issuer: "letsencrypt"
+    # URL used for authenticating with keycloak
+    nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
+    # URL for the start page after authenticating. This URL redirects to the root domain name. It could be changed if necessary.
+    nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
+    # sets up email as identification field
+    nginx.ingress.kubernetes.io/auth-response-headers: "x-auth-request-email"
+    # this is a minimum size, otherwise we get "header size errors"
+    nginx.ingress.kubernetes.io/proxy-buffer-size: 16k
+spec:
+  ingressClassName: nginx
+  rules:
+  # Replace HOSTNAME with a valid URL
+  - host: HOSTNAME
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            # name of the Papyrus Web service that is authenticated/exposed.
+            name: papyrusweb-webapp-svc-clusterid
+            port:
+              number: 8080
+  tls:
+    - hosts:
+      - HOSTNAME
+      secretName: HOSTNAME-tls

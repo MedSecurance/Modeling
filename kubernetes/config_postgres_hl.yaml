@@ -1,0 +1,15 @@
+#Copyright (c) 2024 CEA LIST
+#Configures the PapyrusWeb postgres database
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config-hl
+  labels:
+    app: papyrusweb
+data:
+  POSTGRES_HOST: postgresql-hl.postgresql.svc.cluster.local
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: papyrusweb
+  POSTGRES_USER: papyrusweb
+  #the password could be encrypted in base64
+  POSTGRES_PASSWORD: use_some_password

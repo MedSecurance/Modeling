@@ -1,0 +1,22 @@
+#Copyright (c) 2024-2025 CEA LIST
+#Config map with the internal URL of the papyrus web application, which is used by the Code generation RCP and FHIR generator
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appweb-config
+  labels:
+    app: papyrusweb
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgressvc:5432/papyrusweb
+  SIRIUS_COMPONENTS_CORS_ALLOWEDORIGINPATTERNS: "*"
+  SERVER_PORT: "8080"
+  # Used to allow larger file upload (for RAG)
+  SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE: "50MB"
+  SPRING_SERVLET_MULTIPART_MAX_REQUEST_SIZE: "50MB"
+  SERVER_TOMCAT_RESPONSE_WRITE_BUFFER_SIZE: "32KB"
+
+  #PapyrusWeb react variables
+  MODEL_SERVICE_URL: https://model-code-sync.deeplab.fr
+  IOMT_GENERATOR_URL: https://model-code-sync.deeplab.fr/iomtgenerator
+  
+

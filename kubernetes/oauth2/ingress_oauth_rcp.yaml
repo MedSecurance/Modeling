@@ -1,0 +1,38 @@
+#Copyright (c) 2024 CEA LIST
+#Code generation Ingress integrated with Keycloak authentication
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  # this ingress exposes the oauth2 proxy. It is used for authenticating the papyrusweb application
+  name: rcpcodegen-oauth-ingress
+  namespace: papyrusweb
+  annotations:
+    #use some certification manager. The example uses a letsencrypt one
+    cert-manager.io/cluster-issuer: "letsencrypt"
+    # this annotation is needed to avoid header size errors
+    nginx.ingress.kubernetes.io/proxy-buffer-size: 16k
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+       add_header "Access-Control-Allow-Origin" "*";
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  # Replace HOSTNAME with a valid URL
+  - host: HOSTNAME
+    http:
+      # this path is fixed, used by the oauth2 proxy
+      paths:
+      - path: /oauth2
+        pathType: Prefix
+        backend:
+          service:
+            # this is the name of the oauth2 service that was created/installed by the helm chart
+            # the port number is fixed
+            name: rcpcodegen-oauth2-proxy
+            port:
+              number: 80
+  tls:
+    - hosts:
+      - HOSTNAME
+      secretName: HOSTNAME-tls
