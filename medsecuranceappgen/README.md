@@ -15,14 +15,13 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.deeplab.intra.cea.fr/pb276119/medsecuranceappgen.git
+git remote add origin GIT REPOSITORY
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.deeplab.intra.cea.fr/pb276119/medsecuranceappgen/-/settings/integrations)
 
 ## Collaborate with your team
 

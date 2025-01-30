@@ -17,13 +17,12 @@ public class WebDavUtility {
 	 * test class with test credentials. Under early development.
 	 * 
 	 */
-	private static String user = "aa6307f2-980f-4daa-bb57-c98789063931";
-	private static String password = "9WMms-J5H2T-QfdKc-Z4jj9-RSL79";
+	private static String user = "USERLOGIN";
+	private static String password = "USERPASSWORD";
 
 	private static Sardine webdavServer;
 	public static final String codeGenFolder = "codegen";
-	private static String baseUrl = "https://nextcloud.deeplab.fr/remote.php/dav/files/aa6307f2-980f-4daa-bb57-c98789063931"+"/"+codeGenFolder+"/";
-
+	private static String baseUrl = "USE_BASE_URL";
 	private static void listLocalFiles(String rootPath) {
 		// Replace "path/to/your/eclipse/project" with the actual path to your Eclipse project
 
