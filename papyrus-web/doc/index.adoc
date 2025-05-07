@@ -17,6 +17,7 @@ Papyrus web v{papyrus-web-version} - {git-commit-id-abbrev}
 - xref:user/userdoc.adoc[User documentation]
 - xref:dev/dev-doc-index.adoc[Developper documentation]
 - xref:spec/diagrams-spec-index.adoc[Diagram specification]
+- xref:howto_root/howto_root.adoc[HowTo - Collaborative Modeling]
 - xref:codegen/papyrusweb_howto/gencode_howto.adoc[HowTo - PapyrusWeb CodeGeneration]
 - xref:codegen/description_software_designer/sw_designer.adoc[Papyrus Software Designer]
 - xref:iomt_howto/iomt_howto.adoc[HowTo - IoMT model creation]

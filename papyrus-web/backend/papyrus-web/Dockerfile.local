@@ -1,20 +1,24 @@
-#  Copyright (c) 2024 CEA LIST.
-#  All rights reserved. This program and the accompanying materials
-#  are the property of CEA LIST, their use is subject to specific
-#  agreement with the CEA LIST.
-#  Marcos Didonet Del Fabro (CEA LIST ) - first implementation
+#############################################################################
+#  Copyright (c) 2025 CEA LIST.
+#  
+#  This program and the accompanying materials
+#  are made available under the terms of the Eclipse Public License 2.0
+#  which accompanies this distribution, and is available at
+#  https://www.eclipse.org/legal/epl-2.0/
+# 
+#  SPDX-License-Identifier: EPL-2.0
+#  
+#  Contributors:
+#   Marcos Didonet Del Fabro (CEA LIST) - Initial implementation
+#
+#############################################################################
 
-# to build
-# docker build --build-arg USERNAME=<github user name> --build-arg PASSWORD=<git hub toke> --build-arg WEBAPP_VERSION=2024.10.0 -t papyrusweb -f backend/papyrus-web/Dockerfile.local .
-# to launch. Note that it is necessary to have a running postgres image or local database
+# Build instructions
+# docker build --build-arg USERNAME=${GIT_USERNAME} PASSWORD=${GIT_AUTH_TOKEN} -t papyrusweb .
+# Launch instructions. Note that it is necessary to have a running postgres image or local database
 # docker run --name=papyrusweb-container -p 8080:8080 papyrusweb:latest
 
-# to run without docker compose
-# docker run --name=papyrusweb-container --network=host -p 8080:8080 papyrusweb:latest 
-
-# Dockerfile to create the image of the RCP Web server.
-
-# Image for compilation
+# Image for full compilation
 
 FROM node:18.7 as papyrusweb-build
 
@@ -27,8 +31,6 @@ ENV MAVEN_VERSION="3.9.4"
 ARG USERNAME
 ARG PASSWORD
 
-#### FROM papyrusweb-build as papyrusweb-build-front
-
 # Compile the frontend in one layer
 
 RUN echo '//npm.pkg.github.com/:_authToken=${PASSWORD}' >> /build/frontend/.npmrc &&\
@@ -36,11 +38,11 @@ RUN echo '//npm.pkg.github.com/:_authToken=${PASSWORD}' >> /build/frontend/.npmr
 RUN mkdir -p backend/papyrus-web-frontend/src/main/resources/static &&\
   cp -R frontend/papyrus-web/dist/* backend/papyrus-web-frontend/src/main/resources/static
 
-
-#### FROM papyrusweb-build as papyrusweb-build-back
+# Uses an intermediate file to export the WEBAPP_VERSION
+RUN export WEBAPP_VERSION=$(grep version frontend/package.json | awk -F \" '{print $4}') &&\
+  echo $WEBAPP_VERSION > /build/WEBAPP_VERSION
 
 # Update packages and compile the backend in another layer
-
 
 RUN apt-get update &&\
   apt-get install openjdk-17-jdk -y &&\
@@ -49,6 +51,8 @@ RUN apt-get update &&\
   export PATH=$PWD/apache-maven-$MAVEN_VERSION/bin:$PATH &&\
   mvn clean verify -DskipTests -Dcheckstyle.skip -f backend/pom.xml --settings settings.xml
 
+COPY --from=papyrusweb-build /build/WEBAPP_VERSION /WEBAPP_VERSION
+COPY --from=papyrusweb-build /build/backend/papyrus-web/target/ /.
 
 # Image to run Papyrus Web
 
@@ -58,8 +62,8 @@ FROM node:18.7 as papyrusweb
 ARG WEBAPP_VERSION
 
 RUN apt-get update && apt-get install -y openjdk-17-jre && apt-get clean cache
+#### COPY --from=papyrusweb-build-back /build/backend/papyrus-web/target/papyrus-web-${WEBAPP_VERSION}.jar ./app.jar
 COPY --from=papyrusweb-build /build/backend/papyrus-web/target/papyrus-web-${WEBAPP_VERSION}.jar ./app.jar
-
 EXPOSE 8080
 
 #RUN adduser --disabled-password myuser
@@ -67,4 +71,6 @@ EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","/app.jar"]
 
+#CMD [ "sh", "-c", "java -cp app.jar -Djava.security.egd=file:/dev/./urandom -Dloader.main=org.eclipse.papyrus.web.application.PapyrusApplication org.springframework.boot.loader.PropertiesLauncher" ]
+#ENTRYPOINT java -Dpapyrus-web.graphql.websocket.allowed.origins="*" -jar ./app.jar --spring.datasource.url=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB} --spring.datasource.username=${POSTGRES_USER} --spring.datasource.password=${POSTGRES_PASSWORD} --spring.liquibase.change-log=classpath:db/changelog/papyrus-web.db.changelog.xml 
 

@@ -30,7 +30,7 @@ public interface AssertionsPackage extends EPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    String eNAME = "assertions";
+    String eNAME = "iomt_assertions";
 
     /**
      * The package namespace URI.
@@ -38,7 +38,7 @@ public interface AssertionsPackage extends EPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    String eNS_URI = "http://www.eclipse.org/papyrus/robotics/assertions/1";
+    String eNS_URI = "http://www.eclipse.org/papyrus/iomt/assertions/1";
 
     /**
      * The package namespace name.
@@ -46,7 +46,7 @@ public interface AssertionsPackage extends EPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    String eNS_PREFIX = "assertions";
+    String eNS_PREFIX = "iomt_assertions";
 
     /**
      * The singleton instance of the package.

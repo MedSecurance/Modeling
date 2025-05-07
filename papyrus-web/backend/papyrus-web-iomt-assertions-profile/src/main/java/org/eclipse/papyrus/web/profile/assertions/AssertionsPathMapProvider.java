@@ -30,7 +30,7 @@ public class AssertionsPathMapProvider implements IPathMapProvider {
     @Override
     public List<PathMapMetadata> getPathmaps() {
         return List.of(new PathMapMetadata(
-                "Assertions_PROFILE/assertions.profile.uml", "assertions.profile.uml"));
+                "Assertions_PROFILE/assertions.iomt.profile.uml", "assertions.iomt.profile.uml"));
     }
 
 }

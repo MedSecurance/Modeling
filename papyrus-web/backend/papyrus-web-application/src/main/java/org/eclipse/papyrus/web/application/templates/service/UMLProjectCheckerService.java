@@ -1,5 +1,5 @@
 /*****************************************************************************
- * Copyright (c) 2024 CEA LIST, Obeo.
+ * Copyright (c) 2024, 2025 CEA LIST, Obeo.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -13,12 +13,16 @@
  *****************************************************************************/
 package org.eclipse.papyrus.web.application.templates.service;
 
-import java.util.UUID;
+import java.util.Objects;
 
 import org.eclipse.papyrus.web.application.templates.projects.PapyrusUMLNatures;
 import org.eclipse.papyrus.web.application.templates.service.api.IUMLProjectCheckerService;
+import org.eclipse.sirius.web.application.UUIDParser;
 import org.eclipse.sirius.web.domain.boundedcontexts.project.Project;
 import org.eclipse.sirius.web.domain.boundedcontexts.project.services.api.IProjectSearchService;
+import org.eclipse.sirius.web.domain.boundedcontexts.projectsemanticdata.ProjectSemanticData;
+import org.eclipse.sirius.web.domain.boundedcontexts.projectsemanticdata.services.api.IProjectSemanticDataSearchService;
+import org.springframework.data.jdbc.core.mapping.AggregateReference;
 import org.springframework.stereotype.Service;
 
 /**
@@ -29,19 +33,27 @@ import org.springframework.stereotype.Service;
 @Service
 public class UMLProjectCheckerService implements IUMLProjectCheckerService {
 
-    private final IProjectSearchService projectSeachService;
+    private final IProjectSearchService projectSearchService;
 
-    public UMLProjectCheckerService(IProjectSearchService projectSeachService) {
+    private final IProjectSemanticDataSearchService projectSemanticDataSearchService;
+
+    public UMLProjectCheckerService(IProjectSearchService projectSeachService, IProjectSemanticDataSearchService projectSemanticDataSearchService) {
         super();
-        this.projectSeachService = projectSeachService;
+        this.projectSearchService = Objects.requireNonNull(projectSeachService);
+        this.projectSemanticDataSearchService = Objects.requireNonNull(projectSemanticDataSearchService);
     }
 
     @Override
     public boolean isPapyrusProject(String editingContextId) {
         try {
-            return this.projectSeachService.findById(UUID.fromString(editingContextId))
-                    .map(p -> this.hasUMLNature(p))
+            return new UUIDParser().parse(editingContextId)
+                    .flatMap(semanticDataId -> this.projectSemanticDataSearchService.findBySemanticDataId(AggregateReference.to(semanticDataId)))
+                    .map(ProjectSemanticData::getProject)
+                    .map(AggregateReference::getId)
+                    .flatMap(this.projectSearchService::findById)
+                    .map(this::hasUMLNature)
                     .orElse(false);
+
         } catch (IllegalStateException e) {
             return false;
         }

@@ -1,57 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IoMTAssets="http://iomtassets" xmlns:IoMTComponentCategories="http://IoMTComponentCategories" xmlns:IoMTProfile.LAN="http:///IoMTProfile/LAN.ecore" xmlns:IoMTProfile.WAN="http:///IoMTProfile/WAN.ecore" xmlns:assertions="http://www.eclipse.org/papyrus/robotics/assertions/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///IoMTProfile/LAN.ecore http://iomtprofile#//LAN http:///IoMTProfile/WAN.ecore http://iomtprofile#//WAN">
-  <uml:Model xmi:id="dec6d074-8354-4ba3-8597-c89409ace2d2" name="IoMTModel">
-    <packagedElement xmi:type="uml:Class" xmi:id="aa081b88-55ac-407a-bc89-f9b80445bd76" name="HeartMonitoring">
-      <nestedClassifier xmi:type="uml:Class" xmi:id="fe0257ef-6d3d-4a6a-b182-f8c213ca86f8" name="Thermometer">
-        <ownedRule xmi:id="a8259bd4-ab5d-4567-91d9-cd443e0187a7" name="hasSensorAndService" constrainedElement="fe0257ef-6d3d-4a6a-b182-f8c213ca86f8">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="ab975970-e478-417c-94c0-bfb7d66cd5e4">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IoMTAssets="http://iomtassets" xmlns:IoMTComponentCategories="http://IoMTComponentCategories" xmlns:IoMTProfile.LAN="http:///IoMTProfile/LAN.ecore" xmlns:IoMTProfile.WAN="http:///IoMTProfile/WAN.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:iomt_assertions="http://www.eclipse.org/papyrus/iomt/assertions/1" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///IoMTProfile/LAN.ecore http://iomtprofile#//LAN http:///IoMTProfile/WAN.ecore http://iomtprofile#//WAN">
+  <uml:Model xmi:id="8bedc0ae-c424-499a-980f-a6e5d803cf45" name="IoMTModel">
+    <packagedElement xmi:type="uml:Class" xmi:id="5b6da9ca-4c25-454a-a874-942979e7145f" name="HeartMonitoring">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="8f449464-b0ff-4f6c-b257-894ca05d088d" name="Thermometer">
+        <ownedRule xmi:id="00f8462c-9388-4045-ad23-5ba200151dd1" name="hasSensorAndService" constrainedElement="8f449464-b0ff-4f6c-b257-894ca05d088d">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="b80df213-aa8e-4807-aae5-4aa94b7a18d9">
             <language>OCL</language>
             <body>getAppliedStereotypes()->select(as | as.name ='Sensor' or as.name = 'Service')->asSequence()->size() = 2</body>
           </specification>
         </ownedRule>
       </nestedClassifier>
-      <nestedClassifier xmi:type="uml:Class" xmi:id="35e1cd98-d385-4b9d-bba5-e12f35ac4940" name="SwitchLED"/>
-      <nestedClassifier xmi:type="uml:Class" xmi:id="31674e62-4632-427e-a1c5-fbbbd1ba6e17" name="Hygrometer"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="80fdf84f-752f-4d25-912e-b5af62f7e4f2" name="SwitchLED"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="d0b21804-56da-49de-b0c7-dafcc90017bf" name="Hygrometer"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="38bb37ce-4d14-43f2-a665-c054b3e9c053" name="MQTTGateway"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="bcfc1306-9df5-404a-b8f8-94e2e9bb6fc5" name="Proxy"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="2e58adf3-42be-4024-a3b9-d945f1555dcf" name="FHIRDatabase"/>
-    <profileApplication xmi:id="54a20abb-75e1-4c10-abf5-20b47488de01">
-      <eAnnotations xmi:id="ed5e383c-3725-47f3-a6c7-b8fb3049f378" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/robotics/assertions/1#/"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="f7b9f0fc-ace6-487a-9a54-44ab14b2cad2" name="MQTTGateway"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="5cf99dd1-6da9-4ee8-a9af-a60e0fdf6286" name="Proxy"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="885ea789-58d7-4d3b-96fe-5d8d35454238" name="FHIRDatabase"/>
+    <profileApplication xmi:id="927634bb-e5a0-4452-ad38-36a986bdc5f6">
+      <eAnnotations xmi:id="cb405b71-9ad6-4e57-ac00-46c2fdf2a95e" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/iomt/assertions/1#/"/>
       </eAnnotations>
-      <appliedProfile href="pathmap://Assertions_PROFILE/assertions.profile.uml#_IGRaABwAEe-2GI5f1LdWww"/>
+      <appliedProfile href="pathmap://Assertions_PROFILE/assertions.iomt.profile.uml#_IGRaABwAEe-2GI5f1LdWww"/>
     </profileApplication>
-    <profileApplication xmi:id="6c625002-f9a8-413b-8e20-75ccd438b4f6">
-      <eAnnotations xmi:id="f203e9a7-087b-4197-9836-d796f17bd3a3" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:id="2998ea73-d028-469c-8229-f7df50564d2f">
+      <eAnnotations xmi:id="ff5c134c-29f9-4112-9a1e-40c1403157d5" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://iomtassets#/"/>
       </eAnnotations>
       <appliedProfile href="pathmap://IoMTAssets_PROFILE/IoMTAssets.profile.uml#_JDM8UBwAEe-2GI5f1LdWww"/>
     </profileApplication>
-    <profileApplication xmi:id="0798189a-324d-4ff2-a49e-f9b621b38e00">
-      <eAnnotations xmi:id="0172182c-ded6-488e-8bec-6b663be800d1" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:id="7da3636d-1247-49af-8db1-7ca55d5503c3">
+      <eAnnotations xmi:id="23bd8583-c212-425e-ba33-26d9ef4537d2" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://IoMTComponentCategories#/"/>
       </eAnnotations>
       <appliedProfile href="pathmap://IoMTComponentCategories_PROFILE/IoMTComponentCategories.profile.uml#_KrJKgBwAEe-2GI5f1LdWww"/>
     </profileApplication>
-    <profileApplication xmi:id="5fbae3ef-f571-4b4c-a232-815ac6738c85">
-      <eAnnotations xmi:id="420f6e01-27c3-4bfb-b291-edf7db24035b" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:id="70c574ee-3255-41cd-b170-d50c105ec34e">
+      <eAnnotations xmi:id="f5e9b681-d544-4aa7-935f-7e383985c6b4" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://iomtprofile#/"/>
       </eAnnotations>
       <appliedProfile href="pathmap://IoMT_PROFILE/IoMT.profile.uml#7cd26dfb-691a-4ee5-9dde-3557dac2a2fa"/>
     </profileApplication>
+    <profileApplication xmi:id="054ba488-019e-4a21-97c1-77596a9a1ea4">
+      <eAnnotations xmi:id="8ecee5da-f328-4d92-8f3f-936d0c0c8aeb" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://iomt.tvra#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://IoMTTVRA_PROFILE/TVRA.profile.uml#dd3656b0-efed-4c8a-829b-ce62b54a8a8b"/>
+    </profileApplication>
   </uml:Model>
-  <IoMTComponentCategories:IoMTpkg xmi:id="b55ae417-9708-48a7-b813-7203467993b4" base_Package="dec6d074-8354-4ba3-8597-c89409ace2d2"/>
-  <assertions:Assertion xmi:id="56646849-eeeb-4523-aad1-98f967822dba" base_Constraint="a8259bd4-ab5d-4567-91d9-cd443e0187a7"/>
-  <IoMTComponentCategories:IoMTcomponent xmi:id="6c28e229-c5c8-40c1-b868-d5338a61f9e0" base_Class="aa081b88-55ac-407a-bc89-f9b80445bd76">
+  <IoMTComponentCategories:IoMTpkg xmi:id="26a2d482-5a24-4063-8232-f2909e6e5176" base_Package="8bedc0ae-c424-499a-980f-a6e5d803cf45"/>
+  <iomt_assertions:Assertion xmi:id="130ccfa7-5fa2-45bf-b01c-f25f7c06fe3b" base_Constraint="00f8462c-9388-4045-ad23-5ba200151dd1"/>
+  <IoMTComponentCategories:IoMTcomponent xmi:id="b7fae37d-7b36-462e-b209-504c6ddff792" base_Class="5b6da9ca-4c25-454a-a874-942979e7145f">
     <supportedFeatures>accessPermission</supportedFeatures>
   </IoMTComponentCategories:IoMTcomponent>
-  <IoMTProfile.WAN:Proxy xmi:id="df6e4425-6ca8-4057-9f53-cc4af861a989" base_Class="bcfc1306-9df5-404a-b8f8-94e2e9bb6fc5" name="myProxy" uid="proxyUID" gateways="d50f309b-8742-47bb-8d72-015946460f29" datastores="d1652dee-560e-4a99-a5c8-f5a69fd0feb2"/>
-  <IoMTProfile.LAN:Gateway xmi:id="d50f309b-8742-47bb-8d72-015946460f29" base_Class="38bb37ce-4d14-43f2-a665-c054b3e9c053" name="myGateway" uid="gatewayUID" devices="29e85397-49bc-4487-9626-8bc9862a01d9" InternalInterface="BlueTooth" ExternalInterface="Ethernet" gatewayType="MQTT" proxy="df6e4425-6ca8-4057-9f53-cc4af861a989"/>
-  <IoMTProfile.WAN:DataStore xmi:id="d1652dee-560e-4a99-a5c8-f5a69fd0feb2" base_Class="2e58adf3-42be-4024-a3b9-d945f1555dcf" name="myDataBase" uid="http://localhost:8090/fhir" proxy="df6e4425-6ca8-4057-9f53-cc4af861a989"/>
-  <IoMTProfile.LAN:Sensor xmi:id="9d62cae6-8269-4211-a6b4-f62722e30b89" base_Class="fe0257ef-6d3d-4a6a-b182-f8c213ca86f8" name="myThermometer" uid="temperature" device="29e85397-49bc-4487-9626-8bc9862a01d9"/>
-  <IoMTProfile.LAN:Actuator xmi:id="76d54cd6-454a-4a63-a829-142eede5ea2b" base_Class="35e1cd98-d385-4b9d-bba5-e12f35ac4940" name="myLED" uid="switchLED" device="29e85397-49bc-4487-9626-8bc9862a01d9"/>
-  <IoMTProfile.LAN:Sensor xmi:id="cb90f2ac-76ca-4508-999a-8b79f9b0807f" base_Class="31674e62-4632-427e-a1c5-fbbbd1ba6e17" name="myHygrometer" uid="hygrometer" device="29e85397-49bc-4487-9626-8bc9862a01d9"/>
-  <IoMTProfile.LAN:IoMTDevice xmi:id="29e85397-49bc-4487-9626-8bc9862a01d9" base_Class="aa081b88-55ac-407a-bc89-f9b80445bd76" name="myHeartMonitor" uid="heartMonitor" InternalInterface="BlueTooth" services="9d62cae6-8269-4211-a6b4-f62722e30b89 76d54cd6-454a-4a63-a829-142eede5ea2b cb90f2ac-76ca-4508-999a-8b79f9b0807f" gateway="d50f309b-8742-47bb-8d72-015946460f29"/>
-  <IoMTAssets:Service xmi:id="bc909e22-f932-443b-8bb3-8ff8e46baae6" base_Class="fe0257ef-6d3d-4a6a-b182-f8c213ca86f8"/>
+  <IoMTProfile.WAN:Proxy xmi:id="d7f80c55-50eb-4cb7-b226-7d1fcee902df" base_Class="5cf99dd1-6da9-4ee8-a9af-a60e0fdf6286" name="myProxy" uid="proxyUID" gateways="69a6653e-7f13-4560-989b-05572df5f331" datastores="07a7af8d-a457-4b6f-aed0-5660e11a0d7d"/>
+  <IoMTProfile.LAN:Gateway xmi:id="69a6653e-7f13-4560-989b-05572df5f331" base_Class="f7b9f0fc-ace6-487a-9a54-44ab14b2cad2" name="myGateway" uid="gatewayUID" devices="83f4a8b1-9d73-4e82-86bb-589628e5d0bc" InternalInterface="BlueTooth" ExternalInterface="Ethernet" gatewayType="MQTT" proxy="d7f80c55-50eb-4cb7-b226-7d1fcee902df"/>
+  <IoMTProfile.WAN:DataStore xmi:id="07a7af8d-a457-4b6f-aed0-5660e11a0d7d" base_Class="885ea789-58d7-4d3b-96fe-5d8d35454238" name="myDataBase" uid="http://localhost:8090/fhir" proxy="d7f80c55-50eb-4cb7-b226-7d1fcee902df"/>
+  <IoMTProfile.LAN:Sensor xmi:id="9e5b90be-fcb5-4611-a761-a57e16a1cc82" base_Class="8f449464-b0ff-4f6c-b257-894ca05d088d" name="myThermometer" uid="temperature" device="83f4a8b1-9d73-4e82-86bb-589628e5d0bc"/>
+  <IoMTProfile.LAN:Actuator xmi:id="077296ed-fb14-4c1d-ad94-7aa2975adc6f" base_Class="80fdf84f-752f-4d25-912e-b5af62f7e4f2" name="myLED" uid="switchLED" device="83f4a8b1-9d73-4e82-86bb-589628e5d0bc"/>
+  <IoMTProfile.LAN:Sensor xmi:id="15d29eac-229d-4222-ad82-46b5ae5f0ef8" base_Class="d0b21804-56da-49de-b0c7-dafcc90017bf" name="myHygrometer" uid="hygrometer" device="83f4a8b1-9d73-4e82-86bb-589628e5d0bc"/>
+  <IoMTProfile.LAN:IoMTDevice xmi:id="83f4a8b1-9d73-4e82-86bb-589628e5d0bc" base_Class="5b6da9ca-4c25-454a-a874-942979e7145f" name="myHeartMonitor" uid="heartMonitor" InternalInterface="BlueTooth" services="9e5b90be-fcb5-4611-a761-a57e16a1cc82 077296ed-fb14-4c1d-ad94-7aa2975adc6f 15d29eac-229d-4222-ad82-46b5ae5f0ef8" gateway="69a6653e-7f13-4560-989b-05572df5f331"/>
+  <IoMTAssets:Service xmi:id="45a6e326-ea05-4750-a4db-cf9447b90219" base_Class="8f449464-b0ff-4f6c-b257-894ca05d088d"/>
 </xmi:XMI>

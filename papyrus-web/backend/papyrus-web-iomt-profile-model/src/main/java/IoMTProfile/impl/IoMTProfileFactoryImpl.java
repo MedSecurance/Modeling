@@ -74,6 +74,8 @@ public class IoMTProfileFactoryImpl extends EFactoryImpl implements IoMTProfileF
 		switch (eDataType.getClassifierID()) {
 			case IoMTProfilePackage.INTERFACE:
 				return createInterfaceFromString(eDataType, initialValue);
+			case IoMTProfilePackage.GATEWAY_TYPE:
+				return createGatewayTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -89,6 +91,8 @@ public class IoMTProfileFactoryImpl extends EFactoryImpl implements IoMTProfileF
 		switch (eDataType.getClassifierID()) {
 			case IoMTProfilePackage.INTERFACE:
 				return convertInterfaceToString(eDataType, instanceValue);
+			case IoMTProfilePackage.GATEWAY_TYPE:
+				return convertGatewayTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -133,6 +137,26 @@ public class IoMTProfileFactoryImpl extends EFactoryImpl implements IoMTProfileF
 	 * @generated
 	 */
 	public String convertInterfaceToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GatewayType createGatewayTypeFromString(EDataType eDataType, String initialValue) {
+		GatewayType result = GatewayType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGatewayTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

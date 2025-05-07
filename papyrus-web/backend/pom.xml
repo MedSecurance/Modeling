@@ -18,7 +18,7 @@
 
 	<groupId>papyrus-web</groupId>
 	<artifactId>papyrus-web-container</artifactId>
-	<version>2024.10.0</version>
+	<version>2025.1.7-SNAPSHOT</version>
 
 	<name>Papyrus Web</name>
 	<description>Papyrus Web</description>
@@ -57,10 +57,12 @@
 
 		<module>papyrus-web-iomt-assertions-profile-model</module>
 		<module>papyrus-web-iomt-assets-profile-model</module>
+		<module>papyrus-web-iomt-tvra-profile-model</module>
 		<module>papyrus-web-iomt-componentcategories-profile-model</module>
 		<module>papyrus-web-iomt-profile-model</module>
 		<module>papyrus-web-iomt-assertions-profile</module>
 		<module>papyrus-web-iomt-assets-profile</module>
+		<module>papyrus-web-iomt-tvra-profile</module>
 		<module>papyrus-web-iomt-componentcategories-profile</module>
 		<module>papyrus-web-iomt-profile</module>
 		

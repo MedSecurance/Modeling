@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PapyrusWeb<papyrus-web>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.eclipse.papyrus.web.PapyrusWeb",
+            "projectName": "papyrus-web",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": "-Dspring.config.location=file:${workspaceFolder}/backend/papyrus-web/src/main/resources/application.properties -Dspring.profiles.active=dev"
+        }
+    ]
+}
+

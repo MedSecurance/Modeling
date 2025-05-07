@@ -1774,6 +1774,16 @@ public interface IoMTProfilePackage extends EPackage {
 	 */
 	int INTERFACE = 3;
 
+	/**
+	 * The meta object id for the '{@link IoMTProfile.GatewayType <em>Gateway Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see IoMTProfile.GatewayType
+	 * @see IoMTProfile.impl.IoMTProfilePackageImpl#getGatewayType()
+	 * @generated
+	 */
+	int GATEWAY_TYPE = 4;
+
 
 	/**
 	 * Returns the meta object for class '{@link IoMTProfile.IdentifiableElement <em>Identifiable Element</em>}'.
@@ -1931,6 +1941,16 @@ public interface IoMTProfilePackage extends EPackage {
 	EEnum getInterface();
 
 	/**
+	 * Returns the meta object for enum '{@link IoMTProfile.GatewayType <em>Gateway Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Gateway Type</em>'.
+	 * @see IoMTProfile.GatewayType
+	 * @generated
+	 */
+	EEnum getGatewayType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2080,6 +2100,16 @@ public interface IoMTProfilePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum INTERFACE = eINSTANCE.getInterface();
+
+		/**
+		 * The meta object literal for the '{@link IoMTProfile.GatewayType <em>Gateway Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see IoMTProfile.GatewayType
+		 * @see IoMTProfile.impl.IoMTProfilePackageImpl#getGatewayType()
+		 * @generated
+		 */
+		EEnum GATEWAY_TYPE = eINSTANCE.getGatewayType();
 
 	}
 

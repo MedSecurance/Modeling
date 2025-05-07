@@ -15,9 +15,12 @@ INSERT INTO nature (
 		'c87b6af4-7f3b-4802-9497-94bc5219d5f6',
 		'papyrusweb://nature?kind=uml'
 		);
-		
-INSERT INTO semantic_data (id,project_id,created_on,last_modified_on) VALUES
-	 ('cbf34577-d7fb-4d12-a096-27d0d1f9164e','c87b6af4-7f3b-4802-9497-94bc5219d5f6','2024-10-03 15:49:21.789378+02','2024-10-03 15:50:47.926621+02');
+
+INSERT INTO semantic_data (id,created_on,last_modified_on) VALUES
+	 ('cbf34577-d7fb-4d12-a096-27d0d1f9164e','2024-10-03 15:49:21.789378+02','2024-10-03 15:50:47.926621+02');
+
+INSERT INTO project_semantic_data (id,project_id,semantic_data_id,name,created_on,last_modified_on) VALUES
+	 ('e74318a6-a0be-4366-95da-6d2a41850a7f','c87b6af4-7f3b-4802-9497-94bc5219d5f6','cbf34577-d7fb-4d12-a096-27d0d1f9164e','main','2024-10-03 15:49:21.789378+02','2024-10-03 15:50:47.926621+02');
 
 
 INSERT INTO semantic_data_domain (semantic_data_id,uri) VALUES
@@ -99,6 +102,7 @@ INSERT INTO representation_metadata (
     target_object_id,
     description_id,
     "label",
+    documentation,
     kind,
     created_on,
     last_modified_on)
@@ -106,6 +110,7 @@ VALUES (
     'dc0083d6-233a-4523-b06a-6c62c9baf3a4',
     'c87b6af4-7f3b-4802-9497-94bc5219d5f6',
     '8f568fdc-f688-4ecf-8e5f-9a1ed1a5fc6d',
+    '',
     'siriusComponents://representationDescription?kind=diagramDescription&sourceKind=view&sourceId=fe67a192-1679-3290-92ff-cf77016f6aa2&sourceElementId=a8c63f96-b6a9-387d-942f-4b0a54f8bfed',
     'Root Package Diagram',
     'siriusComponents://representation?type=Diagram',

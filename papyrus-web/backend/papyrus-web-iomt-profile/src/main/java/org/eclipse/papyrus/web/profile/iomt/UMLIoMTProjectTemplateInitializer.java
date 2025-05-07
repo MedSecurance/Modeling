@@ -1,5 +1,5 @@
 /*****************************************************************************
- * Copyright (c) 2024 CEA LIST
+ * Copyright (c) 2024, 2025 CEA LIST
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -22,35 +22,28 @@ import java.util.Optional;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.papyrus.web.application.representations.PapyrusRepresentationDescriptionRegistry;
 import org.eclipse.papyrus.web.application.representations.aqlservices.utils.GenericDiagramService;
-import org.eclipse.papyrus.web.application.representations.uml.CDDiagramDescriptionBuilder;
+import org.eclipse.papyrus.web.application.representations.uml.iomt.IoMTDiagramDescriptionBuilder;
 import org.eclipse.papyrus.web.application.templates.projects.PapyrusProjectTemplateInitializerParameters;
 import org.eclipse.papyrus.web.application.templates.projects.TemplateInitializer;
-import org.eclipse.papyrus.web.sirius.contributions.DiagramNavigator;
 import org.eclipse.papyrus.web.sirius.contributions.IDiagramBuilderService;
 import org.eclipse.papyrus.web.sirius.contributions.IDiagramNavigationService;
-import org.eclipse.papyrus.web.sirius.contributions.query.NodeMatcher;
-import org.eclipse.papyrus.web.sirius.contributions.query.NodeMatcher.BorderNodeStatus;
 import org.eclipse.sirius.components.collaborative.api.IRepresentationMetadataPersistenceService;
 import org.eclipse.sirius.components.collaborative.api.IRepresentationPersistenceService;
 import org.eclipse.sirius.components.core.RepresentationMetadata;
 import org.eclipse.sirius.components.core.api.IEditingContext;
 import org.eclipse.sirius.components.core.api.IRepresentationDescriptionSearchService;
 import org.eclipse.sirius.components.diagrams.Diagram;
-import org.eclipse.sirius.components.diagrams.Node;
 import org.eclipse.sirius.components.diagrams.description.DiagramDescription;
 import org.eclipse.sirius.components.events.ICause;
 import org.eclipse.sirius.components.representations.VariableManager;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.web.application.project.services.api.IProjectTemplateInitializer;
 import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
-
-import assertions.Assertion;
 
 
 /**
@@ -137,9 +130,10 @@ public class UMLIoMTProjectTemplateInitializer implements IProjectTemplateInitia
 
     private Optional<Diagram> createMainClassDiagram(IEditingContext editingContext, Resource r, ICause cause) {
         Map<NodeDescription, org.eclipse.sirius.components.diagrams.description.NodeDescription> convertedNodes = this.papyrusRepresentationRegistry
-                .getConvertedNode(CDDiagramDescriptionBuilder.CD_REP_NAME);
+                // .getConvertedNode(CDDiagramDescriptionBuilder.CD_REP_NAME);
+                .getConvertedNode(IoMTDiagramDescriptionBuilder.IOMT_REP_NAME);
         Model model = (Model) r.getContents().get(0);
-        return this.diagramBuilderService.createDiagram(editingContext, diagramDescription -> CDDiagramDescriptionBuilder.CD_REP_NAME.equals(diagramDescription.getLabel()), model, "RateMonitor")
+        return this.diagramBuilderService.createDiagram(editingContext, diagramDescription -> IoMTDiagramDescriptionBuilder.IOMT_REP_NAME.equals(diagramDescription.getLabel()), model, "RateMonitor")
                 .flatMap(diagram -> this.semanticDropClass(editingContext, convertedNodes, model, diagram));
     }    
     
@@ -163,9 +157,6 @@ public class UMLIoMTProjectTemplateInitializer implements IProjectTemplateInitia
         });
     }
 
-    private boolean filter(DiagramNavigator diagramNav, Node v) {
-        return "CD_Class_Operations_SHARED_CompartmentNode".equals(diagramNav.getDescription(v).get().getName());
-    }
 
     private Optional<RepresentationMetadata> createRepresentationMetadata(IEditingContext editingContext, Diagram diagram, Object semanticTarget) {
         return this.representationDescriptionSearchService.findById(editingContext, diagram.getDescriptionId())
@@ -176,10 +167,12 @@ public class UMLIoMTProjectTemplateInitializer implements IProjectTemplateInitia
                     variableManager.put(VariableManager.SELF, semanticTarget);
                     variableManager.put(DiagramDescription.LABEL, diagramDescription.getLabel());
                     String label = diagramDescription.getLabelProvider().apply(variableManager);
+                    List<String> iconURLs = diagramDescription.getIconURLsProvider().apply(variableManager);
                     return RepresentationMetadata.newRepresentationMetadata(diagram.getId())
                             .kind(diagram.getKind())
                             .label(label)
                             .descriptionId(diagram.getDescriptionId())
+                            .iconURLs(iconURLs)
                             .build();
                 });
     }    

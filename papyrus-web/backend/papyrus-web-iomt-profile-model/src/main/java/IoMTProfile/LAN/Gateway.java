@@ -2,6 +2,7 @@
  */
 package IoMTProfile.LAN;
 
+import IoMTProfile.GatewayType;
 import IoMTProfile.IdentifiableElement;
 import IoMTProfile.Interface;
 
@@ -108,7 +109,7 @@ public interface Gateway extends IdentifiableElement {
 
 	/**
 	 * Returns the value of the '<em><b>Gateway Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link IoMTProfile.LAN.GatewayType}.
+	 * The literals are from the enumeration {@link IoMTProfile.GatewayType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Gateway Type</em>' attribute isn't clear,
@@ -116,7 +117,7 @@ public interface Gateway extends IdentifiableElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Gateway Type</em>' attribute.
-	 * @see IoMTProfile.LAN.GatewayType
+	 * @see IoMTProfile.GatewayType
 	 * @see #setGatewayType(GatewayType)
 	 * @see IoMTProfile.LAN.LANPackage#getGateway_GatewayType()
 	 * @model required="true" ordered="false"
@@ -129,7 +130,7 @@ public interface Gateway extends IdentifiableElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Gateway Type</em>' attribute.
-	 * @see IoMTProfile.LAN.GatewayType
+	 * @see IoMTProfile.GatewayType
 	 * @see #getGatewayType()
 	 * @generated
 	 */

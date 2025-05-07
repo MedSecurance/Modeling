@@ -6,7 +6,6 @@ import IoMTProfile.IoMTProfilePackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -3652,16 +3651,6 @@ public interface LANPackage extends EPackage {
 	 */
 	int GATEWAY_OPERATION_COUNT = IoMTProfilePackage.IDENTIFIABLE_ELEMENT_OPERATION_COUNT + 0;
 
-	/**
-	 * The meta object id for the '{@link IoMTProfile.LAN.GatewayType <em>Gateway Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see IoMTProfile.LAN.GatewayType
-	 * @see IoMTProfile.LAN.impl.LANPackageImpl#getGatewayType()
-	 * @generated
-	 */
-	int GATEWAY_TYPE = 8;
-
 
 	/**
 	 * Returns the meta object for class '{@link IoMTProfile.LAN.IoMTDevice <em>Io MT Device</em>}'.
@@ -3940,16 +3929,6 @@ public interface LANPackage extends EPackage {
 	EReference getGateway_Proxy();
 
 	/**
-	 * Returns the meta object for enum '{@link IoMTProfile.LAN.GatewayType <em>Gateway Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Gateway Type</em>'.
-	 * @see IoMTProfile.LAN.GatewayType
-	 * @generated
-	 */
-	EEnum getGatewayType();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4195,16 +4174,6 @@ public interface LANPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GATEWAY__PROXY = eINSTANCE.getGateway_Proxy();
-
-		/**
-		 * The meta object literal for the '{@link IoMTProfile.LAN.GatewayType <em>Gateway Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see IoMTProfile.LAN.GatewayType
-		 * @see IoMTProfile.LAN.impl.LANPackageImpl#getGatewayType()
-		 * @generated
-		 */
-		EEnum GATEWAY_TYPE = eINSTANCE.getGatewayType();
 
 	}
 

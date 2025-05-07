@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019, 2024 CEA LIST, Obeo.
+ * Copyright (c) 2019, 2025 CEA LIST, Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -10,63 +10,59 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
+import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev';
 import {
   ComponentExtension,
   DataExtension,
   ExtensionRegistry,
-  ExtensionRegistryMergeStrategy,
   WorkbenchViewContribution,
   workbenchViewContributionExtensionPoint,
 } from '@eclipse-sirius/sirius-components-core';
 import {
-  SiriusWebApplication,
-  DiagramRepresentationConfiguration,
-  NodeTypeRegistry,
-  navigationBarIconExtensionPoint,
+  DiagramPaletteToolContributionProps,
+  diagramPaletteToolExtensionPoint,
+  EdgeData,
+  NodeData,
+  NodeTypeContribution,
+} from '@eclipse-sirius/sirius-components-diagrams';
+import ReactDOM from 'react-dom';
+import { forkRegistry } from '@eclipse-sirius/sirius-web-view-fork';
+import {
   ApolloClientOptionsConfigurer,
   apolloClientOptionsConfigurersExtensionPoint,
+  DefaultExtensionRegistryMergeStrategy,
+  DiagramRepresentationConfiguration,
   footerExtensionPoint,
+  navigationBarIconExtensionPoint,
   navigationBarMenuIconExtensionPoint,
+  NodeTypeRegistry,
+  SiriusWebApplication,
 } from '@eclipse-sirius/sirius-web-application';
-
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev';
-import { NodeTypeContribution, diagramPaletteToolExtensionPoint } from '@eclipse-sirius/sirius-components-diagrams';
-import ReactDOM from 'react-dom';
+import { Help } from './core/Help';
 import { httpOrigin, wsOrigin } from './core/URL';
-import { PapyrusIcon } from './core/PapyrusIcon';
-import { CuboidNodeLayoutHandler } from './nodes/cuboid/CuboidNodeLayoutHandler';
-import { CuboidNodeConverter } from './nodes/cuboid/CuboidNodeConverter';
 import { CuboidNode } from './nodes/cuboid/CuboidNode';
+import { CuboidNodeConverter } from './nodes/cuboid/CuboidNodeConverter';
+import { CuboidNodeLayoutHandler } from './nodes/cuboid/CuboidNodeLayoutHandler';
 import { EllipseNode } from './nodes/ellipse/EllipseNode';
 import { EllipseNodeConverter } from './nodes/ellipse/EllipseNodeConverter';
 import { EllipseNodeLayoutHandler } from './nodes/ellipse/EllipseNodeLayoutHandler';
+import { InnerFlagNode } from './nodes/innerFlag/InnerFlagNode';
+import { InnerFlagNodeConverter } from './nodes/innerFlag/InnerFlagNodeConverter';
+import { InnerFlagNodeLayoutHandler } from './nodes/innerFlag/InnerFlagNodeLayoutHandler';
 import { NoteNode } from './nodes/note/NoteNode';
 import { NoteNodeConverter } from './nodes/note/NoteNodeConverter';
 import { NoteNodeLayoutHandler } from './nodes/note/NoteNodeLayoutHandler';
-import { RectangleWithExternalLabelNode } from './nodes/rectangleWithExternalLabel/RectangleWithExternalLabelNode';
-import { RectangleWithExternalLabelNodeConverter } from './nodes/rectangleWithExternalLabel/RectangleWithExternalLabelNodeConverter';
-import { RectangleWithExternalLabelNodeLayoutHandler } from './nodes/rectangleWithExternalLabel/RectangleWithExternalLabelNodeLayoutHandler';
+import { OuterFlagNode } from './nodes/outerFlag/OuterFlagNode';
+import { OuterFlagNodeConverter } from './nodes/outerFlag/OuterFlagNodeConverter';
+import { OuterFlagNodeLayoutHandler } from './nodes/outerFlag/OuterFlagNodeLayoutHandler';
 import { PackageNode } from './nodes/package/PackageNode';
 import { PackageNodeConverter } from './nodes/package/PackageNodeConverter';
 import { PackageNodeLayoutHandler } from './nodes/package/PackageNodeLayoutHandler';
-import { InnerFlagNodeLayoutHandler } from './nodes/innerFlag/InnerFlagNodeLayoutHandler';
-import { InnerFlagNodeConverter } from './nodes/innerFlag/InnerFlagNodeConverter';
-import { InnerFlagNode } from './nodes/innerFlag/InnerFlagNode';
-import { OuterFlagNodeLayoutHandler } from './nodes/outerFlag/OuterFlagNodeLayoutHandler';
-import { OuterFlagNodeConverter } from './nodes/outerFlag/OuterFlagNodeConverter';
-import { OuterFlagNode } from './nodes/outerFlag/OuterFlagNode';
-import { Help } from './core/Help';
+import { RectangleWithExternalLabelNode } from './nodes/rectangleWithExternalLabel/RectangleWithExternalLabelNode';
+import { RectangleWithExternalLabelNodeConverter } from './nodes/rectangleWithExternalLabel/RectangleWithExternalLabelNodeConverter';
+import { RectangleWithExternalLabelNodeLayoutHandler } from './nodes/rectangleWithExternalLabel/RectangleWithExternalLabelNodeLayoutHandler';
 
-import './ReactFlow.css';
-import './fonts.css';
-import './portals.css';
-import './reset.css';
-import './variables.css';
-import { nodesStyleDocumentTransform } from './nodes/NodesDocumentTransform';
-import { Footer } from './footer/Footer';
-import { PapyrusPopupToolContribution } from './diagram-tools/PapyrusPopupToolContribution';
-import { customWidgetsDocumentTransform } from './widgets/CustomWidgetsDocumentTransform';
 import {
   GQLWidget,
   PropertySectionComponent,
@@ -78,28 +74,39 @@ import {
   ReferencePreview,
   ReferencePropertySection,
 } from '@eclipse-sirius/sirius-components-widget-reference';
+import './ReactFlow.css';
+import { PapyrusPopupToolContribution } from './diagram-tools/PapyrusPopupToolContribution';
+import './fonts.css';
+import { Footer } from './footer/Footer';
+import { nodesStyleDocumentTransform } from './nodes/NodesDocumentTransform';
+import './portals.css';
 import { UMLModelTreeItemContextMenuContribution } from './profile/apply-profile/UMLModelTreeItemContextMenuContribution';
 import { UMLElementTreeItemContextMenuContribution } from './profile/apply-stereotype/UMLElementTreeItemContextMenuContribution';
+import './reset.css';
+import './variables.css';
+import { customWidgetsDocumentTransform } from './widgets/CustomWidgetsDocumentTransform';
 
-import ContainmentReferenceSection from './widgets/containmentReference/ContainmentReferenceSection';
-import { ContainmentReferencePreview } from './widgets/containmentReference/ContainmentReferencePreview';
+import { Edge, Node } from '@xyflow/react';
+import { PapyrusNavigationBarIcon } from './core/PapyrusNavigationBarIcon';
+import { PublishProfileTreeItemContextMenuContribution } from './profile/publish-profile/PublishProfileTreeItemContextMenuContribution';
 import { ContainmentReferenceIcon } from './widgets/containmentReference/ContainmentReferenceIcon';
-import { PrimitiveListWidgetPreview } from './widgets/primitiveList/PrimitiveListWidgetPreview';
-import { PrimitiveListSection } from './widgets/primitiveList/PrimitiveListWidgetPropertySection';
+import { ContainmentReferencePreview } from './widgets/containmentReference/ContainmentReferencePreview';
+import ContainmentReferenceSection from './widgets/containmentReference/ContainmentReferenceSection';
 import { LanguageExpressionIcon } from './widgets/languageExpression/LanguageExpressionIcon';
 import { LanguageExpressionPreview } from './widgets/languageExpression/LanguageExpressionPreview';
 import { LanguageExpressionSection } from './widgets/languageExpression/LanguageExpressionSection';
+import { PrimitiveListWidgetPreview } from './widgets/primitiveList/PrimitiveListWidgetPreview';
+import { PrimitiveListSection } from './widgets/primitiveList/PrimitiveListWidgetPropertySection';
 import { PrimitiveRadioIcon } from './widgets/primitiveRadio/PrimitiveRadioIcon';
 import { PrimitiveRadioPreview } from './widgets/primitiveRadio/PrimitiveRadioPreview';
 import { PrimitiveRadioSection } from './widgets/primitiveRadio/PrimitiveRadioSection';
-import { PublishProfileTreeItemContextMenuContribution } from './profile/publish-profile/PublishProfileTreeItemContextMenuContribution';
-import { ConstraintTreeItemContextMenuContribution } from './codegen/ConstraintTreeItemContextMenuContribution';
 import { ExportPlantUMLTreeItemContextMenuContribution } from './codegen/ExportPlantUMLTreeItemContextMenuContribution';
+import { ConstraintTreeItemContextMenuContribution } from './codegen/ConstraintTreeItemContextMenuContribution';
 import { ModelCodeGenTreeItemContextMenuContribution } from './codegen/ModelCodeGenTreeItemContextMenuContribution';
 import { StateMachineTreeItemContextMenuContribution } from './codegen/StateMachineTreeItemContextMenuContribution';
 import { loadConfigVars } from './config-variables/ConfigVar';
-import { GenerateGatewayAppTreeItemContextMenuContribution } from './iomt-generator/IoMT-gateway-generator';
 import { GenerateDeviceAppTreeItemContextMenuContribution } from './iomt-generator/IoMT-device-generator';
+import { GenerateGatewayAppTreeItemContextMenuContribution } from './iomt-generator/IoMT-gateway-generator';
 
 if (process.env.NODE_ENV !== 'production') {
   loadDevMessages();
@@ -241,9 +248,15 @@ extensionRegistry.putData(apolloClientOptionsConfigurersExtensionPoint, {
 });
 
 // Palette tools contribution
-extensionRegistry.addComponent(diagramPaletteToolExtensionPoint, {
+const diagramPaletteToolContributions: DiagramPaletteToolContributionProps[] = [
+  {
+    canHandle: (_: Node<NodeData> | Edge<EdgeData>) => true,
+    component: PapyrusPopupToolContribution,
+  },
+];
+extensionRegistry.putData<DiagramPaletteToolContributionProps[]>(diagramPaletteToolExtensionPoint, {
   identifier: 'papyrus-diagram-tools',
-  Component: PapyrusPopupToolContribution,
+  data: diagramPaletteToolContributions,
 });
 
 // Tree Item context menu contributions
@@ -275,15 +288,11 @@ extensionRegistry.addComponent(footerExtensionPoint, {
 // Main icon contribution
 extensionRegistry.addComponent(navigationBarIconExtensionPoint, {
   identifier: 'papyrusweb_navigationbar#icon',
-  Component: PapyrusIcon,
+  Component: PapyrusNavigationBarIcon,
 });
 
-// ReactDOM.render(
-//   <SiriusWebApplication httpOrigin={httpOrigin} wsOrigin={wsOrigin} extensionRegistry={extensionRegistry}>
-//     <DiagramRepresentationConfiguration nodeTypeRegistry={nodeTypeRegistryValue} />
-//   </SiriusWebApplication>,
-//   document.getElementById('root')
-// );
+// Table contribution
+// extensionRegistry.addAll(forkRegistry, new DefaultExtensionRegistryMergeStrategy());
 
 extensionRegistry.addComponent(treeItemContextMenuEntryExtensionPoint, {
   identifier: 'papyrus-custom-tree-menu-exportplantuml',
@@ -319,7 +328,7 @@ const workbenchViewContributionsLLM: WorkbenchViewContribution[] = [
   //to add other contributions
 ];
 // merges the right side panel components, without overwritting them as it is in the main merge strategy
-class PapyrusWebWorkbenchExtensionRegistryMergeStrategy implements ExtensionRegistryMergeStrategy {
+class PapyrusWebWorkbenchExtensionRegistryMergeStrategy implements DefaultExtensionRegistryMergeStrategy {
   public mergeComponentExtensions(
     _identifier: string,
     existingValues: ComponentExtension<any>[],
@@ -347,6 +356,7 @@ newExtensionRegistry.putData(workbenchViewContributionExtensionPoint, {
   data: workbenchViewContributionsLLM,
 });
 
+extensionRegistry.addAll(forkRegistry, new DefaultExtensionRegistryMergeStrategy());
 extensionRegistry.addAll(newExtensionRegistry, new PapyrusWebWorkbenchExtensionRegistryMergeStrategy());
 
 const renderApp = () => {

@@ -3,16 +3,16 @@
 	xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
 	xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
 	xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML"
-	xmi:id="_IGRaABwAEe-2GI5f1LdWww" name="assertions"
+	xmi:id="_IGRaABwAEe-2GI5f1LdWww" name="assertions_iomt"
 	URI="http://www.eclipse.org/papyrus/robotics/assertions/1"
 	metaclassReference="_IGRaOBwAEe-2GI5f1LdWww _IGRaORwAEe-2GI5f1LdWww _IGRaOhwAEe-2GI5f1LdWww">
 	<eAnnotations xmi:type="ecore:EAnnotation"
 		xmi:id="_IGRaARwAEe-2GI5f1LdWww"
 		source="http://www.eclipse.org/uml2/2.0.0/UML">
 		<contents xmi:type="ecore:EPackage"
-			xmi:id="_IGRaAhwAEe-2GI5f1LdWww" name="assertions"
-			nsURI="http://www.eclipse.org/papyrus/robotics/assertions/1"
-			nsPrefix="assertions">
+			xmi:id="_IGRaAhwAEe-2GI5f1LdWww" name="assertions_iomt"
+			nsURI="http://www.eclipse.org/papyrus/iomt/assertions/1"
+			nsPrefix="assertions_iomt">
 			<eAnnotations xmi:type="ecore:EAnnotation"
 				xmi:id="_IGRaAxwAEe-2GI5f1LdWww" source="PapyrusVersion">
 				<details xmi:type="ecore:EStringToStringMapEntry"

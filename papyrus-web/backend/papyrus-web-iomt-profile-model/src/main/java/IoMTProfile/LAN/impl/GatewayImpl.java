@@ -2,10 +2,10 @@
  */
 package IoMTProfile.LAN.impl;
 
+import IoMTProfile.GatewayType;
 import IoMTProfile.Interface;
 
 import IoMTProfile.LAN.Gateway;
-import IoMTProfile.LAN.GatewayType;
 import IoMTProfile.LAN.IoMTDevice;
 import IoMTProfile.LAN.LANPackage;
 
@@ -181,6 +181,7 @@ public class GatewayImpl extends IdentifiableElementImpl implements Gateway {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, LANPackage.GATEWAY__INTERNAL_INTERFACE, oldInternalInterface, internalInterface));
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

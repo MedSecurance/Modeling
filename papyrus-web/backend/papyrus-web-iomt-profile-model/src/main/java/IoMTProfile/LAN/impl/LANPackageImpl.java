@@ -15,7 +15,6 @@ import IoMTProfile.IoMTProfilePackage;
 import IoMTProfile.LAN.Actuator;
 import IoMTProfile.LAN.ExternalFunction;
 import IoMTProfile.LAN.Gateway;
-import IoMTProfile.LAN.GatewayType;
 import IoMTProfile.LAN.IoMTConfiguration;
 import IoMTProfile.LAN.IoMTDevice;
 import IoMTProfile.LAN.IoMTFunction;
@@ -32,7 +31,6 @@ import IoMTProfile.impl.IoMTProfilePackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -106,13 +104,6 @@ public class LANPackageImpl extends EPackageImpl implements LANPackage {
 	 * @generated
 	 */
 	private EClass gatewayEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum gatewayTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -463,16 +454,6 @@ public class LANPackageImpl extends EPackageImpl implements LANPackage {
 	 * @generated
 	 */
 	@Override
-	public EEnum getGatewayType() {
-		return gatewayTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public LANFactory getLANFactory() {
 		return (LANFactory)getEFactoryInstance();
 	}
@@ -529,9 +510,6 @@ public class LANPackageImpl extends EPackageImpl implements LANPackage {
 		createEAttribute(gatewayEClass, GATEWAY__EXTERNAL_INTERFACE);
 		createEAttribute(gatewayEClass, GATEWAY__GATEWAY_TYPE);
 		createEReference(gatewayEClass, GATEWAY__PROXY);
-
-		// Create enums
-		gatewayTypeEEnum = createEEnum(GATEWAY_TYPE);
 	}
 
 	/**
@@ -611,14 +589,8 @@ public class LANPackageImpl extends EPackageImpl implements LANPackage {
 		initEReference(getGateway_Devices(), this.getIoMTDevice(), this.getIoMTDevice_Gateway(), "devices", null, 0, -1, Gateway.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getGateway_InternalInterface(), theIoMTProfilePackage.getInterface(), "InternalInterface", null, 1, 1, Gateway.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getGateway_ExternalInterface(), theIoMTProfilePackage.getInterface(), "ExternalInterface", null, 1, 1, Gateway.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getGateway_GatewayType(), this.getGatewayType(), "gatewayType", null, 1, 1, Gateway.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getGateway_GatewayType(), theIoMTProfilePackage.getGatewayType(), "gatewayType", null, 1, 1, Gateway.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getGateway_Proxy(), theWANPackage.getProxy(), theWANPackage.getProxy_Gateways(), "proxy", null, 1, 1, Gateway.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		// Initialize enums and add enum literals
-		initEEnum(gatewayTypeEEnum, GatewayType.class, "GatewayType");
-		addEEnumLiteral(gatewayTypeEEnum, GatewayType.REST);
-		addEEnumLiteral(gatewayTypeEEnum, GatewayType.MQTT);
-		addEEnumLiteral(gatewayTypeEEnum, GatewayType.WEB_SOCKET);
 	}
 
 } //LANPackageImpl

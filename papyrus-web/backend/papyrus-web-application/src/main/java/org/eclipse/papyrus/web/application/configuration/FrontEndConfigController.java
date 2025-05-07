@@ -17,12 +17,16 @@ package org.eclipse.papyrus.web.application.configuration;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class FrontEndConfigController {
 
+
+    private final Logger logger = LoggerFactory.getLogger(FrontEndConfigController.class);
     private final FrontEndConfigProperties frontendConfigProperties;
 
     public FrontEndConfigController(FrontEndConfigProperties frontendConfigProperties) {
@@ -31,6 +35,7 @@ public class FrontEndConfigController {
 
     @GetMapping("/reactenvvars")
     public Map<String, String> getConfig() {
+        logger.info("Endpoint /reactenvvars called");
         Map<String, String> config = new HashMap<>();
 
         config.put("MODEL_SERVICE_URL", this.frontendConfigProperties.getModelServiceUrl());

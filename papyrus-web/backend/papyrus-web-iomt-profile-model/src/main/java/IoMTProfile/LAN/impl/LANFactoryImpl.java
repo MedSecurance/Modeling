@@ -5,7 +5,6 @@ package IoMTProfile.LAN.impl;
 import IoMTProfile.LAN.*;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -74,36 +73,6 @@ public class LANFactoryImpl extends EFactoryImpl implements LANFactory {
 	 * @generated
 	 */
 	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case LANPackage.GATEWAY_TYPE:
-				return createGatewayTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case LANPackage.GATEWAY_TYPE:
-				return convertGatewayTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public IoMTDevice createIoMTDevice() {
 		IoMTDeviceImpl ioMTDevice = new IoMTDeviceImpl();
 		return ioMTDevice;
@@ -162,26 +131,6 @@ public class LANFactoryImpl extends EFactoryImpl implements LANFactory {
 	public Gateway createGateway() {
 		GatewayImpl gateway = new GatewayImpl();
 		return gateway;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GatewayType createGatewayTypeFromString(EDataType eDataType, String initialValue) {
-		GatewayType result = GatewayType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertGatewayTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

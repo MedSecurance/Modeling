@@ -25,6 +25,7 @@ import org.eclipse.papyrus.web.application.representations.uml.PADDiagramDescrip
 import org.eclipse.papyrus.web.application.representations.uml.PRDDiagramDescriptionBuilder;
 import org.eclipse.papyrus.web.application.representations.uml.SMDDiagramDescriptionBuilder;
 import org.eclipse.papyrus.web.application.representations.uml.UCDDiagramDescriptionBuilder;
+import org.eclipse.papyrus.web.application.representations.uml.iomt.IoMTDiagramDescriptionBuilder;
 import org.eclipse.papyrus.web.application.templates.service.api.IUMLProjectCheckerService;
 import org.eclipse.sirius.components.core.api.IEditingContext;
 import org.eclipse.sirius.components.core.api.IEditingContextProcessor;
@@ -69,6 +70,7 @@ public class PapyrusRepresentationInstaller implements IEditingContextProcessor 
         this.papyrusRepresentationRegistry.registerDiagram(new ADDiagramDescriptionBuilder());
         this.papyrusRepresentationRegistry.registerDiagram(new CPDDiagramDescriptionBuilder());
         this.papyrusRepresentationRegistry.registerDiagram(new DDDiagramDescriptionBuilder());
+        this.papyrusRepresentationRegistry.registerDiagram(new IoMTDiagramDescriptionBuilder());
     }
 
     @Override

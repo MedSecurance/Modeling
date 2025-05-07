@@ -10,6 +10,7 @@ import IoMTProfile.External.ExternalPackage;
 
 import IoMTProfile.External.impl.ExternalPackageImpl;
 
+import IoMTProfile.GatewayType;
 import IoMTProfile.IdentifiableElement;
 import IoMTProfile.Interface;
 import IoMTProfile.InternalFunction;
@@ -74,6 +75,13 @@ public class IoMTProfilePackageImpl extends EPackageImpl implements IoMTProfileP
 	 * @generated
 	 */
 	private EEnum interfaceEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum gatewayTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -314,6 +322,16 @@ public class IoMTProfilePackageImpl extends EPackageImpl implements IoMTProfileP
 	 * @generated
 	 */
 	@Override
+	public EEnum getGatewayType() {
+		return gatewayTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public IoMTProfileFactory getIoMTProfileFactory() {
 		return (IoMTProfileFactory)getEFactoryInstance();
 	}
@@ -356,6 +374,7 @@ public class IoMTProfilePackageImpl extends EPackageImpl implements IoMTProfileP
 
 		// Create enums
 		interfaceEEnum = createEEnum(INTERFACE);
+		gatewayTypeEEnum = createEEnum(GATEWAY_TYPE);
 	}
 
 	/**
@@ -439,6 +458,11 @@ public class IoMTProfilePackageImpl extends EPackageImpl implements IoMTProfileP
 		addEEnumLiteral(interfaceEEnum, Interface.ZIGBEE);
 		addEEnumLiteral(interfaceEEnum, Interface.SERIAL);
 		addEEnumLiteral(interfaceEEnum, Interface.SIX_LO_WPAN);
+
+		initEEnum(gatewayTypeEEnum, GatewayType.class, "GatewayType");
+		addEEnumLiteral(gatewayTypeEEnum, GatewayType.REST);
+		addEEnumLiteral(gatewayTypeEEnum, GatewayType.MQTT);
+		addEEnumLiteral(gatewayTypeEEnum, GatewayType.WEB_SOCKET);
 
 		// Create resource
 		createResource(eNS_URI);

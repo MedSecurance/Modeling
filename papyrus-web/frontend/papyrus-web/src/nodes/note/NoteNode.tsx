@@ -1,5 +1,5 @@
 /*****************************************************************************
- * Copyright (c) 2023, 2024 CEA LIST, Obeo.
+ * Copyright (c) 2023, 2024 CEA LIST, Obeo, Artal Technologies.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -10,6 +10,7 @@
  *
  * Contributors:
  *  Obeo - Initial API and implementation
+ *  Titouan BOUETE-GIRAUD (Artal Technologies) - Issue 224
  *****************************************************************************/
 
 import { getCSSColor } from '@eclipse-sirius/sirius-components-core';
@@ -20,15 +21,15 @@ import {
   DiagramContext,
   DiagramContextValue,
   DiagramElementPalette,
-  Label,
+  useConnectorNodeStyle,
   useDrop,
   useDropNodeStyle,
   useRefreshConnectionHandles,
-  useConnectorNodeStyle,
 } from '@eclipse-sirius/sirius-components-diagrams';
 import { Theme, useTheme } from '@mui/material/styles';
-import React, { memo, useContext } from 'react';
 import { Node, NodeProps, NodeResizer, useReactFlow } from '@xyflow/react';
+import React, { memo, useContext } from 'react';
+import { NoteLabel } from './NoteLabel';
 import { NoteNodeData } from './NoteNode.types';
 
 const resizeLineStyle = (theme: Theme): React.CSSProperties => {
@@ -109,21 +110,21 @@ export const NoteNode = memo(({ data, id, selected, dragging }: NodeProps<Node<N
   useRefreshConnectionHandles(id, data.connectionHandles);
 
   const borderOffset = data.style.borderWidth ? parseInt(data.style.borderWidth.toString()) / 2 : 0;
-  //console.log(data.insideLabel);
+
   return (
     <>
-      {data.nodeDescription?.userResizable && !readOnly ? (
+      {data.nodeDescription?.userResizable !== 'NONE' && !readOnly ? (
         <NodeResizer
           handleStyle={{ ...resizeHandleStyle(theme) }}
           lineStyle={{ ...resizeLineStyle(theme) }}
           color={theme.palette.selected}
-          isVisible={selected}
+          isVisible={!!selected}
           keepAspectRatio={data.nodeDescription?.keepAspectRatio}
         />
       ) : null}
       <div
         style={{
-          ...noteNodeStyle(theme, data.style, selected, data.isHovered, data.faded),
+          ...noteNodeStyle(theme, data.style, !!selected, data.isHovered, data.faded),
           ...connectionFeedbackStyle,
           ...dropFeedbackStyle,
         }}
@@ -155,15 +156,15 @@ export const NoteNode = memo(({ data, id, selected, dragging }: NodeProps<Node<N
             />
           </svg>
         </div>
-        {data.insideLabel ? <Label diagramElementId={id} label={updatedLabel} faded={data.faded} /> : null}
-        {selected ? (
+        {data.insideLabel ? <NoteLabel diagramElementId={id} label={updatedLabel} faded={data.faded} /> : null}
+        {!!selected ? (
           <DiagramElementPalette
             diagramElementId={id}
             targetObjectId={data.targetObjectId}
             labelId={data.insideLabel ? data.insideLabel.id : null}
           />
         ) : null}
-        {selected ? <ConnectionCreationHandles nodeId={id} /> : null}
+        {!!selected ? <ConnectionCreationHandles nodeId={id} /> : null}
         <ConnectionTargetHandle nodeId={id} nodeDescription={data.nodeDescription} isHovered={data.isHovered} />
         <ConnectionHandles connectionHandles={data.connectionHandles} />
       </div>

@@ -15,4 +15,3 @@ DockerImageWebApp:
   script:
     - docker build --build-arg USERNAME=${USERNAME} --build-arg PASSWORD=${PASSWORD} --build-arg WEBAPP_VERSION=${WEBAPP_VERSION} -t papyrusweb -f backend/papyrus-web-application/Dockerfile.local .
 
-

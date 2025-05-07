@@ -1,6 +1,6 @@
 /**
  */
-package IoMTProfile.LAN;
+package IoMTProfile;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Gateway Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see IoMTProfile.LAN.LANPackage#getGatewayType()
+ * @see IoMTProfile.IoMTProfilePackage#getGatewayType()
  * @model
  * @generated
  */

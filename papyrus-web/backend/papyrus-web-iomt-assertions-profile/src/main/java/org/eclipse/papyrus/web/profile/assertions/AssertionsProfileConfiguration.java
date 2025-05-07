@@ -37,10 +37,10 @@ public class AssertionsProfileConfiguration {
     
     @PostConstruct
     public void init() {
-        LOGGER.info("Initializing EPackage Registry for Assertions profile");
+        LOGGER.info("Initializing EPackage Registry for Assertions IoMT profile");
         Map<String, URI> ePackageNsURIToProfileLocationMap = UMLPlugin.getEPackageNsURIToProfileLocationMap();
-        ePackageNsURIToProfileLocationMap.put("http://www.eclipse.org/papyrus/robotics/assertions/1",
-                URI.createURI("pathmap://Assertions_PROFILE/assertions.profile.uml#_IGRaABwAEe-2GI5f1LdWww"));
+        ePackageNsURIToProfileLocationMap.put("http://www.eclipse.org/papyrus/iomt/assertions/1",
+                URI.createURI("pathmap://Assertions_PROFILE/assertions.iomt.profile.uml#_IGRaABwAEe-2GI5f1LdWww"));
     }
     
     @Bean

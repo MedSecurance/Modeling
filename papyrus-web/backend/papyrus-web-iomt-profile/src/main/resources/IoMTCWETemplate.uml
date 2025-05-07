@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IoMTAssets="http://iomtassets" xmlns:IoMTComponentCategories="http://IoMTComponentCategories" xmlns:IoMTProfile.Application="http:///IoMTProfile/Application.ecore" xmlns:IoMTProfile.External="http:///IoMTProfile/External.ecore" xmlns:IoMTProfile.LAN="http:///IoMTProfile/LAN.ecore" xmlns:IoMTProfile.WAN="http:///IoMTProfile/WAN.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:iomt_assertions="http://www.eclipse.org/papyrus/iomt/assertions/1" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///IoMTProfile/Application.ecore http://iomtprofile#//Application http:///IoMTProfile/External.ecore http://iomtprofile#//External http:///IoMTProfile/LAN.ecore http://iomtprofile#//LAN http:///IoMTProfile/WAN.ecore http://iomtprofile#//WAN">
+  <uml:Model xmi:id="7e1b9658-2ae9-4354-b59c-83cafed873f0" name="IoMTCWEModel">
+    <ownedComment xmi:id="a373d126-3d1e-4abf-a489-c13084cb2129">
+      <body>This model has a set of OCL Constraints defined based on the Common Weakness Enumeration list: https://cwe.mitre.org/data/index.html
+
+We defined three subsets of constraints:
+1 - that checks applied ComponentCategories properties;
+2 - that checks applied Assets and its properties;
+3 - structural constraints in the model.
+The list of constraints may be obtained by selecting the root model element and running the command below in the &quot;Query View&quot;:
+
+aql:self.eAllContents()->select(e | e.eClass().name = 'Constraint')
+
+</body>
+    </ownedComment>
+    <packageImport xmi:id="7edc3485-2ec9-40bd-9696-d32f334263e5">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="5bee6ff4-b83d-496c-9db6-68305324c30a" name="HeartMonitoring">
+      <ownedRule xmi:id="f48b6b23-d7d2-4a17-9706-9427f6ea0788" name="CWE798_noHardCodedCredentials" constrainedElement="5bee6ff4-b83d-496c-9db6-68305324c30a">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="21159039-c4b7-4ebb-a7cd-4689119ef0c0" name="cwe798">
+          <language>OCL</language>
+          <body>context self cwe798: 
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includesAll(Sequence{'factoryPasswordGenerator'})</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:id="7b0f25e2-47d1-460a-95b4-3eab60e373e3" name="CWE506_secureBoot" constrainedElement="5bee6ff4-b83d-496c-9db6-68305324c30a">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="4a62a940-8b2e-4573-b41e-e6855f4d445c" name="cwe506">
+          <language>OCL</language>
+          <body>context self cwe506: 
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includes('bootSoftware')
+</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:id="b97f58d1-5bd6-4a23-ad35-ebcc8f06ecb6" name="CWE921_tamperDetection" constrainedElement="5bee6ff4-b83d-496c-9db6-68305324c30a">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="bbdb7408-f8ed-49db-8d9f-3e7b141daf7e" name="cwe921">
+          <language>OCL</language>
+          <body>context self cwe798: 
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includesAll(Sequence{'temperProofIndetityStorage'})</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:id="14f75059-5b68-44da-b728-86b8082c7038" name="CWE1279_GeoLocation" constrainedElement="5bee6ff4-b83d-496c-9db6-68305324c30a">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="7ce758db-569d-4110-9f0d-b1cac298d9f7" name="cwe1279">
+          <language>OCL</language>
+          <body>context self: 
+
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includesAll(Sequence{'geoLocatedReporter'}) 
+
+and
+
+getStereotypeApplications()->select(e | e.eClass().name = 'Information')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('kind')))->asSequence()->first() = IoMTAssets::InformationKind::RealTimePatientData</body>
+        </specification>
+      </ownedRule>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="6b3eaecb-4b16-46d4-a7fb-abc5a1ed71c8" name="Thermometer">
+        <ownedRule xmi:id="1b7c01ec-1a79-43b1-aaf7-ccdfbb28ca82" name="hasSensorAndService" constrainedElement="6b3eaecb-4b16-46d4-a7fb-abc5a1ed71c8">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="e0451c77-76dc-4fca-b153-ba27264a5eec" name="hasSensorAndDevice">
+            <language>OCL</language>
+            <body>getAppliedStereotypes()->select(as | as.name ='Sensor' or as.name = 'Service')->asSequence()->size() = 2</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="c66573dc-b31b-42c3-817d-843172bb5267" name="CWE494_347_firmwareUpdates" constrainedElement="6b3eaecb-4b16-46d4-a7fb-abc5a1ed71c8">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="e2c5ec99-a445-47e8-b109-4d817103016e" name="cwe494_347">
+            <language>OCL</language>
+            <body>context self: 
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includesAll(Sequence{'updateStatusMonitor','asymetricCryptography'})</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="84d0eb0c-45fd-43d5-a3ad-e3bb0e4ca045" name="CWE1316_failSafeMode" constrainedElement="6b3eaecb-4b16-46d4-a7fb-abc5a1ed71c8">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="74d6c6d0-788a-41c9-a066-3dad74c3f9e5" name="cwe1316">
+            <language>OCL</language>
+            <body>context self: 
+
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includesAll(Sequence{'failSafeMode'}) 
+
+and
+
+getStereotypeApplications()->select(e | e.eClass().name = 'Service')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('kind')))->asSequence()->first() = IoMTAssets::ServiceKind::ThermometerMonitoring
+</body>
+          </specification>
+        </ownedRule>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="a360fb51-e1f7-409e-bb54-f904526b5002" name="SwitchLED"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="75f69f91-56d7-4442-80a9-1308c49f59c1" name="Hygrometer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="21a85b39-175d-4c81-a1a8-5266a9e129fb" name="Proxy">
+      <ownedRule xmi:id="372bdb8a-5c62-48e8-8e24-320044a5cd45" name="CWE284_287RBACAccess" constrainedElement="21a85b39-175d-4c81-a1a8-5266a9e129fb">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="91ba64f9-06fe-4799-8986-051a9224323f" name="cwe284_287">
+          <language>OCL</language>
+          <body>context self cwe798: 
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includesAll(Sequence{'roleBasedAuthentication'})
+
+and getStereotypeApplications()->select(e | e.eClass().name = 'Proxy')->size() = 1</body>
+        </specification>
+      </ownedRule>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="5cfc80a8-7cf5-49c1-ad8f-9b6db06afb0e" name="FHIRDatabase">
+      <ownedRule xmi:id="19696033-ee58-4987-866d-cc0c8996fc5b" name="CWE89_200encryptHealthRecord" constrainedElement="5cfc80a8-7cf5-49c1-ad8f-9b6db06afb0e">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="0a3aba94-984c-40ac-b299-7075d9308e8c" name="cweEncryptedData">
+          <language>OCL</language>
+          <body>context self: 
+
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includesAll(Sequence{'encryptedDataStorage'}) 
+
+and getStereotypeApplications()->select(e | e.eClass().name = 'DataStore')->size() = 1
+
+and
+getStereotypeApplications()->select(e | e.eClass().name = 'Information')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('kind')))->asSequence()->first() = IoMTAssets::InformationKind::PatientHealthRecords</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:id="52e8854b-2a9b-4968-8e61-72cac74e1173" name="CWE89_200_SQLInjection" constrainedElement="5cfc80a8-7cf5-49c1-ad8f-9b6db06afb0e">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="0bdf7a21-521c-407c-86f9-02e34693acc2" name="cwe89200SQLInjection">
+          <language>OCL</language>
+          <body>context self: 
+ownedOperation->forAll(op |  
+      op.ownedParameter->exists(p | p.name = 'ParameterizedQuery')  
+   )  
+
+
+</body>
+        </specification>
+      </ownedRule>
+      <ownedOperation xmi:id="f540c094-7a8c-4c96-9535-40d817595915" name="returnFields"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="fc922a2b-d9d8-4fe9-95f5-e091dc577f52" name="MQTTGateway">
+      <ownedRule xmi:id="cd0d4862-7984-4296-b074-fe19c775ad03" name="CWE319_327TLSCommunication">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="761d9744-c85a-43e4-bb2a-bae8ee9c7353" name="cwe319_327">
+          <language>OCL</language>
+          <body>context self cwe798: 
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includesAll(Sequence{'mostSecureCommunicationProtocol'}) 
+
+and getStereotypeApplications()->select(e | e.eClass().name = 'Gateway')->size() = 1</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:id="bcd04284-58a3-4a22-a113-38bab608adaf" name="CWE770-rateLimiting" constrainedElement="fc922a2b-d9d8-4fe9-95f5-e091dc577f52">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="c7d6b3c3-5d6d-460c-a7da-f278e8aa1a1a" name="cwe770">
+          <language>OCL</language>
+          <body>ownedOperation->exists(op | op.name = 'rateLimit' and op.ownedParameter->size() = 1)  </body>
+        </specification>
+      </ownedRule>
+      <ownedOperation xmi:id="9867a61f-b9e6-4599-9d91-5862978b0aae" name="rateLimit">
+        <ownedParameter xmi:id="e3234906-5e32-4c68-a94c-dc386524fc61" name="limit">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a33cf7fc-9caf-42d1-b585-204e62051c9d" name="AdminApplication">
+      <ownedRule xmi:id="1d460b8d-923e-4ff8-b6e3-734112ab7e9e" name="CWE287_306Authentication" constrainedElement="a33cf7fc-9caf-42d1-b585-204e62051c9d">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="0627dbe1-108b-4e11-b9cf-53ea1a3fe08f" name="cwe287_306">
+          <language>OCL</language>
+          <body>context self: 
+
+let supFeatures : Sequence(OclAny) = getStereotypeApplications()->select(e | e.eClass().name = 'IoMTcomponent')->collect( component | 
+component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))->asSequence() in 
+
+supFeatures->includesAll(Sequence{'roleBasedAuthentication'}) 
+
+and getStereotypeApplications()->select(e | e.eClass().name = 'AdministrationApp')->size() = 1
+</body>
+        </specification>
+      </ownedRule>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="515e3d14-736e-4b7b-9e7c-3d17d9199f52" name="Patient"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="292a0b59-060b-4c86-97bc-d1e20d1ba337" name="PatientMonitoringApp"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="5ce61fb5-5dc2-4a3e-86d7-b1c8aaa3319e" name="Configuration"/>
+    <profileApplication xmi:id="02b548cc-74c8-4d55-8994-74f1e8b4e156">
+      <eAnnotations xmi:id="a7b01d12-684a-4ea9-a464-b94c0305b8aa" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/iomt/assertions/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://Assertions_PROFILE/assertions.iomt.profile.uml#_IGRaABwAEe-2GI5f1LdWww"/>
+    </profileApplication>
+    <profileApplication xmi:id="1266cb0e-4fe0-4015-972f-ef624ea14eff">
+      <eAnnotations xmi:id="8cf0768b-88a7-44c3-922a-295af482e7b3" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://iomtassets#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://IoMTAssets_PROFILE/IoMTAssets.profile.uml#_JDM8UBwAEe-2GI5f1LdWww"/>
+    </profileApplication>
+    <profileApplication xmi:id="eb6eead8-dcce-44a2-8853-37966040e211">
+      <eAnnotations xmi:id="a21b2cff-ad21-413a-bf5c-56ebb6f349ed" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://IoMTComponentCategories#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://IoMTComponentCategories_PROFILE/IoMTComponentCategories.profile.uml#_KrJKgBwAEe-2GI5f1LdWww"/>
+    </profileApplication>
+    <profileApplication xmi:id="b6fcd8f6-6fe8-4a25-9f0d-a435dbeb823b">
+      <eAnnotations xmi:id="860a3ca4-0c0b-4f69-ba15-924c9c774daa" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://iomtprofile#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://IoMT_PROFILE/IoMT.profile.uml#7cd26dfb-691a-4ee5-9dde-3557dac2a2fa"/>
+    </profileApplication>
+    <profileApplication xmi:id="ca044ec4-1256-4a02-91f6-4381d86a54b4">
+      <eAnnotations xmi:id="d7246e60-12dd-4987-b8be-af943fc7167f" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://iomt.tvra#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://IoMTTVRA_PROFILE/TVRA.profile.uml#dd3656b0-efed-4c8a-829b-ce62b54a8a8b"/>
+    </profileApplication>
+  </uml:Model>
+  <IoMTComponentCategories:IoMTpkg xmi:id="8179a7ff-3f90-4a43-91f8-31b3f707a454" base_Package="7e1b9658-2ae9-4354-b59c-83cafed873f0"/>
+  <iomt_assertions:Assertion xmi:id="d422a912-50bf-4603-bbbd-1fd98ac27e67" base_Constraint="1b7c01ec-1a79-43b1-aaf7-ccdfbb28ca82"/>
+  <IoMTComponentCategories:IoMTcomponent xmi:id="bc31a7be-4986-4996-b725-bbaaeca14cd8" base_Class="5bee6ff4-b83d-496c-9db6-68305324c30a">
+    <supportedFeatures>accessPermission</supportedFeatures>
+    <supportedFeatures>factoryPasswordGenerator</supportedFeatures>
+    <supportedFeatures>bootSoftware</supportedFeatures>
+    <supportedFeatures>temperProofIdentityStorage</supportedFeatures>
+    <supportedFeatures>geoLocatedReporter</supportedFeatures>
+  </IoMTComponentCategories:IoMTcomponent>
+  <IoMTProfile.WAN:Proxy xmi:id="b46f983c-18de-4bb7-a521-db8f6cf56669" base_Class="21a85b39-175d-4c81-a1a8-5266a9e129fb" name="myProxy" uid="proxyUID" gateways="2a89d512-7dd7-45f2-8826-08ddabe427ba" datastores="09fbc018-b9e1-474c-81c9-f5e3997509ab" applications="cf42e740-b7f4-4822-a8cf-881e0018e724 40a1ec80-694e-4bd7-9e14-72659506cf25"/>
+  <IoMTProfile.WAN:DataStore xmi:id="09fbc018-b9e1-474c-81c9-f5e3997509ab" base_Class="5cfc80a8-7cf5-49c1-ad8f-9b6db06afb0e" name="myDataBase" uid="http://localhost:8090/fhir" proxy="b46f983c-18de-4bb7-a521-db8f6cf56669" applications="cf42e740-b7f4-4822-a8cf-881e0018e724 40a1ec80-694e-4bd7-9e14-72659506cf25"/>
+  <IoMTProfile.LAN:Sensor xmi:id="32b7d886-78fc-4917-9156-344fa63a2733" base_Class="6b3eaecb-4b16-46d4-a7fb-abc5a1ed71c8" name="myThermometer" uid="temperature" person="81a9a227-a206-4f35-aa8b-c298bd00b4c8" device="e5d862c4-0436-4972-8983-e0fde3ce394b"/>
+  <IoMTProfile.LAN:Actuator xmi:id="7deb5c0f-b520-4d0f-a97d-31b79a6e6062" base_Class="a360fb51-e1f7-409e-bb54-f904526b5002" name="myLED" uid="switchLED" person="81a9a227-a206-4f35-aa8b-c298bd00b4c8" device="e5d862c4-0436-4972-8983-e0fde3ce394b"/>
+  <IoMTProfile.LAN:Sensor xmi:id="e3e75fab-f2e0-4a40-abc7-3bd65f72fbf3" base_Class="75f69f91-56d7-4442-80a9-1308c49f59c1" name="myHygrometer" uid="hygrometer" person="81a9a227-a206-4f35-aa8b-c298bd00b4c8" device="e5d862c4-0436-4972-8983-e0fde3ce394b"/>
+  <IoMTProfile.LAN:IoMTDevice xmi:id="e5d862c4-0436-4972-8983-e0fde3ce394b" base_Class="5bee6ff4-b83d-496c-9db6-68305324c30a" name="myHeartMonitor" uid="heartMonitor" InternalInterface="BlueTooth" configuration="7015bdaa-e164-4190-9e0f-52e0bd6d2e91" services="32b7d886-78fc-4917-9156-344fa63a2733 7deb5c0f-b520-4d0f-a97d-31b79a6e6062 e3e75fab-f2e0-4a40-abc7-3bd65f72fbf3" gateway="2a89d512-7dd7-45f2-8826-08ddabe427ba"/>
+  <IoMTAssets:Service xmi:id="ee12d9ae-90c7-4a52-9280-3068fc5ed2ff" key="myService" missionName="myMission" description="myThermometerMonitoring" base_Class="6b3eaecb-4b16-46d4-a7fb-abc5a1ed71c8" kind="ThermometerMonitoring"/>
+  <IoMTComponentCategories:IoMTcomponent xmi:id="ba18435e-b3bf-4373-afab-9e9889c3645f" base_Class="6b3eaecb-4b16-46d4-a7fb-abc5a1ed71c8">
+    <supportedFeatures>updateStatusMonitor</supportedFeatures>
+    <supportedFeatures>asymetricCryptography</supportedFeatures>
+    <supportedFeatures>failSafeMode</supportedFeatures>
+  </IoMTComponentCategories:IoMTcomponent>
+  <IoMTComponentCategories:IoMTcomponent xmi:id="c2ec38fb-fd09-47da-8cba-d50bf4428d9a" base_Class="fc922a2b-d9d8-4fe9-95f5-e091dc577f52">
+    <supportedFeatures>mostSecureCommunicationProtocol</supportedFeatures>
+  </IoMTComponentCategories:IoMTcomponent>
+  <IoMTProfile.LAN:Gateway xmi:id="2a89d512-7dd7-45f2-8826-08ddabe427ba" base_Class="fc922a2b-d9d8-4fe9-95f5-e091dc577f52" name="myGateway" uid="gatewayUID" devices="e5d862c4-0436-4972-8983-e0fde3ce394b" InternalInterface="BlueTooth" ExternalInterface="Ethernet" gatewayType="MQTT" proxy="b46f983c-18de-4bb7-a521-db8f6cf56669"/>
+  <IoMTAssets:Information xmi:id="2f3835df-dc2a-48a4-940c-536ab493fa57" key="myKey" missionName="myMission" description="myMissionDescription" base_Class="5cfc80a8-7cf5-49c1-ad8f-9b6db06afb0e" location="myLocation" record="myRecord" kind="PatientHealthRecords"/>
+  <IoMTComponentCategories:IoMTcomponent xmi:id="50048765-8201-4226-97a0-758972a6a0b1" base_Class="5cfc80a8-7cf5-49c1-ad8f-9b6db06afb0e">
+    <supportedFeatures>encryptedDataStorage</supportedFeatures>
+  </IoMTComponentCategories:IoMTcomponent>
+  <IoMTComponentCategories:IoMTcomponent xmi:id="ec5c22bd-cda2-4942-915e-599b61a78f9a" base_Class="21a85b39-175d-4c81-a1a8-5266a9e129fb">
+    <supportedFeatures>roleBasedAuthentication</supportedFeatures>
+  </IoMTComponentCategories:IoMTcomponent>
+  <IoMTAssets:Information xmi:id="278c1dbb-5ae6-4f01-9bf4-b82926f97f47" key="deviceInfo" missionName="deviceMissionInfo" description="deviceInfoDescription" base_Class="5bee6ff4-b83d-496c-9db6-68305324c30a" location="deviceLocation" record="deviceRecord" kind="RealTimePatientData"/>
+  <IoMTProfile.Application:AdministrationApp xmi:id="cf42e740-b7f4-4822-a8cf-881e0018e724" base_Class="a33cf7fc-9caf-42d1-b585-204e62051c9d" name="AdminApplication" uid="adminAppUUID" datastore="09fbc018-b9e1-474c-81c9-f5e3997509ab" person="81a9a227-a206-4f35-aa8b-c298bd00b4c8" proxy="b46f983c-18de-4bb7-a521-db8f6cf56669"/>
+  <IoMTProfile.External:Person xmi:id="81a9a227-a206-4f35-aa8b-c298bd00b4c8" base_Class="515e3d14-736e-4b7b-9e7c-3d17d9199f52" application="cf42e740-b7f4-4822-a8cf-881e0018e724" iomtservice="32b7d886-78fc-4917-9156-344fa63a2733 7deb5c0f-b520-4d0f-a97d-31b79a6e6062 e3e75fab-f2e0-4a40-abc7-3bd65f72fbf3"/>
+  <IoMTProfile.Application:PatientApp xmi:id="40a1ec80-694e-4bd7-9e14-72659506cf25" base_Class="292a0b59-060b-4c86-97bc-d1e20d1ba337" name="patientApp" uid="patientAppUUID" datastore="09fbc018-b9e1-474c-81c9-f5e3997509ab" proxy="b46f983c-18de-4bb7-a521-db8f6cf56669"/>
+  <IoMTProfile.LAN:IoMTConfiguration xmi:id="7015bdaa-e164-4190-9e0f-52e0bd6d2e91" base_Class="5ce61fb5-5dc2-4a3e-86d7-b1c8aaa3319e" device="e5d862c4-0436-4972-8983-e0fde3ce394b"/>
+  <IoMTComponentCategories:IoMTcomponent xmi:id="e3da6916-e941-415b-a32e-865ec3ba9bcd" base_Class="a33cf7fc-9caf-42d1-b585-204e62051c9d">
+    <supportedFeatures>roleBasedAuthentication</supportedFeatures>
+  </IoMTComponentCategories:IoMTcomponent>
+</xmi:XMI>

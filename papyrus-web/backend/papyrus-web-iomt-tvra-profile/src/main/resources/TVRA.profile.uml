@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="dd3656b0-efed-4c8a-829b-ce62b54a8a8b" name="tvra" URI="http://iomt.tvra">
+  <elementImport xmi:id="1adcb2c1-a8ae-4c44-bcf3-bd366693bbf5">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:id="c18203e7-c324-40b6-9fc7-f42a78aab88d">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Association"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="a0c54335-3579-48a3-a0bf-aa60475084d6" name="TVRAAsset">
+    <ownedAttribute xmi:id="708976c3-d707-45a8-b996-b39a3e74e7d1" name="base_Class" association="744a6fe1-ffd9-41e6-bede-1201f5f935ff">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="19435fb6-bde4-4e70-bb4e-f6fd0419fb01"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ed6a1efe-3240-4e3e-88ff-329828c89278" name="kind" type="139d1507-25df-4b2e-8e25-fccabd04b0a3"/>
+    <ownedAttribute xmi:id="2ea4662f-6274-48a3-ba05-ec6cfbe4a76e" name="misbehaviours" type="b9dfb0f2-8f52-4010-906d-0940e317f527" association="dd62a84c-1bce-40e3-b6fb-755e6d56e9ee">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="88e1bae7-a0f3-41d1-b69d-8af0e516cf4c" name="LiteralInteger1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="308b764c-71f8-4eb1-8b07-8479a03506a8" name="LiteralUnlimitedNatural1" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="545117b2-1ca4-4793-99f5-2a11d232d937" name="trustworthinessattributesets" type="69a0a762-07c8-44cf-9b9d-f6c5bd81d5ef" association="f41482b0-04d9-48a0-8bed-ceb1d9c3cdb8">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="67fb5009-9c70-4a83-a677-4a0c4d916fe2" name="LiteralInteger1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="75339f81-404b-4e5a-8c1f-c6a30ea662dc" name="LiteralUnlimitedNatural1" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="eb259121-a500-4a72-a818-62ebdebe2039" name="controlsets" type="becd15a7-d57c-4278-a00b-4ccab65868d6" association="7979b632-f4ca-42df-a96e-72b7110936e6">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="4b7aafcf-60e3-4dbe-9e0f-fbb0dca6c7b0" name="LiteralInteger1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="99923385-e160-4409-95d1-182bc05825ac" name="LiteralUnlimitedNatural1" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="744a6fe1-ffd9-41e6-bede-1201f5f935ff" name="E_Stereotype1_Class1" memberEnd="708976c3-d707-45a8-b996-b39a3e74e7d1 617c992c-5c1f-4e88-8374-15438391d444">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="617c992c-5c1f-4e88-8374-15438391d444" name="extension_Stereotype1" type="a0c54335-3579-48a3-a0bf-aa60475084d6" aggregation="composite" association="744a6fe1-ffd9-41e6-bede-1201f5f935ff"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="6dbbe8af-367b-4f89-8a67-6660eadaec75" name="NetworkDomain">
+    <ownedAttribute xmi:id="e2e6a9a9-ba0f-4e8e-83a5-0b1f2133d3ba" name="base_Association" association="38867d1e-b79a-4562-b6db-78c5a08e4cf6">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Association"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="54bb9fb9-080f-4c3f-88cb-22178d36abe7"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="1a0269bb-2eb4-43a7-b618-0e8ee5e753f1" name="kind" type="79c89bb6-7723-4af7-8eaf-740f15a4790b"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="38867d1e-b79a-4562-b6db-78c5a08e4cf6" name="E_NetworkDomain_Association1" memberEnd="e2e6a9a9-ba0f-4e8e-83a5-0b1f2133d3ba cc2eba71-93a7-434f-a5d5-127cd712ba32">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="cc2eba71-93a7-434f-a5d5-127cd712ba32" name="extension_NetworkDomain" type="6dbbe8af-367b-4f89-8a67-6660eadaec75" aggregation="composite" association="38867d1e-b79a-4562-b6db-78c5a08e4cf6"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="becd15a7-d57c-4278-a00b-4ccab65868d6" name="ControlSet">
+    <ownedAttribute xmi:id="ff3aac0b-ddeb-43b2-bb7a-79c413d8c318" name="kind" type="27ee7e8d-4d2e-4d1b-a49f-bc794dda7551"/>
+    <ownedAttribute xmi:id="4d038774-74b4-4ab2-a33d-e405e8cb3445" name="base_Class" association="2994934f-3966-49dc-a3da-3083fe441a62">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="b68fd79b-72e6-41af-b594-c68ac1f12a29"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="44e01f19-5790-466d-8316-3c4666a98965" name="isProposed">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="dc88d768-8642-4a36-b1bd-3e73d88d86b3" name="tvraasset" type="a0c54335-3579-48a3-a0bf-aa60475084d6" association="7979b632-f4ca-42df-a96e-72b7110936e6">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="cbe92d20-ab14-4aad-8bb2-fb7b352698ca" name="LiteralInteger1" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="dbbec082-bfed-42ca-a3ca-23f6a7006f8f" name="LiteralUnlimitedNatural1" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="8e79cd3b-a6ea-4000-b351-ee0ea37dde4a" name="coverageLevel" type="c8abcf6c-acad-4763-b431-a8f721d43cea"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="2994934f-3966-49dc-a3da-3083fe441a62" name="E_ControlSet_Class1" memberEnd="4d038774-74b4-4ab2-a33d-e405e8cb3445 640cc96a-f281-4364-83af-34635c9226b1">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="640cc96a-f281-4364-83af-34635c9226b1" name="extension_ControlSet" type="becd15a7-d57c-4278-a00b-4ccab65868d6" aggregation="composite" association="2994934f-3966-49dc-a3da-3083fe441a62"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="27ee7e8d-4d2e-4d1b-a49f-bc794dda7551" name="ControlSetKind">
+    <ownedLiteral xmi:id="27fbbc04-2edd-40dc-a2f4-e27cc33b745e" name="CS-AccessControl"/>
+    <ownedLiteral xmi:id="20ed741a-88cc-4097-8a76-8e6e3c7bc6c8" name="CS-AccessKey"/>
+    <ownedLiteral xmi:id="a8e6e69b-c1c0-4f23-aec8-61e737074c7e" name="CS-AccessPolicy"/>
+    <ownedLiteral xmi:id="7ea21037-bc5e-4074-9904-da36be3d50ca" name="CS-AddressReservation"/>
+    <ownedLiteral xmi:id="d44bb8bd-4233-4062-aced-29d6aa117e59" name="CS-AddressWhitelisting"/>
+    <ownedLiteral xmi:id="4d03bdd8-b628-40ce-a29f-9745e19dfae9" name="CS-AntiMalware"/>
+    <ownedLiteral xmi:id="1b87d8df-39c8-4adb-aa17-49a4a3bab1fa" name="CS-ApplicationFW"/>
+    <ownedLiteral xmi:id="70160d61-8026-4b18-b399-5c6868e972e8" name="CS-AuthenticationLimits"/>
+    <ownedLiteral xmi:id="aafe4c91-6acb-4020-9507-e87a883a9167" name="CS-AutoDataGovernance"/>
+    <ownedLiteral xmi:id="0342ff15-e2d9-48d3-b1ec-f3d1e31b67a8" name="CS-AutoProvisioning"/>
+    <ownedLiteral xmi:id="edeaba24-af7c-4582-a618-428bcb4e67cd" name="CS-BandwidthManagement"/>
+    <ownedLiteral xmi:id="0a3a0098-241f-4297-bacd-c6a89f932317" name="CS-BasicSecurityTraining"/>
+    <ownedLiteral xmi:id="3ac4ba10-8b04-416e-8eb3-4c675f8ae152" name="CS-BiometricID"/>
+    <ownedLiteral xmi:id="8c3c2941-1178-421c-b160-488d663169a3" name="CS-BiometricIDVerifier"/>
+    <ownedLiteral xmi:id="9333ab03-387a-4fc4-9500-d51e28387287" name="CS-BiometricLock"/>
+    <ownedLiteral xmi:id="57de6f00-ec33-4d2a-81e5-ae0b5b736434" name="CS-BreakTheGlass"/>
+    <ownedLiteral xmi:id="8344f4d4-02ee-4a68-acb7-0ac94d0dc04d" name="CS-ChipAndPINCard"/>
+    <ownedLiteral xmi:id="1fc500bf-0853-4fb0-a63b-543fa7ccf5c6" name="CS-ChipAndPINLock"/>
+    <ownedLiteral xmi:id="c274741b-51e6-4b74-9b15-c76a53a188ca" name="CS-ChipAndPINVerifier"/>
+    <ownedLiteral xmi:id="3dae9053-3307-4df3-816d-89a2f3d68b99" name="CS-ClearDeputy"/>
+    <ownedLiteral xmi:id="24107f77-3d51-4653-b6bf-6b1d9b14cdcb" name="CS-Clustering"/>
+    <ownedLiteral xmi:id="bd49ed6c-eeff-4901-965a-aa4121d6dd78" name="CS-ConsentEnforcement"/>
+    <ownedLiteral xmi:id="57a43f61-23c5-4338-b293-a8f56e9d5a7a" name="CS-ConsentInterface"/>
+    <ownedLiteral xmi:id="10ff0502-f78a-4fa7-a2a1-ce560afed347" name="CS-ConsentManagement"/>
+    <ownedLiteral xmi:id="6c6bc1c2-748d-41be-9ee3-80d33e9ce8d0" name="CS-ContinuousAuthN"/>
+    <ownedLiteral xmi:id="f76343a1-1689-43a7-bfde-e9381f0571a8" name="CS-ContinuousAuthNID"/>
+    <ownedLiteral xmi:id="b0e96e6b-2027-401f-a352-f06c5d1c8c18" name="CS-ContinuousAuthVerifier"/>
+    <ownedLiteral xmi:id="e4936e5d-473f-4be1-b496-7ba72dac0d74" name="CS-ContinuousOccupation"/>
+    <ownedLiteral xmi:id="d50fde4f-03b2-4cf1-87ea-807171ddd01c" name="CS-DDoSFiltering"/>
+    <ownedLiteral xmi:id="e6911bf1-6549-4e3b-88ae-25b6bab20de7" name="CS-DeviceCertification"/>
+    <ownedLiteral xmi:id="98110237-90d3-484e-8ac0-45e9388936f7" name="CS-DisableClientAccess"/>
+    <ownedLiteral xmi:id="ca5c1924-9120-42f5-b73e-34c43dfc6c17" name="CS-DisableInterface"/>
+    <ownedLiteral xmi:id="e98d229c-5740-4ed3-aa38-051a38cf3bcb" name="CS-DisableMeshRouting"/>
+    <ownedLiteral xmi:id="cc6956de-7ec8-47c5-beb1-4d424eb9e254" name="CS-DisableNetwork"/>
+    <ownedLiteral xmi:id="0bc5a381-ed93-4fad-a6b2-560ed0fbe9bc" name="CS-DisableNetworkProvision"/>
+    <ownedLiteral xmi:id="98de357f-7364-45e3-bcb2-0c5031715979" name="CS-DisableServiceAccess"/>
+    <ownedLiteral xmi:id="56badf15-eea3-445c-b600-58df4762d5dc" name="CS-DisableServiceChannel"/>
+    <ownedLiteral xmi:id="777b4084-e8b4-4d3e-8bd0-d88da176b271" name="CS-DisableTethering"/>
+    <ownedLiteral xmi:id="3f2475b5-9aed-49b2-8a2b-bf6a934f2fe1" name="CS-DisabledDataFlow"/>
+    <ownedLiteral xmi:id="c8eb2284-ccb4-49de-a460-aa20536eb722" name="CS-DisabledHost"/>
+    <ownedLiteral xmi:id="c752f274-51e1-46ec-b0d2-791ea37cf947" name="CS-DisabledProcess"/>
+    <ownedLiteral xmi:id="ccb821c4-e729-4932-b51c-7383c21686e6" name="CS-EncryptedComms"/>
+    <ownedLiteral xmi:id="bae17034-1251-4780-ada5-1f0f279c1c0a" name="CS-EncryptedProcessing"/>
+    <ownedLiteral xmi:id="ae6a4740-c38f-4e41-afb8-52e036501060" name="CS-Encryption"/>
+    <ownedLiteral xmi:id="6d032369-3427-4974-9390-6206b9d97171" name="CS-FWBlock"/>
+    <ownedLiteral xmi:id="9bad49e1-efd8-4cad-9d37-27e1341a68c7" name="CS-FormalVerification"/>
+    <ownedLiteral xmi:id="552f0fa2-44b9-4674-aa2c-d2d3382c99a5" name="CS-GDPRComplianceTraining"/>
+    <ownedLiteral xmi:id="bfad6dc2-517a-4865-811d-f4e9190ae660" name="CS-GDPRGovernance"/>
+    <ownedLiteral xmi:id="e65584fd-10c7-44c0-b31e-bd692cbf6d15" name="CS-GDPRPrivacyShield"/>
+    <ownedLiteral xmi:id="619a564c-38b6-4dc0-bfbf-8fb8cc88cf70" name="CS-HomomorphicEncryption"/>
+    <ownedLiteral xmi:id="84904aca-a221-4aad-80b4-fe5b7ec6b90b" name="CS-HostEncryption"/>
+    <ownedLiteral xmi:id="ff6a39a9-6654-42d4-bac0-270d292879fc" name="CS-HostMonitoring"/>
+    <ownedLiteral xmi:id="1b57d43b-36e1-4aae-b3bd-bafb4f53927b" name="CS-IgnorePhysicalThreats"/>
+    <ownedLiteral xmi:id="bc7f46cf-04a3-4455-882d-bc3130cf6282" name="CS-ImpersonalData"/>
+    <ownedLiteral xmi:id="957593cf-4860-437b-9ce8-9f2a1a8e3a21" name="CS-IncludePhysicalThreats"/>
+    <ownedLiteral xmi:id="1c057f29-5e93-421b-bfd9-1672f94883f9" name="CS-IndependentInstances"/>
+    <ownedLiteral xmi:id="78a60707-2f7c-4982-af83-5678cc9e1385" name="CS-InferredDataAsset"/>
+    <ownedLiteral xmi:id="c0d55d76-63e4-41db-b6f1-5b044c50d6fa" name="CS-IntegrityProtection"/>
+    <ownedLiteral xmi:id="9e5226be-a2f2-4268-846a-6d9eaf0fb813" name="CS-KeyManagement"/>
+    <ownedLiteral xmi:id="878f7d5f-e5ba-42b1-93a6-791e0660a39a" name="CS-LegalCompetenceCheck"/>
+    <ownedLiteral xmi:id="db3c3542-465f-4f98-a098-7901721d41f0" name="CS-LegalGuardianConsent"/>
+    <ownedLiteral xmi:id="ce05dc2a-e4da-4f58-a32c-7e03d5175fea" name="CS-LoadMonitoring"/>
+    <ownedLiteral xmi:id="8807a9f5-60b0-4b42-bf2a-5aaf1ce3d436" name="CS-Logging"/>
+    <ownedLiteral xmi:id="79dc089c-4463-4f80-92f0-25522d96cff5" name="CS-LowPriority"/>
+    <ownedLiteral xmi:id="2c714b5e-65ba-44e0-a52c-ace49594a200" name="CS-ManualActionTaken"/>
+    <ownedLiteral xmi:id="7a8bc2a6-c95b-4815-b723-4f709ed52b1e" name="CS-ManualIntervention"/>
+    <ownedLiteral xmi:id="414616ab-9b50-4f16-88c9-ab0b5b700a07" name="CS-MultipleCellNIC"/>
+    <ownedLiteral xmi:id="2ce5e2c9-b2c6-4270-831c-cbec91c09e73" name="CS-MultipleWiFiNIC"/>
+    <ownedLiteral xmi:id="1be3eafe-193e-4a0b-ae9c-28d7fc7eac6a" name="CS-MultipleWiredNIC"/>
+    <ownedLiteral xmi:id="d5fedbc1-2d3c-42c0-9f64-6520d9893bd3" name="CS-OneTimeKey"/>
+    <ownedLiteral xmi:id="7aa95cc3-cc3d-4d07-84d3-0e895d8dff9f" name="CS-OneTimeKeyVerifier"/>
+    <ownedLiteral xmi:id="c1b04155-f3fe-4a0c-acdc-90c6dbc4e97f" name="CS-OutOfBandKey"/>
+    <ownedLiteral xmi:id="0bcc3423-950c-47b1-86f9-cb261dd5b101" name="CS-OutOfBandKeyVerifier"/>
+    <ownedLiteral xmi:id="6ba16f2e-ed77-4b55-932a-a2c6a410238f" name="CS-ParquetEncryption"/>
+    <ownedLiteral xmi:id="a9039672-30ec-4b6f-8fd1-c277bb93bb3f" name="CS-Password"/>
+    <ownedLiteral xmi:id="48e0fb6a-f71f-4bd2-8d20-b25ed21313a2" name="CS-PasswordQualityCheck"/>
+    <ownedLiteral xmi:id="5aafe114-b960-4710-84f8-85219a231bb6" name="CS-PasswordReset"/>
+    <ownedLiteral xmi:id="61755ac1-2b4b-4d3b-b5b7-3d7b983ebd5e" name="CS-PasswordStore"/>
+    <ownedLiteral xmi:id="5d4df430-b9ee-4af4-9fb0-1ffe223de53a" name="CS-PasswordVerifier"/>
+    <ownedLiteral xmi:id="a92ac224-69a7-44a2-a29b-effdca2a8d9a" name="CS-PenetrationTesting"/>
+    <ownedLiteral xmi:id="2f54df78-dfa8-43b6-8126-a9d387dd79cc" name="CS-PersonalDevice"/>
+    <ownedLiteral xmi:id="9505a527-be7c-40a2-bd3b-3628e66cd866" name="CS-PhysicalChecks"/>
+    <ownedLiteral xmi:id="cfee4d19-1e40-4e46-b35d-39c90f9eee81" name="CS-PhysicalDeviceProtection"/>
+    <ownedLiteral xmi:id="6e9f024a-a004-44ce-8022-d7033bdb0297" name="CS-PhysicalID"/>
+    <ownedLiteral xmi:id="3405a347-59b2-4f53-b920-b65223031db1" name="CS-PhysicalIDVerifier"/>
+    <ownedLiteral xmi:id="59e83a8a-0885-4667-83c5-1cc47b016c0d" name="CS-PhysicalKey"/>
+    <ownedLiteral xmi:id="98e7fa87-2d96-4113-9f2f-abc3943cd61b" name="CS-PhysicalLock"/>
+    <ownedLiteral xmi:id="91115e2b-c3f2-47b3-bab2-bebecfd1ff9e" name="CS-PhysicalPatrols"/>
+    <ownedLiteral xmi:id="1f31cbe9-5274-494e-82d3-8f61447b8cec" name="CS-PhysicallyObservable"/>
+    <ownedLiteral xmi:id="d8d3e9ef-2b44-4943-8e67-665ee7fc0433" name="CS-ProcessMonitoring"/>
+    <ownedLiteral xmi:id="c4dbe36b-ea02-4d45-bbf2-2744ab1ffb57" name="CS-RemoteWiping"/>
+    <ownedLiteral xmi:id="d4c70435-b10b-4f5e-bc7f-b7f8e0891833" name="CS-Replication"/>
+    <ownedLiteral xmi:id="cd3adb41-e3a4-4253-a261-0dc516904ffe" name="CS-RestrictedShell"/>
+    <ownedLiteral xmi:id="3cf9f26f-56b1-47ba-aac3-f699d37b845e" name="CS-SIM"/>
+    <ownedLiteral xmi:id="96347bed-f39c-49b6-83e2-0d03877fe526" name="CS-SLA"/>
+    <ownedLiteral xmi:id="43c34a9c-8f0a-4acf-b84a-53848defa514" name="CS-SLAEnforcement"/>
+    <ownedLiteral xmi:id="1bdccbb6-c88f-4461-9d1b-257e0a272c14" name="CS-SafeControlMode"/>
+    <ownedLiteral xmi:id="da06b655-f85a-4750-ad5d-eb87d24221f1" name="CS-SafeControlSetting"/>
+    <ownedLiteral xmi:id="0fed02d4-4cb8-4c82-bb74-fe4c9f4129d7" name="CS-SafeIoTController"/>
+    <ownedLiteral xmi:id="14d20038-776e-44ba-856e-bf00ec567c42" name="CS-SafetyTraining"/>
+    <ownedLiteral xmi:id="e15d2461-7a76-4c15-bd83-46b75925410a" name="CS-ScreenLock"/>
+    <ownedLiteral xmi:id="550790c2-2eb5-4c3c-ba1c-c7d050f5b059" name="CS-Screened"/>
+    <ownedLiteral xmi:id="adedee94-451d-4c35-8ee4-47230c064f94" name="CS-Screening"/>
+    <ownedLiteral xmi:id="5ddd8ea1-2524-44e2-9129-abe1120f13af" name="CS-SecureBIOS"/>
+    <ownedLiteral xmi:id="631df65b-6825-400b-8e7f-97963a9d3371" name="CS-SecureConfig"/>
+    <ownedLiteral xmi:id="133b823c-58f9-4800-b261-8864e4d6b59c" name="CS-SecureEnclave"/>
+    <ownedLiteral xmi:id="58e8533e-7637-4cb3-8b33-c4386e61dce0" name="CS-SecureExecution"/>
+    <ownedLiteral xmi:id="b28204f9-8104-41e8-99d4-92e2ce346423" name="CS-SecureLocation"/>
+    <ownedLiteral xmi:id="b93afd6d-41b4-4a40-866e-287f2398b53e" name="CS-SecurityTraining"/>
+    <ownedLiteral xmi:id="20752ae5-ee97-4726-8365-62d753cf93c8" name="CS-SharedKey"/>
+    <ownedLiteral xmi:id="8bfb41ea-5983-4f4a-876a-eb2e98b6f8de" name="CS-SharedKeyVerifier"/>
+    <ownedLiteral xmi:id="dd483ee7-65c2-47a6-8d55-23c740677abf" name="CS-SimpleSecurePairing"/>
+    <ownedLiteral xmi:id="5705b224-85e5-481c-a9df-db49ae35afc7" name="CS-SoftwareCertification"/>
+    <ownedLiteral xmi:id="4aa26491-9156-418c-9b65-d92619c36cd7" name="CS-SoftwarePatched"/>
+    <ownedLiteral xmi:id="e67139d6-936d-4ed8-b87f-ffc939fd2751" name="CS-SoftwarePatching"/>
+    <ownedLiteral xmi:id="a7b4c7a7-2658-4aaa-ab5c-73af5e2bf01e" name="CS-SoftwareTesting"/>
+    <ownedLiteral xmi:id="80799c4a-78aa-4df6-add2-fd5aab3856f5" name="CS-SpamFiltering"/>
+    <ownedLiteral xmi:id="8d155230-a159-4f43-8ac2-f0fb5e822a8e" name="CS-StaticData"/>
+    <ownedLiteral xmi:id="c7f68246-8cef-4788-93f6-de9dc08084e1" name="CS-SubjectToGDPR"/>
+    <ownedLiteral xmi:id="bd01d9b6-ac32-4b3b-ba7e-7674a8b59652" name="CS-SuspendCorruptDataFlow"/>
+    <ownedLiteral xmi:id="e85f6217-00d7-4c7c-b3fd-d2d893e1558a" name="CS-SuspendExcessiveClientAccess"/>
+    <ownedLiteral xmi:id="63e638d3-7e77-4d76-8d79-3c5d02b1d128" name="CS-SuspendInfectedHost"/>
+    <ownedLiteral xmi:id="d7956cf8-fdc7-4aed-bb87-645d8e997e6a" name="CS-SuspendInfectedProcess"/>
+    <ownedLiteral xmi:id="5f8c4a15-ab5e-4ee4-821a-9051b1bfc033" name="CS-SuspendInsecureServiceChannel"/>
+    <ownedLiteral xmi:id="0a70e395-fd9d-4765-b631-cd3e12a37e00" name="CS-SuspendOutboundFlow"/>
+    <ownedLiteral xmi:id="69500686-96b4-4867-8757-39ac6f264bfa" name="CS-SuspendSensitiveDataFlow"/>
+    <ownedLiteral xmi:id="4e2a8cc2-a21b-4cdc-96b5-c1dba5498679" name="CS-SuspendUnauthenticClientAccess"/>
+    <ownedLiteral xmi:id="eadee4d7-0362-41ba-9969-7cda6c741c1e" name="CS-SuspendUnreliableController"/>
+    <ownedLiteral xmi:id="7efe86be-731a-4545-a23e-a3132f28e0fa" name="CS-SuspendUntrustworthyClientAccess"/>
+    <ownedLiteral xmi:id="4c936395-ad3f-4054-adb6-2e49b1bd1cb0" name="CS-SuspendVulnerableHost"/>
+    <ownedLiteral xmi:id="2a04e1d8-6345-47b7-b33b-18845ebe4920" name="CS-SuspendVulnerableService"/>
+    <ownedLiteral xmi:id="9b7038d8-8deb-46be-8b0f-5364c38435a7" name="CS-SuspendVulnerableServiceChannel"/>
+    <ownedLiteral xmi:id="011cc807-a8fa-4c02-887b-36e3a313abaa" name="CS-SystemSecurityTraining"/>
+    <ownedLiteral xmi:id="53d9d666-5f21-43b3-9bdf-6b4dc9037a83" name="CS-TLS"/>
+    <ownedLiteral xmi:id="bd18ea9a-5a24-4852-8f5e-2e1337850008" name="CS-TeamLeadership"/>
+    <ownedLiteral xmi:id="9fbc9ee3-1c77-4723-8fea-0651ea271166" name="CS-TeamRole"/>
+    <ownedLiteral xmi:id="13371947-c843-4a19-8ca7-32cd4fca613c" name="CS-Unmanaged"/>
+    <ownedLiteral xmi:id="52e5a629-9285-461c-b8e1-eb96c7a82135" name="CS-UsesNoEmail"/>
+    <ownedLiteral xmi:id="6fedaf8f-8863-4f0c-91c9-45d25abb00ab" name="CS-VitalInterests"/>
+    <ownedLiteral xmi:id="79650352-3f74-4739-b3ef-5399aad19da5" name="CS-X509"/>
+    <ownedLiteral xmi:id="2abf65db-158c-4528-85b5-3827bd1491c0" name="CS-X509ClientVerifier"/>
+    <ownedLiteral xmi:id="b2b14c1c-7f9e-415c-8661-7b8d2b387ba1" name="CS-X509ServiceVerifier"/>
+    <ownedLiteral xmi:id="6a469944-55ca-4bda-94ac-8e9a7b0c7927" name="CS-XSSSanitisation"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="79c89bb6-7723-4af7-8eaf-740f15a4790b" name="NetworkDomainKind">
+    <ownedLiteral xmi:id="3dd79e43-e648-4978-9852-89fd5f845aad" name="above"/>
+    <ownedLiteral xmi:id="aaa708a6-42a5-48e8-8a24-d344db835cd7" name="accessFrom"/>
+    <ownedLiteral xmi:id="de4a4748-9b5d-45c6-b4fe-fabfb7056e9a" name="accessFromClient"/>
+    <ownedLiteral xmi:id="04f58e73-1606-415a-b590-c42eefbc69de" name="accessInterrupted"/>
+    <ownedLiteral xmi:id="145601b6-db28-4170-a90b-2c71817ea1e9" name="accessTo"/>
+    <ownedLiteral xmi:id="521a088d-94e4-4d31-ad6c-49466bbc1402" name="accessToService"/>
+    <ownedLiteral xmi:id="a9167922-8d4a-49d7-a714-9f00c1c50d1b" name="accessUninterrupted"/>
+    <ownedLiteral xmi:id="5e491459-2374-488a-891f-786565270959" name="accessVia"/>
+    <ownedLiteral xmi:id="ff585445-6553-4311-ab17-9479d86ab0f8" name="accessesField"/>
+    <ownedLiteral xmi:id="ddadc94c-e58f-4b09-8957-69905efc480d" name="accessesService"/>
+    <ownedLiteral xmi:id="09668358-8ffb-4faf-95d6-1b08c6a3fd78" name="accessibleFrom"/>
+    <ownedLiteral xmi:id="ba69419e-6019-41c6-8e5d-abbd0b8a2564" name="accessibleVia"/>
+    <ownedLiteral xmi:id="fd5f5a5a-c190-43c4-b51e-8ed61e4b0551" name="amends"/>
+    <ownedLiteral xmi:id="73525aba-e0a6-4108-a662-715ebee10480" name="amendsController"/>
+    <ownedLiteral xmi:id="57be18c9-65e2-46be-afaa-96bbd3877b11" name="amendsData"/>
+    <ownedLiteral xmi:id="3a2ae916-483b-4aa8-95ee-ccf2efc208a7" name="amendsSensor"/>
+    <ownedLiteral xmi:id="54fb05a2-d1c2-4f61-b03c-a3c834c3a09d" name="appends"/>
+    <ownedLiteral xmi:id="381c783a-76cc-4fed-908e-fb7cd0b94f0d" name="assertedAmendsData"/>
+    <ownedLiteral xmi:id="f36f8b25-0465-48f5-b799-2041e39964cd" name="assertedInputsData"/>
+    <ownedLiteral xmi:id="19134a13-124e-4e8c-af82-32b5205bf34f" name="assertedViewsData"/>
+    <ownedLiteral xmi:id="132ba455-50e8-45fc-b24c-449dd5ebc5cd" name="atHost"/>
+    <ownedLiteral xmi:id="f6b3a688-3b0e-4997-973b-2132db09af75" name="attackPathFrom"/>
+    <ownedLiteral xmi:id="7fb01038-4a97-4495-83d1-402d96535abf" name="attackPathVia"/>
+    <ownedLiteral xmi:id="13658654-8309-48ee-a5b1-411bf99f9764" name="blockedPath"/>
+    <ownedLiteral xmi:id="fefa78b9-1df1-4a22-a4c7-16cb65129a72" name="blockedSegment"/>
+    <ownedLiteral xmi:id="6034a3bc-524a-4e66-abac-6c064cad1ee9" name="canAccess"/>
+    <ownedLiteral xmi:id="bdb098f0-dcef-46da-bfb2-c5ff0fc5b06a" name="canGetKeys"/>
+    <ownedLiteral xmi:id="fbdc138e-cdea-4248-80ac-6c54591e1821" name="canRead"/>
+    <ownedLiteral xmi:id="0f1729a4-1a55-4853-b85d-4b1029ce096a" name="canWrite"/>
+    <ownedLiteral xmi:id="4674cb7f-e476-4cc0-a456-98144c60650b" name="channelFrom"/>
+    <ownedLiteral xmi:id="08c91c9a-8941-4d9d-ab2f-ecc55caf2d65" name="channelTo"/>
+    <ownedLiteral xmi:id="fc899f2f-aa42-43f9-a4a6-583762571263" name="channelTried"/>
+    <ownedLiteral xmi:id="f4328a17-cf49-482a-bce8-9b998e2230b4" name="channelVia"/>
+    <ownedLiteral xmi:id="ba1b46c9-f334-466e-a9e7-b2d921e0d0f4" name="connectedTo"/>
+    <ownedLiteral xmi:id="9140fda1-70e3-4fc4-b6e0-a5df8900c660" name="connectsData"/>
+    <ownedLiteral xmi:id="8e076f9a-f20f-4a32-b4db-33e29d415cba" name="connectsFrom"/>
+    <ownedLiteral xmi:id="022dabf8-f9ce-407d-b82c-13821e313b13" name="connectsTo"/>
+    <ownedLiteral xmi:id="dcefcb1d-7924-4bdb-9a11-ad3c864c9278" name="contains"/>
+    <ownedLiteral xmi:id="d06c6d2a-1796-4cdb-ae1f-414e06e2b590" name="containsField"/>
+    <ownedLiteral xmi:id="f98ecb3c-cc69-4175-97fb-08abec99c82a" name="controlledBy"/>
+    <ownedLiteral xmi:id="7d940700-bffa-4a1d-a858-a7e2fad623d0" name="controls"/>
+    <ownedLiteral xmi:id="f3715832-0cd0-44d6-af80-405a7b39ab0e" name="controlsChannel"/>
+    <ownedLiteral xmi:id="fe986fe1-beee-4f32-bf7c-85fe931d25ab" name="controlsSensor"/>
+    <ownedLiteral xmi:id="ff0fc53d-781f-4eb5-8661-a37ef885fd11" name="controlsThing"/>
+    <ownedLiteral xmi:id="b2442618-21cd-4e1d-bc8e-3375e0358997" name="copyOf"/>
+    <ownedLiteral xmi:id="1100c6ea-3cb1-4dcf-b0c7-53dac7764201" name="creates"/>
+    <ownedLiteral xmi:id="f9156055-a3fd-4603-b915-527f6ca3adb3" name="crudc"/>
+    <ownedLiteral xmi:id="d523b507-a4c8-4847-bf37-4a74ebcf5bff" name="crudd"/>
+    <ownedLiteral xmi:id="2c18a805-45b0-4b37-964f-333a7f9fe1b7" name="crudr"/>
+    <ownedLiteral xmi:id="35fd5f60-76d5-442b-8693-7efda7cfd160" name="crudu"/>
+    <ownedLiteral xmi:id="8a19f80d-6c06-4620-b79b-439d70bc8f2b" name="dataChannelEnd"/>
+    <ownedLiteral xmi:id="32ce683e-82d4-4757-b589-9fed943a74eb" name="dataChannelFor"/>
+    <ownedLiteral xmi:id="ce2ae068-8e60-44ab-8cc6-a4e643808f81" name="dataChannelFrom"/>
+    <ownedLiteral xmi:id="c3dad2fe-1523-4b38-869e-1758c6826b44" name="dataChannelTo"/>
+    <ownedLiteral xmi:id="2267f5a0-831a-4014-9bfa-6ddacc529282" name="dataPathEnd"/>
+    <ownedLiteral xmi:id="3de74a70-00b7-49d8-be98-168d6e01f4c5" name="dataPathFor"/>
+    <ownedLiteral xmi:id="7a44f1d8-ec10-422b-81ac-da9b3959758a" name="dataPathTo"/>
+    <ownedLiteral xmi:id="6b73a869-1fee-447d-bcd7-451d3d2e3992" name="dataPathVisits"/>
+    <ownedLiteral xmi:id="ef8e80ff-b786-416c-ad13-045c4d97acd9" name="enablesAccess"/>
+    <ownedLiteral xmi:id="2796555e-c9d4-40ea-a895-cadd93ee6391" name="enablesUserAccess"/>
+    <ownedLiteral xmi:id="fcdb8560-f901-4f2c-b148-5b8a21ff9d78" name="enablesUserInput"/>
+    <ownedLiteral xmi:id="325f835a-1569-46d1-a190-b315ae5fd0c9" name="enablesUserOutput"/>
+    <ownedLiteral xmi:id="2ddc7a7a-f40a-487f-9f38-68afa4ea6ad9" name="enablesUserUpdate"/>
+    <ownedLiteral xmi:id="63dfa358-29e4-4705-9548-b7559ca6bf6f" name="end"/>
+    <ownedLiteral xmi:id="3b85f766-3bcd-4ef2-8b9b-f0412ea18cd2" name="extends"/>
+    <ownedLiteral xmi:id="0fb019a3-2a7d-417b-918f-edf81a957f51" name="extendsDC"/>
+    <ownedLiteral xmi:id="e5654695-fcac-49e8-8b75-b5cc07cfa4ad" name="extendsDP"/>
+    <ownedLiteral xmi:id="bc7cb9ed-2105-4617-ad25-6f8e4d31e486" name="extendsFwdFlow"/>
+    <ownedLiteral xmi:id="6655d5ba-81f0-4ce2-a0f2-e93b2b6c697f" name="extendsRevFlow"/>
+    <ownedLiteral xmi:id="b9998766-d016-4cf2-ab3c-1a54843645d7" name="flows"/>
+    <ownedLiteral xmi:id="a8034491-d5d0-460a-896c-c85ed512eb97" name="flowsFrom"/>
+    <ownedLiteral xmi:id="d0462d64-b1a6-40a0-9539-08c0c2937f88" name="flowsFromDP"/>
+    <ownedLiteral xmi:id="30ec8fe9-3457-4f16-b24e-2b941f5710a7" name="flowsFromIn"/>
+    <ownedLiteral xmi:id="0c3afb55-87c1-404f-92fa-281572aea42c" name="flowsIn"/>
+    <ownedLiteral xmi:id="9012cdff-0cc5-46a7-8dea-1768b61010d9" name="flowsOut"/>
+    <ownedLiteral xmi:id="b48788b4-01ac-4264-bad9-d685067e637e" name="flowsTo"/>
+    <ownedLiteral xmi:id="42a7003a-322c-407d-b052-7d28f0d3e843" name="flowsToDP"/>
+    <ownedLiteral xmi:id="e3dbd281-fe5a-4097-829f-b1fd943358f6" name="flowsToIn"/>
+    <ownedLiteral xmi:id="18c1988c-78e3-473a-a48e-77d20acf58e7" name="flowsVia"/>
+    <ownedLiteral xmi:id="4c7b34de-bae9-443f-a98a-0b7ab2fe8dea" name="flowsViaCS"/>
+    <ownedLiteral xmi:id="e2dc2dee-17f3-4094-b99f-53ce66ac754e" name="flowsViaChannel"/>
+    <ownedLiteral xmi:id="c1eff252-8bbc-490e-b025-d7faf45274c9" name="flowsViaProcess"/>
+    <ownedLiteral xmi:id="be2f6e35-9598-47f3-a279-530a89a340c5" name="flowsViaSC"/>
+    <ownedLiteral xmi:id="14908ce6-b628-41ca-8a87-ea26b0b0ff5d" name="from"/>
+    <ownedLiteral xmi:id="e6ecab69-0d0a-4e19-bced-a89429d8d9f8" name="fromInterface"/>
+    <ownedLiteral xmi:id="f14b46ff-51d6-4c96-bfaf-abfacc549d35" name="fromPhysicalHost"/>
+    <ownedLiteral xmi:id="78aad118-e110-49c3-8b5a-7785404f5f6c" name="fromPhysicalInterface"/>
+    <ownedLiteral xmi:id="2c0390b6-d72b-4add-a09e-d663139f334b" name="fromProc"/>
+    <ownedLiteral xmi:id="c47d5443-15ef-487d-9a61-f32e2ba8912e" name="fromSource"/>
+    <ownedLiteral xmi:id="38e6f2e8-78fb-4c49-9c3f-580cdc4a0551" name="fromSpace"/>
+    <ownedLiteral xmi:id="c7087d51-6df6-4a56-a1ea-f810ce23b0fe" name="fromSubnet"/>
+    <ownedLiteral xmi:id="9cb00f6b-2900-41a0-b603-9d31f6c1399f" name="fulfils"/>
+    <ownedLiteral xmi:id="b1946ae0-0a42-414f-bc44-683e8914a07a" name="fwdPath"/>
+    <ownedLiteral xmi:id="a0db67e2-b96e-4c12-a912-d3f2b8b6622e" name="fwdRelay"/>
+    <ownedLiteral xmi:id="1402a4c5-18a0-4968-9ed6-e01ed313fed9" name="handles"/>
+    <ownedLiteral xmi:id="e0f6b281-7cf7-4863-85ef-df41461318fb" name="hasCLI"/>
+    <ownedLiteral xmi:id="7e17b767-7b14-447a-943b-adb34fabdb23" name="hasController"/>
+    <ownedLiteral xmi:id="568961af-adc0-4a14-8f72-361218038bf8" name="hasEmail"/>
+    <ownedLiteral xmi:id="785c2cbb-a55e-429e-aa83-9aabe00160ee" name="hasPhysicalHost"/>
+    <ownedLiteral xmi:id="8401a739-c0ab-4b17-bfec-12981238de4f" name="hosts"/>
+    <ownedLiteral xmi:id="b14382c5-f534-4de9-9cdd-603a9aa7b8e4" name="ignoresField"/>
+    <ownedLiteral xmi:id="d7d7e65d-f1a7-46e3-aa80-655e59014a62" name="impersonalDevice"/>
+    <ownedLiteral xmi:id="de5b417f-2160-4e94-b7ff-094fc7767c84" name="implementsAN"/>
+    <ownedLiteral xmi:id="13211d08-06d8-400f-a4dc-6901bceadecc" name="implementsCN"/>
+    <ownedLiteral xmi:id="80ab79e3-d461-41a2-992b-64292d6897f1" name="implementsHS"/>
+    <ownedLiteral xmi:id="8b4b45ff-515b-40dc-a48f-2660b022acd4" name="includesField"/>
+    <ownedLiteral xmi:id="cc06056f-0ef5-419d-adee-1b477645b2ba" name="indirectAuthZ"/>
+    <ownedLiteral xmi:id="7e6f0262-da88-433b-af21-c65a93f78c37" name="inputsData"/>
+    <ownedLiteral xmi:id="4e615098-1894-4768-b126-e0eb06b30dad" name="interactsRemotelyWith"/>
+    <ownedLiteral xmi:id="becd262b-141c-4bfb-92e2-bd9c80a054d9" name="interactsWith"/>
+    <ownedLiteral xmi:id="3e38a7ef-caf0-417f-bdb2-607209c1b947" name="interactsWithData"/>
+    <ownedLiteral xmi:id="13f9c1dc-05b0-49b4-852a-89ccc017e4fc" name="isAbstractSubnet"/>
+    <ownedLiteral xmi:id="3e9659e9-7f79-47fa-8178-f2519dd9b650" name="isAdult"/>
+    <ownedLiteral xmi:id="9ea9f4ee-ac6a-46b1-8f1f-92feb7acbd7b" name="isCluster"/>
+    <ownedLiteral xmi:id="30cd801c-204b-4a9a-b552-0b5cf7c10620" name="isContainer"/>
+    <ownedLiteral xmi:id="7a36895e-fa72-4002-967f-d6b6d5d52f31" name="isDest"/>
+    <ownedLiteral xmi:id="e9e197d7-cb06-4ce1-83db-f3711af8999c" name="isHostLAN"/>
+    <ownedLiteral xmi:id="8e0e5097-cd2d-47e6-b4ef-a8a922ddb590" name="isHotspot"/>
+    <ownedLiteral xmi:id="1a8ff8ed-97f9-4112-8d58-ea49782c3d2f" name="isInternet"/>
+    <ownedLiteral xmi:id="75c8bb02-364c-4be4-9629-3bbc178db962" name="isLnS"/>
+    <ownedLiteral xmi:id="aed17c65-5006-4f6b-8f52-7d3f2cb6fd7e" name="isLocalSubnet"/>
+    <ownedLiteral xmi:id="7b81bb7f-0363-419a-ad74-521f13075efd" name="isMHC"/>
+    <ownedLiteral xmi:id="f4226cca-6b45-4034-b4c5-078e46b93c5c" name="isMobile"/>
+    <ownedLiteral xmi:id="ea36ac7a-3da1-4e85-a312-ed4c1e2a8528" name="isNowhere"/>
+    <ownedLiteral xmi:id="25ad2257-a7f1-44e9-9c05-cd44bb9e1d2f" name="isPersonalDevice"/>
+    <ownedLiteral xmi:id="f9ae4b9f-0dc9-46bb-a573-3e3dacab5b12" name="isPod"/>
+    <ownedLiteral xmi:id="119a7e09-43e6-4cab-888b-d785a76da677" name="isPool"/>
+    <ownedLiteral xmi:id="a142cff5-e75e-439e-bf71-0ef2f5cd7e69" name="isProxy"/>
+    <ownedLiteral xmi:id="0d00078e-47c5-42ca-9f85-72fda567fa17" name="isRouter"/>
+    <ownedLiteral xmi:id="fd39d0d8-a5e3-44a9-a8e5-68fe05a7022e" name="isScalable"/>
+    <ownedLiteral xmi:id="c1cd8c7a-bb91-4023-9e4e-313caafbc053" name="isSource"/>
+    <ownedLiteral xmi:id="3f1d0692-d452-45b4-9081-9d981a3d56a6" name="isSpam"/>
+    <ownedLiteral xmi:id="46fa1631-6f89-4938-af43-a2f3eabb4b8b" name="isTrivial"/>
+    <ownedLiteral xmi:id="1c3ab0ac-a2ae-404a-920b-01d76954a058" name="isWorld"/>
+    <ownedLiteral xmi:id="85818e71-2117-4d27-b1ef-a21ab51e3ef7" name="lastInterface"/>
+    <ownedLiteral xmi:id="0043dafa-52c8-423f-b217-fcafe62b7e6a" name="locatedIn"/>
+    <ownedLiteral xmi:id="6a56ef01-4100-48ff-b540-638c20ec801d" name="managedBy"/>
+    <ownedLiteral xmi:id="1a1261af-5128-482d-9e85-a3451927ebef" name="manages"/>
+    <ownedLiteral xmi:id="d1ab6407-0473-4bca-b7ec-05ec459c3dde" name="mayBeIn"/>
+    <ownedLiteral xmi:id="d2d32096-6c95-444f-a159-6ca87cd76022" name="needsField"/>
+    <ownedLiteral xmi:id="9de54933-70ac-4af8-ae12-32897a6815b9" name="noAuthN"/>
+    <ownedLiteral xmi:id="ab28f4c3-eaca-43b4-8271-b850c9dc5a03" name="noDU"/>
+    <ownedLiteral xmi:id="a63979df-d54c-4fb0-a4ba-908880689e1a" name="noDX"/>
+    <ownedLiteral xmi:id="0de05f55-db68-485d-8000-4056b5372a78" name="operates"/>
+    <ownedLiteral xmi:id="f7ae8b51-cde6-4137-a7d6-66a5713f28c1" name="overlays"/>
+    <ownedLiteral xmi:id="cd8cb205-ed15-4991-a147-5142cfe29168" name="pEndsAt"/>
+    <ownedLiteral xmi:id="5f46ab27-e871-4694-88a0-0c17557ac238" name="pVia"/>
+    <ownedLiteral xmi:id="48914c7b-eac3-45ef-b3de-267b23c6a7b5" name="pairsViaBluetooth"/>
+    <ownedLiteral xmi:id="8e7c6f18-ff0d-4d7d-ab4e-98460b3e5192" name="pairsViaUSB"/>
+    <ownedLiteral xmi:id="ea491a90-d4ff-401d-931a-219b58826247" name="pathTo"/>
+    <ownedLiteral xmi:id="7c87fbd8-6931-469d-b725-4720388c4568" name="pollsSensor"/>
+    <ownedLiteral xmi:id="bfa3bc25-a28f-46ad-832a-4e20eca2bddd" name="possDataDest"/>
+    <ownedLiteral xmi:id="b0f949bd-a1f2-4e1c-a795-a7c0703796ca" name="possRevPath"/>
+    <ownedLiteral xmi:id="8d276b91-d032-408d-afa9-8253dedb1719" name="processes"/>
+    <ownedLiteral xmi:id="404c48f5-fd56-40ed-911e-efa2a76efbde" name="propagatesTo"/>
+    <ownedLiteral xmi:id="4f1e79bb-ddcd-429e-830f-e2a498427998" name="providedBy"/>
+    <ownedLiteral xmi:id="5a61f3c2-cf2d-439d-9e28-9277116e89e7" name="provisionedBy"/>
+    <ownedLiteral xmi:id="3e3aa1e2-28bc-4a16-9498-e2397f65664e" name="proxyAuthN"/>
+    <ownedLiteral xmi:id="e0e67bd3-f123-4b97-a612-21168251950a" name="reads"/>
+    <ownedLiteral xmi:id="4a5ebcb2-9d21-47c4-a244-45eeba20126a" name="readsSensor"/>
+    <ownedLiteral xmi:id="4947df5d-d512-4fe1-bd3c-f1a23e92ee0d" name="receives"/>
+    <ownedLiteral xmi:id="0ad52a7a-1e55-4f00-972d-05078e04cc22" name="receivesFromSensor"/>
+    <ownedLiteral xmi:id="7833e20c-129a-452d-a4fd-48d8930d813d" name="relatesTo"/>
+    <ownedLiteral xmi:id="a280f5cb-c5ef-45f8-82f6-134abce577e1" name="relays"/>
+    <ownedLiteral xmi:id="aff6e496-bc46-48ff-af04-cc7595314c2b" name="relaysAccess"/>
+    <ownedLiteral xmi:id="9654748a-24ea-411a-ba1e-0e2d7d50864b" name="responsibleFor"/>
+    <ownedLiteral xmi:id="34266f16-e797-4977-bf05-eb4fec4fa7fe" name="revPath"/>
+    <ownedLiteral xmi:id="0fa80282-18b9-49df-be9b-f2002dcd5757" name="revRelay"/>
+    <ownedLiteral xmi:id="8e56c04b-d63b-4880-9deb-c1646ca02a6e" name="runsIn"/>
+    <ownedLiteral xmi:id="75deddc8-5f1e-4ebc-929c-c97dcb9a39ea" name="senses"/>
+    <ownedLiteral xmi:id="50d54374-b3f1-486b-9d3b-e7244438e2ac" name="serves"/>
+    <ownedLiteral xmi:id="61520c4a-65ed-420d-b77e-8f6145f90515" name="sharesCredentials"/>
+    <ownedLiteral xmi:id="04a61533-c25a-4974-a777-f3a1232334f0" name="sourceDirect"/>
+    <ownedLiteral xmi:id="ff910b71-d981-4331-9c39-f42fb2b5f32c" name="sourceViaNAT"/>
+    <ownedLiteral xmi:id="84bc88d8-b9d1-4715-9e09-332ba34a92f4" name="start"/>
+    <ownedLiteral xmi:id="f169a5af-8689-4f5d-87f7-274ac2fa0119" name="stores"/>
+    <ownedLiteral xmi:id="d97606f5-f786-4bcd-a9a9-827e35f89da8" name="storesCopy"/>
+    <ownedLiteral xmi:id="fd9b2f6e-a909-44b7-819d-80e08494a2da" name="subjectTo"/>
+    <ownedLiteral xmi:id="2689f8ad-b6f3-4231-8c25-706b96485a64" name="to"/>
+    <ownedLiteral xmi:id="43f7a971-da0e-4ce6-b40d-b608f3dbe384" name="toInterface"/>
+    <ownedLiteral xmi:id="f48e7965-3457-447d-b0a5-d20e1c236cb5" name="toPhysicalHost"/>
+    <ownedLiteral xmi:id="9b05811a-6301-47f1-aee9-0429a53e0ad1" name="toPhysicalInterface"/>
+    <ownedLiteral xmi:id="12159147-63b1-4bfc-9388-dcc3d0789db0" name="toProc"/>
+    <ownedLiteral xmi:id="a4c5a8fc-b7ed-4873-80fe-cdc3a584d108" name="toSpace"/>
+    <ownedLiteral xmi:id="502035be-fb70-44ae-a0b3-3d4e1cd4f8c5" name="traverses"/>
+    <ownedLiteral xmi:id="b9788265-6477-4cab-b1b3-6419d273452a" name="updates"/>
+    <ownedLiteral xmi:id="66708638-6ea6-4aca-98e7-1c3626a27529" name="updatesController"/>
+    <ownedLiteral xmi:id="7b616f44-f57c-45f9-9d98-2a6485d5d888" name="updatesSensor"/>
+    <ownedLiteral xmi:id="817deb52-5689-4779-bfca-bb9e5a4da8ea" name="usedBy"/>
+    <ownedLiteral xmi:id="03db5aab-8d61-406d-93bb-ac3e64042fd3" name="usedFor"/>
+    <ownedLiteral xmi:id="401fabbb-564b-4968-901f-315d743d0636" name="uses"/>
+    <ownedLiteral xmi:id="3d2925d4-4560-4013-b1ca-61d11f445be4" name="usesAsProxy"/>
+    <ownedLiteral xmi:id="473a67a0-83f6-46a3-92fc-82897ff8b53b" name="usesDataPath"/>
+    <ownedLiteral xmi:id="846f9d35-c98c-470e-a1e1-a5547446afd1" name="usesForAuth"/>
+    <ownedLiteral xmi:id="dcac2c99-e204-4131-bd59-8db2140d0edc" name="usesForAuthZ"/>
+    <ownedLiteral xmi:id="d5c63dae-5cc4-42cf-8f8b-c948abb5d009" name="usesIndirectly"/>
+    <ownedLiteral xmi:id="5ede440c-8d1c-4a6a-a0c6-fdc4d86c7c47" name="usesLogicalRoute"/>
+    <ownedLiteral xmi:id="af4ffb97-9e1f-49ba-821a-16ef0cd8f1e9" name="usesPhysicalRoute"/>
+    <ownedLiteral xmi:id="656f46e0-dfbd-4610-9814-102cadac5c8a" name="usesPhysicalSubnet"/>
+    <ownedLiteral xmi:id="e1856b07-7b00-4c15-bd00-cf404cecaed3" name="usesRemotely"/>
+    <ownedLiteral xmi:id="6bd2f9fd-c7dd-4281-8cf2-b2398d895397" name="usesService"/>
+    <ownedLiteral xmi:id="56f3447b-818c-40e6-bdd3-570d47d7a4eb" name="usesViaDeputy"/>
+    <ownedLiteral xmi:id="eebbed36-8079-4d8d-8498-cebac3d4b8fc" name="usesViaProxy"/>
+    <ownedLiteral xmi:id="be64f642-12b0-4d3c-9a1b-b1dad551d9c9" name="usesViaRAS"/>
+    <ownedLiteral xmi:id="95ea8ae0-c028-4aab-bd7c-0535dd0f60ec" name="validatesChannel"/>
+    <ownedLiteral xmi:id="5a6dd4b4-3d39-46af-a239-20c915c7a052" name="via"/>
+    <ownedLiteral xmi:id="ff93f755-b5e4-462b-8798-18e03251f641" name="viaHostChannel"/>
+    <ownedLiteral xmi:id="3b54ea3e-101a-4396-ba4d-5693284ee76d" name="viaInterface"/>
+    <ownedLiteral xmi:id="165fed0a-2d80-4885-98b7-cf28b486e2cd" name="viaPhysicalPath"/>
+    <ownedLiteral xmi:id="ed28e4ea-d797-4983-9b07-c891e22c4ffb" name="viaPhysicalSubnet"/>
+    <ownedLiteral xmi:id="5e1c8185-039d-4c55-a9cd-df93709f2e2c" name="viaProxy"/>
+    <ownedLiteral xmi:id="caed6116-1b1b-4929-a9ff-8af1259f0e5e" name="viaSharedCredentials"/>
+    <ownedLiteral xmi:id="f99acc8d-b3a3-43ce-a457-0127c1357e5d" name="viaSubnet"/>
+    <ownedLiteral xmi:id="cb2c578a-82b1-4c46-9817-4c7afdfcd49d" name="viaVirtualChannel"/>
+    <ownedLiteral xmi:id="f96f0bfa-6604-43b3-a0ba-92dd573272f3" name="viewsData"/>
+    <ownedLiteral xmi:id="744ce1bf-c8f9-4f09-adeb-0daf482ae166" name="visits"/>
+    <ownedLiteral xmi:id="4c2c292f-ea7d-48ae-b4f3-a89e6a8ae28f" name="visitsGateway"/>
+    <ownedLiteral xmi:id="8bff8f8c-25bc-4f97-bbc6-04220597f487" name="worksFor"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="7979b632-f4ca-42df-a96e-72b7110936e6" memberEnd="eb259121-a500-4a72-a818-62ebdebe2039 dc88d768-8642-4a36-b1bd-3e73d88d86b3">
+    <eAnnotations xmi:id="35062d25-d464-49d1-96fb-9a1cc7605ab4" source="org.eclipse.papyrus">
+      <details xmi:id="19ae659e-2b50-4355-97a3-bf969ba4f5cf" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="b9dfb0f2-8f52-4010-906d-0940e317f527" name="Misbehaviour">
+    <ownedAttribute xmi:id="0190b4a7-9e25-43a9-acc5-2b64a8de2919" name="kind" type="025e4fd8-2990-4ba1-8b3f-da889dc96a29"/>
+    <ownedAttribute xmi:id="2043506b-cec1-421c-a8d0-c64bd187f96f" name="base_Class" association="8822090e-71c3-4949-91e7-d591816b205e">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="c88d6006-123f-4400-ad23-48658ab2c92c"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="51dcae17-b873-4b35-82eb-dec44f3a10be" name="tvraasset" type="a0c54335-3579-48a3-a0bf-aa60475084d6" association="dd62a84c-1bce-40e3-b6fb-755e6d56e9ee"/>
+    <ownedAttribute xmi:id="7fedc44e-ac60-4c07-bc4d-c654f41c31c2" name="impactLevel" type="59cf242a-a415-4b50-a41b-c25a27a0b916"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="69a0a762-07c8-44cf-9b9d-f6c5bd81d5ef" name="TrustworthinessAttributeSet">
+    <ownedAttribute xmi:id="da84c538-bd1f-4385-a163-b22a1b4a673e" name="base_Class" association="256019cf-bc91-46d5-990c-794255f23463">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="b77c7b37-eea3-4260-a9b4-1d1c8585732f"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="2069acd9-7899-426e-952a-bc668622e304" name="kind" type="ebdd6297-9049-4614-ae3e-06c06e851970"/>
+    <ownedAttribute xmi:id="408f9da0-d510-4ea9-8ecd-c8c41151b644" name="trustworthinessLevel" type="c8abcf6c-acad-4763-b431-a8f721d43cea"/>
+    <ownedAttribute xmi:id="55c5b180-650b-4e1e-b6d4-0aec26dff939" name="tvraasset" type="a0c54335-3579-48a3-a0bf-aa60475084d6" association="f41482b0-04d9-48a0-8bed-ceb1d9c3cdb8"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="025e4fd8-2990-4ba1-8b3f-da889dc96a29" name="MisbehaviourKind">
+    <ownedLiteral xmi:id="c1521ea4-2a3a-4137-b745-c1e74efe23ff" name="MS-LossOfAccessibility"/>
+    <ownedLiteral xmi:id="a1264874-6b82-4316-910a-4dfce48ba97c" name="MS-LossOfAnonUserTW"/>
+    <ownedLiteral xmi:id="9cdbd6a6-730d-4e7d-a48b-8dc7b835004f" name="MS-LossOfAstuteness"/>
+    <ownedLiteral xmi:id="e81e6e4b-3398-42e4-ac21-a2e05f146113" name="MS-LossOfAuthenticity"/>
+    <ownedLiteral xmi:id="6d9482fb-cb7f-4715-affd-4178460f6b95" name="MS-LossOfIntegrity"/>
+    <ownedLiteral xmi:id="7c5b5f69-2cde-4316-a924-aa8a5d59c229" name="MS-LossOfAvailability"/>
+    <ownedLiteral xmi:id="2670f6da-38ad-486b-ade9-584ac239581d" name="MS-LossOfBenevolence"/>
+    <ownedLiteral xmi:id="1cc1ee45-1763-48b2-bc31-2fa225c4964f" name="MS-LossOfCapacity"/>
+    <ownedLiteral xmi:id="005fc73f-ce45-4690-b592-2c51f0037324" name="MS-LossOfClientTW"/>
+    <ownedLiteral xmi:id="ef718d1c-df8b-4d1f-a600-7d7e5dff2ae1" name="MS-LossOfCompetence"/>
+    <ownedLiteral xmi:id="3539af96-f71d-4028-ac37-fd2d0600c55d" name="MS-LossOfConfidentiality"/>
+    <ownedLiteral xmi:id="fcca4cd6-4651-4645-879c-95b114a43667" name="MS-LossOfConnectivity"/>
+    <ownedLiteral xmi:id="e177f0ec-9792-47f5-aca4-f02722fdbec6" name="MS-LossOfControl"/>
+    <ownedLiteral xmi:id="4990c6d8-75e6-4f92-a461-5dff0afc9820" name="MS-LossOfDefaultTW"/>
+    <ownedLiteral xmi:id="299a986c-2a4d-4d0c-bfca-d8559f751ccc" name="MS-LossOfExploitTW"/>
+    <ownedLiteral xmi:id="1a03c9a8-4ede-4822-9f29-2410ff5b40b9" name="MS-LossOfExtrinsic-A-TW"/>
+    <ownedLiteral xmi:id="cc786faf-937b-4321-8cee-fe97ca7bdfa7" name="MS-LossOfExtrinsic-AU-TW"/>
+    <ownedLiteral xmi:id="401943d4-a754-40b7-91cb-45ddb7079ef5" name="MS-LossOfExtrinsic-C-TW"/>
+    <ownedLiteral xmi:id="acb5b5d6-86ee-4db4-802f-8417fb52c875" name="MS-LossOfExtrinsic-I-TW"/>
+    <ownedLiteral xmi:id="2fb3ca3b-4beb-4987-bdb8-1c05c0b921e4" name="MS-LossOfExtrinsic-M-TW"/>
+    <ownedLiteral xmi:id="9799a7cc-eade-4cab-aa13-13e86c235461" name="MS-LossOfExtrinsic-QI-TW"/>
+    <ownedLiteral xmi:id="b82f9417-8d65-4346-bec6-e549dafe5322" name="MS-LossOfExtrinsic-U-TW"/>
+    <ownedLiteral xmi:id="5a976842-daa1-4d62-87d6-dd4df2f72e9a" name="MS-LossOfExtrinsic-VA-TW"/>
+    <ownedLiteral xmi:id="f1f2e6e2-00b0-461e-ba02-d1e152ac13ad" name="MS-LossOfExtrinsic-VL-TW"/>
+    <ownedLiteral xmi:id="958de09e-f9f2-48b1-993e-1c13e6161507" name="MS-LossOfExtrinsic-VN-TW"/>
+    <ownedLiteral xmi:id="a7644d71-6bb5-41bd-9484-6ac98a924271" name="MS-LossOfExtrinsic-W-TW"/>
+    <ownedLiteral xmi:id="444b8862-8fae-4d0c-b533-88e948dd3d55" name="MS-LossOfExtrinsic-XS-TW"/>
+    <ownedLiteral xmi:id="215926a7-2e4e-4957-b6b7-cb730dfd2a72" name="MS-LossOfExtrinsicTW"/>
+    <ownedLiteral xmi:id="dfcb19f8-aabd-496a-bedd-3535f049ffae" name="MS-LossOfIntrinsicTW"/>
+    <ownedLiteral xmi:id="91bebfc6-10c3-4089-95a8-4ada0424d129" name="MS-LossOfNetworkControl"/>
+    <ownedLiteral xmi:id="5a11ddd3-fead-4fdb-96e2-7cdb6baecba6" name="MS-LossOfNetworkUserTW"/>
+    <ownedLiteral xmi:id="48001a28-2568-4e36-af4e-16080c2d832b" name="MS-LossOfProxyUserTW"/>
+    <ownedLiteral xmi:id="bb67d3b3-58bb-460f-8164-3a17db3967cb" name="MS-LossOfReliability"/>
+    <ownedLiteral xmi:id="2a9359cd-b713-49f0-9378-0eedd38d9648" name="MS-LossOfResourceTW"/>
+    <ownedLiteral xmi:id="8920b498-1d32-44cb-9d98-115fb08835fe" name="MS-LossOfServiceTW"/>
+    <ownedLiteral xmi:id="661c27b3-b67e-47f5-ac3c-aa22e4a6ae3e" name="MS-LossOfTimeliness"/>
+    <ownedLiteral xmi:id="6ac76c18-67af-4f1b-bbd5-4e01bc509583" name="MS-LossOfTrust"/>
+    <ownedLiteral xmi:id="37204da0-6ca0-4aff-accb-74add2540ece" name="MS-LossOfUserTW"/>
+    <ownedLiteral xmi:id="367bc6c5-a377-4855-84a6-cb24fc6d4272" name="MS-BandwidthUnmanaged"/>
+    <ownedLiteral xmi:id="6be65ccf-b7c6-430e-b45f-a9043a8a45d9" name="MS-ClientImpersonation"/>
+    <ownedLiteral xmi:id="84b1c292-1c26-4bbb-9a38-127a14391931" name="MS-CommsSnoopable"/>
+    <ownedLiteral xmi:id="b214924d-e326-4940-ac07-4ca2e3337b58" name="MS-ConnectionsAllowed"/>
+    <ownedLiteral xmi:id="768f66cd-2fc8-4cac-b74b-ce6643a301a1" name="MS-DeputyConfusion"/>
+    <ownedLiteral xmi:id="eb25dc50-3f32-4501-a9c1-5d40dff53a56" name="MS-InService"/>
+    <ownedLiteral xmi:id="656fb20e-7cc9-4deb-8491-647a88af621e" name="MS-LocalLossOfControl"/>
+    <ownedLiteral xmi:id="70ec9805-ad17-4125-bdbb-a223adbf2c39" name="MS-LocalLossOfUserTW"/>
+    <ownedLiteral xmi:id="7eb002d3-c198-4ce5-84ea-c65e129f1198" name="MS-MalwareInfection"/>
+    <ownedLiteral xmi:id="1e25678c-a1d0-46c6-857c-89a12d2aebbb" name="MS-NetworkSpoofing"/>
+    <ownedLiteral xmi:id="a26404f8-0de6-4f45-bc7e-e9063d8895a9" name="MS-NotDecrypted"/>
+    <ownedLiteral xmi:id="47d17f80-55f2-49b0-aba8-dc8492b8f314" name="MS-NotEncrypted"/>
+    <ownedLiteral xmi:id="7ecd5d1d-05c0-40a9-9a50-f082434a5937" name="MS-Overloaded"/>
+    <ownedLiteral xmi:id="460b6bc3-a3d1-45a2-bb55-453c15d87cbf" name="MS-PhysicalBreach"/>
+    <ownedLiteral xmi:id="c70cbfc6-9b00-41b0-ae8d-fca8a61777d1" name="MS-PhysicalIntrusion"/>
+    <ownedLiteral xmi:id="5a37f5bd-fbaf-42d0-91c4-c653535a9209" name="MS-PhysicalShutdown"/>
+    <ownedLiteral xmi:id="2db5992d-3eed-435d-b08f-f6f3286a4fe2" name="MS-ServiceChannelsAllowed"/>
+    <ownedLiteral xmi:id="1f5b0361-691a-486b-9ddc-80809117981f" name="MS-ServiceImpersonation"/>
+    <ownedLiteral xmi:id="cfa11ef5-94f8-4821-bb21-69d2f9db74c7" name="MS-Theft"/>
+    <ownedLiteral xmi:id="12af721b-9d17-439d-a5f3-d572188c4216" name="MS-TheftOfControl"/>
+    <ownedLiteral xmi:id="fc0b7152-e652-40ba-b4e0-211a7d08dd48" name="MS-TotalLoad"/>
+    <ownedLiteral xmi:id="1f7bfa00-2b2e-4a0c-b5be-fb1dcf457fcc" name="MS-TrojanInsertion"/>
+    <ownedLiteral xmi:id="d99ac892-850d-44e0-86e6-7cb2b20f12a9" name="MS-VulnerabilityDiscovered"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="dd62a84c-1bce-40e3-b6fb-755e6d56e9ee" memberEnd="51dcae17-b873-4b35-82eb-dec44f3a10be 2ea4662f-6274-48a3-ba05-ec6cfbe4a76e">
+    <eAnnotations xmi:id="6e9bf3b7-a378-4eff-8e30-006044ec2d50" source="org.eclipse.papyrus">
+      <details xmi:id="217ddac2-a1eb-4b4e-b60e-63e5ef08e8e6" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="8822090e-71c3-4949-91e7-d591816b205e" name="E_Misbehaviour_Class1" memberEnd="2043506b-cec1-421c-a8d0-c64bd187f96f 45701055-816d-41d4-a1dd-9b162740e97c">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="45701055-816d-41d4-a1dd-9b162740e97c" name="extension_Misbehaviour" type="b9dfb0f2-8f52-4010-906d-0940e317f527" aggregation="composite" association="8822090e-71c3-4949-91e7-d591816b205e"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="256019cf-bc91-46d5-990c-794255f23463" name="E_TrustworthinessAttributeSet_Class1" memberEnd="da84c538-bd1f-4385-a163-b22a1b4a673e 7fac8062-fa30-4885-b06c-e971549e135e">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="7fac8062-fa30-4885-b06c-e971549e135e" name="extension_TrustworthinessAttributeSet" type="69a0a762-07c8-44cf-9b9d-f6c5bd81d5ef" aggregation="composite" association="256019cf-bc91-46d5-990c-794255f23463"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="139d1507-25df-4b2e-8e25-fccabd04b0a3" name="TRVAAssetKind">
+    <ownedLiteral xmi:id="049652c8-c54d-414a-a390-ca5a0ec84a11" name="AbstractSubnet"/>
+    <ownedLiteral xmi:id="32e7961f-13c0-4af6-af48-4a9e16cd9d8d" name="AccessContext"/>
+    <ownedLiteral xmi:id="716985f4-9305-4717-9c8c-fb4d85e4fcdf" name="Adult"/>
+    <ownedLiteral xmi:id="52fd3d6a-f1e7-4382-96d7-251adeaacf38" name="APIServer"/>
+    <ownedLiteral xmi:id="6689856d-8fac-4abb-8715-aebbaf90e217" name="ApplicationProcess"/>
+    <ownedLiteral xmi:id="8a67830e-6102-437c-ac2c-1c86e18cf07e" name="AttackPath"/>
+    <ownedLiteral xmi:id="397b1b2c-06c1-4fa2-af86-1d9563aecf01" name="AuthChannel"/>
+    <ownedLiteral xmi:id="d6d0c20f-8d33-46ad-9cbe-0df871d1deb7" name="AuthClient"/>
+    <ownedLiteral xmi:id="208d8766-1a09-44a3-9daf-ee139e2600d4" name="AuthService"/>
+    <ownedLiteral xmi:id="447cfb1c-0bdd-4ffe-96ed-2a5564ea9b6a" name="BaseStation"/>
+    <ownedLiteral xmi:id="616aa267-5a7c-482a-a1ab-80d093cbf5ef" name="BiometricData"/>
+    <ownedLiteral xmi:id="43a4e2d5-381c-401d-86fe-fb58b1c82f03" name="BluetoothPair"/>
+    <ownedLiteral xmi:id="c3faa9e9-5e3b-4840-9ef3-e5fb0a0f1bf5" name="BoundedSpace"/>
+    <ownedLiteral xmi:id="80403c47-8068-44f5-9215-3cc4b09674a6" name="CellularNetwork"/>
+    <ownedLiteral xmi:id="b05b2245-4a98-4620-ab4c-dd291631c983" name="Child"/>
+    <ownedLiteral xmi:id="d9249494-393e-4b60-b21d-bf4f570cb142" name="ClientAttackPath"/>
+    <ownedLiteral xmi:id="6c2ee74a-7b4f-4238-9bd9-81fc4feca06c" name="ClientChannel"/>
+    <ownedLiteral xmi:id="7e4329b0-400d-483d-96d1-7e2220b29493" name="ClientPath"/>
+    <ownedLiteral xmi:id="c3d5cc95-23c5-4310-a968-8124179f0902" name="ClosedClientAttackPath"/>
+    <ownedLiteral xmi:id="822a4921-0d87-4666-a846-75229a17a105" name="ClosedSegment"/>
+    <ownedLiteral xmi:id="29f0956e-ec3f-4700-9b60-78d500a846a5" name="ClosedServiceAttackPath"/>
+    <ownedLiteral xmi:id="d55e8678-8ea3-4c9c-8793-3ce13cc7c0bd" name="Cluster"/>
+    <ownedLiteral xmi:id="28d353c2-5642-4e89-b78f-c76236451a8e" name="ClusterHost"/>
+    <ownedLiteral xmi:id="237df78b-962e-4a98-81a9-4c3993537b43" name="ClusterIP"/>
+    <ownedLiteral xmi:id="4117e0c1-5d43-4c8f-941f-4cf16e3125db" name="CmdLineProcess"/>
+    <ownedLiteral xmi:id="8ab1c450-be36-4bd1-a37c-3126abe9ef00" name="CommsAsset"/>
+    <ownedLiteral xmi:id="d12709fc-a2d3-4888-88d0-e8440757cf5e" name="ConnectionAsset"/>
+    <ownedLiteral xmi:id="b569d9c4-ae1b-419f-9c21-0fe8682077ea" name="ConnectionChannel"/>
+    <ownedLiteral xmi:id="e1052eb3-a9c4-4ddb-aac6-215411d167d3" name="ConnectionPath"/>
+    <ownedLiteral xmi:id="3917c529-c159-43a3-817a-1388f4154868" name="ConsoleHost"/>
+    <ownedLiteral xmi:id="0064b745-7ee3-4037-a9da-ba0614da56de" name="ConsoleProcess"/>
+    <ownedLiteral xmi:id="605a91c2-ea6d-4b08-afe9-49f0ad018609" name="Container"/>
+    <ownedLiteral xmi:id="1aa18d48-90fc-42e0-84e2-136083cfcbb1" name="ControlData"/>
+    <ownedLiteral xmi:id="85f99e95-9275-4aff-a248-bfb4d07050ff" name="ControlProcess"/>
+    <ownedLiteral xmi:id="235a5f63-7963-48ef-beda-369c097516df" name="Controller"/>
+    <ownedLiteral xmi:id="595bbaba-184d-4354-b563-02b86c398a81" name="CoreNetwork"/>
+    <ownedLiteral xmi:id="3fc0584c-a2fe-4ebe-ba10-b34804a3fa83" name="CoreRouter"/>
+    <ownedLiteral xmi:id="31c77d73-b61f-4064-82e7-aa8ca0a84014" name="DB"/>
+    <ownedLiteral xmi:id="449e78fd-80c8-4931-9028-b6f8887e6414" name="Data"/>
+    <ownedLiteral xmi:id="d1a6344e-2a5c-41ac-a174-d40f2579611e" name="DataAccess"/>
+    <ownedLiteral xmi:id="817e74a4-24de-4d97-9232-d7cd498331ba" name="DataAsset"/>
+    <ownedLiteral xmi:id="abbb698a-1a9a-460c-8b8e-71cd12ef0392" name="DataCache"/>
+    <ownedLiteral xmi:id="17a69931-97c5-4d12-85f5-b32e59a794ef" name="DataCentre"/>
+    <ownedLiteral xmi:id="d3a622e3-b3c5-4d24-8ea3-7b29c1cd40b3" name="DataChannel"/>
+    <ownedLiteral xmi:id="5d7f4fd6-0f1e-4415-927f-bb022e9f1e35" name="DataContainer"/>
+    <ownedLiteral xmi:id="13e65b50-47ae-41aa-8e77-3d2db8b90714" name="DataCopy"/>
+    <ownedLiteral xmi:id="c99e13fa-e440-4fb1-8b72-5e238011bf38" name="DataExchange"/>
+    <ownedLiteral xmi:id="0a521319-067d-4d71-a4fd-fb5d6c948a05" name="DataField"/>
+    <ownedLiteral xmi:id="75b168d0-3a26-4b23-8692-7fd791a7426f" name="DataFlow"/>
+    <ownedLiteral xmi:id="644056cb-a4c0-4573-bf5f-925f6425334f" name="DataInferenceAsset"/>
+    <ownedLiteral xmi:id="d071ff09-80a8-410d-a84f-5f081e1374ba" name="DataInput"/>
+    <ownedLiteral xmi:id="0d86ca93-19d9-4908-b2a7-b81f32f04795" name="DataLifecycleAsset"/>
+    <ownedLiteral xmi:id="325eea93-fd95-42e4-bf73-f60393ea2ec6" name="DataOutput"/>
+    <ownedLiteral xmi:id="e089c0be-03fe-4877-bf5b-aaf8316b3ed3" name="DataPalette"/>
+    <ownedLiteral xmi:id="4c228eda-c72a-44ec-9421-6771eeb90ea4" name="DataPath"/>
+    <ownedLiteral xmi:id="689aeb5b-498d-45e2-b252-09c4b24c390d" name="DataPool"/>
+    <ownedLiteral xmi:id="6a71d6a0-ef76-4a36-83e1-0a9d01bd5e7a" name="DataProcess"/>
+    <ownedLiteral xmi:id="3d011792-d225-4343-aca4-634ff5ce18ad" name="DataRelay"/>
+    <ownedLiteral xmi:id="7b0a1440-7c95-4aac-b0de-dcca8f2b6970" name="DataService"/>
+    <ownedLiteral xmi:id="fa31df33-3344-410d-87da-2e0ce37e4286" name="DataStep"/>
+    <ownedLiteral xmi:id="fdfa804b-3a18-4a77-9942-57427843dd4f" name="DataUpdate"/>
+    <ownedLiteral xmi:id="b7c9fedb-8080-478c-8a48-08604433f209" name="DataUse"/>
+    <ownedLiteral xmi:id="1c6423b7-a8aa-46bb-87e2-2dc4035de9b4" name="DeNATSegment"/>
+    <ownedLiteral xmi:id="0e83648f-01fe-4738-9ada-b591adb5a471" name="DebugMarker"/>
+    <ownedLiteral xmi:id="565e626f-beb9-4cb7-9863-56a884b61c7b" name="DesktopService"/>
+    <ownedLiteral xmi:id="af05b356-58f0-49c8-b392-fc404a5b0d2b" name="DumbHost"/>
+    <ownedLiteral xmi:id="8fab5e9a-c77c-44f4-90e0-38bb9eb5378c" name="Editor"/>
+    <ownedLiteral xmi:id="45bdea0c-432d-48ec-9acf-f07881faad35" name="EmailClient"/>
+    <ownedLiteral xmi:id="8c0a179e-9c3f-45ae-875f-6ce049379eb1" name="EmailMUA"/>
+    <ownedLiteral xmi:id="e27af15c-b5a4-4f00-9cc9-78843ca71f7d" name="EmailMX"/>
+    <ownedLiteral xmi:id="548061f6-c358-45e8-92fe-09bbbd256b3d" name="EmailService"/>
+    <ownedLiteral xmi:id="60d43b8d-e688-4972-9e61-789ded4aec00" name="FixedHost"/>
+    <ownedLiteral xmi:id="68c33ef2-9fd7-4518-b829-cc16b7a3adba" name="FreeSegment"/>
+    <ownedLiteral xmi:id="7de7c320-eb96-44d2-98cc-9cecab533f47" name="GDPRArt94Data"/>
+    <ownedLiteral xmi:id="6e3ba5d2-7dd9-4d4f-818c-9a08ad48552a" name="GDPRArt9Data"/>
+    <ownedLiteral xmi:id="9519481d-fd5c-4c26-a4f7-26f4f831a33e" name="GeneralHost"/>
+    <ownedLiteral xmi:id="09acee74-5af9-4c55-8f7a-dec826cac909" name="GeneralProcess"/>
+    <ownedLiteral xmi:id="608f28eb-7fd7-4d1e-a89c-af12df9923f9" name="GeneticData"/>
+    <ownedLiteral xmi:id="f0efd11f-da89-4ead-9984-3c139cffea7c" name="GovernanceAsset"/>
+    <ownedLiteral xmi:id="982e3542-02f9-4568-967e-c797432a4d50" name="GovernancePalette"/>
+    <ownedLiteral xmi:id="3b71f232-a472-4c44-9b1c-59f85a3020c3" name="HContext"/>
+    <ownedLiteral xmi:id="0cdff728-7294-4cb8-a913-8b946b8c8f0d" name="HealthData"/>
+    <ownedLiteral xmi:id="6ff35cb6-e1e3-430d-b5e1-b8c5a33b5900" name="HealthSensor"/>
+    <ownedLiteral xmi:id="1bb596b6-d587-4379-bd7c-58ef1d432099" name="Host"/>
+    <ownedLiteral xmi:id="e5458389-4eed-4c43-853d-1982729e98dd" name="HostChannel"/>
+    <ownedLiteral xmi:id="84a5f6c5-2fc6-449d-84d1-c0387e96c32e" name="HostContext"/>
+    <ownedLiteral xmi:id="c3f5a741-e1d5-40e5-b1b7-010b33c8b718" name="HostLAN"/>
+    <ownedLiteral xmi:id="58fe2f0e-495a-4260-bec5-533e37b68b73" name="HostNetContext"/>
+    <ownedLiteral xmi:id="8461e8b7-6028-4040-9f14-7ad85a41386d" name="HostPalette"/>
+    <ownedLiteral xmi:id="7782a653-4b15-47fc-b066-58d5153a3e7a" name="Human"/>
+    <ownedLiteral xmi:id="ddc758f3-e4b6-4eb6-b7bb-b9a108e7f9c9" name="Ingress"/>
+    <ownedLiteral xmi:id="334e1cdf-d518-45bd-a47c-edadfa481efd" name="InputPool"/>
+    <ownedLiteral xmi:id="195b890d-1c31-4c3b-82aa-f08e79896718" name="InteractiveApplication"/>
+    <ownedLiteral xmi:id="06dcf729-9b6a-4906-a26e-90386ba27d78" name="InteractiveHost"/>
+    <ownedLiteral xmi:id="674e6d2a-572b-4f6a-8a1c-4ee4d787e6bf" name="InteractiveProcess"/>
+    <ownedLiteral xmi:id="a15629fb-b474-4db3-8f74-bc6cec1339d7" name="Interface"/>
+    <ownedLiteral xmi:id="f4beaa7c-b470-4369-8dd4-2a438ab44c05" name="InternalSubnet"/>
+    <ownedLiteral xmi:id="09795840-003c-45b7-8537-99ddc7a53869" name="Internet"/>
+    <ownedLiteral xmi:id="3cfe3ec7-b675-43cb-8b9a-8b61cf6e159c" name="IoTProcess"/>
+    <ownedLiteral xmi:id="a22ed2f4-a1d7-422a-a78d-dfbc8810f74f" name="Jurisdiction"/>
+    <ownedLiteral xmi:id="6bd68de7-bb10-402a-a0b7-e0792e151833" name="L01Subnet"/>
+    <ownedLiteral xmi:id="e4cba9ce-9e14-43b2-992a-62e351f46650" name="L0Subnet"/>
+    <ownedLiteral xmi:id="b3a1f50d-5228-43c3-bcb3-98cdc8ad2af1" name="L1Subnet"/>
+    <ownedLiteral xmi:id="5fc29ba0-02df-4341-8616-673244c4d9f4" name="L23Subnet"/>
+    <ownedLiteral xmi:id="77fe6019-302e-4446-b047-4eb6d44e246d" name="L2Subnet"/>
+    <ownedLiteral xmi:id="3cad97a2-20ac-4902-998b-26d9bc3af0b3" name="L3Subnet"/>
+    <ownedLiteral xmi:id="d238706d-8c33-42cc-a70c-e7247c84cd64" name="LegalEntity"/>
+    <ownedLiteral xmi:id="06d73f05-f630-480e-9d96-3bf63cb6d8aa" name="LegalOrganisation"/>
+    <ownedLiteral xmi:id="bd740fb5-53d6-45b2-990d-e577f6cfbec8" name="LogicalPath"/>
+    <ownedLiteral xmi:id="aa7632ed-2683-48f2-942a-67a39ed05c6c" name="LogicalRoute"/>
+    <ownedLiteral xmi:id="8abc461c-d653-4ce2-bfe6-47220c4d1da3" name="LogicalSegment"/>
+    <ownedLiteral xmi:id="320c6050-dd1b-4746-b148-abbbceada7a1" name="LogicalSubnet"/>
+    <ownedLiteral xmi:id="818547a5-bb94-4e0f-a068-0b7012612aa9" name="LoginService"/>
+    <ownedLiteral xmi:id="0ff34a50-6ac9-4425-9606-86f108f187d0" name="Master"/>
+    <ownedLiteral xmi:id="02f6b667-b4fc-426c-9728-fa90ae0e74ea" name="MeshRoutingSegment"/>
+    <ownedLiteral xmi:id="78a5d9ca-99df-4a45-8cc6-7ea0d6272afe" name="MobileClient"/>
+    <ownedLiteral xmi:id="13c03b67-d429-41e4-a4b2-5889eb992d52" name="MobileHost"/>
+    <ownedLiteral xmi:id="2f419269-8196-4c08-95f7-19b318c1b9e6" name="NATSegment"/>
+    <ownedLiteral xmi:id="e884f803-0237-4b10-a616-8515a3853730" name="NPE"/>
+    <ownedLiteral xmi:id="09e2af29-f0ce-479f-a235-70374c63106a" name="NetworkAsset"/>
+    <ownedLiteral xmi:id="1b8534f0-a97d-4550-9ecd-879c34380abf" name="NetworkInferenceAsset"/>
+    <ownedLiteral xmi:id="2c5bfab9-a60f-4a86-b930-bf4457eda29c" name="NetworkPalette"/>
+    <ownedLiteral xmi:id="c3f85dae-af41-43b7-90de-4464bd4193f1" name="NetworkPath"/>
+    <ownedLiteral xmi:id="b34a0242-fcda-4128-946c-e9dabd2c21d3" name="Notebook"/>
+    <ownedLiteral xmi:id="90d31408-0ec9-4b86-a302-88a0a9834793" name="OpenClientAttackPath"/>
+    <ownedLiteral xmi:id="bda7c0fc-b92a-4197-9fe7-fa14f571b71e" name="OpenSegment"/>
+    <ownedLiteral xmi:id="9477fc33-db32-497c-b3e4-0568fe2d11c3" name="OpenServiceAttackPath"/>
+    <ownedLiteral xmi:id="3022f831-9b95-40a0-9569-1cac749ccbfd" name="Organisation"/>
+    <ownedLiteral xmi:id="70c92f8e-69ef-4ead-a45e-0a2a6a5e513e" name="OutputPool"/>
+    <ownedLiteral xmi:id="fdce5747-75f9-48d5-9adb-7c1c404a8a17" name="OverlaySubnet"/>
+    <ownedLiteral xmi:id="032208ac-ccfc-42d7-8a65-33001ccc3077" name="PContext"/>
+    <ownedLiteral xmi:id="a28acc1b-504e-4349-8ef0-da3cd7634858" name="PPE"/>
+    <ownedLiteral xmi:id="e3d388d5-3806-4e0b-991a-4fb4b39f1bcc" name="PersonalHost"/>
+    <ownedLiteral xmi:id="a0bb1d5d-1bea-4e46-a5c6-1e3d5af462a8" name="PhysicalHost"/>
+    <ownedLiteral xmi:id="195690ff-7c36-4770-ac43-7e40400f12ed" name="PhysicalPalette"/>
+    <ownedLiteral xmi:id="a873d288-78fb-4ef8-8d33-923491cf532e" name="PhysicalPath"/>
+    <ownedLiteral xmi:id="258f7941-938c-4c77-a2f7-8751c5881163" name="PhysicalSubnet"/>
+    <ownedLiteral xmi:id="4984f2fc-a50c-4320-98c1-1671eac59b6d" name="Pod"/>
+    <ownedLiteral xmi:id="56a52345-689b-41c3-a7d9-e7e40d9dc1ab" name="PrivateCellularNetwork"/>
+    <ownedLiteral xmi:id="06bb426a-4131-4b10-93df-eeabfb666069" name="PrivateSpace"/>
+    <ownedLiteral xmi:id="f6993cb0-d515-4302-ad68-73c98889b507" name="ProcNetContext"/>
+    <ownedLiteral xmi:id="0c248bb1-1c20-4397-a397-7401f6b46f38" name="Process"/>
+    <ownedLiteral xmi:id="e83c14a0-be72-4b68-89be-6280bf159913" name="ProcessContext"/>
+    <ownedLiteral xmi:id="67a2f38f-381a-492e-b7e8-35b7bd11b4c3" name="ProcessPalette"/>
+    <ownedLiteral xmi:id="120aeaa2-306c-4fab-a2b0-62ed1fe247ab" name="PublicCellularNetwork"/>
+    <ownedLiteral xmi:id="8ae4d8f0-c524-47df-8f79-9e297126bb3f" name="PublicSpace"/>
+    <ownedLiteral xmi:id="a2fa1238-1f84-4aab-91e5-4477261eade8" name="RAN"/>
+    <ownedLiteral xmi:id="9465e099-05d0-4e0a-84aa-d10760904707" name="RadioSubnet"/>
+    <ownedLiteral xmi:id="6bdcead2-be99-4f74-acc1-8556eb0423af" name="RemoteAccessClient"/>
+    <ownedLiteral xmi:id="6366718d-a054-4c1c-ae76-f9b879a6d4d5" name="RemoteAccessService"/>
+    <ownedLiteral xmi:id="8177457c-f4ea-49ec-9d13-8ee23feec9cb" name="RemoteDesktop"/>
+    <ownedLiteral xmi:id="caf00617-b130-4333-876d-aec00ab24830" name="RemoteTerminal"/>
+    <ownedLiteral xmi:id="238fdabc-0f37-444a-a19b-fafbbbba8086" name="RemoteUserAccess"/>
+    <ownedLiteral xmi:id="659ba745-0ead-462e-b017-3610ad87fad4" name="RemovableMedia"/>
+    <ownedLiteral xmi:id="9c66fd31-e232-4fae-9fe9-095d33d35584" name="Router"/>
+    <ownedLiteral xmi:id="700d3ef1-a73f-4c56-bef5-370299c2474f" name="SMSClient"/>
+    <ownedLiteral xmi:id="2f3d68e3-4bcc-4680-9f31-8e470b16a2b9" name="ScalableHost"/>
+    <ownedLiteral xmi:id="ee76effe-5e03-4f02-a439-2c43e6be5a82" name="SensedData"/>
+    <ownedLiteral xmi:id="9ec5643f-4baa-4a64-9286-dea1e5fd5e9f" name="SensitiveData"/>
+    <ownedLiteral xmi:id="6727b812-92ac-4617-8e8f-e990c4ba2f24" name="Sensor"/>
+    <ownedLiteral xmi:id="7533ec0d-680f-4e81-b235-f2c1e6749ff8" name="SensorProcess"/>
+    <ownedLiteral xmi:id="b5ae7a39-9d33-42b3-9370-31b87a70a1c9" name="Server"/>
+    <ownedLiteral xmi:id="4cf2b20a-24b8-4173-9645-0f2824f8f46e" name="ServiceAttackPath"/>
+    <ownedLiteral xmi:id="04debc73-e775-41f6-903c-f5e68c7bf9c7" name="ServiceChannel"/>
+    <ownedLiteral xmi:id="c1eacaae-b564-47cf-8df1-ef5085b934aa" name="ServiceProxy"/>
+    <ownedLiteral xmi:id="8c23b183-14b1-4d0d-ae79-f07b8aac4102" name="ShellHost"/>
+    <ownedLiteral xmi:id="21504d9d-8c2d-489f-b02d-17be817cc943" name="SimpleHost"/>
+    <ownedLiteral xmi:id="9e946d98-2e65-4bc0-bf0b-d13786550581" name="SimpleProcess"/>
+    <ownedLiteral xmi:id="094d7dfd-4ff2-4ae0-832c-ddcfe0d95347" name="Smartphone"/>
+    <ownedLiteral xmi:id="088e88f2-9f62-4d32-ae11-2d2661b94e4d" name="Smartwatch"/>
+    <ownedLiteral xmi:id="63173a5f-2d6a-4050-a608-fced1da1962a" name="SocketLAN"/>
+    <ownedLiteral xmi:id="583e0472-f16a-400c-8c58-9aff8053b7f1" name="Space"/>
+    <ownedLiteral xmi:id="f306e62e-6435-45c5-b4a0-6f802468aa29" name="SpamData"/>
+    <ownedLiteral xmi:id="c1649eb7-2dc8-42f6-83f9-d560474d454e" name="SpecialCategoryData"/>
+    <ownedLiteral xmi:id="f8b718b2-d719-4cad-9c02-f00e67325b81" name="Stakeholder"/>
+    <ownedLiteral xmi:id="5b4e9aaa-0d29-43ae-8e55-1449e4fea7de" name="StoredDataPool"/>
+    <ownedLiteral xmi:id="826cc100-d3f3-46d7-8a6e-55cbdd40b248" name="Tablet"/>
+    <ownedLiteral xmi:id="bc304eb0-046c-431f-8c48-7e7f23df741b" name="TempDataRelay"/>
+    <ownedLiteral xmi:id="da04c5c9-f4d1-4280-a132-9174c7a291c0" name="TetheringSegment"/>
+    <ownedLiteral xmi:id="fd9503d3-268d-49c3-91ce-1fa2dcce380f" name="TextEditor"/>
+    <ownedLiteral xmi:id="ff936fd0-34d5-4bc6-ba18-23b22485965c" name="Thing"/>
+    <ownedLiteral xmi:id="0e3701b5-696d-461a-81f6-a2b82d413497" name="TrivialHost"/>
+    <ownedLiteral xmi:id="10ba9381-b827-429d-a642-923e556724fb" name="TrivialProcess"/>
+    <ownedLiteral xmi:id="741bf015-61e3-4a1d-ad00-98ebc0c25051" name="TypeOverlayData"/>
+    <ownedLiteral xmi:id="a0f058bf-f29d-4f70-a70f-7635553e0fa9" name="TypeOverlayHost"/>
+    <ownedLiteral xmi:id="162bce31-9d4e-4f10-b88e-8d7e248e900f" name="TypeOverlayProcess"/>
+    <ownedLiteral xmi:id="73c2c6cf-8c6b-4108-9207-2bd3f9bf9979" name="TypeOverlaySubnet"/>
+    <ownedLiteral xmi:id="924a4a75-f3ba-429b-b9cb-f157ff9b63e8" name="USBDevice"/>
+    <ownedLiteral xmi:id="95d22cbc-cf1c-4f21-a05e-5f5ee9960637" name="USBHost"/>
+    <ownedLiteral xmi:id="dffd56f0-0e67-4d52-97fe-212742c34aa5" name="USBPair"/>
+    <ownedLiteral xmi:id="786e6c4e-e4cb-4b4e-8bf5-a6db4594456e" name="UpdatePool"/>
+    <ownedLiteral xmi:id="7c0469f3-1cee-4aa6-8012-39ef3356babe" name="VCluster"/>
+    <ownedLiteral xmi:id="96afab98-45f7-44b8-9d8d-9d34bd91fb33" name="VM"/>
+    <ownedLiteral xmi:id="c085bbfd-6d64-4779-9bf9-bddf3f194467" name="VPN"/>
+    <ownedLiteral xmi:id="916ef622-c6cc-43e6-a4de-f08099a41147" name="VRouter"/>
+    <ownedLiteral xmi:id="129e8633-7fcf-4a51-bdde-07d41ad8ca52" name="VXLAN"/>
+    <ownedLiteral xmi:id="ca7a2d15-fce9-4609-9338-7565c86b3320" name="VirtualChannel"/>
+    <ownedLiteral xmi:id="02627b23-1746-4af1-b118-e3d6b41ddaaa" name="VirtualHost"/>
+    <ownedLiteral xmi:id="f0635ab4-7d07-400d-8a3c-4f7a101d071e" name="VirtualSubnet"/>
+    <ownedLiteral xmi:id="12e83fbc-d01c-4323-9922-b9e291ed2258" name="WebApp"/>
+    <ownedLiteral xmi:id="a722a872-c63d-4014-8416-b51859a5fc8a" name="WebBrowser"/>
+    <ownedLiteral xmi:id="dbd9ba14-2b79-4279-822a-bc7d4a69228d" name="WebClient"/>
+    <ownedLiteral xmi:id="347bc4e5-6d45-4318-b354-a4af6a0c315f" name="WiFiLAN"/>
+    <ownedLiteral xmi:id="a3c4a563-3117-4b4b-963f-a39bb7091e72" name="WiredLAN"/>
+    <ownedLiteral xmi:id="865039b5-9b1b-4d79-b5be-179a69ef06f6" name="WiredSubnet"/>
+    <ownedLiteral xmi:id="a8774271-2b61-43f5-9f7c-1947a69898b4" name="Worker"/>
+    <ownedLiteral xmi:id="59b58b35-4d49-4a49-a1af-dbf91cf9a1d3" name="Workstation"/>
+    <ownedLiteral xmi:id="725e6171-d1e8-4351-b530-5fcd87b45fb7" name="World"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="ebdd6297-9049-4614-ae3e-06c06e851970" name="TWASKind">
+    <ownedLiteral xmi:id="a3a67bff-2ed9-4df0-9ddc-e5bfb1f6c862" name="TWAS-AnonUserTW"/>
+    <ownedLiteral xmi:id="423fcdc5-077f-4647-83bf-c12d8acaacfb" name="TWAS-Astuteness"/>
+    <ownedLiteral xmi:id="88562b58-da81-4f4d-a3f9-ab6d885ae5ff" name="TWAS-Authenticity"/>
+    <ownedLiteral xmi:id="e115342a-3de1-46b0-bbbf-9e317b8e9fa3" name="TWAS-Availability"/>
+    <ownedLiteral xmi:id="3f25d2f4-13e8-414f-acc0-fa171744957e" name="TWAS-BandwidthManaged"/>
+    <ownedLiteral xmi:id="0e047be1-097b-467f-8dd1-60d6c55b0073" name="TWAS-Benevolence"/>
+    <ownedLiteral xmi:id="1e6d892e-c798-49dd-be4f-eb1ddb18ee7d" name="TWAS-Capacity"/>
+    <ownedLiteral xmi:id="34b91bee-f902-450d-80dc-c9d0e3788da0" name="TWAS-ChannelConfidentiality"/>
+    <ownedLiteral xmi:id="9c0f5661-d31d-4cce-8795-e50b0396ae32" name="TWAS-ClientAuthenticity"/>
+    <ownedLiteral xmi:id="e2f1a1db-4fc3-4876-b040-514ea1ab47c1" name="TWAS-ClientTW"/>
+    <ownedLiteral xmi:id="3fbd145c-b108-4abb-b2ce-97613ef76271" name="TWAS-Competence"/>
+    <ownedLiteral xmi:id="b21bd83b-9df3-42b3-986b-fb32beaf8daa" name="TWAS-Confidentiality"/>
+    <ownedLiteral xmi:id="e5151ee7-712f-417c-bbff-6bfe5ac56229" name="TWAS-Control"/>
+    <ownedLiteral xmi:id="ab6ae6da-80dd-4802-ac90-11a357081cb6" name="TWAS-Decrypted"/>
+    <ownedLiteral xmi:id="5c1feac6-3626-4527-9b92-d43afd59a70b" name="TWAS-DefaultTW"/>
+    <ownedLiteral xmi:id="9fa2ca02-4598-4e24-ad50-12c8c1cf85c2" name="TWAS-DeputyUserTW"/>
+    <ownedLiteral xmi:id="1a01753b-ec9d-4340-b139-5bce77e36eac" name="TWAS-Encrypted"/>
+    <ownedLiteral xmi:id="f6734871-aec0-4107-9f43-7852a1e15c2f" name="TWAS-ExploitTW"/>
+    <ownedLiteral xmi:id="b5ceae9a-a88f-4b53-b4bc-7076896455b4" name="TWAS-Extrinsic-A-TW"/>
+    <ownedLiteral xmi:id="4c744912-af2e-4204-905c-579451580bdc" name="TWAS-Extrinsic-AU-TW"/>
+    <ownedLiteral xmi:id="4beb0caf-7c82-4e6e-bd18-cc6254ad99db" name="TWAS-Extrinsic-C-TW"/>
+    <ownedLiteral xmi:id="3ac8834b-50e5-48ff-9b50-89a9b02bcaeb" name="TWAS-Extrinsic-I-TW"/>
+    <ownedLiteral xmi:id="5d713736-b416-46b3-8d83-b4388b770188" name="TWAS-Extrinsic-M-TW"/>
+    <ownedLiteral xmi:id="9f440edd-9a1d-4e49-9da5-ec9b00e6736d" name="TWAS-Extrinsic-QI-TW"/>
+    <ownedLiteral xmi:id="12f10d7c-2200-42c9-86f0-f8cf45823862" name="TWAS-Extrinsic-TW"/>
+    <ownedLiteral xmi:id="86c47fd9-31bd-4921-9fb4-33b50f047ec3" name="TWAS-Extrinsic-U-TW"/>
+    <ownedLiteral xmi:id="a2e91795-a63d-49e3-8268-2e1b8a05851a" name="TWAS-Extrinsic-VA-TW"/>
+    <ownedLiteral xmi:id="de013386-e001-41a1-8dcc-7df6d7b1a373" name="TWAS-Extrinsic-VL-TW"/>
+    <ownedLiteral xmi:id="b82f5024-f0eb-4624-9a8b-026fbf989a3a" name="TWAS-Extrinsic-VN-TW"/>
+    <ownedLiteral xmi:id="7af98bda-9c06-4906-97e6-b5d8da69fd21" name="TWAS-Extrinsic-W-TW"/>
+    <ownedLiteral xmi:id="ecde4c37-c017-4cd6-88fc-239fcf18e472" name="TWAS-Extrinsic-XS-TW"/>
+    <ownedLiteral xmi:id="4bacff81-11c6-414a-89e6-b96c79804fd3" name="TWAS-Health"/>
+    <ownedLiteral xmi:id="ab6681c0-0d22-4e10-9175-a4162c2b281e" name="TWAS-Integrity"/>
+    <ownedLiteral xmi:id="0d1eb65e-de42-48d7-a8b3-6b5f07a48fde" name="TWAS-IntrinsicTW"/>
+    <ownedLiteral xmi:id="3383f6cf-4ef8-48cb-805b-3b38f0b21545" name="TWAS-NetworkAuthenticity"/>
+    <ownedLiteral xmi:id="08f01cd2-8d6c-4cea-b7e9-786961f5bf90" name="TWAS-NetworkControl"/>
+    <ownedLiteral xmi:id="68c5ad33-3df1-4095-b9d0-5ad291ceaec5" name="TWAS-NetworkUserTW"/>
+    <ownedLiteral xmi:id="e8cb11d8-5046-411d-875a-f8d210826ea6" name="TWAS-OccupantTW"/>
+    <ownedLiteral xmi:id="5ad0f07a-3f4f-45b1-91f8-d847b00d0d1f" name="TWAS-OutOfService"/>
+    <ownedLiteral xmi:id="e50a49b0-f093-419c-93c6-9c2a682f99f9" name="TWAS-OwnerControl"/>
+    <ownedLiteral xmi:id="14333b46-c226-40c9-979f-2f5d6fa0f083" name="TWAS-PhysicalControl"/>
+    <ownedLiteral xmi:id="bc7431ec-ab9f-4f1f-9845-c942f7eaa8ef" name="TWAS-Possession"/>
+    <ownedLiteral xmi:id="6e5a2ca6-9ab1-42bb-a5f2-5580ea10e2f4" name="TWAS-ProxyUserTW"/>
+    <ownedLiteral xmi:id="09399e35-dfa2-46e1-870a-46fa297c8b3d" name="TWAS-Reliability"/>
+    <ownedLiteral xmi:id="25115c98-0649-46a9-a39f-21903a60c566" name="TWAS-ResourceTW"/>
+    <ownedLiteral xmi:id="5f166c35-4e48-4114-8039-e3220f0d59f1" name="TWAS-ServiceAuthenticity"/>
+    <ownedLiteral xmi:id="a687272e-423f-494a-950e-69a3edff4d47" name="TWAS-ServiceTW"/>
+    <ownedLiteral xmi:id="559e9fc2-bb05-4fe9-a16b-c8196ae3500a" name="TWAS-Timeliness"/>
+    <ownedLiteral xmi:id="498c663d-825b-4e5d-a711-55bfae5ce760" name="TWAS-TrojanTW"/>
+    <ownedLiteral xmi:id="2890d6f2-6e6a-47ae-96ea-d7eea6462cc8" name="TWAS-Trust"/>
+    <ownedLiteral xmi:id="3051e927-618c-4905-9438-38033ae8a28a" name="TWAS-Underload"/>
+    <ownedLiteral xmi:id="030f4516-2d6d-42ae-8b78-a291b55bb0b7" name="TWAS-UserTW"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="59cf242a-a415-4b50-a41b-c25a27a0b916" name="ImpactLevelKind">
+    <ownedLiteral xmi:id="cc8d612c-fb73-4f11-a38d-0c22026e622f" name="Negligible"/>
+    <ownedLiteral xmi:id="5bd20035-c7fd-4a90-83da-e8a40e000204" name="VeryLow"/>
+    <ownedLiteral xmi:id="8a0bf9e2-5b15-476b-ab9b-27190ef157f9" name="Low"/>
+    <ownedLiteral xmi:id="573eb306-0cbe-4f39-91ac-bbc9b7b4568a" name="Medium"/>
+    <ownedLiteral xmi:id="123c373d-9f2b-4797-a36f-63034dcb9d15" name="High"/>
+    <ownedLiteral xmi:id="b7c8dd0d-cdaa-4548-a303-98a63ab59a8d" name="VeryHigh"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="c8abcf6c-acad-4763-b431-a8f721d43cea" name="TrustworthinessLevelKind">
+    <ownedLiteral xmi:id="13dbfd5d-9553-402c-9564-95548b0e1ec5" name="VeryLow"/>
+    <ownedLiteral xmi:id="35bf23f9-e949-47b8-bd94-75937119c0f7" name="Low"/>
+    <ownedLiteral xmi:id="7f3878b5-520e-450e-a2fd-bca1f4f94b0c" name="Medium"/>
+    <ownedLiteral xmi:id="5f4a1938-5565-42cd-862e-19dbd4e47c03" name="High"/>
+    <ownedLiteral xmi:id="4472d31a-9565-4802-9307-df1b99f9cb15" name="VeryHigh"/>
+    <ownedLiteral xmi:id="91ccfebd-bfaa-4aed-b3a2-4b41edec81d4" name="Safe"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="f41482b0-04d9-48a0-8bed-ceb1d9c3cdb8" memberEnd="545117b2-1ca4-4793-99f5-2a11d232d937 55c5b180-650b-4e1e-b6d4-0aec26dff939">
+    <eAnnotations xmi:id="680aa88c-15a8-489b-9ab3-eecbceafd2e8" source="org.eclipse.papyrus">
+      <details xmi:id="0126c4d1-5e41-468c-a869-3bbea65748c9" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+  </packagedElement>
+</uml:Profile>

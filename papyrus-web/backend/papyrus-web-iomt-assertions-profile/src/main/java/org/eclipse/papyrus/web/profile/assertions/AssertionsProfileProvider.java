@@ -29,8 +29,8 @@ public class AssertionsProfileProvider implements IUMLProfileProvider {
 
     @Override
     public List<UMLProfileMetadata> getUMLProfiles() {
-        return List.of(new UMLProfileMetadata("Assertions",
-                "pathmap://Assertions_PROFILE/assertions.profile.uml#_IGRaABwAEe-2GI5f1LdWww", ""));
+        return List.of(new UMLProfileMetadata("IoMT Assertions",
+                "pathmap://Assertions_PROFILE/assertions.iomt.profile.uml#_IGRaABwAEe-2GI5f1LdWww", ""));
     }
 
 }
