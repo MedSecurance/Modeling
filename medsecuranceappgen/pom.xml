@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>papyrus.web.generate.medsecurance</groupId>
 	<artifactId>papyrus-web-generate-medsecurance-gateway</artifactId>
-	<version>2024.10.0</version>
+	<version>2025.1.7-SNAPSHOT</version>
 	<name>papyrus-web-generate-medsecurance-generateApp</name>
 	<description>Generate device and/or gateway applications</description>
 	<url />

@@ -21,7 +21,7 @@ import IoMTComponentCategories.ComponentAnnotationKind;
 import IoMTComponentCategories.IoMTcomponent;
 import IoMTProfile.IdentifiableElement;
 import IoMTProfile.LAN.Actuator;
-import IoMTProfile.LAN.GatewayType;
+import IoMTProfile.GatewayType;
 import IoMTProfile.LAN.IoMTDevice;
 import IoMTProfile.LAN.Sensor;
 

@@ -21,9 +21,9 @@ FROM ubuntu:24.04 as generateiomtapp-build
 ADD . /build
 WORKDIR /build/
 
-ENV MAVEN_OPTS="-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
 ENV MAVEN_VERSION="3.9.4"
 
+ENV WEBAPP_VERSION="2025.1.7-SNAPSHOT"
 
 RUN apt-get update &&\
   apt-get install openjdk-17-jdk -y &&\
@@ -32,40 +32,47 @@ RUN apt-get update &&\
   tar -xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
   export PATH=$PWD/apache-maven-$MAVEN_VERSION/bin:$PATH &&\
   mvn install:install-file \
-     -Dfile=./lib/papyrus-web-iomt-assertions-profile-model-2024.10.0.jar \
+     -Dfile=./lib/papyrus-web-iomt-assertions-profile-model-${WEBAPP_VERSION}.jar \
      -DgroupId=papyrus-web \
      -DartifactId=papyrus-web-iomt-assertions-profile-model \
-     -Dversion=2024.10.0 \
+     -Dversion=${WEBAPP_VERSION} \
      -Dpackaging=jar \
      -DgeneratePom=true &&\
  mvn install:install-file \
-      -Dfile=./lib/papyrus-web-iomt-assets-profile-model-2024.10.0.jar \
+      -Dfile=./lib/papyrus-web-iomt-assets-profile-model-${WEBAPP_VERSION}.jar \
       -DgroupId=papyrus-web \
       -DartifactId=papyrus-web-iomt-assets-profile-model \
-      -Dversion=2024.10.0 \
+      -Dversion=${WEBAPP_VERSION} \
       -Dpackaging=jar \
       -DgeneratePom=true &&\
   mvn install:install-file \
-      -Dfile=./lib/papyrus-web-iomt-componentcategories-profile-model-2024.10.0.jar \
+      -Dfile=./lib/papyrus-web-iomt-componentcategories-profile-model-${WEBAPP_VERSION}.jar \
       -DgroupId=papyrus-web \
       -DartifactId=papyrus-web-iomt-componentcategories-profile-model \
-      -Dversion=2024.10.0 \
+      -Dversion=${WEBAPP_VERSION} \
       -Dpackaging=jar \
       -DgeneratePom=true &&\
   mvn install:install-file \
-      -Dfile=./lib/papyrus-web-iomt-profile-2024.10.0.jar \
+      -Dfile=./lib/papyrus-web-iomt-profile-${WEBAPP_VERSION}.jar \
       -DgroupId=papyrus-web \
       -DartifactId=papyrus-web-iomt-profile \
-      -Dversion=2024.10.0 \
+      -Dversion=${WEBAPP_VERSION} \
       -Dpackaging=jar \
       -DgeneratePom=true &&\
   mvn install:install-file \
-      -Dfile=./lib/papyrus-web-iomt-profile-model-2024.10.0.jar \
+      -Dfile=./lib/papyrus-web-iomt-tvra-profile-model-${WEBAPP_VERSION}.jar \
       -DgroupId=papyrus-web \
-      -DartifactId=papyrus-web-iomt-profile-model \
-      -Dversion=2024.10.0 \
+      -DartifactId=papyrus-web-iomt-tvra-profile-model \
+      -Dversion=${WEBAPP_VERSION} \
       -Dpackaging=jar \
       -DgeneratePom=true &&\
+  mvn install:install-file \
+      -Dfile=./lib/papyrus-web-iomt-profile-model-${WEBAPP_VERSION}.jar \
+      -DgroupId=papyrus-web \
+      -DartifactId=papyrus-web-iomt-profile-model \
+      -Dversion=${WEBAPP_VERSION} \
+      -Dpackaging=jar \
+      -DgeneratePom=true &&\      
   mvn install:install-file \
       -Dfile=./lib/org.eclipse.uml2.common-2.5.0-SNAPSHOT.jar \
       -DgroupId=org.eclipse.uml2.plugins \
@@ -106,11 +113,12 @@ RUN apt-get update &&\
 # Image to run Papyrus Web
 
 FROM eclipse-temurin:17-jre as generateiomtapp
-#FROM alpine:3.14 as generateiomtapp
-#
+
+ENV WEBAPP_VERSION="2025.1.7-SNAPSHOT"
+
 RUN apt-get update && apt-get install -y openjdk-17-jre && apt-get clean cache
-#### COPY --from=papyrusweb-build-back /build/backend/papyrus-web/target/papyrus-web-${WEBAPP_VERSION}.jar ./app.jar
-COPY --from=generateiomtapp-build /build/target/papyrus-web-generate-medsecurance-gateway-2024.10.0.jar ./app.jar
+
+COPY --from=generateiomtapp-build /build/target/papyrus-web-generate-medsecurance-gateway-${WEBAPP_VERSION}.jar ./app.jar
 EXPOSE 9000
 
 
