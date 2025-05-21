@@ -50,7 +50,6 @@ export const ExportPlantUMLTreeItemContextMenuContribution = forwardRef(
 
       return (
         <Fragment key="export-plantuml-tree-item-context-menu-contribution">
-          <br />
           <MenuItem
             key="exportplantuml"
             onClick={() => {

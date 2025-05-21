@@ -107,6 +107,7 @@ import { StateMachineTreeItemContextMenuContribution } from './codegen/StateMach
 import { loadConfigVars } from './config-variables/ConfigVar';
 import { GenerateDeviceAppTreeItemContextMenuContribution } from './iomt-generator/IoMT-device-generator';
 import { GenerateGatewayAppTreeItemContextMenuContribution } from './iomt-generator/IoMT-gateway-generator';
+import { DownloadJSONTreeItemContextMenuContribution } from './codegen/DownloadJSONTreeItemContextMenuContribution';
 
 if (process.env.NODE_ENV !== 'production') {
   loadDevMessages();
@@ -297,6 +298,11 @@ extensionRegistry.addComponent(navigationBarIconExtensionPoint, {
 extensionRegistry.addComponent(treeItemContextMenuEntryExtensionPoint, {
   identifier: 'papyrus-custom-tree-menu-exportplantuml',
   Component: ExportPlantUMLTreeItemContextMenuContribution,
+});
+
+extensionRegistry.addComponent(treeItemContextMenuEntryExtensionPoint, {
+  identifier: 'papyrus-custom-tree-menu-code-generation',
+  Component: DownloadJSONTreeItemContextMenuContribution,
 });
 
 extensionRegistry.addComponent(treeItemContextMenuEntryExtensionPoint, {
