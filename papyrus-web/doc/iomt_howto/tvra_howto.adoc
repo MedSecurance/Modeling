@@ -1,0 +1,65 @@
+:papyrusweb-url: http://localhost:8080
+:help-url: {papyrusweb-url}/doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+= TVRA Model creation
+
+This document presents a tutorial on how to create an IoMT model using the TVRA profile.
+
+.How-to objective
+****
+Creation of an IoMT UML model with a set of classes from the TVRA profile, which may be further exported and analysed by the TVRA Toolkit.
+****
+
+
+This how-to is separated into 3 major steps:
+
+. *Model from template*: Creation of an initial model from a template. 
+. *Model edition*: how to edit the model elements.
+
+The URL of PapyrusWeb is : {papyrusweb-url}
+
+== Model creation
+
+PapyrusWeb enables the creation of different kinds of projects. The start page provides a set of templates, or an existing project may be reopened. 
+
+image:{imagesdir}/createnew_project_from_template.png[Create new project]
+
+By selecting the *IoMT TVRA Analysis* template, it performs the following actions:
+
+* applies 5 profiles with IoMT concepts: - xref:{imagesdir}/assets_profile.png[_IoMTAssets_], xref:{imagesdir}/iomt_profile.png[_IoMTProfile_], xref:{imagesdir}/component_categories.png[_IoMTComponentCategories_], xref:{imagesdir}/tvra_profile.png[_TVRA_] and xref:{imagesdir}/assertions_profile.png[_Assertions_]. Not all concepts need to be used, only the ones necessary for each specific TVRA concepts.
+
+* creates a IoMT UML project template with nine main Class. They correspond to a simplified version of a Patient Monitoring scenario. All the classes have the _TVRAAsset__ stereotype applied.
+
+The project should have a structure as illustrated below:
+
+image:tvra_model_from_template.png[]
+
+
+== Model edition
+
+The model may be edited using the diagram editor or the model explorer. Both views are synchronized. 
+
+* In the model explorer, the user selects an element and chooses a child element to be created in the dedicated menu. 
+
+image:new_tvra_asset.png[]
+
+There are 4 possible elements.
+
+** _TVRAAsset_: the Assets are the core elements of a TVRA model, such as the Sensors, Actuators, Patients, Devices, Cloud artifacts. Each asset may have a _kind_. 
+
+** _Misbehaviour_, _ControlSet_, _TWAS_: these three elements enable caracterizing the created assets, with specific TVRA characteristics. While the may be created in the visual diagram, we recommend to create them only in the model explorer, to keep the diagram visilibity simple. The TVRA profile has 208 kinds of Assets, 61 Misbehaviours, 52 TWAS, 143 Control Sets. The list below contains a subset of the possible TVRA Asset Kinds.
+
+image:asset_kinds.png[]
+
+** _Network domains_: the network domains are relationships between two TVRA Assets. They are created by clicking over the source and target elements, and by selecting _tvra:NetworkDomain_.  We provide a catalog of 218 possible network domains to be choosen.
+
+image:network_domain_edge.png[]
+
+Once a new relationships is created, the network domain type may be choosen in the element property view. Note that each newly created relationship is created without any specific direction. The direction of the relationship needs to be specified in the property view. It is done by checking the *isNavigable* property. Any combination is accepted.
+
+image:tvra_network_domain_direction.png[]
+
+
+
+

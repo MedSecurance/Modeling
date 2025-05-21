@@ -5,7 +5,7 @@ services:
     env_file:
       - .env    
   papyrusweb:
-    image: papyrus-web-iomt:2025.05.07.11
+    image: papyrus-web-iomt:2025.05.21
     build:
       context: .
       dockerfile: ./dockerfiles/Dockerfile
@@ -35,7 +35,7 @@ services:
     build:
       context: ../medsecuranceappgen
       dockerfile: dockerfiles/Dockerfile
-    image: generateiomtapp:2025.05.07.11
+    image: iomtgen
     command: 
     ports:
       - "9000:9000"

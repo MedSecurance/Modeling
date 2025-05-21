@@ -14,12 +14,14 @@
 = Papyrus Web Documentation
 Papyrus web v{papyrus-web-version} - {git-commit-id-abbrev}
 
+- xref:iomt_howto/iomt_howto.adoc[HowTo - IoMT model creation]
+- xref:iomt_howto/tvra_howto.adoc[HowTo - TVRA model instantiation]
+- xref:iomt_howto/cwe_howto.adoc[HowTo - IoMT with constraints model instantiation]
+- xref:features/import_export.adoc[Import/Export features]
+- xref:codegen/papyrusweb_howto/gencode_howto.adoc[HowTo - PapyrusWeb CodeGeneration]
+- xref:codegen/description_software_designer/sw_designer.adoc[Papyrus Software Designer for code generation]
+- xref:features/ocl_querying.adoc[Element Specific Constraints]
 - xref:user/userdoc.adoc[User documentation]
 - xref:dev/dev-doc-index.adoc[Developper documentation]
-- xref:spec/diagrams-spec-index.adoc[Diagram specification]
-- xref:howto_root/howto_root.adoc[HowTo - Collaborative Modeling]
-- xref:codegen/papyrusweb_howto/gencode_howto.adoc[HowTo - PapyrusWeb CodeGeneration]
-- xref:codegen/description_software_designer/sw_designer.adoc[Papyrus Software Designer]
-- xref:iomt_howto/iomt_howto.adoc[HowTo - IoMT model creation]
-- xref:features/import_export.adoc[Import/Export features]
-- xref:features/ocl_querying.adoc[Element Specific Constraints]
+- xref:spec/diagrams-spec-index.adoc[Detailed Diagram specification]
+

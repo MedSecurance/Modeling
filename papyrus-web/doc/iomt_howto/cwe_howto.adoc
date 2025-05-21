@@ -1,0 +1,204 @@
+:papyrusweb-url: http://localhost:8080
+:help-url: {papyrusweb-url}/doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
+= Anti-patterns and patterns identification thourgh Model creation
+
+This document presents a tutorial on how to create an IoMT model with OCL constraints to enforce architectural patterns and to prevent architectural anti-patterns.
+
+.How-to objective
+****
+Creation of an IoMT UML model with a set of classes from the IoMT profile and OCL Constraints, which may be checked during design phase.
+****
+
+
+This how-to is separated into 3 major steps:
+
+. *Model from template*: Creation of an initial model from a template. 
+. *Constraint definition*: how to edit the model constraints.
+. *Guideline for constraint definition*: how to define constraints that prevent architectural anti-patterns.
+
+The URL of PapyrusWeb is : {papyrusweb-url}
+
+== Model creation
+
+PapyrusWeb enables the creation of different kinds of projects. The start page provides a set of templates, or an existing project may be reopened. 
+
+image:createnew_project_from_template.png[Create new project]
+
+By selecting the *IoMT CWE* template, it performs the following actions:
+
+* applies 5 profiles with IoMT concepts: - xref:{imagesdir}/assets_profile.png[_IoMTAssets_], xref:{imagesdir}/iomt_profile.png[_IoMTProfile_], xref:{imagesdir}/component_categories.png[_IoMTComponentCategories_], xref:{imagesdir}/tvra_profile.png[_TVRA_] and xref:{imagesdir}/assertions_profile.png[_Assertions_]. Not all concepts need to be used. This scenario uses the IoMT core profile. The ste of elements is the same from the _IoMT model creation tutorial_.
+
+* creates a IoMT UML project template with eight Classes and a set of OCL constraints. The classes correspond to a simplified version of a Patient Monitoring scenario.
+
+The project should have a structure as illustrated below:
+
+image:cwe_created_model.png[]
+
+== Constraint defintion
+
+The template model contains a set of OCL constraints (Object Constraint Language), which are the element enabling anti-pattern prevention and pattern reinforcement. The OCL language enbles writting any kind of constraints that navigate through the available model elements. Since the constraints code is often large, most of them are included only in the semantic model, not in the diagram view.
+
+The constraints can be seen in the model explorer view, named by 'CWE<NUMBER><Constraint_name>'. 
+
+There are two ways for creating constraints:
+
+1- Using the diagram contextual menu: a new constraint is created in the graphical representation view. 
+
+image:cwe_new_constraint_contextual.png[]
+
+2- Using the model explorer: under any element, _New Object_ -> _Onwed Rule | Constraint_ .
+
+  - The name of the constraint must be set, using the property view at the right.
+  - The specification must be set, choosing _Opaque Expression_ as type.
+  - The name of the Opaque Expression may be changed as well. After opening the language list in the "plus" button, it is necessary to select OCL.
+  
+image:cwe_constraint_name.png[]
+
+
+
+image:cwe_opaque_expression.png[]
+
+image:cwe_language_list.png[]
+
+A simple constraint is shown below. It may be evaluated by clicking in the constraint name (e.g. _checkValue_) in the model explorer and selecting _Evaluate OCL Constraint_
+
+image:cwe_simple_constraint.png[]
+
+The defined OCL constraints may have two kinds of results:
+
+** *Query result*: the constraints specify how to query subsets of elements of the model. Any OCL kind may be returned. Consider the OCL example below. It returns the name of the element in which the constraint is defined.
+
+[source,OCL]
+----
+context self:
+   name
+----
+
+The constraint below returns a list of all stereotype application of the element in which the constraint is defined.
+
+[source,OCL]
+----
+context self:
+    self.getStereotypeApplications()
+----
+
+** *Boolean result*: the constraint returns a TRUE or FALSE value, thus the result must be a Boolean. The constraint below returns TRUE if the name of the element is equals to 'FHIRDatabase'
+
+[source,OCL]
+----
+context self:
+   name = 'FHIRDatabase'
+----
+
+The constraint below returns TRUE if the given element has exactly one stereotype applied.
+
+[source,OCL]
+----
+context self:
+    self.getStereotypeApplications()->size() = 1
+----
+
+== Guideline for constraints definition
+
+
+The constraints available in the template model may be used as template for writing new constraints. We used as sample anti-pattern database the CWE (Common Weakness Enumeration (CWE): https://cwe.mitre.org/index.html[]). This database provides a list of weakness that result in software vulnerabilities. 
+
+NOTE: This is a guide, the architect may define its own constraints following specific user-oriented requirements.
+
+A set of possible constraints is illustrated using the following weakness: 		
+
+**CWE-798: Use of Hard-coded Credentials: **
+https://cwe.mitre.org/data/definitions/798.html
+
+Each weakness has a set of fields, such as Description, Extended Description, Common Consequences, Potential Mitigations, Relationships, and others. The architect is responsible for understanding the weakness and to develop the appropriate OCL constraint. The weakness Description is:
+
+[.text-center]
+"_The product contains hard-coded credentials, such as a password or cryptographic key._"
+
+This OCL constraint verify if the current model element has the _IoMTcomponent_ profile applied. This profile provides a set of enumerations to caracterize modeling elements. In this specific scenario, we enforce that the _factoryPasswordGenerator_ must be set. This is a guarantee from the system designer that such mecanism is present and it prevents from having hard-coded credentials.
+
+[source,OCL]
+----
+context self cwe798:
+  let supFeatures : Sequence(OclAny) = 
+    getStereotypeApplications()
+      ->select(e | e.eClass().name = 'IoMTcomponent')
+      ->collect(component |
+        component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))
+      ->asSequence() 
+  in
+  supFeatures->includesAll(Sequence{'factoryPasswordGenerator'})
+----
+
+The OCL code may be difficult to read, specially the first part dealing with stereotype applications. The OCL constraints may be categorized into _structural constraints_, _component category constraints_ and _assets constraints_.
+
+* _Structural constraints_: prevent from weakness of main components relationships and format; these constraints are written using the core _IoMT_ profile elements. The constraint below verifies the structure of the model to identify if a given operation has a parameter called 'ParameterizedQuery'. Such constraints are tighly coupled with the model elements format.
+
+[source,OCL]
+----
+context self: 
+ownedOperation->forAll(op |  
+      op.ownedParameter->exists(p | p.name = 'ParameterizedQuery')  
+   )  
+----
+
+* _Component categories constraints_: prevent weakness by assessing component-specific categories. They are written using the _Component Categories_ profile elements. The top part of the constraint within the _let_ element has always the same format, it may be replicated in other constraints. Only the name of the stereotype may change. The second part define which feature, or features are supported by the model. The possible features are described in the ComponentCategoriesKind enumeration.
+
+[source,OCL]
+----
+context self cwe798:
+  let supFeatures : Sequence(OclAny) = 
+    getStereotypeApplications()
+      ->select(e | e.eClass().name = 'IoMTcomponent')
+      ->collect(component |
+        component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))
+      ->asSequence() 
+  in
+  supFeatures->includesAll(Sequence{'factoryPasswordGenerator'})
+----
+
+* _Assets constraints_: prevent weakness from the existence (or absence) of specific assets; they are written using the _Assets_ profile elements. They are separated into two parts. The top part of the constraint may be replicated in other constraints. Only the name of the asset change, such as 'Information'. The second part define the kind of asset that is present. Each top Asset has a set of possible kinds, for instance, described in the IoMTAssets::InformationKind enumeration.
+
+[source,ocl]
+----
+getStereotypeApplications()
+  ->select(e | e.eClass().name = 'Information')
+  ->collect(component |
+    component.eGet(component.eClass().getEStructuralFeature('kind')))
+  ->asSequence()
+  ->first() = IoMTAssets::InformationKind::RealTimePatientData
+
+getStereotypeApplications()
+  ->select(e | e.eClass().name = 'Information')
+  ->collect(component |
+    component.eGet(component.eClass().getEStructuralFeature('kind')))
+  ->asSequence()
+  ->first() = IoMTAssets::InformationKind::PatientHealthRecords
+----
+
+
+Combining them:
+
+[source,ocl]
+----
+context self: 
+  let supFeatures : Sequence(OclAny) = 
+    getStereotypeApplications()
+      ->select(e | e.eClass().name = 'IoMTcomponent')
+      ->collect(component | 
+        component.eGet(component.eClass().getEStructuralFeature('supportedFeatures')))
+      ->asSequence() 
+  in 
+  supFeatures->includesAll(Sequence{'geoLocatedReporter'}) 
+  
+  and
+  
+  getStereotypeApplications()
+    ->select(e | e.eClass().name = 'Information')
+    ->collect(component | 
+      component.eGet(component.eClass().getEStructuralFeature('kind')))
+    ->asSequence()
+    ->first() = IoMTAssets::InformationKind::RealTimePatientData
+----

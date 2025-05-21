@@ -1,5 +1,5 @@
 :papyrusweb-url: http://localhost:8080
-:help-url: {papyrusweb-url}doc/index.html
+:help-url: {papyrusweb-url}/doc/index.html
 ifndef::imagesdir[:imagesdir: imgs]
 
 = IoMT model creation
@@ -28,13 +28,12 @@ image:createnew_project_from_template.png[Create new project]
 
 By selecting the *IoMT* template, it performs the following actions:
 
-- xref:codegen/description_software_designer/sw_designer.adoc[Papyrus Software Designer]
+* applies 5 profiles with IoMT concepts: - xref:{imagesdir}/assets_profile.png[_IoMTAssets_], xref:{imagesdir}/iomt_profile.png[_IoMTProfile_], xref:{imagesdir}/component_categories.png[_IoMTComponentCategories_], xref:{imagesdir}/tvra_profile.png[_TVRA_] and xref:{imagesdir}/assertions_profile.png[_Assertions_]. Not all concepts need to be used, only the ones necessary for each specific architecture definition.
 
-* applies 4 profiles with IoMT concepts: - xref:{imagesdir}/assets_profile.png[_IoMTAssets_], xref:{imagesdir}/iomt_profile.png[_IoMTProfile_], xref:{imagesdir}/component_categories.png[_IoMTComponentCategories_] and xref:{imagesdir}/assertions_profile.png[_Assertions_]. Not all concepts need to be used, only the ones necessary for each specific architecture definition.
-
-* creates a IoMT UML project template with four main Class.
+* creates a IoMT UML project template with five main Class.
 ** _HeartMonitoring_: This class has the stereotype "IoMTDevice" from "IoMTProfile applied. +
- An IoMTDevice aims to represent an IOT component in the medsecurance environment. Extending the IoMTDevice from the model explorer (left panel), display the physical content on it: sensors and/or acuators. Sensors have "Sensor stereotype and actuators have Actuator stereotype applied. The details (right panel) list the extensions provided by each sterotype. They'll be used for the generation process.
+ An IoMTDevice aims to represent an IOT component in the medsecurance environment. Extending the IoMTDevice from the model explorer (left panel), display the physical content on it: sensors and/or actuators. 
+ ** _Thermometer_: This class has the "Sensor" stereotype applied. It contains information about specific sensor available in the current device. The device could have more sensors or actuators, depending on the platform architecture.
 ** _Gateway_: This class has the stereotype "Gateway" from "IoMTProfile" applied. +
 In this example, the gateway acts as bluetooth to ethernet interface from the device to the proxy. This gateway implements a publish/subscriber pattern. The demonstrator use a MQTT broker.
 ** _Proxy_:
@@ -65,24 +64,22 @@ The model may be edited using the diagram editor or the model explorer. Both vie
 
 image:create_newchild.png[]
 
-image:possible_child_Class.png[]
 
-* In the representation view (diagram), the user clicks in the diagram to open the contextual palette and selects the new desired element.
+* In the representation view (diagram), the user righ-clicks in the diagram to open the contextual palette and selects the new desired element. The possible elements are IoMT specific elements, which are technically classes with IoMT Stereotypes applied.
 
-image:new_classpalette.png[]
+For each created class, the property view show its standard UML properties and the specific IoMT properties.
 
-For each created class, the property view show its standard UML properties and the specific IoMT properties. These properties are available once we apply specific profiles for the classes.
+Note that the created class has a first stereotype applied, but other stereotypes may be applied as well, such as _IoMTComponent_ or _TVRAAsset_. To apply a second stereotype, we select the element in the model explorer and click in the corresponding menu. 
 
-Now we create a _SmartWatch_ class, which is a _IoMTDevice_ relating to the _HeartMonitoring Sensor_. This class is initally a plain UML class. It is necessary to apply a specific stereotype to promote it to an IoMT specific class. We click in the class in the model explorer and we select _Apply Stereotype_ to choose among the possible IoMT elements.
+We select to apply a new stereotype and we choose the _TVRAAsset_ stereotype.
 
 image:apply_device_stereotype.png[]
 
 image:possible_stereotypes_list.png[]
 
+The class is now stereotyped with _IoMTDevice_ and _TVRAAsset_, as shown below.
 
-We select the IoMTProfile::IoMTDevice stereotype. The class is now stereotyped with _IoMTDevice_, as shown below.
-
-image:created_smartwatch.png[]
+image:created_device_and_asset.png[]
 
 The model can be enriched to add any other IoMT specific elements.
 
