@@ -18,7 +18,6 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import { Fragment, forwardRef, useContext } from 'react';
 
-
 export const DownloadJSONTreeItemContextMenuContribution = forwardRef(
   (
     { editingContextId, treeId, item, readOnly, expandItem, onClose }: TreeItemContextMenuComponentProps,

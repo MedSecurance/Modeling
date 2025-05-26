@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2021, 2024 CEA.
+ * Copyright (c) 2021, 2025 CEA.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -10,127 +10,61 @@
  * Contributors:
  *     CEA - initial API and implementation
  *******************************************************************************/
+
+/*******************************************************************************
+ * Copyright (c) 2025 CEA-LIST.
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *     Marcos Didonet Del Fabro
+ *******************************************************************************/
 import { TreeItemContextMenuComponentProps } from '@eclipse-sirius/sirius-components-trees';
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  TextField,
-  MenuItem,
-  ListItemIcon,
-  ListItemText,
-} from '@mui/material/';
-import AddIcon from '@mui/icons-material/Add';
-import React, { useState } from 'react';
-import { forwardRef, Fragment } from 'react';
+import GetAppIcon from '@mui/icons-material/GetApp';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import MenuItem from '@mui/material/MenuItem';
+import { Fragment, forwardRef } from 'react';
 import { getConfigVars } from '../config-variables/ConfigVar';
 
 export const ExportPlantUMLTreeItemContextMenuContribution = forwardRef(
   (
-    { editingContextId, item, treeId, onClose }: TreeItemContextMenuComponentProps,
+    { editingContextId, treeId, item, onClose }: TreeItemContextMenuComponentProps,
     ref: React.ForwardedRef<HTMLLIElement>
   ) => {
-    if (treeId.startsWith('explorer://') && item.kind.startsWith('siriusWeb://document')) {
-      const [open, setOpen] = useState(false);
-      const handleClickOpen = () => {
-        setOpen(true);
-      };
-      const [message, setMessage] = useState(null);
-
-      const handleClose = () => {
-        setOpen(false);
-      };
-
-      const handleInputChange = (event) => {
-        setMessage(event.target.value);
-        //setInputText(event.target.value);
-      };
-
-      return (
-        <Fragment key="export-plantuml-tree-item-context-menu-contribution">
-          <MenuItem
-            key="exportplantuml"
-            onClick={() => {
-              exportPlantUML(editingContextId, item.id, '', handleClickOpen, setMessage);
-            }}
-            ref={ref}
-            data-testid="exportplantuml"
-            aria-disabled>
-            <ListItemIcon>
-              <AddIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText primary="Export to PlantUML" aria-disabled />
-          </MenuItem>
-          <div>
-            <ModalComponent
-              open={open}
-              onClose={handleClose}
-              inputText={message}
-              handleInputChange={handleInputChange}
-            />{' '}
-            {/* Pass state and handleClose */}
-          </div>
-        </Fragment>
-      );
-    } else {
+    if (!treeId.startsWith('explorer://') || !item.kind.startsWith('siriusWeb://document')) {
       return null;
     }
+
+    return (
+      <Fragment key="export-plantuml-tree-item-context-menu-contribution">
+        <MenuItem
+          key="exportplanuml"
+          onClick={(e) => {
+            e.preventDefault();
+            onClose();
+            const link = document.createElement('a');
+            link.href = `${
+              getConfigVars().MODEL_SERVICE_URL
+            }/exportUMLClassDiagramToPlantUML?project_id=${editingContextId}&document_id=${item.id}&qualified_name=`;
+            link.download = `${item.id}.puml`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+          component="a"
+          data-testid="download"
+          aria-disabled>
+          <ListItemIcon>
+            <GetAppIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Download PlantUML" aria-disabled />
+        </MenuItem>
+      </Fragment>
+    );
   }
 );
-
-function ModalComponent({ open, onClose, inputText, handleInputChange }) {
-  const modalContent = (
-    <DialogContent>
-      <ListItemText primary="Generated PlanUML:" aria-disabled />
-      <TextField
-        autoFocus
-        multiline
-        fullWidth
-        value={inputText} // State variable for input value
-        onChange={handleInputChange} //  {(event) => setInputText(event.target.value)} // Update state on change
-      />
-    </DialogContent>
-  );
-
-  return (
-    <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Generated PlantUML code</DialogTitle>
-      {modalContent}
-      <DialogActions>
-        <Button onClick={onClose}>Close</Button>
-      </DialogActions>
-    </Dialog>
-  );
-}
-
-//export default ModalComponent;
-
-export const exportPlantUML = (
-  editingContextId: String,
-  document_id: String,
-  qualified_name: String,
-  handleClickOpen,
-  setMessage
-) => {
-  const configVars = getConfigVars();
-  console.log('exportPlantUML', editingContextId, document_id, qualified_name);
-  fetch(
-    configVars.MODEL_SERVICE_URL +
-      '/exportUMLClassDiagramToPlantUML?project_id=' +
-      editingContextId +
-      '&document_id=' +
-      document_id +
-      '&qualified_name=' +
-      qualified_name
-  )
-    .then((response) => {
-      return response.text();
-    })
-    .then(async (text) => {
-      console.log('Response from the GET call: \n' + text);
-      handleClickOpen();
-      setMessage(text);
-    });
-};

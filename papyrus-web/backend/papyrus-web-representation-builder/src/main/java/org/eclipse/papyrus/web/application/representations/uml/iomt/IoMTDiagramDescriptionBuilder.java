@@ -24,15 +24,16 @@ import static org.eclipse.papyrus.web.application.representations.view.aql.Varia
 
 import com.google.common.base.Predicate;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.papyrus.uml.domain.services.EMFUtils;
 import org.eclipse.papyrus.web.application.representations.uml.AbstractRepresentationDescriptionBuilder;
 import org.eclipse.papyrus.web.application.representations.uml.AssociationEdgeCustomStyleBuilder;
-import org.eclipse.papyrus.web.application.representations.uml.ClassDiagramServices;
 import org.eclipse.papyrus.web.application.representations.view.CreationToolsUtil;
 import org.eclipse.papyrus.web.application.representations.view.IdBuilder;
 import org.eclipse.papyrus.web.application.representations.view.aql.CallQuery;
@@ -57,6 +58,7 @@ import org.eclipse.sirius.components.view.diagram.LabelTextAlign;
 import org.eclipse.sirius.components.view.diagram.LineStyle;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
+import org.eclipse.sirius.components.view.diagram.NodeToolSection;
 import org.eclipse.sirius.components.view.diagram.RectangularNodeStyleDescription;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
 import org.eclipse.uml2.uml.UMLPackage;
@@ -92,6 +94,43 @@ public class IoMTDiagramDescriptionBuilder extends AbstractRepresentationDescrip
 
     private final UMLPackage pack = UMLPackage.eINSTANCE;
 
+    private final String STEREOTYPE_SECTION_NAME = "Apply stereotypes";
+
+    // Define a two-dimensional array to hold the toolName and stereotypeName pairs
+    String[][] IOMT_TOOLS = {
+            { "New Sensor", "IoMTProfile::LAN::Sensor" },
+            { "New Device", "IoMTProfile::LAN::IoMTDevice" },
+            { "New Configuration", "IoMTProfile::LAN::IoMTConfiguration" },
+            { "New External Function", "IoMTProfile::LAN::ExternalFunction" },
+            { "New Gateway", "IoMTProfile::LAN::Gateway" },
+            { "New Actuator", "IoMTProfile::LAN::Actuator" },
+            { "New Local Management App", "IoMTProfile::LAN::LocalManagementApp" },
+            { "New DataStore", "IoMTProfile::WAN::DataStore" },
+            { "New Proxy", "IoMTProfile::WAN::Proxy" },
+            { "New MedicalApp", "IoMTProfile::Application::MedicalApp" },
+            { "New AdministrationApp", "IoMTProfile::Application::AdministrationApp" },
+            { "New PatientApp", "IoMTProfile::Application::PatientApp" },
+            { "New Person", "IoMTProfile::External::Person" }
+    };
+
+    String[][] TVRA_TOOLS = {
+            { "New TVRA Asset", "tvra::TVRAAsset" },
+            { "New ControlSet", "tvra::ControlSet" },
+            { "New Misbehaviour", "tvra::Misbehaviour" },
+            { "New TWAS", "tvra::TrustworthinessAttributeSet" },
+    };
+
+    String[][] COMPONENT_TOOLS = {
+        { "New Component Category", "IoMTComponentCategories::IoMTcomponent" }
+    };    
+
+    String[][] ASSETS_TOOLS = {
+        { "New Information Asset", "IoMTAssets::Information" },
+        { "New Service Asset", "IoMTAssets::Service" },
+        { "New Intangile Asset", "IoMTAssets::IntangibleAsset" }
+    };    
+
+
     /**
      * The <i>shared</i> {@link NodeDescription} for the diagram.
      */
@@ -108,22 +147,22 @@ public class IoMTDiagramDescriptionBuilder extends AbstractRepresentationDescrip
         this.createDefaultToolSectionInDiagramDescription(diagramDescription);
 
         this.cdSharedDescription = this.createSharedDescription(diagramDescription);
-            
+
         this.createClassDescription(diagramDescription);
         this.createCommentTopNodeDescription(diagramDescription, NODES);
         this.createConstraintTopNodeDescription(diagramDescription, NODES);
 
         this.createAttributeSharedNodeDescription(diagramDescription);
+        createApplyStereotypesTools(diagramDescription);
 
         this.createCommentSubNodeDescription(diagramDescription, this.cdSharedDescription, NODES,
-                 this.getIdBuilder().getSpecializedDomainNodeName(this.pack.getComment(), SHARED_SUFFIX), List.of(this.pack.getPackage()));
+                this.getIdBuilder().getSpecializedDomainNodeName(this.pack.getComment(), SHARED_SUFFIX), List.of(this.pack.getPackage()));
         this.createConstraintSubNodeDescription(diagramDescription, this.cdSharedDescription, NODES,
-                 this.getIdBuilder().getSpecializedDomainNodeName(this.pack.getConstraint(), SHARED_SUFFIX), List.of(this.pack.getPackage()));
+                this.getIdBuilder().getSpecializedDomainNodeName(this.pack.getConstraint(), SHARED_SUFFIX), List.of(this.pack.getPackage()));
 
         // create shared compartments
         this.createDependencyDescription(diagramDescription);
         this.createGeneralizationDescription(diagramDescription);
-        // this.createAssociationDescription(diagramDescription);
         this.createClassifierContainmentLink(diagramDescription);
 
         diagramDescription.getPalette().setDropTool(this.getViewBuilder().createGenericSemanticDropTool(this.getIdBuilder().getDiagramSemanticDropToolName()));
@@ -136,6 +175,61 @@ public class IoMTDiagramDescriptionBuilder extends AbstractRepresentationDescrip
             cddGraphicalDropTool.getAcceptedNodeTypes().addAll(droppedNodeDescriptions);
         });
         diagramDescription.getPalette().setDropNodeTool(cddGraphicalDropTool);
+    }
+
+    public NodeTool createStereotypeApplicationTool(NodeDescription nodeDescription, DiagramDescription diagramDescription,
+            String toolName, String stereotypeQName, String toolSectionName, List<EClass> owners) {
+
+        // Create a tool that only applies stereotypes
+        NodeTool stereotypeTool = DiagramFactory.eINSTANCE.createNodeTool();
+        stereotypeTool.setName(toolName);
+
+        ChangeContext applyStereotype = ViewFactory.eINSTANCE.createChangeContext();
+        applyStereotype.setExpression(
+                "aql:self.applyStereotype(self.getApplicableStereotype('" + stereotypeQName + "'))");
+        stereotypeTool.getBody().add(applyStereotype);
+
+        return stereotypeTool;
+    }
+
+    private void createApplyStereotypesTools(DiagramDescription diagramDescription) {
+        List<EClass> owners = List.of(this.pack.getClass_());
+
+        // Merge the two arrays
+        String[][] ALL_STEREOTYPE_TOOLS = Stream.of(
+            COMPONENT_TOOLS,
+            IOMT_TOOLS,            
+            TVRA_TOOLS,
+            ASSETS_TOOLS
+        ).flatMap(Arrays::stream).toArray(String[][]::new);
+
+        // Process all tools in one loop
+        for (String[] tool : ALL_STEREOTYPE_TOOLS) {
+            String toolName = tool[0].replace("New ", "");
+            NodeTool stereotypeTool = this.createStereotypeApplicationTool(
+                    cdSharedDescription,
+                    diagramDescription,
+                    toolName,
+                    tool[1],
+                    null,
+                    owners);
+
+            addToolToNodes(diagramDescription, stereotypeTool);
+        }
+    }
+
+    private void addToolToNodes(DiagramDescription diagramDescription, NodeTool tool) {
+        this.collectNodesWithDomain(diagramDescription, this.pack.getClass_()).forEach(classNode -> {
+            NodeToolSection section = classNode.getPalette().getToolSections().stream()
+                    .filter(s -> STEREOTYPE_SECTION_NAME.equals(s.getName()))
+                    .findFirst()
+                    .orElseGet(() -> {
+                        NodeToolSection newSection = this.getViewBuilder().createNodeToolSection(STEREOTYPE_SECTION_NAME);
+                        classNode.getPalette().getToolSections().add(newSection);
+                        return newSection;
+                    });
+            section.getNodeTools().add(tool);
+        });
     }
 
     /**
@@ -164,7 +258,6 @@ public class IoMTDiagramDescriptionBuilder extends AbstractRepresentationDescrip
 
     private void createElementsStyles(NodeDescription classDescription) {
         ConditionalNodeStyle elementConditionalStyle = DiagramFactory.eINSTANCE.createConditionalNodeStyle();
-        //goalConditionalStyle.setCondition("aql:self.getAppliedStereotypes()->exists(s | s.qualifiedName = 'gsn::Core::Goal')");
         elementConditionalStyle.setCondition("aql:self");
         RectangularNodeStyleDescription nodeStyle = this.getViewBuilder().createRectangularNodeStyle();
         FixedColor bgColor = ViewFactory.eINSTANCE.createFixedColor();
@@ -174,7 +267,7 @@ public class IoMTDiagramDescriptionBuilder extends AbstractRepresentationDescrip
         elementConditionalStyle.setStyle(nodeStyle);
         classDescription.getConditionalStyles().add(elementConditionalStyle);
 
-    }   
+    }
 
     /**
      * Create new node tools that apply profiles to specific classes
@@ -191,36 +284,12 @@ public class IoMTDiagramDescriptionBuilder extends AbstractRepresentationDescrip
      */
 
     private void createProfiledNodeElements(DiagramDescription diagramDescription) {
-        // Define a two-dimensional array to hold the toolName and stereotypeName pairs
-        String[][] tools = {
-                { "New Sensor", "IoMTProfile::LAN::Sensor" },
-                { "New Device", "IoMTProfile::LAN::IoMTDevice" },
-                { "New Configuration", "IoMTProfile::LAN::IoMTConfiguration" },
-                { "New External Function", "IoMTProfile::LAN::ExternalFunction" },
-                { "New Gateway", "IoMTProfile::LAN::Gateway" },
-                { "New Actuator", "IoMTProfile::LAN::Actuator" },
-                { "New Local Management App", "IoMTProfile::LAN::LocalManagementApp" },
-                { "New DataStore", "IoMTProfile::WAN::DataStore" },
-                { "New Proxy", "IoMTProfile::WAN::Proxy" },
-                { "New MedicalApp", "IoMTProfile::Application::MedicalApp" },
-                { "New AdministrationApp", "IoMTProfile::Application::AdministrationApp" },
-                { "New PatientApp", "IoMTProfile::Application::PatientApp" },
-                { "New Person", "IoMTProfile::External::Person" }
-        };
-
-        String[][] toolsTVRA = {
-                { "New TVRA Asset", "tvra::TVRAAsset" },
-                { "New ControlSet", "tvra::ControlSet" },
-                { "New Misbehaviour", "tvra::Misbehaviour" },
-                { "New TWAS", "tvra::TrustworthinessAttributeSet" },
-        };
-
-        for (String[] tool : tools) {
+        for (String[] tool : IOMT_TOOLS) {
             this.createStereotypedNodeTool(diagramDescription, tool[0], tool[1], NODES);
         }
         DiagramToolSection iomtToolSection = this.getViewBuilder().createDiagramToolSection(TVRA);
         diagramDescription.getPalette().getToolSections().addAll(List.of(iomtToolSection));
-        for (String[] tool : toolsTVRA) {
+        for (String[] tool : IOMT_TOOLS) {
             this.createStereotypedNodeTool(diagramDescription, tool[0], tool[1], TVRA);
         }
     }
@@ -303,17 +372,17 @@ public class IoMTDiagramDescriptionBuilder extends AbstractRepresentationDescrip
             CreationToolsUtil.addEdgeCreationTool(sourceAndTargetDescriptionsSupplier, edgeCreationTool);
         });
 
-        //the center expression is the value of the kind attribute of TVRA::NetworkDomain
+        // the center expression is the value of the kind attribute of TVRA::NetworkDomain
         associationEdge.setCenterLabelExpression(
-                                    "aql:let stereotype = self.getAppliedStereotypes()->first() in " +
-                                            "if (stereotype <> null) then " +
-                                            "  self.getValue(stereotype, 'kind')  " +
-                                            "else " +
-                                            "  self.name " +
-                                            "endif");
+                "aql:let stereotype = self.getAppliedStereotypes()->first() in " +
+                        "if (stereotype <> null) then " +
+                        "  self.getValue(stereotype, 'kind')  " +
+                        "else " +
+                        "  self.name " +
+                        "endif");
 
         new AssociationEdgeCustomStyleBuilder(associationEdge).addCustomArowStyles();
-        
+
         diagramDescription.getEdgeDescriptions().add(associationEdge);
         this.getViewBuilder().addDefaultReconnectionTools(associationEdge);
     }
@@ -475,38 +544,6 @@ public class IoMTDiagramDescriptionBuilder extends AbstractRepresentationDescrip
         diagramDescription.getEdgeDescriptions().add(cdGeneralization);
 
         this.getViewBuilder().addDefaultReconnectionTools(cdGeneralization);
-    }
-
-    /*
-    TODO to be removed
-    */
-    private void createAssociationDescription(DiagramDescription diagramDescription) {
-        Supplier<List<NodeDescription>> sourceAndTargetDescriptionsSupplier = () -> this.collectNodesWithDomain(diagramDescription, this.pack.getClassifier());
-
-        EClass association = this.pack.getAssociation();
-        EdgeDescription cdAssociation = this.getViewBuilder().createDefaultSynchonizedDomainBaseEdgeDescription(association, this.getQueryBuilder().queryAllReachableExactType(association),
-                sourceAndTargetDescriptionsSupplier, sourceAndTargetDescriptionsSupplier);
-        cdAssociation.getStyle().setLineStyle(LineStyle.SOLID);
-        cdAssociation.getStyle().setTargetArrowStyle(ArrowStyle.NONE);
-        cdAssociation.getStyle().setSourceArrowStyle(ArrowStyle.NONE);
-
-        EdgeTool associationTool = this.getViewBuilder().createDefaultDomainBasedEdgeTool(cdAssociation, this.pack.getPackage_PackagedElement());
-        this.registerCallback(cdAssociation, () -> {
-            CreationToolsUtil.addEdgeCreationTool(sourceAndTargetDescriptionsSupplier, associationTool);
-        });
-
-        cdAssociation.setBeginLabelExpression(this.getQueryBuilder().createDomainBaseEdgeSourceLabelExpression());
-        cdAssociation.getPalette().setBeginLabelEditTool(this.getViewBuilder().createDirectEditTool(CallQuery.queryServiceOnSelf(ClassDiagramServices.GET_ASSOCIATION_TARGET)));
-
-        cdAssociation.setEndLabelExpression(this.getQueryBuilder().createDomainBaseEdgeTargetLabelExpression());
-        cdAssociation.getPalette().setEndLabelEditTool(this.getViewBuilder().createDirectEditTool(CallQuery.queryServiceOnSelf(ClassDiagramServices.GET_ASSOCIATION_SOURCE)));
-
-        // Can be improve once https://github.com/PapyrusSirius/papyrus-web/issues/208 is closed
-        new AssociationEdgeCustomStyleBuilder(cdAssociation).addCustomArowStyles();
-
-        diagramDescription.getEdgeDescriptions().add(cdAssociation);
-
-        this.getViewBuilder().addDefaultReconnectionTools(cdAssociation);
     }
 
 }
