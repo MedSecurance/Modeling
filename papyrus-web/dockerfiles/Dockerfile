@@ -25,8 +25,6 @@ FROM node:18.7 AS papyrusweb-build
 ADD . /build
 WORKDIR /build/
 
-ENV MAVEN_VERSION="3.9.4"
-
 ARG USERNAME
 ARG PASSWORD
 
@@ -45,9 +43,7 @@ RUN mkdir -p backend/papyrus-web-frontend/src/main/resources/static &&\
 
 RUN apt-get update &&\
   apt-get install openjdk-17-jdk -y &&\
-  wget https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
-  tar -xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
-  export PATH=$PWD/apache-maven-$MAVEN_VERSION/bin:$PATH &&\
+  apt-get install maven -y &&\
   mvn clean verify -DskipTests -Dcheckstyle.skip -f backend/pom.xml --settings settings.xml
  
 RUN export WEBAPP_VERSION=$(grep version frontend/package.json | awk -F \" '{print $4}') &&\

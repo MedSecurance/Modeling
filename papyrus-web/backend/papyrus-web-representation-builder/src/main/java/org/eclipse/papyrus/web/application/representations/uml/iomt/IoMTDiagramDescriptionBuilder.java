@@ -272,24 +272,15 @@ public class IoMTDiagramDescriptionBuilder extends AbstractRepresentationDescrip
     /**
      * Create new node tools that apply profiles to specific classes
      * 
-     * 
-     * PROMPT used to generate the elements.
-     * 
-     * Consider this file.
-     *
-     * For a Sensor Classifier, I would like to produce the following line: {"New Sensor", "IoMTProfile::LAN::Sensor"},
-     * For a IoMTDevice classifier, this line: {"New IOMT Device", "IoMTProfile::LAN::IoMTDevice"}, It creates the
-     * qualified name of the classifier, taking the corresponding root packages as well. Could you extract all the
-     * classifiers and produce the corresponding lines ?
      */
 
     private void createProfiledNodeElements(DiagramDescription diagramDescription) {
         for (String[] tool : IOMT_TOOLS) {
             this.createStereotypedNodeTool(diagramDescription, tool[0], tool[1], NODES);
         }
-        DiagramToolSection iomtToolSection = this.getViewBuilder().createDiagramToolSection(TVRA);
-        diagramDescription.getPalette().getToolSections().addAll(List.of(iomtToolSection));
-        for (String[] tool : IOMT_TOOLS) {
+        DiagramToolSection tvraToolSection = this.getViewBuilder().createDiagramToolSection(TVRA);
+        diagramDescription.getPalette().getToolSections().addAll(List.of(tvraToolSection));
+        for (String[] tool : TVRA_TOOLS) {
             this.createStereotypedNodeTool(diagramDescription, tool[0], tool[1], TVRA);
         }
     }
