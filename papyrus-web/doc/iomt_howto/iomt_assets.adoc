@@ -1,0 +1,147 @@
+:toc:
+
+= IoMTAssets UML Profile Documentation
+
+This document provides a description of the `IoMTAssets` UML profile, including stereotypes and enumerations. It enables annotating IoMT elements with different Asset kinds and its corresponding features.
+
+This profile is used together with the IoMT profile, which defines the core architectural elements.
+
+== Stereotypes
+
+=== Asset
+
+The `Asset` stereotype is an abstract stereotype used as a base for various types of assets within the IoMT architecture. It cannot be directly applied.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| key
+| String
+| 1
+| A unique identifier for the asset.
+
+| missionName
+| String
+| 1
+| The name of the mission associated with the asset.
+
+| description
+| String
+| 1
+| A description of the asset.
+|===
+
+=== <<Service>>
+
+The `Service` stereotype represents a service and it specializes the `Asset` stereotype. The services are possible runnable components within the system.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| kind
+| ServiceKind
+| 1
+| The kind of service.
+|===
+
+=== <<Information>>
+
+The `Information` stereotype represents information assets and it specializes the `Asset` stereotype. It indicates elements manage/treat some kind of data/information. 
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| location
+| String
+| 1
+| The location of the information.
+
+| record
+| String
+| 1
+| The record associated with the information.
+
+| kind
+| InformationKind
+| 1
+| The kind of information.
+|===
+
+=== <<IntangibleAsset>>
+
+The `IntangibleAsset` stereotype represents intangible assets and it specializes the `Asset` stereotype. Intangible assets are not concrete or measurable elements within the information system.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| kind
+| IntangibleAssetKind
+| 1
+| The kind of intangible asset.
+
+| description
+| String
+| 1
+| A description of the intangible asset.
+|===
+
+== Enumerations
+
+=== <<ServiceKind>>
+
+The `ServiceKind` enumeration lists the various kinds of services that can be supported by an IoMT service.
+
+==== Literals
+
+* RemotePatientMonitoring
+* InfusionPump
+* StressMonitoring
+* OxygenLevelMonitoring
+* HeartRateMonitoring
+* GlucoseMonitoring
+* ThermometerMonitoring
+* DataStorage
+* DataAnalysis
+* EmergencyResponse
+* VoiceBasedHealthAssistants
+* SurgicalNavigation
+* MedicalImageAnalysis
+* IoMTCybersecurity
+* Other
+
+=== <<IntangibleAssetKind>>
+
+The `IntangibleAssetKind` enumeration lists the various kinds of intangible assets that can be supported by an IoMT intangible asset.
+
+==== Literals
+
+* HospitalReputation
+* IoMTBrandEquity
+* PatientSatisfaction
+* DataPrivacySecurityTrust
+* IntellectualProperty
+* Licences
+* Other
+
+=== <<InformationKind>>
+
+The `InformationKind` enumeration lists the various kinds of information that can be supported by an IoMT information asset.
+
+==== Literals
+
+* PatientPersonalData
+* PatientHealthRecords
+* RealTimePatientData
+* InsuranceAndBilling
+* DeviceSensorData
+* StaffUserData
+* ThirdPartyData
+* Other

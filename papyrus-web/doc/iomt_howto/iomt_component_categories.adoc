@@ -1,0 +1,229 @@
+:toc:
+
+= IoMTComponentCategories UML Profile Documentation
+
+This document provides a description of the `IoMTComponentCategories` UML profile, including stereotypes, attributes, and associations. It enables annotating the IoMT elements to specify the system's supported features.
+
+This profile is used together with the IoMT profile, which defines the core architectural elements.
+
+== Stereotypes
+
+=== IoMTcomponent
+
+The `IoMTcomponent` stereotype is applied to IoMT classes and it is used to indicate that given IoMT element supports specific IoMT features.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| supportedFeatures
+| ComponentAnnotationKind
+| 0..*
+| The features supported by this IoMT stereotype.
+|===
+
+=== IoMTp
+
+The `IoMTp` stereotype is applied to IoMT properties and it is used to indicate that given IoMT property supports specific IoMT features.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+
+| supportedFeatures
+| PropertyAnnotationKind
+| 0..*
+| The features supported by this IoMT stereotype.
+|===
+
+=== IoMTpkg
+
+The `IoMTpkg` stereotype stereotype is applied to IoMT pacakges and it is used to indicate that given IoMT element supports specific IoMT features.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+
+| supportedFeatures
+| PackageAnnotationKind
+| 0..*
+| The features supported by this IoMT package.
+|===
+
+== Enumerations
+
+=== ComponentAnnotationKind
+
+The `ComponentAnnotationKind` enumeration lists the various features that can be supported by an IoMT component.
+
+==== Literals
+
+* configurationChange
+* accessPermission
+* factory
+* collector
+* externalSoftware
+* mutualTrust
+* minimalFunctionMode
+* asymetricCryptography
+* deviceVulnerabilityMitigation
+* limitedButSafeOperation
+* failureLogger
+* dataAuthenticator
+* certificateWithoutExpireData
+* uniquePresharedKey
+* bootSoftware
+* factoryPasswordGenerator
+* updateStatusMonitor
+* remoteAccess
+* riskControlMeasure
+* roleBasedAuthentication
+* dataConverter
+* randomNumberGenerator
+* cryptographicKeyGenerator
+* localAccess
+* backupData
+* sensorUpdater
+* criticalLogFileStorer
+* cryptographyProtectionOfDataAtRest
+* symmetricCryptography
+* safetyEventManagement
+* certificateRecording
+* temperProofIdentityStorage
+* criticalElectronicDevice
+* vulnerabilityDevice
+* unauthorizedUsersPreventer
+* medicalITNetwork
+* securityEventLog
+* criticalActionsTimestampedLogger
+* communicationEncrypted
+* geoLocatedReporter
+* identityStorage
+* spatioTemporalSynchornizer
+* nonEssentialPIICollector
+* nonNotifyingSinglePointOfFailure
+* plainTextPIILogger
+* documentInformation
+* requiredComponent
+* unrequiredCommunicationCapability
+* privacyManager
+* secureSemanticInteroperability
+* configurationBackupData
+* criticalMechanicalDevice
+* appDataStored
+* criticalEventsTimestampedLogger
+* deviceAuthenticatorToGateway
+* technicalUserInterfaceVerification
+* secureAssetStorage
+* softwareInDevice
+* devicePairing
+* postMarketSurveillance
+* candidateSecurityCapability
+* electronicComponent
+* secureDeviceIdentityGenerator
+* nonCritical
+* sensitiveBackupOfExternalStorage
+* accessToExternalWebsite
+* personalData
+* cryptographyForSourceValidity
+* offLabelDevice
+* implicitDevice2DeviceTrust
+* dataProcessor
+* identityRecorder
+* riskAnalyser
+* failSafeMode
+* securityControl
+* inconsistentDataHandler
+* inconsistentDeviceLocationHandler
+* encryptedDataStorage
+* closedCommunicationProtocol
+* tamperingPreventer
+* nonTimelyUpdateDetector
+* secureCode
+* secureInteroperability
+* uniqueComponentLevelGenerator
+* mostSecureCommunicationProtocol
+* criticalDataBackup
+* cloneResistantID
+* modificationResistantID
+* MACbasedIdentifier
+* medicalDeviceConnection
+* malwareProtector
+* criticalSoftwareComponent
+* backupOptimizer
+* dataAuthentifier
+
+=== PropertyAnnotationKind
+
+The `PropertyAnnotationKind` enumeration lists the various features that can be supported by an IoMT stereotype.
+
+==== Literals
+
+* cryptographicOperation
+* strictlyIncreasingFunction
+* postDeploymentInformation
+* uniqueID
+* identity256LongAtLeast
+* candidateSymmetricKeyEncryption
+* securityMaintenance
+* securitySafeguard
+* criticalDataType
+* securityFeature
+* softwareVersionNumber
+* listAuthorizedOnboarders
+* testInformation
+* connectivity
+* exchangeBetweenDeviceAndEventLogger
+* nonRepudiableIdentities
+* deviceSecurityBaseline
+* unrequiredPrivilege
+* claim
+* decommissionData
+* patientData
+* dataInTransit
+* securityConfigurationOption
+* deviceSecret
+* versioningUniqueIdentifier
+* metadataForDocumentedInformation
+* dataOutsideDirectStorerControl
+* candidateCertificate
+* deviceClinicalBackupData
+* riskControlMeasure
+* privateKey
+* securityMeasure
+* dataInMotion
+* collectedPatientPersonalData
+* keyPerformanceIndicator
+* candidateSecurityFeature
+* strictlyIncreasingFunction
+* deviceInformationDeclaration
+* backupData
+
+=== PackageAnnotationKind
+
+The `PackageAnnotationKind` enumeration lists the features that can be supported by an IoMT package.
+
+==== Literals
+
+* developmentAndTestEnvironment
+* documentation
+* regionAndCulturalNorms
+* physicalSecurity
+* securityControl
+* accessToSourceCode
+* informationProcessingFacility
+* informationManagementSystem
+* healthcareDeliveryOrganisation
+* securitySystem
+* trustedModule
+* finalProduct
+* smartDeviceApp
+* medicalITNetwork
+* secureCommunicationChannel
+* similarMedicalITNetwork
+

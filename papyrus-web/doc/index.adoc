@@ -17,6 +17,11 @@ Papyrus web v{papyrus-web-version} - {git-commit-id-abbrev}
 - xref:iomt_howto/iomt_howto.adoc[HowTo - IoMT model creation]
 - xref:iomt_howto/tvra_howto.adoc[HowTo - TVRA model instantiation]
 - xref:iomt_howto/cwe_howto.adoc[HowTo - IoMT with constraints model instantiation]
+- IoMT Profiles description
+* xref:iomt_howto/iomt_architecture_profile.adoc[IoMT Profile]
+* xref:iomt_howto/iomt_component_categories.adoc[IoMT Component Categories Profile]
+* xref:iomt_howto/iomt_assets.adoc[IoMT Assets Profile]
+* xref:iomt_howto/iomt_tvra.adoc[IoMT TVRA Profile]
 - xref:features/import_export.adoc[Import/Export features]
 - xref:codegen/papyrusweb_howto/gencode_howto.adoc[HowTo - PapyrusWeb CodeGeneration]
 - xref:codegen/description_software_designer/sw_designer.adoc[Papyrus Software Designer for code generation]

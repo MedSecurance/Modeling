@@ -1,0 +1,343 @@
+:toc:
+
+= IoMTProfile UML Profile Documentation
+
+This document provides a description of the `IoMTProfile` UML profile, including stereotypes and enumerations. It defines the architectural elements of an IoMT system.
+
+== Stereotypes
+
+=== Application
+
+The `Application` stereotype is an abstract stereotype used as a base for various types of applications within the IoMT system.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| datastore
+| DataStore
+| 0..1
+| The datastore associated with the application.
+
+| proxy
+| Proxy
+| 0..1
+| The proxy associated with the application.
+
+| person
+| Person
+| 0..*
+| The person(s) associated with the application.
+|===
+
+==== Operations
+
+The stereotype define CRUD operations that may be implemented.
+
+* `create`: Abstract operation to create an instance.
+* `retrieve`: Abstract operation to retrieve an instance.
+* `update`: Abstract operation to update an instance.
+* `delete`: Abstract operation to delete an instance.
+
+=== MedicalApp
+
+The `MedicalApp` represents an application intended to be used by the practitioner. It specializes `Application`.
+
+=== PatientApp
+
+The `PatientApp` stereotype represents an application used by the  patients. It specializes the `Application` stereotype.
+
+=== AdministrationApp
+
+The `AdministrationApp` stereotype represents an administration application containing features for administrating the whole system, wrt. patient and medical data. It generalizes the `Application` stereotype.
+
+=== Location
+
+The `Location` stereotype represents a location where the components are deployed or executed. The location is related to the applications communication.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| devices
+| IoMTDevice
+| 0..*
+| The devices associated with the location. 
+|===
+
+=== DataStore
+
+The `DataStore` stereotype represents a data store. It may represent any kind of data storage medium.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| proxy
+| Proxy
+| 0..1
+| The proxy associated with the datastore.
+
+| applications
+| Application
+| 0..*
+| The applications associated with the datastore. The applications may read or write data, depending on its functions.
+|===
+
+=== Proxy
+
+The `Proxy` stereotype represents a proxy that connects the different communicating elements in an IoMT architecture. The different elements are defined by its properties.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| gateways
+| Gateway
+| 0..*
+| The gateways associated with the proxy.
+
+| datastores
+| DataStore
+| 0..*
+| The datastores associated with the proxy.
+
+| applications
+| Application
+| 0..*
+| The applications associated with the proxy.
+
+| localManagementApps
+| LocalManagementApp
+| 0..*
+| The local management applications associated with the proxy.
+|===
+
+=== IoMTDevice
+
+The `IoMTDevice` stereotype represents the physical devices within the IoMT system. The devices may have multiple services.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| InternalInterface
+| Interface
+| 1..1
+| The internal interface of the device.
+
+| configuration
+| IoMTConfiguration
+| 0..1
+| The configurations associated with the device.
+
+| location
+| Location
+| 0..1
+| The location associated with the device.
+
+| functions
+| IoMTFunction
+| 0..*
+| The functions associated with the device.
+
+| services
+| IoMTService
+| 0..*
+| The services associated with the device.
+
+| gateway
+| Gateway
+| 0..1
+| The gateway associated with the device.
+|===
+
+==== Operations
+
+* `openSession`: Operation to open a session.
+* `closeSession`: Operation to close a session.
+
+=== IoMTConfiguration
+
+The `IoMTConfiguration` stereotype enables the definition of  property-values pairs with configurations for a given device. The kinds of the properties depend on the system. 
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| device
+| IoMTDevice
+| 0..1
+| The device associated with the configuration.
+|===
+
+=== Gateway
+
+The `Gateway` stereotype defines the connection capabilities with a given device or proxy.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| InternalInterface
+| Interface
+|
+| The internal interface of the gateway.
+
+| ExternalInterface
+| Interface
+| 1..1
+| The external interface of the gateway.
+
+| proxy
+| Proxy
+| 1..1
+| The proxy associated with the gateway.
+
+| devices
+| IoMTDevice
+| 0..*
+| The devices associated with the gateway.
+
+| gatewayType
+| GatewayType
+| 1..1
+| The type of the gateway.
+|===
+
+=== IoMTService
+
+The `IoMTService` stereotype is an abstract stereotype representing a service within the IoMT system.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| person
+| Person
+| 0..*
+| The person associated with the service.
+
+| device
+| IoMTDevice
+| 1..1
+| The device associated with the service.
+|===
+
+=== LocalManagementApp
+
+The `LocalManagementApp` stereotype defines an application that manages the devices within a given location. It does not provide communication with external gateways.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| proxy
+| Proxy
+| 1..1
+| The proxy associated with the local management app.
+|===
+
+==== Operations
+
+* `pairing`: Operation to perform pairing.
+* `disapairing`: Operation to perform disapairing.
+* `create`: Operation to create an instance.
+* `retrieve`: Operation to retrieve an instance.
+* `update`: Operation to update an instance.
+* `delete`: Operation to delete an instance.
+
+=== Person
+
+The `Person` stereotype represents a person within the IoMT system.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| application
+| Application
+| 0..*
+| The application associated with the person.
+
+| iomtservice
+| IoMTService
+| 0..*
+| The IoMT services associated with the person.
+|===
+
+=== IdentifiableElement
+
+The `IdentifiableElement` stereotype is an abstract stereotype representing identifiable elements within the IoMT system.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| name
+| String
+| 1
+| The name of the identifiable element.
+
+| uid
+| String
+| 1
+| The unique identifier of the identifiable element.
+|===
+
+=== Actuator
+
+The `Actuator` stereotype represents an actuator within the IoMT system and it specializes the `IoMTService` stereotype.
+
+=== Sensor
+
+The `Sensor` stereotype represents a sensor within the IoMT system and it specializes the `IoMTService` stereotype.
+
+=== ExternalFunction
+
+The `ExternalFunction` stereotype represents an external function within the IoMT system and it specializes the `IoMTFunction` class.
+
+=== InternalFunction
+
+The `InternalFunction` stereotype represents an internal function within the IoMT system and it specializes the `IoMTFunction` class.
+
+== Enumerations
+
+=== Interface
+
+The `Interface` enumeration lists the various types of interfaces that can be supported by an IoMT element. The interfaces are set up in the Gateways and devices.
+
+==== Literals
+
+* RFID
+* BLE
+* Bluetooth
+* WIFI
+* 4G
+* Ethernet
+* LoRa
+* ZWave
+* Zigbee
+* Serial
+* SixLoWPAN
+
+=== GatewayType
+
+The `GatewayType` enumeration lists the various types of gateways that can be supported by an IoMT component.
+
+==== Literals
+
+* REST
+* MQTT
+* WebSocket

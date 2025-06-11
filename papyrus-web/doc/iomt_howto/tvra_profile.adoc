@@ -1,0 +1,811 @@
+:toc:
+
+= TVRA UML Profile Documentation
+
+
+This document provides an overview of the `TVRA` UML profile, including stereotypes and enumerations. It has been defined based on the network domain model https://github.com/Spyderisk/domain-network/tree/6a from the Spyderisk Risk Assessment tool https://github.com/Spyderisk.
+
+This profile may be used standalone, when the goal is uniquely to perfom a risk analysis. Otherwise, it used together with the IoMT profile, which defines the core architectural elements.
+
+== Stereotypes
+
+=== TVRAAsset
+
+The `TVRAAsset` stereotype represents an asset within the IoMT, i.e., all the systems' instantiable elements in a TVRA architecture. It annotates any elements of the IoMT architecture.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| kind
+| TRVAAssetKind
+| 1
+| The kind of the TVRA asset. Key property to identify the asset.
+
+| misbehaviours
+| Misbehaviour
+| 0..*
+| The misbehaviours associated with the TVRA asset.
+
+| trustworthinessattributesets
+| TrustworthinessAttributeSet
+| 0..*
+| The trustworthiness attribute sets associated with the TVRA asset.
+
+| controlsets
+| ControlSet
+| 0..*
+| The control sets associated with the TVRA asset.
+|===
+
+=== NetworkDomain
+
+The `NetworkDomain` stereotype represents a relationship between two TVRA assets. It annotates existing dependency associations. 
+ 
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| kind
+| NetworkDomainKind
+| 1
+| The kind of the network domain.
+|===
+
+=== ControlSet
+
+The `ControlSet` stereotype represents a control set within the TVRA system.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| kind
+| ControlSetKind
+| 1
+| The kind of the control set.
+
+| isProposed
+| Boolean
+| 1
+| Indicates whether the control set is proposed.
+
+| tvraasset
+| TVRAAsset
+| 1
+| The TVRA asset associated with the control set.
+
+| coverageLevel
+| TrustworthinessLevelKind
+| 1
+| The coverage level of the control set.
+|===
+
+=== Misbehaviour
+
+The `Misbehaviour` stereotype represents a misbehaviour within the TVRA system.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| kind
+| MisbehaviourKind
+| 1
+| The kind of the misbehaviour.
+
+| tvraasset
+| TVRAAsset
+| 1
+| The TVRA asset associated with the misbehaviour.
+
+| impactLevel
+| ImpactLevelKind
+| 1
+| The impact level of the misbehaviour.
+|===
+
+=== TrustworthinessAttributeSet
+
+The `TrustworthinessAttributeSet` stereotype represents a set of trustworthiness attributes within the TVRA system.
+
+==== Attributes
+
+|===
+| Name | Type | Multiplicity | Description
+
+| kind
+| TWASKind 
+| 1
+| The kind of the trustworthiness attribute set.
+
+| trustworthinessLevel
+| TrustworthinessLevelKind
+| 1
+| The trustworthiness level of the attribute set.
+
+| tvraasset
+| TVRAAsset
+|
+| The TVRA asset associated with the trustworthiness attribute set.
+|===
+
+== Enumerations
+
+=== ControlSetKind
+
+The `ControlSetKind` enumeration lists the various kinds of control sets that can be supported by a TVRA component. They have a 1-1 mapping from the possible CSs from the Spyderisk domain model.
+
+==== Literals
+
+* CS-AccessControl
+* CS-AccessKey
+* CS-AccessPolicy
+* CS-AddressReservation
+* CS-AddressWhitelisting
+* CS-AntiMalware
+* CS-ApplicationFW
+* CS-AuthenticationLimits
+* CS-AutoDataGovernance
+* CS-AutoProvisioning
+* CS-BandwidthManagement
+* CS-BasicSecurityTraining
+* CS-BiometricID
+* CS-BiometricIDVerifier
+* CS-BiometricLock
+* CS-BreakTheGlass
+* CS-ChipAndPINCard
+* CS-ChipAndPINLock
+* CS-ChipAndPINVerifier
+* CS-ClearDeputy
+* CS-Clustering
+* CS-ConsentEnforcement
+* CS-ConsentInterface
+* CS-ConsentManagement
+* CS-ContinuousAuthN
+* CS-ContinuousAuthNID
+* CS-ContinuousAuthVerifier
+* CS-ContinuousOccupation
+* CS-DDoSFiltering
+* CS-DeviceCertification
+* CS-DisableClientAccess
+* CS-DisableInterface
+* CS-DisableMeshRouting
+* CS-DisableNetwork
+* CS-DisableNetworkProvision
+* CS-DisableServiceAccess
+* CS-DisableServiceChannel
+* CS-DisableTethering
+* CS-DisabledDataFlow
+* CS-DisabledHost
+* CS-DisabledProcess
+* CS-EncryptedComms
+* CS-EncryptedProcessing
+* CS-Encryption
+* CS-FWBlock
+* CS-FormalVerification
+* CS-GDPRComplianceTraining
+* CS-GDPRGovernance
+* CS-GDPRPrivacyShield
+* CS-HomomorphicEncryption
+* CS-HostEncryption
+* CS-HostMonitoring
+* CS-IgnorePhysicalThreats
+* CS-ImpersonalData
+* CS-IncludePhysicalThreats
+* CS-IndependentInstances
+* CS-InferredDataAsset
+* CS-IntegrityProtection
+* CS-KeyManagement
+* CS-LegalCompetenceCheck
+* CS-LegalGuardianConsent
+* CS-LoadMonitoring
+* CS-Logging
+* CS-LowPriority
+* CS-ManualActionTaken
+* CS-ManualIntervention
+* CS-MultipleCellNIC
+* CS-MultipleWiFiNIC
+* CS-MultipleWiredNIC
+* CS-OneTimeKey
+* CS-OneTimeKeyVerifier
+* CS-OutOfBandKey
+* CS-OutOfBandKeyVerifier
+* CS-ParquetEncryption
+* CS-Password
+* CS-PasswordQualityCheck
+* CS-PasswordReset
+* CS-PasswordStore
+* CS-PasswordVerifier
+* CS-PenetrationTesting
+* CS-PersonalDevice
+* CS-PhysicalChecks
+* CS-PhysicalDeviceProtection
+* CS-PhysicalID
+* CS-PhysicalIDVerifier
+* CS-PhysicalKey
+* CS-PhysicalLock
+* CS-PhysicalPatrols
+* CS-PhysicallyObservable
+* CS-ProcessMonitoring
+* CS-RemoteWiping
+* CS-Replication
+* CS-RestrictedShell
+* CS-SIM
+* CS-SLA
+* CS-SLAEnforcement
+* CS-SafeControlMode
+* CS-SafeControlSetting
+* CS-SafeIoTController
+* CS-SafetyTraining
+* CS-ScreenLock
+* CS-Screened
+* CS-Screening
+* CS-SecureBIOS
+* CS-SecureConfig
+* CS-SecureEnclave
+* CS-SecureExecution
+* CS-SecureLocation
+* CS-SecurityTraining
+* CS-SharedKey
+* CS-SharedKeyVerifier
+* CS-SimpleSecurePairing
+* CS-SoftwareCertification
+* CS-SoftwarePatched
+* CS-SoftwarePatching
+* CS-SoftwareTesting
+* CS-SpamFiltering
+* CS-StaticData
+* CS-SubjectToGDPR
+* CS-SuspendCorruptDataFlow
+* CS-SuspendExcessiveClientAccess
+* CS-SuspendInfectedHost
+* CS-SuspendInfectedProcess
+* CS-SuspendInsecureServiceChannel
+* CS-SuspendOutboundFlow
+* CS-SuspendSensitiveDataFlow
+* CS-SuspendUnauthenticClientAccess
+* CS-SuspendUnreliableController
+* CS-SuspendUntrustworthyClientAccess
+* CS-SuspendVulnerableHost
+* CS-SuspendVulnerableService
+* CS-SuspendVulnerableServiceChannel
+* CS-SystemSecurityTraining
+* CS-TLS
+* CS-TeamLeadership
+* CS-TeamRole
+* CS-Unmanaged
+* CS-UsesNoEmail
+* CS-VitalInterests
+* CS-X509
+* CS-X509ClientVerifier
+* CS-X509ServiceVerifier
+* CS-XSSSanitisation
+
+=== NetworkDomainKind
+
+The `NetworkDomainKind` enumeration lists the various kinds of network domains that can be supported by a TVRA newtork domain relationship.
+
+==== Literals
+
+* above
+* accessFrom
+* accessFromClient
+* accessInterrupted
+* accessTo
+* accessToService
+* accessUninterrupted
+* accessVia
+* accessesField
+* accessesService
+* accessibleFrom
+* accessibleVia
+* amends
+* amendsController
+* amendsData
+* amendsSensor
+* appends
+* assertedAmendsData
+* assertedInputsData
+* assertedViewsData
+* atHost
+* attackPathFrom
+* attackPathVia
+* blockedPath
+* blockedSegment
+* canAccess
+* canGetKeys
+* canRead
+* canWrite
+* channelFrom
+* channelTo
+* channelTried
+* channelVia
+* connectedTo
+* connectsData
+* connectsFrom
+* connectsTo
+* contains
+* containsField
+* controlledBy
+* controls
+* controlsChannel
+* controlsSensor
+* controlsThing
+* copyOf
+* creates
+* crudc
+* crudd
+* crudr
+* crudu
+* dataChannelEnd
+* dataChannelFor
+* dataChannelFrom
+* dataChannelTo
+* dataPathEnd
+* dataPathFor
+* dataPathTo
+* dataPathVisits
+* enablesAccess
+* enablesUserAccess
+* enablesUserInput
+* enablesUserOutput
+* enablesUserUpdate
+* end
+* extends
+* extendsDC
+* extendsDP
+* extendsFwdFlow
+* extendsRevFlow
+* flows
+* flowsFrom
+* flowsFromDP
+* flowsFromIn
+* flowsIn
+* flowsOut
+* flowsTo
+* flowsToDP
+* flowsToIn
+* flowsVia
+* flowsViaCS
+* flowsViaChannel
+* flowsViaProcess
+* flowsViaSC
+* from
+* fromInterface
+* fromPhysicalHost
+* fromPhysicalInterface
+* fromProc
+* fromSource
+* fromSpace
+* fromSubnet
+* fulfils
+* fwdPath
+* fwdRelay
+* handles
+* hasCLI
+* hasController
+* hasEmail
+* hasPhysicalHost
+* hosts
+* ignoresField
+* impersonalDevice
+* implementsAN
+* implementsCN
+* implementsHS
+* includesField
+* indirectAuthZ
+* inputsData
+* interactsRemotelyWith
+* interactsWith
+* interactsWithData
+* isAbstractSubnet
+* isAdult
+* isCluster
+* isContainer
+* isDest
+* isHostLAN
+* isHotspot
+* isInternet
+* isLnS
+* isLocalSubnet
+* isMHC
+* isMobile
+* isNowhere
+* isPersonalDevice
+* isPod
+* isPool
+* isProxy
+* isRouter
+* isScalable
+* isSource
+* isSpam
+* isTrivial
+* isWorld
+* lastInterface
+* locatedIn
+* managedBy
+* manages
+* mayBeIn
+* needsField
+* noAuthN
+* noDU
+* noDX
+* operates
+* overlays
+* pEndsAt
+* pVia
+* pairsViaBluetooth
+* pairsViaUSB
+* pathTo
+* pollsSensor
+* possDataDest
+* possRevPath
+* processes
+* propagatesTo
+* providedBy
+* provisionedBy
+* proxyAuthN
+* reads
+* readsSensor
+* receives
+* receivesFromSensor
+* relatesTo
+* relays
+* relaysAccess
+* responsibleFor
+* revPath
+* revRelay
+* runsIn
+* senses
+* serves
+* sharesCredentials
+* sourceDirect
+* sourceViaNAT
+* start
+* stores
+* storesCopy
+* subjectTo
+* to
+* toInterface
+* toPhysicalHost
+* toPhysicalInterface
+* toProc
+* toSpace
+* traverses
+* updates
+* updatesController
+* updatesSensor
+* usedBy
+* usedFor
+* uses
+* usesAsProxy
+* usesDataPath
+* usesForAuth
+* usesForAuthZ
+* usesIndirectly
+* usesLogicalRoute
+* usesPhysicalRoute
+* usesPhysicalSubnet
+* usesRemotely
+* usesService
+* usesViaDeputy
+* usesViaProxy
+* usesViaRAS
+* validatesChannel
+* via
+* viaHostChannel
+* viaInterface
+* viaPhysicalPath
+* viaPhysicalSubnet
+* viaProxy
+* viaSharedCredentials
+* viaSubnet
+* viaVirtualChannel
+* viewsData
+* visits
+* visitsGateway
+* worksFor
+
+=== TRVAAssetKind
+
+The `TRVAAssetKind` enumeration lists the various kinds of TVRA assets that can be supported by a TVRA component.
+
+==== Literals
+
+* AbstractSubnet
+* AccessContext
+* Adult
+* APIServer
+* ApplicationProcess
+* AttackPath
+* AuthChannel
+* AuthClient
+* AuthService
+* BaseStation
+* BiometricData
+* BluetoothPair
+* BoundedSpace
+* CellularNetwork
+* Child
+* ClientAttackPath
+* ClientChannel
+* ClientPath
+* ClosedClientAttackPath
+* ClosedSegment
+* ClosedServiceAttackPath
+* Cluster
+* ClusterHost
+* ClusterIP
+* CmdLineProcess
+* CommsAsset
+* ConnectionAsset
+* ConnectionChannel
+* ConnectionPath
+* ConsoleHost
+* ConsoleProcess
+* Container
+* ControlData
+* ControlProcess
+* Controller
+* CoreNetwork
+* CoreRouter
+* DB
+* Data
+* DataAccess
+* DataAsset
+* DataCache
+* DataCentre
+* DataChannel
+* DataContainer
+* DataCopy
+* DataExchange
+* DataField
+* DataFlow
+* DataInferenceAsset
+* DataInput
+* DataLifecycleAsset
+* DataOutput
+* DataPalette
+* DataPath
+* DataPool
+* DataProcess
+* DataRelay
+* DataService
+* DataStep
+* DataUpdate
+* DataUse
+* DeNATSegment
+* DebugMarker
+* DesktopService
+* DumbHost
+* Editor
+* EmailClient
+* EmailMUA
+* EmailMX
+* EmailService
+* FixedHost
+* FreeSegment
+* GDPRArt94Data
+* GDPRArt9Data
+* GeneralHost
+* GeneralProcess
+* GeneticData
+* GovernanceAsset
+* GovernancePalette
+* HContext
+* HealthData
+* HealthSensor
+* Host
+* HostChannel
+* HostContext
+* HostLAN
+* HostNetContext
+* HostPalette
+* Human
+* Ingress
+* InputPool
+* InteractiveApplication
+* InteractiveHost
+* InteractiveProcess
+* Interface
+* InternalSubnet
+* Internet
+* IoTProcess
+* Jurisdiction
+* L01Subnet
+* L0Subnet
+* L1Subnet
+* L23Subnet
+* L2Subnet
+* L3Subnet
+* LegalEntity
+* LegalOrganisation
+* LogicalPath
+* LogicalRoute
+* LogicalSegment
+* LogicalSubnet
+* LoginService
+* Master
+* MeshRoutingSegment
+* MobileClient
+* MobileHost
+* NATSegment
+* NPE
+* NetworkAsset
+* NetworkInferenceAsset
+* NetworkPalette
+* NetworkPath
+* Notebook
+* OpenClientAttackPath
+* OpenSegment
+* OpenServiceAttackPath
+* Organisation
+* OutputPool
+* OverlaySubnet
+* PContext
+* PPE
+* PersonalHost
+* PhysicalHost
+* PhysicalPalette
+* PhysicalPath
+* PhysicalSubnet
+* Pod
+* PrivateCellularNetwork
+* PrivateSpace
+* ProcNetContext
+* Process
+* ProcessContext
+* ProcessPalette
+* PublicCellularNetwork
+* PublicSpace
+* RAN
+* RadioSubnet
+* RemoteAccessClient
+* RemoteAccessService
+* RemoteDesktop
+* RemoteTerminal
+* RemoteUserAccess
+* RemovableMedia
+* Router
+* SMSClient
+* ScalableHost
+* SensedData
+* SensitiveData
+* Sensor
+* SensorProcess
+* Server
+* ServiceAttackPath
+* ServiceChannel
+* ServiceProxy
+* ShellHost
+* SimpleHost
+* SimpleProcess
+* Smartphone
+* Smartwatch
+* SocketLAN
+* Space
+* SpamData
+* SpecialCategoryData
+* Stakeholder
+* StoredDataPool
+* Tablet
+* TempDataRelay
+* TetheringSegment
+* TextEditor
+* Thing
+* TrivialHost
+* TrivialProcess
+* TypeOverlayData
+* TypeOverlayHost
+* TypeOverlayProcess
+* TypeOverlaySubnet
+* USBDevice
+* USBHost
+* USBPair
+* UpdatePool
+* VCluster
+* VM
+* VPN
+* VRouter
+* VXLAN
+* VirtualChannel
+* VirtualHost
+* VirtualSubnet
+* WebApp
+* WebBrowser
+* WebClient
+* WiFiLAN
+* WiredLAN
+* WiredSubnet
+* Worker
+* Workstation
+* World
+
+=== TWASKind
+
+The `TWASKind` enumeration lists the various kinds of trustworthiness attribute sets that can be supported.
+
+==== Literals
+
+* TWAS-AnonUserTW
+* TWAS-Astuteness
+* TWAS-Authenticity
+* TWAS-Availability
+* TWAS-BandwidthManaged
+* TWAS-Benevolence
+* TWAS-Capacity
+* TWAS-ChannelConfidentiality
+* TWAS-ClientAuthenticity
+* TWAS-ClientTW
+* TWAS-Competence
+* TWAS-Confidentiality
+* TWAS-Control
+* TWAS-Decrypted
+* TWAS-DefaultTW
+* TWAS-DeputyUserTW
+* TWAS-Encrypted
+* TWAS-ExploitTW
+* TWAS-Extrinsic-A-TW
+* TWAS-Extrinsic-AU-TW
+* TWAS-Extrinsic-C-TW
+* TWAS-Extrinsic-I-TW
+* TWAS-Extrinsic-M-TW
+* TWAS-Extrinsic-QI-TW
+* TWAS-Extrinsic-TW
+* TWAS-Extrinsic-U-TW
+* TWAS-Extrinsic-VA-TW
+* TWAS-Extrinsic-VL-TW
+* TWAS-Extrinsic-VN-TW
+* TWAS-Extrinsic-W-TW
+* TWAS-Extrinsic-XS-TW
+* TWAS-Health
+* TWAS-Integrity
+* TWAS-IntrinsicTW
+* TWAS-NetworkAuthenticity
+* TWAS-NetworkControl
+* TWAS-NetworkUserTW
+* TWAS-OccupantTW
+* TWAS-OutOfService
+* TWAS-OwnerControl
+* TWAS-PhysicalControl
+* TWAS-Possession
+* TWAS-ProxyUserTW
+* TWAS-Reliability
+* TWAS-ResourceTW
+* TWAS-ServiceAuthenticity
+* TWAS-ServiceTW
+* TWAS-Timeliness
+* TWAS-TrojanTW
+* TWAS-Trust
+* TWAS-UserTW
+
+=== ImpactLevelKind
+
+The `ImpactLevelKind` enumeration lists the various impact levels that can be supported by a TVRA component.
+
+==== Literals
+
+* Negligible
+* VeryLow
+* Low
+* Medium
+* High
+* VeryHigh
+
+=== TrustworthinessLevelKind
+
+The `TrustworthinessLevelKind` enumeration lists the various trustworthiness levels that can be supported by a TVRA component.
+
+==== Literals
+
+* VeryLow
+* Low
+* Medium
+* High
+* VeryHigh
+* Safe
