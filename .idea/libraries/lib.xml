@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/jaxb-core-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/angus-activation-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/papyrus-web-iomt-profile-model-2024.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/logs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/jaxb-runtime-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/papyrus-web-iomt-assertions-profile-model-2024.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/httpclient-4.5.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/slf4j-simple-2.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/txw2-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/jakarta.xml.bind-api-4.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/slf4j-api-2.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/papyrus-web-iomt-assets-profile-model-2024.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/sardine-5.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/papyrus-web-iomt-componentcategories-profile-model-2024.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/commons-codec-1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/istack-commons-runtime-4.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/httpcore-4.4.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/jakarta.activation-api-2.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

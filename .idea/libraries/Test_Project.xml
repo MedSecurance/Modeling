@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Test_Project">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-application/src/test/resources/test_import/Test_Project.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

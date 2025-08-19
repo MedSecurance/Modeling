@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="lib2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/papyrus-web-iomt-profile-model-2025.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/org.eclipse.uml2.uml-5.5.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/org.eclipse.uml2.uml.resources-5.5.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/papyrus-web-iomt-tvra-profile-model-2025.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/org.eclipse.uml2.common-2.5.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/org.eclipse.uml2.uml.profile.standard-1.5.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/org.eclipse.uml2.types-2.5.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/papyrus-web-iomt-profile-2025.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/papyrus-web-iomt-assertions-profile-model-2025.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/papyrus-web-iomt-assets-profile-model-2025.1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/medsecuranceappgen/lib/papyrus-web-iomt-componentcategories-profile-model-2025.1.7-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

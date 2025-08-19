@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-transformation-profile/.mvn/.mvn.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-transformation-profile/.mvn/.mvn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/.mvn/.mvn2.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/.mvn/.mvn2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-codegen-profile/.mvn/.mvn3.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-codegen-profile/.mvn/.mvn3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-java-profile/.mvn/.mvn4.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-java-profile/.mvn/.mvn4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-representation-builder/.mvn/.mvn5.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-representation-builder/.mvn/.mvn5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-cpp-profile/.mvn/.mvn6.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-cpp-profile/.mvn/.mvn6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-domain/.mvn/.mvn7.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-domain/.mvn/.mvn7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-graphics/.mvn/.mvn8.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-graphics/.mvn/.mvn8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Modeling.iml" filepath="$PROJECT_DIR$/.idea/Modeling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/src/gen/gen.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/src/gen/gen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-representation-builder/src/main/main.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-representation-builder/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web/src/main/main2.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/src/main/main3.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/medsecuranceappgen/src/main/main4.iml" filepath="$PROJECT_DIR$/medsecuranceappgen/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-application/src/main/main5.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-application/src/main/main5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-tests/src/main/main6.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-tests/src/main/main6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets/src/main/main7.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets/src/main/main7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/src/man/man.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/src/man/man.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.rcp.api/org.eclipse.papyrus.web.rcp.api.iml" filepath="$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.rcp.api/org.eclipse.papyrus.web.rcp.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/org.eclipse.papyrus.web.service.codegen.iml" filepath="$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/org.eclipse.papyrus.web.service.codegen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-codegen-profile/src/papyrus-web-codegen-profile.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-codegen-profile/src/papyrus-web-codegen-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-cpp-profile/src/papyrus-web-cpp-profile.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-cpp-profile/src/papyrus-web-cpp-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets-view/papyrus-web-custom-widgets-view.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets-view/papyrus-web-custom-widgets-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets-view-edit/src/papyrus-web-custom-widgets-view-edit.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets-view-edit/src/papyrus-web-custom-widgets-view-edit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-customnodes/papyrus-web-customnodes.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-customnodes/papyrus-web-customnodes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-customnodes-edit/src/papyrus-web-customnodes-edit.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-customnodes-edit/src/papyrus-web-customnodes-edit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-domain/src/papyrus-web-domain.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-domain/src/papyrus-web-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-graphics/src/papyrus-web-graphics.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-graphics/src/papyrus-web-graphics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-infra/papyrus-web-infra.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-infra/papyrus-web-infra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-assertions-profile/papyrus-web-iomt-assertions-profile.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-assertions-profile/papyrus-web-iomt-assertions-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-assertions-profile-model/papyrus-web-iomt-assertions-profile-model.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-assertions-profile-model/papyrus-web-iomt-assertions-profile-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-assets-profile/papyrus-web-iomt-assets-profile.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-assets-profile/papyrus-web-iomt-assets-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-assets-profile-model/papyrus-web-iomt-assets-profile-model.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-assets-profile-model/papyrus-web-iomt-assets-profile-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-componentcategories-profile/papyrus-web-iomt-componentcategories-profile.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-componentcategories-profile/papyrus-web-iomt-componentcategories-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-componentcategories-profile-model/papyrus-web-iomt-componentcategories-profile-model.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-componentcategories-profile-model/papyrus-web-iomt-componentcategories-profile-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-componentcategories-profile-model/src/papyrus-web-iomt-componentcategories-profile-model2.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-componentcategories-profile-model/src/papyrus-web-iomt-componentcategories-profile-model2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-profile/papyrus-web-iomt-profile.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-profile/papyrus-web-iomt-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-profile-model/papyrus-web-iomt-profile-model.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-profile-model/papyrus-web-iomt-profile-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-tvra-profile/papyrus-web-iomt-tvra-profile.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-tvra-profile/papyrus-web-iomt-tvra-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-tvra-profile-model/papyrus-web-iomt-tvra-profile-model.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-iomt-tvra-profile-model/papyrus-web-iomt-tvra-profile-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-java-profile/src/papyrus-web-java-profile.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-java-profile/src/papyrus-web-java-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-sirius-contributions/papyrus-web-sirius-contributions.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-sirius-contributions/papyrus-web-sirius-contributions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-transformation-profile/src/papyrus-web-transformation-profile.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-transformation-profile/src/papyrus-web-transformation-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-customnodes-edit/src-gen/src-gen.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-customnodes-edit/src-gen/src-gen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets-view-edit/src-gen/src-gen2.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets-view-edit/src-gen/src-gen2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-tests/src/test/test.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-tests/src/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/src/test/test2.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-properties-builder/src/test/test2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets/src/test/test3.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-custom-widgets/src/test/test3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web/src/test/test4.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web/src/test/test4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/medsecuranceappgen/src/test/test5.iml" filepath="$PROJECT_DIR$/medsecuranceappgen/src/test/test5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-application/src/test/test6.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-application/src/test/test6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/papyrus-web/backend/papyrus-web-representation-builder/src/test/test7.iml" filepath="$PROJECT_DIR$/papyrus-web/backend/papyrus-web-representation-builder/src/test/test7.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="plugins">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/plugins/net.sourceforge.plantuml.eclipse_1.1.31.20241201.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/plugins/org.eclipse.papyrus.plantuml.importer_1.1.28.20241201.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/plugins/net.sourceforge.plantuml.text_1.1.31.20241201.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/plugins/net.sourceforge.plantuml.eclipse.imagecontrol_1.1.31.20241201.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/plugins/net.sourceforge.plantuml.lib_1.2024.4.20241201.jar!/" />
+      <root url="jar://$PROJECT_DIR$/modeling-services-rcp/bundles/org.eclipse.papyrus.web.service.codegen/lib/plugins/net.sourceforge.plantuml.uml2_1.1.28.20241201.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

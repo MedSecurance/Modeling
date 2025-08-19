@@ -28,7 +28,7 @@ ENV WEBAPP_VERSION="2025.1.7-SNAPSHOT"
 RUN apt-get update &&\
   apt-get install openjdk-17-jdk -y &&\
   apt-get install wget -y &&\
-  wget https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
+  wget https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
   tar -xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
   export PATH=$PWD/apache-maven-$MAVEN_VERSION/bin:$PATH &&\
   mvn install:install-file \
