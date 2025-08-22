@@ -5,7 +5,7 @@ services:
     env_file:
       - .env    
   papyrusweb:
-    image: papyrus-web-iomt:2025.05.21
+    image: papyrus-web-iomt:2025.05.21${IMAGE_SUFFIX}
     build:
       context: .
       dockerfile: ./dockerfiles/Dockerfile
@@ -23,9 +23,9 @@ services:
 
   codegenrcp:
     build:
-      context: ../services/modeling-services-rcp
+      context: ../modeling-services-rcp
       dockerfile: dockerfiles/rcp/Dockerfile
-    image: codegenrcp:2025.04.28
+    image: codegenrcp:2025.08.22${IMAGE_SUFFIX}
     ports:
       - "8083:8083"
     env_file:
@@ -35,7 +35,7 @@ services:
     build:
       context: ../medsecuranceappgen
       dockerfile: dockerfiles/Dockerfile
-    image: iomtgen
+    image: iomtgen:2025.08.22${IMAGE_SUFFIX}
     command: 
     ports:
       - "9000:9000"

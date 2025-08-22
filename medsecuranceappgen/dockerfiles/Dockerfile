@@ -21,16 +21,17 @@ FROM ubuntu:24.04 as generateiomtapp-build
 ADD . /build
 WORKDIR /build/
 
-ENV MAVEN_VERSION="3.9.4"
+# ENV MAVEN_VERSION="3.9.4"
 
 ENV WEBAPP_VERSION="2025.1.7-SNAPSHOT"
 
 RUN apt-get update &&\
   apt-get install openjdk-17-jdk -y &&\
   apt-get install wget -y &&\
-  wget https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
-  tar -xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
-  export PATH=$PWD/apache-maven-$MAVEN_VERSION/bin:$PATH &&\
+#   wget https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
+#   tar -xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz &&\
+#   export PATH=$PWD/apache-maven-$MAVEN_VERSION/bin:$PATH &&\
+  apt-get install maven -y &&\
   mvn install:install-file \
      -Dfile=./lib/papyrus-web-iomt-assertions-profile-model-${WEBAPP_VERSION}.jar \
      -DgroupId=papyrus-web \

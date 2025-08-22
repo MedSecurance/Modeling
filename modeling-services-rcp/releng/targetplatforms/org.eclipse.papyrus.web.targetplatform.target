@@ -25,7 +25,7 @@
 	</location>
 	
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-		<repository location="https://ci.eclipse.org/papyrus/job/papyrus-designer-2024-06/lastSuccessfulBuild/artifact/releng/org.eclipse.papyrus.designer.p2/target/repository/"/>
+		<repository location="https://download.eclipse.org/modeling/mdt/papyrus/components/designer/2024-06/"/>
 		<unit id="org.eclipse.papyrus.designer.languages.c.feature.feature.group" version="0.0.0"/>
 		<unit id="org.eclipse.papyrus.designer.languages.common.feature.feature.group" version="0.0.0"/>
 		<unit id="org.eclipse.papyrus.designer.languages.cpp.feature.feature.group" version="0.0.0"/>
