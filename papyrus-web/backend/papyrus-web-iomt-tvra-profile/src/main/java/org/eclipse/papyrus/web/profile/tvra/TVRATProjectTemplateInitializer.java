@@ -157,7 +157,24 @@ public class TVRATProjectTemplateInitializer implements IProjectTemplateInitiali
                 .filter(m -> m instanceof Class && "Patients_Wifi".equals(m.getName())).findFirst().orElse(null);
         Class patientsRouter = (Class) model.getOwnedMembers().stream()
                 .filter(m -> m instanceof Class && "Patients_Router".equals(m.getName())).findFirst().orElse(null);
+        Class internet = (Class) model.getOwnedMembers().stream()
+                .filter(m -> m instanceof Class && "Internet".equals(m.getName())).findFirst().orElse(null);
+        Class publicCellularNetwork = (Class) model.getOwnedMembers().stream()
+                .filter(m -> m instanceof Class && "PublicCellularNetwork".equals(m.getName())).findFirst().orElse(null);
+        Class cellularNetworkProvider = (Class) model.getOwnedMembers().stream()
+                .filter(m -> m instanceof Class && "CellularNetworkProvider".equals(m.getName())).findFirst().orElse(null);
+        Class dataRepo = (Class) model.getOwnedMembers().stream()
+                .filter(m -> m instanceof Class && "DataRepo".equals(m.getName())).findFirst().orElse(null);
+        Class repoProvider = (Class) model.getOwnedMembers().stream()
+                .filter(m -> m instanceof Class && "RepoProvider".equals(m.getName())).findFirst().orElse(null);
+        Class treatment = (Class) model.getOwnedMembers().stream()
+                .filter(m -> m instanceof Class && "Treatment".equals(m.getName())).findFirst().orElse(null);
+        Class patientsMeasurement = (Class) model.getOwnedMembers().stream()
+                .filter(m -> m instanceof Class && "Patients_measurement".equals(m.getName())).findFirst().orElse(null);
+        Class healthCareProvider = (Class) model.getOwnedMembers().stream()
+                .filter(m -> m instanceof Class && "HealthCareProvider".equals(m.getName())).findFirst().orElse(null);
 
+                
         return this.diagramBuilderService.updateDiagram(diagram, editingContext, diagramContext -> {
             this.classDiagramService.semanticDrop(sensor, null, editingContext, diagramContext, convertedNodes);
             this.classDiagramService.semanticDrop(patient, null, editingContext, diagramContext, convertedNodes);
@@ -168,6 +185,14 @@ public class TVRATProjectTemplateInitializer implements IProjectTemplateInitiali
             this.classDiagramService.semanticDrop(patientsHouse, null, editingContext, diagramContext, convertedNodes);
             this.classDiagramService.semanticDrop(patientsWifi, null, editingContext, diagramContext, convertedNodes);
             this.classDiagramService.semanticDrop(patientsRouter, null, editingContext, diagramContext, convertedNodes);
+            this.classDiagramService.semanticDrop(internet, null, editingContext, diagramContext, convertedNodes);
+            this.classDiagramService.semanticDrop(publicCellularNetwork, null, editingContext, diagramContext, convertedNodes);
+            this.classDiagramService.semanticDrop(cellularNetworkProvider, null, editingContext, diagramContext, convertedNodes);
+            this.classDiagramService.semanticDrop(dataRepo, null, editingContext, diagramContext, convertedNodes);
+            this.classDiagramService.semanticDrop(repoProvider, null, editingContext, diagramContext, convertedNodes);
+            this.classDiagramService.semanticDrop(treatment, null, editingContext, diagramContext, convertedNodes);
+            this.classDiagramService.semanticDrop(patientsMeasurement, null, editingContext, diagramContext, convertedNodes);
+            this.classDiagramService.semanticDrop(healthCareProvider, null, editingContext, diagramContext, convertedNodes);
         });
     }
 

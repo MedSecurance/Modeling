@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IoMTProfile.External="http:///IoMTProfile/External.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tvra="http://iomt.tvra" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///IoMTProfile/External.ecore http://iomtprofile#//External">
+  <uml:Model xmi:id="1cf44697-7b53-45d1-97ef-03b727dd3575" name="TVRAPatientsMonitoring" URI="http://TVRAModel">
+    <ownedComment xmi:id="17e38b00-a14a-4cfa-91e4-1dd7f55fbbb5">
+      <body>This model has the IoMT and TVRA profiles applied.
+
+It is compatible with the Threat, Risk  and Vulnerability  Analysis tool from the Medsecurance Project, which uses the Spyderisk tool.</body>
+    </ownedComment>
+    <packageImport xmi:id="f3cba8dc-c76f-4b22-826d-906683930be1">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="c1be9673-4542-45b0-8680-83e79c0a16c4" name="Patient">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="4f6d0995-c331-4182-bb88-3df8b3f344a3" name="UsesNoEmail"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="8124173c-3c2d-43ec-8b27-01ec1b9a0888" name="PasswordVerifier"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="9fd30c10-1ee9-40e1-91cc-b37a7eb7c8de" name="PhysicalKey"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="7a63a2a6-167b-48ed-b0ab-4260c43ae5ce" name="MS-LossOfIntegrity"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="5f5daa86-5df2-40c6-8cc9-5168ac4a0d6a" name="TWAS-Availability"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="0f400327-9edc-444f-9a9f-ba42741ae1a1" name="Patients_Phone">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="8fcc35e1-db25-4062-b790-9d7a8f9d91f5" name="CS-PersonalDevice"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="1304eaeb-efb8-4ccd-9ec2-7b4108254b63" name="CS-SecureConfig"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="2d0ed01a-b873-4588-9229-dcbfd4aaf5e5" name="Sensor_App">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="0f173d9f-c34e-45e1-bcf7-25d514f0af0d" name="CS-AccessControl"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="85914a91-31f2-4373-a2bc-87da192a2662" name="CS-Password"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="f3690da4-84f8-49a1-bcdd-ba5ff3ac65a5" name="CS-AuthenticationLimits"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="92c74bfb-8959-4918-86e5-38403a36080f" name="TWAS-TrojanTW"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="1112513f-709e-4376-90c5-e02141915c74" name="Sensor">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="b4f388e5-4af3-48bc-af2e-605765c4d850" name="CS-PersonalDevice"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="65bced88-7831-4715-820f-de7b20d2a889" name="CS-SecureConfig"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ab8cf2ff-23ed-48b9-b419-b5052882aee4" name="Public"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="86613ed1-d0b2-440b-878f-1fc6ba167669" name="Patients_Work"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="ace28501-3533-4a1d-ae06-962515dccca7" name="Patients_House"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="03f4bf85-b6ec-4d42-add1-0fe215ca2340" name="Patients_Wifi">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="28299c3c-0012-4813-8d78-dd508fc52f08" name="CS-SecureConfig"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="1f2213f2-f667-44d7-81ae-3a23ffd8b4c4" name="Patients_Router">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="5f6df492-a283-4352-a372-ac2e5d600c31" name="CS-Unmanaged"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="97487871-d982-40a4-9416-538e91fa47a8" name="CS-SecureConfig"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="6b7bd65c-a733-4087-83f8-dd435be10391" name="manages" memberEnd="6d07d417-8368-4d38-aa25-6ea6a22cb572 490fa5bf-5b1e-4641-b2f0-2e05adf1307e" navigableOwnedEnd="6d07d417-8368-4d38-aa25-6ea6a22cb572">
+      <eAnnotations xmi:id="a16eac9f-53bc-4a76-ba86-584b66c5110e" source="org.eclipse.papyrus">
+        <details xmi:id="b5659011-8765-4d49-be09-b918e48ffd80" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="6d07d417-8368-4d38-aa25-6ea6a22cb572" name="patients phone" type="0f400327-9edc-444f-9a9f-ba42741ae1a1" association="6b7bd65c-a733-4087-83f8-dd435be10391"/>
+      <ownedEnd xmi:id="490fa5bf-5b1e-4641-b2f0-2e05adf1307e" name="patient" type="c1be9673-4542-45b0-8680-83e79c0a16c4" association="6b7bd65c-a733-4087-83f8-dd435be10391"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="c0ab5057-15dc-401e-af89-d255e8848502" name="relatesTo" memberEnd="3d1caa39-f266-48ba-989d-13f44e59ebc3 e8a902c0-b5d2-4588-abd9-e5d83df5fd59" navigableOwnedEnd="e8a902c0-b5d2-4588-abd9-e5d83df5fd59">
+      <eAnnotations xmi:id="5350654b-3c46-4b56-9395-f7724dff9095" source="org.eclipse.papyrus">
+        <details xmi:id="1218dba8-2bea-4afe-8cae-cb98e9dba27f" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="3d1caa39-f266-48ba-989d-13f44e59ebc3" name="sensor" type="1112513f-709e-4376-90c5-e02141915c74" association="c0ab5057-15dc-401e-af89-d255e8848502"/>
+      <ownedEnd xmi:id="e8a902c0-b5d2-4588-abd9-e5d83df5fd59" name="patient" type="c1be9673-4542-45b0-8680-83e79c0a16c4" association="c0ab5057-15dc-401e-af89-d255e8848502"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="910bf9c5-e730-483d-9de0-d397b00a61d3" name="interactsWith" memberEnd="74a7ba2e-2d0b-48ca-8c43-cdbd2273c2a5 fa80c1d3-7bb0-444e-9116-0837f55527c4" navigableOwnedEnd="74a7ba2e-2d0b-48ca-8c43-cdbd2273c2a5">
+      <eAnnotations xmi:id="ce8a640f-75d7-4295-a260-1aedf7eaf650" source="org.eclipse.papyrus">
+        <details xmi:id="3b834c7c-e0ee-44c6-adad-79f491a233d6" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="74a7ba2e-2d0b-48ca-8c43-cdbd2273c2a5" name="sensor app" type="2d0ed01a-b873-4588-9229-dcbfd4aaf5e5" association="910bf9c5-e730-483d-9de0-d397b00a61d3"/>
+      <ownedEnd xmi:id="fa80c1d3-7bb0-444e-9116-0837f55527c4" name="patient" type="c1be9673-4542-45b0-8680-83e79c0a16c4" association="910bf9c5-e730-483d-9de0-d397b00a61d3"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="fa124a44-66e2-4268-90ed-09a9a3cc7d80" name="hosts" memberEnd="0a58c58e-d5c7-41e3-86ca-7c449fcf16e1 6a7336c2-121e-4ccb-bf1e-f48d48000759" navigableOwnedEnd="0a58c58e-d5c7-41e3-86ca-7c449fcf16e1">
+      <eAnnotations xmi:id="1464b685-64e4-4185-a96e-69614e2f72d3" source="org.eclipse.papyrus">
+        <details xmi:id="df6ad949-2a6e-4b5b-bec1-15782bebaeb7" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="0a58c58e-d5c7-41e3-86ca-7c449fcf16e1" name="sensor app" type="2d0ed01a-b873-4588-9229-dcbfd4aaf5e5" association="fa124a44-66e2-4268-90ed-09a9a3cc7d80"/>
+      <ownedEnd xmi:id="6a7336c2-121e-4ccb-bf1e-f48d48000759" name="patients phone" type="0f400327-9edc-444f-9a9f-ba42741ae1a1" association="fa124a44-66e2-4268-90ed-09a9a3cc7d80"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="0f74ffca-2138-4f14-a8b2-a418169045f2" name="pairsViaBluetooth" memberEnd="06d24158-1936-4256-97df-3cc861eeed2f ab979215-fe70-43f6-9fa7-62932186e569" navigableOwnedEnd="06d24158-1936-4256-97df-3cc861eeed2f">
+      <eAnnotations xmi:id="2421e3f4-e172-4202-9d9a-c2952c518e8b" source="org.eclipse.papyrus">
+        <details xmi:id="a6786d8c-62f5-4600-9d70-2255f4ad3218" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="06d24158-1936-4256-97df-3cc861eeed2f" name="sensor" type="1112513f-709e-4376-90c5-e02141915c74" association="0f74ffca-2138-4f14-a8b2-a418169045f2"/>
+      <ownedEnd xmi:id="ab979215-fe70-43f6-9fa7-62932186e569" name="patients phone" type="0f400327-9edc-444f-9a9f-ba42741ae1a1" association="0f74ffca-2138-4f14-a8b2-a418169045f2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="d29a07df-5f06-46c8-9044-6ce0e21dbe91" name="locatedIn" memberEnd="f3a92fe7-9236-4777-9b43-d97b3aebaf9a 54f805f2-6c31-42e5-8077-7d7e54750af6" navigableOwnedEnd="f3a92fe7-9236-4777-9b43-d97b3aebaf9a">
+      <eAnnotations xmi:id="109d7492-d234-4f90-8247-17606b4e0598" source="org.eclipse.papyrus">
+        <details xmi:id="4ed70c0a-a140-4e70-96bf-dbd773fb648e" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="f3a92fe7-9236-4777-9b43-d97b3aebaf9a" name="public" type="ab8cf2ff-23ed-48b9-b419-b5052882aee4" association="d29a07df-5f06-46c8-9044-6ce0e21dbe91"/>
+      <ownedEnd xmi:id="54f805f2-6c31-42e5-8077-7d7e54750af6" name="patients phone" type="0f400327-9edc-444f-9a9f-ba42741ae1a1" association="d29a07df-5f06-46c8-9044-6ce0e21dbe91"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="3b89d04b-3e46-4192-a50f-e35eae164d03" name="locatedIn" memberEnd="03ab5781-5b3c-4e44-8786-3faeca4e8f55 02dec26c-c5ed-48e3-b8c8-da12cb4a24ae" navigableOwnedEnd="03ab5781-5b3c-4e44-8786-3faeca4e8f55">
+      <eAnnotations xmi:id="80545f79-5113-42c4-b350-eff6a91a3eb9" source="org.eclipse.papyrus">
+        <details xmi:id="259d2ca2-ee82-4ec2-9873-0faf2c713adf" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="03ab5781-5b3c-4e44-8786-3faeca4e8f55" name="patients work" type="86613ed1-d0b2-440b-878f-1fc6ba167669" association="3b89d04b-3e46-4192-a50f-e35eae164d03"/>
+      <ownedEnd xmi:id="02dec26c-c5ed-48e3-b8c8-da12cb4a24ae" name="patients phone" type="0f400327-9edc-444f-9a9f-ba42741ae1a1" association="3b89d04b-3e46-4192-a50f-e35eae164d03"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="185c219e-c87e-42e8-bbc7-6635d95a58d1" name="locatedIn" memberEnd="02317cc5-5295-4f31-ae1f-c19422e3aa30 2d7f447e-9b34-4e89-894d-e03a3678774a" navigableOwnedEnd="2d7f447e-9b34-4e89-894d-e03a3678774a">
+      <eAnnotations xmi:id="954d906f-3e83-4163-8e61-d6995deb8cff" source="org.eclipse.papyrus">
+        <details xmi:id="3d6a865a-c882-47c2-928a-a82f1ad4a42f" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="02317cc5-5295-4f31-ae1f-c19422e3aa30" name="patients phone" type="0f400327-9edc-444f-9a9f-ba42741ae1a1" association="185c219e-c87e-42e8-bbc7-6635d95a58d1"/>
+      <ownedEnd xmi:id="2d7f447e-9b34-4e89-894d-e03a3678774a" name="patients house" type="ace28501-3533-4a1d-ae06-962515dccca7" association="185c219e-c87e-42e8-bbc7-6635d95a58d1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="25c9877b-fce3-4dfc-aa1b-13b4a6087593" name="connectedTo" memberEnd="603ddbd8-c23d-4ec5-a5c7-03624d1ec03d 9b3456ae-58aa-4c54-9169-c68478251aed" navigableOwnedEnd="9b3456ae-58aa-4c54-9169-c68478251aed">
+      <eAnnotations xmi:id="64d39561-58ca-45d2-9d68-a201f3022317" source="org.eclipse.papyrus">
+        <details xmi:id="ecc9705c-1171-4c11-be83-ef42cb6b84a0" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="603ddbd8-c23d-4ec5-a5c7-03624d1ec03d" name="patients phone" type="0f400327-9edc-444f-9a9f-ba42741ae1a1" association="25c9877b-fce3-4dfc-aa1b-13b4a6087593"/>
+      <ownedEnd xmi:id="9b3456ae-58aa-4c54-9169-c68478251aed" name="patients wifi" type="03f4bf85-b6ec-4d42-add1-0fe215ca2340" association="25c9877b-fce3-4dfc-aa1b-13b4a6087593"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="4241006c-c92a-45e6-a5e2-1a7b228a0364" name="providedBy" memberEnd="ed0883fa-c7bf-4cc7-aff1-6bc966c68842 5a585512-4480-4512-b40c-5828dbd5804f" navigableOwnedEnd="ed0883fa-c7bf-4cc7-aff1-6bc966c68842">
+      <eAnnotations xmi:id="7274a004-84e2-4169-a941-147f088fbb9e" source="org.eclipse.papyrus">
+        <details xmi:id="6987d5e0-c099-451e-b680-736047239592" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="ed0883fa-c7bf-4cc7-aff1-6bc966c68842" name="patients router" type="1f2213f2-f667-44d7-81ae-3a23ffd8b4c4" association="4241006c-c92a-45e6-a5e2-1a7b228a0364"/>
+      <ownedEnd xmi:id="5a585512-4480-4512-b40c-5828dbd5804f" name="patients wifi" type="03f4bf85-b6ec-4d42-add1-0fe215ca2340" association="4241006c-c92a-45e6-a5e2-1a7b228a0364"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="3dd7ccee-af65-4f11-ad9a-e2744932aa0d" memberEnd="367bf70f-c6f4-4828-8ebc-737386502c71 39582032-e693-4293-8119-e24f252608fa" navigableOwnedEnd="367bf70f-c6f4-4828-8ebc-737386502c71">
+      <eAnnotations xmi:id="8b3f80c2-ea8c-4cd0-a705-7613b89f6f31" source="org.eclipse.papyrus">
+        <details xmi:id="8ca616e0-8dfe-4c2f-9e48-d6356c8893d0" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="367bf70f-c6f4-4828-8ebc-737386502c71" name="sensor" type="1112513f-709e-4376-90c5-e02141915c74" association="3dd7ccee-af65-4f11-ad9a-e2744932aa0d"/>
+      <ownedEnd xmi:id="39582032-e693-4293-8119-e24f252608fa" name="sensor app" type="2d0ed01a-b873-4588-9229-dcbfd4aaf5e5" association="3dd7ccee-af65-4f11-ad9a-e2744932aa0d"/>
+    </packagedElement>
+    <profileApplication xmi:id="0b98c598-a8d3-45f0-9df9-52f4bde2330b">
+      <eAnnotations xmi:id="39b35dec-73c9-4385-8fea-04cf26bdf2da" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://iomt.tvra#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://IoMTTVRA_PROFILE/TVRA.profile.uml#dd3656b0-efed-4c8a-829b-ce62b54a8a8b"/>
+    </profileApplication>
+    <profileApplication xmi:id="b1e88600-c142-4bc8-bfae-443ff51c963d">
+      <eAnnotations xmi:id="34e6e845-fcc2-4c69-91c7-206852aeaafa" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://iomtprofile#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://IoMT_PROFILE/IoMT.profile.uml#7cd26dfb-691a-4ee5-9dde-3557dac2a2fa"/>
+    </profileApplication>
+  </uml:Model>
+  <tvra:TVRAAsset xmi:id="faea9556-3d99-46fd-9cd7-58c511426353" base_Class="c1be9673-4542-45b0-8680-83e79c0a16c4" kind="Adult" misbehaviours="04e3722d-3d17-41a6-a6f1-20174dff534c" trustworthinessattributesets="311e7336-35d5-4cac-910d-ac3bfcbe29b3" controlsets="a37a6b01-2495-4b9a-ba9e-143b2388a0da 1677c35d-7494-4adb-81ce-750a03535109 30bcd0c0-9a94-4ffc-a58a-25086d16a6cb"/>
+  <tvra:TVRAAsset xmi:id="c26d5e2c-3e7e-4310-bf27-1a21468da9d4" base_Class="0f400327-9edc-444f-9a9f-ba42741ae1a1" kind="Smartphone" controlsets="1e7b4c9f-6ec0-4226-9bd5-6024f0f6f89d 6cb56e82-fdc8-4b1d-a8ff-e0dc95de5fa1"/>
+  <tvra:TVRAAsset xmi:id="8a42eb78-325e-4053-989a-ea51c1cb6557" base_Class="2d0ed01a-b873-4588-9229-dcbfd4aaf5e5" kind="ApplicationProcess" trustworthinessattributesets="f59a5429-76b3-4fc9-bdeb-184d9cbc8a66" controlsets="540977d8-2be3-46a9-8568-1cb552267878 83ca09f7-7102-4c58-8518-cfc0d9b8daa8 177fd609-f437-4b2f-adf1-088f879a117a"/>
+  <tvra:TVRAAsset xmi:id="0d13b291-a01a-4031-815a-ff71c373194e" base_Class="1112513f-709e-4376-90c5-e02141915c74" kind="Sensor" controlsets="9bf34e3a-f776-42fc-8bea-745d41aa1d67 4ad9b90d-f332-46c6-b932-9ac2cade7188"/>
+  <tvra:TVRAAsset xmi:id="c1dcfff6-6057-4755-b2aa-db52708340d1" base_Class="ab8cf2ff-23ed-48b9-b419-b5052882aee4" kind="PublicSpace"/>
+  <tvra:TVRAAsset xmi:id="effe0d83-21e4-4589-88fe-83923aa51be8" base_Class="86613ed1-d0b2-440b-878f-1fc6ba167669" kind="BoundedSpace"/>
+  <tvra:TVRAAsset xmi:id="6ac225d0-2fc3-4906-a0c2-5058d3db86e8" base_Class="ace28501-3533-4a1d-ae06-962515dccca7" kind="PrivateSpace"/>
+  <tvra:TVRAAsset xmi:id="803a6a59-4ae2-468b-b89b-4070ed297681" base_Class="03f4bf85-b6ec-4d42-add1-0fe215ca2340" kind="WiFiLAN" controlsets="49e4eeb1-faea-47f5-a638-800a3f5e6bf4"/>
+  <tvra:TVRAAsset xmi:id="b16a2639-7d12-4a24-85aa-c00f39646ee7" base_Class="1f2213f2-f667-44d7-81ae-3a23ffd8b4c4" kind="Router" controlsets="9b89621f-7d25-4a95-bb28-e71b966c509a ee3c7c5b-7a2d-46bd-a33f-1caaf94e60da"/>
+  <tvra:NetworkDomain xmi:id="b2315e21-a833-403c-bf03-43e3baf6af5e" base_Association="6b7bd65c-a733-4087-83f8-dd435be10391" kind="manages"/>
+  <tvra:NetworkDomain xmi:id="85f9515d-9b21-43c1-a18c-41f48ddf2583" base_Association="c0ab5057-15dc-401e-af89-d255e8848502" kind="relatesTo"/>
+  <tvra:NetworkDomain xmi:id="cd62d297-704c-4da2-adc6-7132ad6e99e8" base_Association="910bf9c5-e730-483d-9de0-d397b00a61d3" kind="interactsWith"/>
+  <tvra:NetworkDomain xmi:id="7369026b-bb2d-47b4-be13-6ee981080910" base_Association="fa124a44-66e2-4268-90ed-09a9a3cc7d80" kind="hosts"/>
+  <tvra:NetworkDomain xmi:id="e8e72740-b20b-4bdb-ae5e-d61a6bb3b6d9" base_Association="0f74ffca-2138-4f14-a8b2-a418169045f2" kind="pairsViaBluetooth"/>
+  <tvra:NetworkDomain xmi:id="4530f524-54f7-44dd-b1cf-752589e22535" base_Association="d29a07df-5f06-46c8-9044-6ce0e21dbe91" kind="locatedIn"/>
+  <tvra:NetworkDomain xmi:id="23ffff51-a240-4b0f-967f-530084210aa5" base_Association="3b89d04b-3e46-4192-a50f-e35eae164d03" kind="locatedIn"/>
+  <tvra:NetworkDomain xmi:id="ab8c46a8-5d33-460d-b848-95e45cc08a80" base_Association="185c219e-c87e-42e8-bbc7-6635d95a58d1" kind="locatedIn"/>
+  <tvra:NetworkDomain xmi:id="26a8b679-bca6-4094-9096-87e6ba6dae81" base_Association="25c9877b-fce3-4dfc-aa1b-13b4a6087593" kind="connectedTo"/>
+  <tvra:NetworkDomain xmi:id="fe1735e9-01e5-4ad9-8c35-470938e09161" base_Association="4241006c-c92a-45e6-a5e2-1a7b228a0364" kind="providedBy"/>
+  <tvra:ControlSet xmi:id="a37a6b01-2495-4b9a-ba9e-143b2388a0da" kind="CSUsesNoEmail" base_Class="4f6d0995-c331-4182-bb88-3df8b3f344a3" isProposed="true" coverageLevel="High" tvraasset="faea9556-3d99-46fd-9cd7-58c511426353"/>
+  <tvra:ControlSet xmi:id="1677c35d-7494-4adb-81ce-750a03535109" kind="CSPasswordVerifier" base_Class="8124173c-3c2d-43ec-8b27-01ec1b9a0888" isProposed="true" tvraasset="faea9556-3d99-46fd-9cd7-58c511426353"/>
+  <tvra:ControlSet xmi:id="30bcd0c0-9a94-4ffc-a58a-25086d16a6cb" kind="CSPhysicalKey" base_Class="9fd30c10-1ee9-40e1-91cc-b37a7eb7c8de" isProposed="true" tvraasset="faea9556-3d99-46fd-9cd7-58c511426353"/>
+  <tvra:Misbehaviour xmi:id="04e3722d-3d17-41a6-a6f1-20174dff534c" kind="MSLossOfIntegrity" base_Class="7a63a2a6-167b-48ed-b0ab-4260c43ae5ce" tvraasset="faea9556-3d99-46fd-9cd7-58c511426353"/>
+  <tvra:TrustworthinessAttributeSet xmi:id="311e7336-35d5-4cac-910d-ac3bfcbe29b3" base_Class="5f5daa86-5df2-40c6-8cc9-5168ac4a0d6a" kind="TWASAvailability" trustworthinessLevel="VeryHigh" tvraasset="faea9556-3d99-46fd-9cd7-58c511426353"/>
+  <tvra:ControlSet xmi:id="9bf34e3a-f776-42fc-8bea-745d41aa1d67" kind="CSPersonalDevice" base_Class="b4f388e5-4af3-48bc-af2e-605765c4d850" isProposed="true" tvraasset="0d13b291-a01a-4031-815a-ff71c373194e"/>
+  <tvra:ControlSet xmi:id="4ad9b90d-f332-46c6-b932-9ac2cade7188" kind="CSSecureConfig" base_Class="65bced88-7831-4715-820f-de7b20d2a889" isProposed="true" tvraasset="0d13b291-a01a-4031-815a-ff71c373194e"/>
+  <tvra:ControlSet xmi:id="1e7b4c9f-6ec0-4226-9bd5-6024f0f6f89d" kind="CSPersonalDevice" base_Class="8fcc35e1-db25-4062-b790-9d7a8f9d91f5" isProposed="true" tvraasset="c26d5e2c-3e7e-4310-bf27-1a21468da9d4"/>
+  <tvra:ControlSet xmi:id="6cb56e82-fdc8-4b1d-a8ff-e0dc95de5fa1" kind="CSSecureConfig" base_Class="1304eaeb-efb8-4ccd-9ec2-7b4108254b63" isProposed="true" tvraasset="c26d5e2c-3e7e-4310-bf27-1a21468da9d4"/>
+  <tvra:ControlSet xmi:id="540977d8-2be3-46a9-8568-1cb552267878" kind="CSAccessKey" base_Class="0f173d9f-c34e-45e1-bcf7-25d514f0af0d" isProposed="true" tvraasset="8a42eb78-325e-4053-989a-ea51c1cb6557"/>
+  <tvra:ControlSet xmi:id="83ca09f7-7102-4c58-8518-cfc0d9b8daa8" kind="CSPassword" base_Class="85914a91-31f2-4373-a2bc-87da192a2662" isProposed="true" tvraasset="8a42eb78-325e-4053-989a-ea51c1cb6557"/>
+  <tvra:ControlSet xmi:id="177fd609-f437-4b2f-adf1-088f879a117a" kind="CSAuthenticationLimits" base_Class="f3690da4-84f8-49a1-bcdd-ba5ff3ac65a5" isProposed="true" tvraasset="8a42eb78-325e-4053-989a-ea51c1cb6557"/>
+  <tvra:TrustworthinessAttributeSet xmi:id="f59a5429-76b3-4fc9-bdeb-184d9cbc8a66" base_Class="92c74bfb-8959-4918-86e5-38403a36080f" trustworthinessLevel="VeryHigh" tvraasset="8a42eb78-325e-4053-989a-ea51c1cb6557"/>
+  <tvra:ControlSet xmi:id="49e4eeb1-faea-47f5-a638-800a3f5e6bf4" kind="CSSecureConfig" base_Class="28299c3c-0012-4813-8d78-dd508fc52f08" isProposed="true" tvraasset="803a6a59-4ae2-468b-b89b-4070ed297681"/>
+  <tvra:ControlSet xmi:id="9b89621f-7d25-4a95-bb28-e71b966c509a" kind="CSUnmanaged" base_Class="5f6df492-a283-4352-a372-ac2e5d600c31" isProposed="true" tvraasset="b16a2639-7d12-4a24-85aa-c00f39646ee7"/>
+  <tvra:ControlSet xmi:id="ee3c7c5b-7a2d-46bd-a33f-1caaf94e60da" kind="CSSecureConfig" base_Class="97487871-d982-40a4-9416-538e91fa47a8" isProposed="true" tvraasset="b16a2639-7d12-4a24-85aa-c00f39646ee7"/>
+  <IoMTProfile.External:Person xmi:id="bb5c1dc8-fb7b-4a21-9114-27d3a7808139" base_Class="c1be9673-4542-45b0-8680-83e79c0a16c4"/>
+  <tvra:NetworkDomain xmi:id="87abd0ce-5424-4d45-8f4e-dd947f685d45" base_Association="3dd7ccee-af65-4f11-ad9a-e2744932aa0d" kind="pollsSensor"/>
+</xmi:XMI>

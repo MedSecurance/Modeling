@@ -5,7 +5,7 @@ services:
     env_file:
       - .env    
   papyrusweb:
-    image: papyrus-web-iomt:2025.05.21${IMAGE_SUFFIX}
+    image: papyrus-web-iomt:2025.10.16${IMAGE_SUFFIX}
     build:
       context: .
       dockerfile: ./dockerfiles/Dockerfile
