@@ -1,0 +1,11 @@
+fxlib_a_c_sources =
+
+fxlib_a_asm_sources = \
+	lrdivi.S \
+	rdivi.S \
+	ulrdivi.S \
+	urdivi.S \
+	sqrthr.S \
+	sqrtuhr.S
+
+fxlib_a_extra_dist =

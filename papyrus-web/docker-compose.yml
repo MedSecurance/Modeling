@@ -42,3 +42,18 @@ services:
     environment:
       APPWEB_URL: http://papyrusweb:8080
 
+  framac-api:
+    build:
+      context: ../frama-c-for-arduino/install
+      dockerfile: Dockerfile
+    image: frama-c-api:2025.11.14${IMAGE_SUFFIX}
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
