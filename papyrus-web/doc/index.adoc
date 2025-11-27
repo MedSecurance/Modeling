@@ -29,4 +29,3 @@ Papyrus web v{papyrus-web-version} - {git-commit-id-abbrev}
 - xref:user/userdoc.adoc[User documentation]
 - xref:dev/dev-doc-index.adoc[Developper documentation]
 - xref:spec/diagrams-spec-index.adoc[Detailed Diagram specification]
-

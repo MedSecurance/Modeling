@@ -27,4 +27,16 @@ docker compose up
 
 Detailed installation instructions (using docker or scripts) are available in the papyrus-web folder.
 
+### Step-by-step build
+- [Detailed step-by-step build](./papyrus-web/README.adoc)
+  
+### Tool detailed documentation
+
+The tool detailed documenation is [available here](./papyrus-web/doc/index.adoc). The documentation has the following items:
+- **Use cases Howtos**: step-by-step guides for IoMT model create, TVRA model instantiation, IoMT with constraints model, code generation.
+- **IoMT Profiles descriptions**: IoMT Profile, IoMT Component Categories Profile, IoMT Assets Profile, IoMT TVRA Profile.
+- **Import/Export features**: how to export the models in XMI and JSON.
+- **User documentation**: description of all tool features.
+- **Developper documentation**: how to extend the tool.
+
 
