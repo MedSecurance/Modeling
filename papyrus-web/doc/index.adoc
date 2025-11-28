@@ -10,9 +10,12 @@
  Contributors:
      Obeo - Initial API and implementation 
      Aurelien Didier (Artal Technologies) - Issue 201
+     Marcos Didonet Del Fabro (CEA LIST) 
 ////
-= Papyrus Web Documentation
-Papyrus web v{papyrus-web-version} - {git-commit-id-abbrev}
+= IoMT Modeling Tool Documentation
+IoMT Modeling Tool v{papyrus-web-version} - {git-commit-id-abbrev}
+
+The IoMT Modeling Tool (IoMT) is an open-source web-based modeling tool, specialized in the design of Internet of Medical Things (IoMT) architectures. It is built on top of Papyrus Web, an Eclipse Foundation project that provides a web-based modeling environment.
 
 - xref:iomt_howto/iomt_howto.adoc[HowTo - IoMT model creation]
 - xref:iomt_howto/tvra_howto.adoc[HowTo - TVRA model instantiation]
