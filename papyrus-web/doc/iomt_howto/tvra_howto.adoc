@@ -16,6 +16,8 @@ This how-to is separated into 3 major steps:
 
 . *Model from template*: Creation of an initial model from a template. 
 . *Model edition*: how to edit the model elements.
+. *Modelling hints*: some hints on how to create TVRA models.
+. *Model export*: how to export the created model for further analysis with the TVRA Toolkit.
 
 The URL of PapyrusWeb is : {papyrusweb-url}
 
@@ -23,7 +25,7 @@ The URL of PapyrusWeb is : {papyrusweb-url}
 
 PapyrusWeb enables the creation of different kinds of projects. The start page provides a set of templates, or an existing project may be reopened. 
 
-image:{imagesdir}/createnew_project_from_template.png[Create new project]
+image:createnew_project_from_template.png[Create new project]
 
 By selecting the *IoMT TVRA Analysis* template, it performs the following actions:
 
@@ -48,7 +50,9 @@ There are 4 possible elements.
 
 ** _TVRAAsset_: the Assets are the core elements of a TVRA model, such as the Sensors, Actuators, Patients, Devices, Cloud artifacts. Each asset may have a _kind_. 
 
-** _Misbehaviour_, _ControlSet_, _TWAS_: these three elements enable caracterizing the created assets, with specific TVRA characteristics. While the may be created in the visual diagram, we recommend to create them only in the model explorer, to keep the diagram visilibity simple. The TVRA profile has 208 kinds of Assets, 61 Misbehaviours, 52 TWAS, 143 Control Sets. The list below contains a subset of the possible TVRA Asset Kinds.
+** _Misbehaviour_, _ControlSet_, _TWAS_: these three elements enable caracterizing the created assets, with specific TVRA characteristics. While the may be created in the visual diagram, we recommend to create them only in the model explorer, to keep the diagram visilibity simple. The TVRA profile has 208 kinds of Assets, 61 Misbehaviours, 52 TWAS, 143 Control Sets. The list below contains a subset of the possible TVRA Asset Kinds. 
+
+*IMPORTANT* To enable successful TVRA analysis, define  _TWAS_ elements. _ControlSets_ and _Misbehaviour_ are not used in the analysis.
 
 image:asset_kinds.png[]
 
@@ -56,10 +60,14 @@ image:asset_kinds.png[]
 
 image:network_domain_edge.png[]
 
-Once a new relationships is created, the network domain type may be choosen in the element property view. Note that each newly created relationship is created without any specific direction. The direction of the relationship needs to be specified in the property view. It is done by checking the *isNavigable* property. Any combination is accepted.
+Once a new relationships is created, the network domain type may be choosen in the element property view. Note that each newly created relationship is created without any specific direction, but they should be **explicitely defined**. The direction of the relationship needs to be specified in the property view. It is done by checking the *isNavigable* property. Adding a direction to the network domain is important, as it impacts the TVRA analysis.
 
 image:tvra_network_domain_direction.png[]
 
+== Modelling hints
 
 
+* Define at least one _TVRAAsset_ with _kind_ equals to _HealthData_. This asset represents the health data of the patient. Otherwise, the TVRA analysis may not be able to find any attack path.
+* The network domains associations need to have a direction. Make sure to set the *isNavigable* property of the network domain relationships.
+* The _TWAS_ are the main element to define the threats. _ControlSets_ and _Misbehaviour_ are not used in the analysis.
 
