@@ -25,7 +25,7 @@ Papyrus web v{papyrus-web-version} - {git-commit-id-abbrev}
 - xref:features/import_export.adoc[Import/Export features]
 - xref:codegen/papyrusweb_howto/gencode_howto.adoc[HowTo - PapyrusWeb CodeGeneration]
 - xref:codegen/description_software_designer/sw_designer.adoc[Papyrus Software Designer for code generation]
-- xref:features/ocl_querying.adoc[Element Specific Constraints]
+- xref:features/ocl_querying.adoc[Persisted Element Specific Constraints]
 - xref:user/userdoc.adoc[User documentation]
 - xref:dev/dev-doc-index.adoc[Developper documentation]
 - xref:spec/diagrams-spec-index.adoc[Detailed Diagram specification]

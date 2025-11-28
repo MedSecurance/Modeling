@@ -71,3 +71,9 @@ image:tvra_network_domain_direction.png[]
 * The network domains associations need to have a direction. Make sure to set the *isNavigable* property of the network domain relationships.
 * The _TWAS_ are the main element to define the threats. _ControlSets_ and _Misbehaviour_ are not used in the analysis.
 
+== Model export
+
+Once the model is created, it may be exported for further analysis with the TVRA Toolkit. It is necessary to select the document root in the model explorer, and to use the contextual menu to select the _Download JSON_ action.
+
+The TVRA toolkit and the openvas container needs to be running, to be used by its API,
+

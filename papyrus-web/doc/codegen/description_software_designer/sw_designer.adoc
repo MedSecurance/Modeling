@@ -1,3 +1,7 @@
+ifndef::imagesdir[:imagesdir: imgs]
+:help-url: {papyrusweb-url}doc/index.html
+ifndef::imagesdir[:imagesdir: imgs]
+
 ## Papyrus Software Designer in the Deeplab project 
 
 Papyrus Software designer is an extension of the UML Papyrus Editor. This text is an overview focusing in the existing capabilities. The complete documentation is available at: (https://wiki.eclipse.org/Papyrus_Software_Designer) 
@@ -51,7 +55,7 @@ The common code generation profile is shown below. The comments describe the ele
 
 image:./common/Codegen.PNG[] 
 
-image:./common/Templates_Tweaks.PNG[]
+image:/common/Templates_Tweaks.PNG[]
 
 The full profile is available in the following link:
 https://git.eclipse.org/c/papyrus/org.eclipse.papyrus-designer.git/tree/plugins/languages/common/org.eclipse.papyrus.designer.languages.common.profile/profiles/Codegen.profile.uml 
