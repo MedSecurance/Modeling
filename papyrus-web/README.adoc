@@ -1,4 +1,6 @@
-= Papyrus Web
+= IoMT Modeling Tool Documentation
+
+The IoMT Modeling Tool (IoMT) is an open-source web-based modeling tool, specialized in the design of Internet of Medical Things (IoMT) architectures. It is built on top of Papyrus Web, an Eclipse Foundation project that provides a web-based modeling environment.
 :toc:
 
 Papyrus web is a web UML modeler to easily create UML diagrams directly from a web browser. It is based on Eclipse Sirius Components (https://www.eclipse.org/sirius/sirius-web.html[Eclipse Sirius Web])
