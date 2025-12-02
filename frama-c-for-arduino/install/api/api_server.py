@@ -8,6 +8,8 @@ import os
 import tempfile
 import subprocess
 import shutil
+import zipfile
+import glob
 from typing import Optional
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException, Body
 from fastapi.responses import JSONResponse, PlainTextResponse
@@ -92,9 +94,9 @@ def format_output_as_markdown(output: str, success: bool, source_file: str, anal
     
     # Status badge
     if success:
-        md.append("**Status:** ✅ Analysis Completed")
+        md.append("**Status:** - Analysis Completed")
     else:
-        md.append("**Status:** ❌ Analysis Failed")
+        md.append("**Status:** - Analysis Failed")
     
     md.append("")
     md.append("## Analysis Configuration")
@@ -221,11 +223,7 @@ async def framac_analysis_post(
           "main_function": "main"
         }
         EOF
-    
-    Example using Python:
-        import requests
-        response = requests.post('http://localhost:5000/framac_analysis',
-                                json={'code': code_string, 'analysis_type': 'basic'})
+
     """
     temp_file = None
     temp_dir = None
@@ -281,15 +279,7 @@ async def framac_analysis_file(
           -F 'file=@mycode.c' \\
           -F 'analysis_type=basic' \\
           -F 'main_function=main'
-    
-    Example with Python:
-        import requests
-        with open('mycode.c', 'rb') as f:
-            response = requests.post(
-                'http://localhost:5000/framac_analysis_file',
-                files={'file': f},
-                data={'analysis_type': 'basic', 'main_function': 'main'}
-            )
+
     """
     temp_file = None
     temp_dir = None
@@ -319,6 +309,220 @@ async def framac_analysis_file(
         
         # Run Frama-C analysis (returns Markdown)
         success, markdown_output = run_framac_analysis(temp_file, analysis_type, main_function)
+        
+        # Return Markdown directly
+        return PlainTextResponse(content=markdown_output, media_type="text/markdown")
+        
+    except Exception as e:
+        error_md = f"# Error\n\n❌ **Server error:** {str(e)}"
+        return PlainTextResponse(content=error_md, status_code=500, media_type="text/markdown")
+        
+    finally:
+        # Clean up temporary files
+        if temp_dir and os.path.exists(temp_dir):
+            shutil.rmtree(temp_dir)
+
+
+def run_arduino_project_analysis(project_dir: str, source_file: str = None, timeout: int = 300) -> tuple:
+    """
+    Run Frama-C Arduino analysis using the project's run.sh script
+    
+    Args:
+        project_dir: Path to the extracted Arduino project directory
+        source_file: Optional source file to analyze (passed to run.sh)
+        timeout: Timeout in seconds (default 5 minutes for Arduino analysis)
+    
+    Returns:
+        tuple: (success: bool, markdown_output: str)
+    """
+    try:
+        # Find run.sh script
+        run_script = os.path.join(project_dir, 'run.sh')
+        if not os.path.exists(run_script):
+            # Try to find it in subdirectories
+            for root, dirs, files in os.walk(project_dir):
+                if 'run.sh' in files:
+                    run_script = os.path.join(root, 'run.sh')
+                    project_dir = root
+                    break
+        
+        if not os.path.exists(run_script):
+            error_msg = "Error: run.sh script not found in the uploaded zip"
+            return False, format_arduino_output_as_markdown(error_msg, False, project_dir, source_file)
+        
+        # Make run.sh executable
+        os.chmod(run_script, 0o755)
+        
+        # Build command
+        cmd = ['bash', run_script]
+        
+        # Add source file if specified and not empty, otherwise look for common patterns
+        if source_file and source_file.strip() and source_file.strip().lower() not in ('string', 'none', ''):
+            cmd.append(source_file.strip())
+        else:
+            # Look for example.cpp, example.c, or *.ino files
+            for pattern in ['example.cpp', 'example.c', '*.ino', '*.cpp', '*.c']:
+                matches = glob.glob(os.path.join(project_dir, pattern))
+                if matches:
+                    # Filter out Arduino core sources
+                    user_files = [f for f in matches if 'ArduinoCore' not in f and 'avr-libc' not in f]
+                    if user_files:
+                        cmd.append(os.path.basename(user_files[0]))
+                        break
+        
+        # Run the analysis
+        result = subprocess.run(
+            cmd,
+            cwd=project_dir,
+            capture_output=True,
+            text=True,
+            timeout=timeout
+        )
+        
+        # Combine stdout and stderr
+        raw_output = result.stdout + result.stderr
+        
+        # Check if analysis completed
+        success = result.returncode == 0 or 'computing for function' in raw_output or 'analyzed.sav' in raw_output
+        
+        # Format output as Markdown
+        analyzed_file = cmd[-1] if len(cmd) > 2 else "Arduino project"
+        markdown_output = format_arduino_output_as_markdown(raw_output, success, project_dir, analyzed_file)
+        
+        return success, markdown_output
+        
+    except subprocess.TimeoutExpired:
+        error_msg = f"Error: Analysis timed out after {timeout} seconds"
+        return False, format_arduino_output_as_markdown(error_msg, False, project_dir, source_file)
+    except Exception as e:
+        error_msg = f"Error running Arduino analysis: {str(e)}"
+        return False, format_arduino_output_as_markdown(error_msg, False, project_dir, source_file)
+
+
+def format_arduino_output_as_markdown(output: str, success: bool, project_dir: str, source_file: str = None) -> str:
+    """
+    Format Arduino Frama-C analysis output as Markdown
+    """
+    md = []
+    md.append("# Frama-C Arduino Analysis Report")
+    md.append("")
+    
+    # Status badge
+    if success:
+        md.append("**Status:** ✅ Analysis Completed")
+    else:
+        md.append("**Status:** ❌ Analysis Failed")
+    
+    md.append("")
+    md.append("## Analysis Configuration")
+    md.append(f"- **Project Directory:** `{os.path.basename(project_dir)}`")
+    if source_file:
+        md.append(f"- **Source File:** `{source_file}`")
+    md.append(f"- **Analysis Type:** `arduino` (full Arduino project)")
+    
+    md.append("")
+    md.append("## Analysis Output")
+    md.append("```")
+    md.append(output)
+    md.append("```")
+    
+    # Parse output for key information
+    if success:
+        md.append("")
+        md.append("## Summary")
+        
+        lines = output.split('\n')
+        for line in lines:
+            if any(keyword in line.lower() for keyword in ['function analyzed', 'coverage', 'alarm', 'warning', 'error']):
+                md.append(f"- {line.strip()}")
+        
+        if "No errors or warnings" in output:
+            md.append("")
+            md.append("✅ **No errors or warnings raised during the analysis.**")
+        
+        if "analyzed.sav" in output or "saved" in output.lower():
+            md.append("")
+            md.append("📁 **Analysis results saved to `analyzed.sav`**")
+    
+    return '\n'.join(md)
+
+
+@app.post("/framac_arduino_project", response_class=PlainTextResponse, tags=["Analysis"])
+async def framac_arduino_project(
+    file: UploadFile = File(..., description="ZIP file containing Arduino project with run.sh"),
+    source_file: str = Form(default=None, description="Source file to analyze (optional, auto-detected if not specified)"),
+    timeout: int = Form(default=300, description="Analysis timeout in seconds (default: 300)")
+):
+    """
+    Frama-C Arduino Project Analysis Endpoint (ZIP Upload)
+    
+    ✅ For full Arduino project analysis with custom run.sh scripts.
+    
+    Returns Markdown-formatted analysis report.
+    
+    Upload a ZIP file containing:
+    - run.sh: The analysis script
+    - ArduinoCore-avr/: Arduino core libraries
+    - avr-libc/: AVR libc headers
+    - avr_8.yml: Machine description file
+    - example.cpp (or your source file): The code to analyze
+    
+    The endpoint will:
+    1. Extract the ZIP file
+    2. Execute run.sh with the source file
+    3. Return the analysis results
+    
+    Example with curl:
+        curl -X POST http://localhost:5000/framac_arduino_project \\
+          -F 'file=@arduino-project.zip' \\
+          -F 'source_file=example.cpp' \\
+          -F 'timeout=300'
+    """
+    temp_dir = None
+    
+    try:
+        # Validate file
+        if not file.filename:
+            error_md = "# Error\n\n **No file selected**"
+            return PlainTextResponse(content=error_md, status_code=400, media_type="text/markdown")
+        
+        if not file.filename.lower().endswith('.zip'):
+            error_md = "# Error\n\n **Invalid file type.** Only .zip files are allowed."
+            return PlainTextResponse(content=error_md, status_code=400, media_type="text/markdown")
+        
+        # Check file size (allow larger for ZIP files - 100MB)
+        MAX_ZIP_SIZE = 100 * 1024 * 1024
+        contents = await file.read()
+        if len(contents) > MAX_ZIP_SIZE:
+            error_md = f"# Error\n\n❌ **File too large.** Max size: {MAX_ZIP_SIZE / (1024*1024):.0f}MB"
+            return PlainTextResponse(content=error_md, status_code=400, media_type="text/markdown")
+        
+        # Create temporary directory
+        temp_dir = tempfile.mkdtemp()
+        zip_path = os.path.join(temp_dir, 'project.zip')
+        
+        # Save ZIP file
+        with open(zip_path, 'wb') as f:
+            f.write(contents)
+        
+        # Extract ZIP file
+        extract_dir = os.path.join(temp_dir, 'project')
+        os.makedirs(extract_dir, exist_ok=True)
+        
+        try:
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(extract_dir)
+        except zipfile.BadZipFile:
+            error_md = "# Error\n\n❌ **Invalid ZIP file.** The uploaded file is not a valid ZIP archive."
+            return PlainTextResponse(content=error_md, status_code=400, media_type="text/markdown")
+        
+        # Check if contents are in a subdirectory (common when zipping a folder)
+        extracted_items = os.listdir(extract_dir)
+        if len(extracted_items) == 1 and os.path.isdir(os.path.join(extract_dir, extracted_items[0])):
+            extract_dir = os.path.join(extract_dir, extracted_items[0])
+        
+        # Run Arduino project analysis
+        success, markdown_output = run_arduino_project_analysis(extract_dir, source_file, timeout)
         
         # Return Markdown directly
         return PlainTextResponse(content=markdown_output, media_type="text/markdown")
@@ -377,6 +581,24 @@ async def index():
                     'result': 'Analysis output text'
                 }
             },
+            '/framac_arduino_project (POST)': {
+                'method': 'POST',
+                'description': '🔧 Full Arduino project analysis with ZIP upload',
+                'content_type': 'multipart/form-data',
+                'parameters': {
+                    'file': 'ZIP file containing Arduino project with run.sh (required)',
+                    'source_file': 'Source file to analyze (optional, auto-detected)',
+                    'timeout': 'Analysis timeout in seconds (default: 300)'
+                },
+                'zip_contents': {
+                    'required': ['run.sh', 'ArduinoCore-avr/', 'avr-libc/', 'avr_8.yml'],
+                    'optional': ['example.cpp', '*.ino', 'your source files']
+                },
+                'returns': {
+                    'success': 'Boolean indicating if analysis completed',
+                    'result': 'Analysis output in Markdown format'
+                }
+            },
             '/health': {
                 'method': 'GET',
                 'description': 'Health check endpoint'
@@ -398,6 +620,12 @@ async def index():
                 'method': 'POST',
                 'content_type': 'multipart/form-data',
                 'body': 'file=@source.cpp&analysis_type=basic'
+            },
+            'arduino_project': {
+                'url': '/framac_arduino_project',
+                'method': 'POST',
+                'content_type': 'multipart/form-data',
+                'body': 'file=@arduino-project.zip&source_file=example.cpp&timeout=300'
             }
         }
     }

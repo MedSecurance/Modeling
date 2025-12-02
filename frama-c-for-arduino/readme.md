@@ -2,6 +2,46 @@
 
 **Dislaimer:** this is an early prototype.
 
+## Docker Container Setup
+
+To build and run the Frama-C Arduino container with the REST API:
+
+### Build the Docker image
+
+```bash
+cd install
+docker build -t frama-c-api .
+```
+
+### Run the container
+
+Run the container exposing port 5000 for API access:
+
+```bash
+docker run -d -p 5000:5000 --name frama-c-api frama-c-api
+```
+
+The API will be available at `http://localhost:5000`.
+
+The C/C++ files may be passed as parameter and analyzed.
+
+### Access the container shell
+
+To access the container shell to manually run the example:
+
+```bash
+docker run -it -p 5000:5000 frama-c-api /bin/bash
+```
+
+To make the analysis over the example provided:
+
+```bash
+./run.sh
+```
+
+## Understanding the Frama-C Arduino example
+---
+
 This directory contains:
 - an installable Frama-C Arduino distribution with a Dockerfile
 - an AVR libc with minimal stubbing for ATMEGA 2560
