@@ -25,7 +25,10 @@ services:
     build:
       context: ../modeling-services-rcp
       dockerfile: dockerfiles/rcp/Dockerfile
+      platforms:
+        - linux/amd64
     image: codegenrcp:2025.08.22${IMAGE_SUFFIX}
+    platform: linux/amd64
     ports:
       - "8083:8083"
     env_file:
