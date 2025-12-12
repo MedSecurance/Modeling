@@ -809,3 +809,78 @@ The `TrustworthinessLevelKind` enumeration lists the various trustworthiness lev
 * High
 * VeryHigh
 * Safe
+
+== Mapping source for defining the assets and related elements
+
+Concerning the mapping between the TVRA concepts (Assets, Misbehaviours, TWAS, etc.), the tools is based in the Domain Network model available here: https://github.com/Spyderisk/domain-network/blob/6a/csv/DomainAsset.csv. We used the URI column, not the Label one, to define the TVRAAssetKind literals.
+
+The table below shows the elements that have different values from the _Label_ and _URI_ columns. The other elements (190+) have the same value for both columns.
+
+[cols="2,2", options="header"]
+|===
+| TVRA Concept | IoTMT Domain Network Model
+
+| Cellular Access Network
+| domain#RAN
+
+| Data Lifecycle Assets
+| domain#DataLifecycleAsset
+
+| Data
+| domain#DataPalette
+
+| CloudAPI
+| domain#APIServer
+
+| IngressProxy
+| domain#Ingress
+
+| CloudMaster
+| domain#Master
+
+| CloudWorker
+| domain#Worker
+
+| IOT Actuator
+| domain#Controller
+
+| IOT Sensor
+| domain#Sensor
+
+| Users and Governance
+| domain#GovernancePalette
+
+| Hosts
+| domain#HostPalette
+
+| Networks
+| domain#NetworkPalette
+
+| Laptop
+| domain#Notebook
+
+| Process Types
+| domain#ProcessPalette
+
+| Physical Locations
+| domain#PhysicalPalette
+
+| IOT HealthSensor
+| domain#HealthSensor
+
+| ClientServiceRelationship
+| domain#ClientChannel
+
+| ClientServiceChannel
+| domain#ServiceChannel
+
+| ReverseProxy
+| domain#ServiceProxy
+|===
+
+
+For the other elements, we used the values below:
+
+https://github.com/Spyderisk/domain-network/blob/6a/csv/TrustworthinessAttribute.csv
+https://github.com/Spyderisk/domain-network/blob/6a/csv/Misbehaviour.csv
+https://github.com/Spyderisk/domain-network/blob/6a/csv/Control.csv 

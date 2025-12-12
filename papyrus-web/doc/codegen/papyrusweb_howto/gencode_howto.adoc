@@ -57,13 +57,18 @@ We propose to perform the following actions:
 * selection of a comment in the diagram editor and deletion;
 * selection on the _Main_ class and edition of its name using the property view. Set the name to _Person_.
 * selection of the compartment below the class name and inclusion of a property. There is a contextual menu that enables creating a property.
-** edition of the property name to *name* and property type to *String*
+** edition of the property name to *name* and property type to *String*. Please be sure that the UML Package has been added as a _Package Import_.
 * deletion of the main method.
 * modification of the name of the root element _Model_ into _products_, using the property view. The generated project and root package will have this value.
 * modification of the root element into _MySimpleProject_. The generated zip file will have this value.
 
 The current model should have the structure illustrated below.
 7
+
+=== Type definition
+
+The type of a property needs to use DataTypes defined in the UML standard library. To add this library to the model, it is necessary to create a _Package Import_ in the root package of the model. It will import all UML types. Then, when editing a property, you can select the UML types such as String, Integer, etc. Otherwise, these datatypes may not be correctly recognized during the code generation.
+
 
 image:edited_model.png[]
 
