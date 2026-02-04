@@ -32,6 +32,7 @@ import IoMTAssets.IoMTAssetsPackage;
 import IoMTComponentCategories.IoMTComponentCategoriesPackage;
 import IoMTProfile.IoMTProfilePackage;
 import assertions.AssertionsPackage;
+import tvra.TvraPackage;
 
 public abstract class CommonModelService {
 	protected final static String NOT_DEFINED = "###value_not_set###";
@@ -55,6 +56,7 @@ public abstract class CommonModelService {
 		IoMTComponentCategoriesPackage.eINSTANCE.eClass();
 		AssertionsPackage.eINSTANCE.eClass();
 		IoMTAssetsPackage.eINSTANCE.eClass();
+		TvraPackage.eINSTANCE.eClass();
 
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("uml", new XMIResourceFactoryImpl());

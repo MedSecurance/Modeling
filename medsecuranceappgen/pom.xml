@@ -126,7 +126,11 @@
 			<artifactId>papyrus-web-iomt-componentcategories-profile-model</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>papyrus-web</groupId>
+			<artifactId>papyrus-web-iomt-tvra-profile-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
