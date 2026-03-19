@@ -49,12 +49,12 @@ public class MQTTMessagingService {
 	// Create a switch actuator
 	{{baseClassName}} {{stereotypeName}} = new {{baseClassName}}();
 	{{stereotypeName}}.setActuatorId("{{stereotypeUid}}");
-	String topic = device.getDeviceId() + "/" + {{stereotypeName}}.getActuatorId();	
-	mqttClient.subscribeWithResponse(topic, (tpic, msg) -> {
+	String topic{{baseClassName}} = device.getDeviceId() + "/" + {{stereotypeName}}.getActuatorId();	
+	mqttClient.subscribeWithResponse(topic{{baseClassName}}, (tpic, msg) -> {
 			logger.info(msg.getId() + " -> " + new String(msg.getPayload()));
 			
 			for (IAction action : {{stereotypeName}}.getActions()) {
-				if (action.executeAction(topic, msg.getPayload()) == false) {
+				if (action.executeAction(topic{{baseClassName}}, msg.getPayload()) == false) {
 					break;
 				}
 			}

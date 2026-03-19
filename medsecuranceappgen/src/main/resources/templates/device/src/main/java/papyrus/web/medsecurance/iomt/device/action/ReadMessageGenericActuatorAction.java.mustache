@@ -10,8 +10,9 @@ public class ReadMessage{{baseClassName}}Action implements IAction {
 
 	@Override
 	public boolean executeAction(String cmd, byte[] payload) {
-		logger.info(cmd + " -> " + payload);
-		return new String(payload).equals({{baseClassName}}.getCommand());
+		String message = new String(payload);
+		logger.info(cmd + " -> " + message);
+		return true;
 	}
 
 }
